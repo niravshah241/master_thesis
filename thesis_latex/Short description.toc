@@ -1,0 +1,21 @@
+\contentsline {chapter}{\numberline {1}Introduction}{5}
+\contentsline {chapter}{\numberline {2}Engineering perspective and mathematical formulation}{7}
+\contentsline {section}{\numberline {2.1}Derivation of Navier Stokes equation}{7}
+\contentsline {subsection}{\numberline {2.1.1}Direct numerical simulation}{9}
+\contentsline {section}{\numberline {2.2}Wellposedness of strong form of Navier Stokes equation}{9}
+\contentsline {chapter}{\numberline {3}Discretization and function spaces}{11}
+\contentsline {section}{\numberline {3.1}Grid geometry}{11}
+\contentsline {section}{\numberline {3.2}Grid parameters}{12}
+\contentsline {section}{\numberline {3.3}Global and local co-ordinate system}{13}
+\contentsline {subsection}{\numberline {3.3.1}Jump operator}{15}
+\contentsline {subsection}{\numberline {3.3.2}Average operator}{16}
+\contentsline {section}{\numberline {3.4}Discontinuous Galerkin Method}{16}
+\contentsline {subsection}{\numberline {3.4.1}Nodal basis function and Orthonormal basis function}{17}
+\contentsline {subsection}{\numberline {3.4.2}Nodal Basis Function}{17}
+\contentsline {subsection}{\numberline {3.4.3}Orthonormal Basis Function}{17}
+\contentsline {section}{\numberline {3.5}Weak and discrete form of Navier Stokes equation}{19}
+\contentsline {chapter}{\numberline {4}Implementation aspects}{21}
+\contentsline {section}{\numberline {4.1}Terminologies}{21}
+\contentsline {section}{\numberline {4.2}Assembly of average operator}{22}
+\contentsline {section}{\numberline {4.3}Jump operator}{23}
+\contentsline {subsection}{\numberline {4.3.1}Matrix assemblies}{23}

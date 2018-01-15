@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{Montlaur2}
+A.~Montlaur, S.~Fernandez-Mendez, and A.~Huerta.
+\newblock Discontinuous galerkin methods for the stokes equations using
+  divergence-free approximations.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  57(9):1071--1092, 2008.
+
+\bibitem{Montlaur}
+A.~Montlaur, S.~Fernandez-Mendez, J.~Peraire, and A.~Huerta.
+\newblock Discontinuous galerkin methods for the navier–stokes equations
+  using solenoidal approximations.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  64(5):549--564, 2010.
+
+\bibitem{plasma}
+A.~C.~J. {Paes}, N.~M. {Abe}, V.~A. {Serr{\~a}o}, and A.~{Passaro}.
+\newblock {Simulations of Plasmas with Electrostatic PIC Models Using the
+  Finite Element Method}.
+\newblock {\em Brazilian Journal of Physics}, 33:411--417, June 2003.
+
+\bibitem{persson}
+P.-O. Persson, J.~Bonet, and J.~Peraire.
+\newblock Discontinuous galerkin solution of the navier–stokes equations on
+  deformable domains.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  198(17):1585 -- 1595, 2009.
+
+\end{thebibliography}
