@@ -12,7 +12,6 @@ gids = ldg_global_dof_index(params,grid);
 [ tria_index_internal,local_edge_index_internal,a_index_internal,...
     b_index_internal, local_vertex_index_internal] = tria_edge_index_internal( grid );
 
-
 tria_index = [tria_index_internal,tria_index_dirichlet];
 local_vertex_index = [local_vertex_index_internal,local_vertex_index_dirichlet];
 
@@ -36,10 +35,10 @@ res.res_external = sparse(res_external);
 res.res = sparse(res_internal + res_external);
 if params.show_sparsity == true
     figure()
-    spy(full(res_internal))
+    spy(full(res.res_internal))
     title('spy of w \cdot n_i u \cdot \phi')
     figure()
-    spy(full(res_internal))
+    spy(full(res.res_internal))
     title('spy of w \cdot n_i u^{ext} \cdot \phi')
     figure()
     spy(full(res.res))

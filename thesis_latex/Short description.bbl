@@ -1,5 +1,12 @@
 \begin{thebibliography}{1}
 
+\bibitem{crbm}
+Jan~S. Hesthaven, Gianluigi Rozza, and Benjamin Stamm.
+\newblock {\em Certified Reduced Basis Methods for Parametrized Partial
+  Differential Equations}.
+\newblock Springer Briefs in Mathematics. Springer, Switzerland, 1 edition,
+  2015.
+
 \bibitem{Montlaur2}
 A.~Montlaur, S.~Fernandez-Mendez, and A.~Huerta.
 \newblock Discontinuous galerkin methods for the stokes equations using
@@ -26,5 +33,11 @@ P.-O. Persson, J.~Bonet, and J.~Peraire.
   deformable domains.
 \newblock {\em Computer Methods in Applied Mechanics and Engineering},
   198(17):1585 -- 1595, 2009.
+
+\bibitem{riviere}
+B.~Riviere.
+\newblock {\em Discontinuous Galerkin Methods for Solving Elliptic and
+  Parabolic Equations: Theory and Implementation}.
+\newblock Frontiers in Applied Mathematics. Cambridge University Press, 2008.
 
 \end{thebibliography}

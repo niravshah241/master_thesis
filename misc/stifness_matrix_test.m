@@ -53,7 +53,7 @@ if nargin>1
         disp('pressure and velocity fields are orthogonal')
     else
         disp(['pressure and velocity fields are not orthogonal with '...
-            'error ', num2str(error)]);
+            'residual ', num2str(error/norm(params.linear_side,2))]);
     end
 end
 end

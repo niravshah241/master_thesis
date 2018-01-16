@@ -9,19 +9,23 @@ tria_index_neighbour = grid.NBI(tria_index,local_vertex_index);
 
 if tria_index_neighbour > 0 
     local_vertex_index_neighbour = find(grid.NBI(tria_index_neighbour,:)==tria_index);
+    
     lcoord_internal = llocal2local(grid,local_vertex_index,llcoord);
+    
     lcoord_external = llocal2local(grid,local_vertex_index_neighbour,llcoord);
+    
     velocity_basis_internal = ldg_evaluate_basis(lcoord_internal,params);
+    
     velocity_basis_external = ldg_evaluate_basis(lcoord_external,params);
+    
     w = velocity_basis_internal'*params.dofs(gids(tria_index,:));
+    
     N = [grid.NX(tria_index,local_vertex_index) grid.NY(tria_index,local_vertex_index)];
+    
     w_dot_N = abs(N*w);
-    for i=1:1:params.ndofs_per_element
-        for j=1:1:params.ndofs_per_element
-            res(i,j) = res(i,j) +...
-                velocity_basis_external(j,:)*velocity_basis_internal(i,:)';
-        end
-    end
+    
+    res = velocity_basis_internal * velocity_basis_external';
+    
     res = w_dot_N * res;
 end
 end

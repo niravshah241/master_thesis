@@ -3,7 +3,7 @@ function [ res ] = neumann_values(glob,params)
 %   Detailed explanation goes here
 
 if glob(1)>(1-eps)
-    res=[((glob(1))^3-1)/(params.kinematic_viscosity(params)) 0]';
+    res=[0 0]';
 else
     disp('Not on neumann boundary');
     %error('Not on neumann boundary');

@@ -69,7 +69,7 @@ The governing equations for incompressible stokes flow are conservation equation
 
 
 \begin{equation} \label{rtt} 
-\frac{dB}{dt}|_{system} = \frac{d}{dt} \int_{cv} b \rho dV + \int_{cs} b \rho u.dA 
+\frac{dB}{dt}|_{cs} = \frac{d}{dt} \int_{cv} b \rho dV + \int_{cs} b \rho u.dA 
 \end{equation}
 
 \begin{center}
@@ -392,6 +392,48 @@ $U$ = Global velocity degree of freedom vector\\
 $P$ = Global pressure degree of freedom vector\\
 $F$ = Right hand side vector\\
 
+\section{Coercivity of bilinear form}
+
+For the term $a_{IP}$ which has elliptic behavior we discuss now coercivity, continuity and inf-sup condition\cite{riviere}.
+
+
+A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $c_{11} > 0$ such that
+
+\begin{equation}\label{Coercivity}
+a(v,v) > c_{11} ||v||^2   \exists   c_{11} > 0
+\end{equation}
+
+\begin{equation}\label{Coercivity_constant}
+\begin{Huge}
+C11 CONSTANT AND DERIVATION
+\end{Huge}
+\end{equation}
+
+\section{Continuity of bilinear form}
+
+A bilinear form $a(u,v)$ is said to be continuous if there exists a constant $\Gamma > 0$ such that
+
+\begin{equation}\label{Continuity}
+a(u,v) \leq \Gamma ||u||||v||   \exists   \Gamma > 0
+\end{equation}
+
+
+\begin{equation}\label{Continuity_constant}
+\begin{Huge}
+\Gamma CONSTANT AND DERIVATION
+\end{Huge}
+\end{equation}
+
+\section{Inf-sup contdition}
+
+For the stability of non-coercive problem the inf-sup condition is important which is stated as, \cite{crbm} 
+
+\begin{equation}
+\exists \beta > 0 : \beta(\mu) = inf v \epsilon V \ {0}  sup w \epsilon W \ {0} \frac{a(v,w;\mu)}{||v||_{\mathbb{V}} ||w||_{\mathbb{W}} } \geq \beta \forall \mu \epsilon \mathbb{P}
+\end{equation}
+
+
+
 \chapter{Implementation aspects}
 
 We discuss now the implementation of discrete formulation of Navier Stokes Discontinuous Galerkin weak formulation in RBMATLAB, A MATLAB library containing all our reduced simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. 
@@ -704,6 +746,50 @@ Step 2: An integral is performed over an element $res_2=\int_{\Gamma_D} res_1 2*
 Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
 
 \newpage
+
+\chapter{Appendix}
+
+\section{List of symbols}
+
+$\phi$ Velocity basis function\\
+$\hat{\phi}$ Velocity basis function on reference triangle\\
+$\psi$ Pressure basis function\\
+$\hat{\psi}$ Pressure basis function on reference triangle\\
+$u$ Velocity unless specified otherwise\\
+$p$ Pressure unless specified otherwise\\
+$P$ Momentum of fluid flowing thorugh control volume\\
+$cv$ Control volume\\
+$cs$ Control system\\
+$f$ Source/Sink/External force per unit volume\\
+$F$ External force acting on $cv$\\
+$\sigma$ Stress\\
+$u_D$ Velocity at Dirichlet boundary\\
+$\Gamma, \Gamma_D, \Gamma_N$ Interelemental/internal boundary, Dirichlet boundary, Neumann boundary respectively\\
+$\tau$ Triangular grid element\\
+$JIT$ Jacobian Inverse Transpose\\
+$n$ or $N$ Unit normal to an edge pointing outwards\\
+$\Omega$ Continuous domain\\
+$\partial \Omega$ Domain boundaries\\
+$\hat{T}$ Reference Triangle\\
+$P^D$ Polynomial of degree at most $D$ over $\Omega$\\
+$c_{11}$ Coercivity constant\\
+$\Gamma$ Continuity constant\\
+$\beta$ Inf-sup constant\\
+$\nu$ Kinematic viscocity\\
+$B$ Extensive property under consideration  \\
+$b$ Intensive property corressponding to B \\
+$\rho$ Density of fluid \\
+$t$ time\\
+$J_k$ Jacobian matrix of element $k$ or Rotational matrix for transformation from local co-ordinate system to global co-ordinate system\\
+$C$ Translational matrix for transformation from local co-ordinate system to global co-ordinate system\\
+$X$ Co-ordinates of vertices of element in Global co-ordinate system\\
+$\hat{X}$ Co-ordinates of vertices of reference triangle in local co-ordinate system\\
+$L$ Characteristic length for Reynolds number\\
+
+\section{Mathematical preliminaries}
+
+\newpage
+
 \bibliographystyle{plain}
 \bibliography{ref1}
 

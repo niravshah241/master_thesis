@@ -14,8 +14,14 @@
 \contentsline {subsection}{\numberline {3.4.2}Nodal Basis Function}{17}
 \contentsline {subsection}{\numberline {3.4.3}Orthonormal Basis Function}{17}
 \contentsline {section}{\numberline {3.5}Weak and discrete form of Navier Stokes equation}{19}
+\contentsline {section}{\numberline {3.6}Coercivity of bilinear form}{19}
+\contentsline {section}{\numberline {3.7}Continuity of bilinear form}{20}
+\contentsline {section}{\numberline {3.8}Inf-sup contdition}{20}
 \contentsline {chapter}{\numberline {4}Implementation aspects}{21}
 \contentsline {section}{\numberline {4.1}Terminologies}{21}
 \contentsline {section}{\numberline {4.2}Assembly of average operator}{22}
 \contentsline {section}{\numberline {4.3}Jump operator}{23}
 \contentsline {subsection}{\numberline {4.3.1}Matrix assemblies}{23}
+\contentsline {chapter}{\numberline {5}Appendix}{29}
+\contentsline {section}{\numberline {5.1}List of symbols}{29}
+\contentsline {section}{\numberline {5.2}Mathematical preliminaries}{30}

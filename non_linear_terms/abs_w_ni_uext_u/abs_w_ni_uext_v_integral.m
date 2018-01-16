@@ -5,7 +5,8 @@ function [ res ] = abs_w_ni_uext_v_integral( params, paramsP, grid,...
 
 f = @(llcoord)  abs_w_ni_uext_v_local(llcoord, params, paramsP, grid,...
     tria_index, local_vertex_index);
-res = 1/2*intervalquadrature(qdeg,f)*grid.EL(tria_index,local_vertex_index);
+
+res = 1/2 * intervalquadrature(qdeg,f) * grid.EL(tria_index,local_vertex_index);
 
 end
 

@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  12 DEC 2017 14:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.3.14)  16 JAN 2018 04:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **"Short description.tex"
 (./Short description.tex
-LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo
@@ -25,22 +25,22 @@ File: bk10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 95.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -64,40 +64,40 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count89
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/03/03 v2.15a AMS math features
+Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip45
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
+Package: amstext 2000/06/29 v2.01
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
+File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks15
 \ex@=\dimen105
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen106
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count90
-LaTeX Info: Redefining \frac on input line 199.
+LaTeX Info: Redefining \frac on input line 210.
 \uproot@=\count91
 \leftroot@=\count92
-LaTeX Info: Redefining \overline on input line 297.
+LaTeX Info: Redefining \overline on input line 306.
 \classnum@=\count93
 \DOTSCASE@=\count94
-LaTeX Info: Redefining \ldots on input line 394.
-LaTeX Info: Redefining \dots on input line 397.
-LaTeX Info: Redefining \cdots on input line 518.
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen107
-LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \macc@depth=\count95
 \c@MaxMatrixCols=\count96
 \dotsspace@=\muskip10
@@ -118,8 +118,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \multlinegap=\skip46
 \multlinetaggap=\skip47
 \mathdisplay@stack=\toks19
-LaTeX Info: Redefining \[ on input line 2735.
-LaTeX Info: Redefining \] on input line 2736.
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
@@ -137,11 +137,11 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen114
 \captionmargin@=\dimen115
 \captionwidth=\dimen116
@@ -421,116 +421,122 @@ Underfull \hbox (badness 10000) in paragraph at lines 389--394
 
  []
 
-[19] [20
 
-]
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 407.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 422.
+
+[19] [20]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--405
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--407
+Underfull \hbox (badness 10000) in paragraph at lines 448--449
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
+Underfull \hbox (badness 10000) in paragraph at lines 450--451
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--411
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 414--415
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--419
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--421
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
 
  []
 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 422--423
+[21
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 424--425
+]
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--429
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 432--433
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
 
  []
 
 
-Overfull \hbox (45.78291pt too wide) in paragraph at lines 434--435
+Underfull \hbox (badness 10000) in paragraph at lines 474--475
+
+ []
+
+
+Overfull \hbox (45.78291pt too wide) in paragraph at lines 476--477
 []\OT1/cmr/m/n/10 The Ba-sis func-tions in RB-MAT-LAB is gen-er-ated by rou-tin
 e called ldg[]evaluate[]basis.m. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
 
  []
 
 
-Overfull \hbox (32.02292pt too wide) in paragraph at lines 448--449
+Overfull \hbox (32.02292pt too wide) in paragraph at lines 490--491
 []\OT1/cmr/m/n/10 The deriva-tive of ba-sis func-tion is gen-er-ated by rou-tin
 e ldg[]evaluate[]basis[]derivative.
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 522--523
+Underfull \hbox (badness 10000) in paragraph at lines 564--565
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 538--539
+Underfull \hbox (badness 10000) in paragraph at lines 580--581
 
  []
 
 
-Overfull \hbox (34.53325pt too wide) in paragraph at lines 542--543
+Overfull \hbox (34.53325pt too wide) in paragraph at lines 584--585
 []\OT1/cmr/m/n/10 We first eval-u-ate deriva-tive of $[]$ and $\OML/cmm/m/it/10
  JIT\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k; \OT1/cmr/m/n/10 :\OML/cmm/m/it/10 ; \O
 T1/cmr/m/n/10 :)$ through ldg[]evaluate[]basis[]derivative
  []
 
 
-Overfull \hbox (1.37004pt too wide) in paragraph at lines 544--545
+Overfull \hbox (1.37004pt too wide) in paragraph at lines 586--587
 []\OT1/cmr/m/n/10 We than as-sem-ble ma-trix $\OML/cmm/m/it/10 res[]\OT1/cmr/m/
 n/10 [\OML/cmm/m/it/10 i; j\OT1/cmr/m/n/10 ] = \OML/cmm/m/it/10 ^^^[] \OMS/cmsy
 /m/n/10 ^^C \OML/cmm/m/it/10 ^^^[]$ \OT1/cmr/m/n/10 for $1 \OMS/cmsy/m/n/10 ^^T
@@ -539,167 +545,187 @@ t$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 544--545
+Underfull \hbox (badness 10000) in paragraph at lines 586--587
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--551
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 552--553
+Underfull \hbox (badness 10000) in paragraph at lines 594--595
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 557--563
+Underfull \hbox (badness 10000) in paragraph at lines 599--605
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 557--563
+Underfull \hbox (badness 10000) in paragraph at lines 599--605
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--573
+Underfull \hbox (badness 10000) in paragraph at lines 608--615
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 574--580
+Underfull \hbox (badness 10000) in paragraph at lines 616--622
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 583--584
+Underfull \hbox (badness 10000) in paragraph at lines 625--626
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 589--595
+Underfull \hbox (badness 10000) in paragraph at lines 631--637
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--595
+Underfull \hbox (badness 10000) in paragraph at lines 631--637
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 598--605
+Underfull \hbox (badness 10000) in paragraph at lines 640--647
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--612
+Underfull \hbox (badness 10000) in paragraph at lines 648--654
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
+Underfull \hbox (badness 10000) in paragraph at lines 657--658
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 623--629
+Underfull \hbox (badness 10000) in paragraph at lines 665--671
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 623--629
+Underfull \hbox (badness 10000) in paragraph at lines 665--671
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 632--639
+Underfull \hbox (badness 10000) in paragraph at lines 674--681
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 640--646
+Underfull \hbox (badness 10000) in paragraph at lines 682--688
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--650
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 662--664
+Underfull \hbox (badness 10000) in paragraph at lines 704--706
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 665--667
+Underfull \hbox (badness 10000) in paragraph at lines 707--709
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 668--670
+Underfull \hbox (badness 10000) in paragraph at lines 710--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 673--675
+Underfull \hbox (badness 10000) in paragraph at lines 715--717
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--679
+Underfull \hbox (badness 10000) in paragraph at lines 718--721
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--682
+Underfull \hbox (badness 10000) in paragraph at lines 722--724
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 683--686
+Underfull \hbox (badness 10000) in paragraph at lines 725--728
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 689--692
+Underfull \hbox (badness 10000) in paragraph at lines 731--734
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 695--698
+Underfull \hbox (badness 10000) in paragraph at lines 737--740
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--705
+Underfull \hbox (badness 10000) in paragraph at lines 744--747
 
  []
 
-[27] (./Short description.bbl [28
+[27] [28
 
 ]
+Chapter 5.
+
+Overfull \hbox (10.42249pt too wide) in paragraph at lines 754--788
+\OT1/cmr/m/n/10 ^^@\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ^^@[]\OML/cmm/m/it/10 ; \
+OT1/cmr/m/n/10 ^^@[]$ In-terele-men-tal/internal bound-ary, Dirich-let bound-ar
+y, Neu-mann bound-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--788
+
+ []
+
+
+Underfull \vbox (badness 1189) has occurred while \output is active []
+
+ [29]
+[30] (./Short description.bbl
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-) [29] (./Short description.aux)
+) [31
+
+] (./Short description.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3908 strings out of 493029
- 56705 string characters out of 6136233
- 125940 words of memory out of 5000000
- 7381 multiletter control sequences out of 15000+600000
+ 3895 strings out of 493105
+ 56483 string characters out of 6137072
+ 124001 words of memory out of 5000000
+ 7297 multiletter control sequences out of 15000+600000
  14696 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,6n,42p,1243b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,6n,40p,1243b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -714,11 +740,12 @@ l10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Short description.pdf" (31 pages, 373073 bytes).
+/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on "Short description.pdf" (33 pages, 386818 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
+ 185 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
