@@ -1,10 +1,10 @@
-%grid making and saving
-%pdegrid
-%save('mygrid','p','e','t')
+% grid making and saving
+% pdegrid
+% save('mygrid','p','e','t')
 clc
-%ACTUAL GRID DO NOT DELETE
+% ACTUAL GRID DO NOT DELETE
 
-params.mesh_number = 1;
+params.mesh_number = 3;
 model.gridtype = 'triagrid';
 model.grid_initfile = ['mygridnirav', num2str(params.mesh_number), '.mat'];
 model.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
@@ -23,9 +23,9 @@ paramsP.show_sparsity = show_sparsity;
 
 % params.xrange = [0,1];
 % params.yrange = [0,1];
-% params.xnumintervals = 3;
-% params.ynumintervals = 3;
-% params.bnd_rect_corner1=[-1,-1;1-eps,1*10^15*eps]';
+% params.xnumintervals = 15;
+% params.ynumintervals = 15;
+% params.bnd_rect_corner1=[-1,-1;1-eps,2.2518*10^14*eps]';
 % params.bnd_rect_corner2=[2,2;1+eps,1-eps]';
 % %params.bnd_rect_corner2=[1-eps,eps;1+eps,1-eps]';
 % params.bnd_rect_index=[-1,-2];
@@ -43,8 +43,8 @@ plot(grid);
 title('Grid')
 %pause();
 %close all
-params.pdeg = 1;
-paramsP.pdeg = 1;%params.pdeg-1;%taylor hood element
+params.pdeg = 2;
+paramsP.pdeg = params.pdeg-1;%taylor hood element
 params.dimrange = 2;
 paramsP.dimrange = 1;
 params.grid = grid;
@@ -71,14 +71,14 @@ mu = params.kinematic_viscosity(params);
 c11 = 1e1;% penalty parameter, must be large enough for coercivity
 [ params, paramsP, rhs, stifness_matrix] = assemble_stifness_matrix...
     ( params, paramsP, grid, qdeg, mu, c11 );
-required_residual_tol = 1e-6; % allowable residual
+required_residual_tol = 1e-13; % allowable residual
 max_iter = 2e5; % maximum number of iterations
 
 [ params, paramsP, achieved_residual_tol_schur] =...
     solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
 
-[ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
-    ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
+% [ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
+%     ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
  
 disp('Entering into stiffness matrix tests')
 [ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...

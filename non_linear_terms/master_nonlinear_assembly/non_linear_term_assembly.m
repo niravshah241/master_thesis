@@ -22,8 +22,7 @@ res.res = sparse(res1 + res2.res - res3.res + res4);
 if params.show_sparsity == true
     figure()
     spy(full(res.res))
-    title('spy of non linear term c(u;u,\phi)')
+    title('spy of non linear term c(u;u,\phi (self part))')
 end
 
 end
-
