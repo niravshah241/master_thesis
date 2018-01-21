@@ -14,13 +14,13 @@ dofs = velocity_basis' * params.dofs(gids(tria_index,:));
 
 velocity_basis_derivative = ldg_evaluate_basis_derivative(lcoord,params);
 
-velocity_basis_scalar = sum(velocity_basis,2);
+%velocity_basis_scalar = sum(velocity_basis,2);
 
 for a = 1:1:params.dimrange
     for i = a:params.dimrange:params.ndofs_per_element
         temp = (sum(velocity_basis_derivative{i},1)*JIT')*dofs;
         for j = a:params.dimrange:params.ndofs_per_element
-            res(i,j) = res(i,j) + temp * velocity_basis_scalar(j);
+            res(i,j) = res(i,j) + temp * sum(velocity_basis(j,:));
         end
     end
 end

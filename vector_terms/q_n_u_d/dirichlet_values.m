@@ -5,7 +5,7 @@ function [ res ] = dirichlet_values(glob)
 r = norm(glob,2);
 
 if glob(1)<eps
-    res = 1*glob(2)*(1-glob(2));
+    res = 1e-1*glob(2)*(1-glob(2));
     res = [res 0]';
     
 elseif (glob(2)>(1-eps) || glob(2)<eps)

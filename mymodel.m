@@ -23,11 +23,11 @@ paramsP.show_sparsity = show_sparsity;
 
 % params.xrange = [0,1];
 % params.yrange = [0,1];
-% params.xnumintervals = 15;
-% params.ynumintervals = 15;
+% params.xnumintervals = 1;
+% params.ynumintervals = 1;
 % params.bnd_rect_corner1=[-1,-1;1-eps,2.2518*10^14*eps]';
 % params.bnd_rect_corner2=[2,2;1+eps,1-eps]';
-% %params.bnd_rect_corner2=[1-eps,eps;1+eps,1-eps]';
+% params.bnd_rect_corner2=[1-eps,eps;1+eps,1-eps]';
 % params.bnd_rect_index=[-1,-2];
 % grid = triagrid(params);
 % show_sparsity = false; % Bool variable which plots sparsity pattern of 
@@ -77,12 +77,12 @@ max_iter = 2e5; % maximum number of iterations
 [ params, paramsP, achieved_residual_tol_schur] =...
     solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
 
-% [ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
-%     ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
+[ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
+    ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
  
-disp('Entering into stiffness matrix tests')
-[ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
-( stifness_matrix, params, paramsP, grid, qdeg );
+% disp('Entering into stiffness matrix tests')
+% [ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
+% ( stifness_matrix, params, paramsP, grid, qdeg );
 
 params.dof_analytical = @(glob) [glob(2)*(1-glob(2)) 0];
 params.dof_derivative_analytical = @(glob) [0 1-2*glob(y);0 0];
@@ -91,12 +91,26 @@ paramsP.dof_derivative_analytical = @(glob) [-2*params.kinematic_viscosity(param
 [ error_l2_velocity ] = error_l2_norm_assembly( params, grid, qdeg );
 [ error_l2_pressure ] = error_l2_norm_assembly( paramsP, grid, qdeg );
 
-% ERROR FUNCTION CALL
+% % ERROR FUNCTION CALL
 
-% c11_min = 4e4;
-% c11_max = 1e10;
-% c11_num_interval = 10;
-% [ condition_number, c11 ] = c11_condition_number...
-%     ( params, paramsP, grid, qdeg, mu, c11_min, c11_max, c11_num_interval );
-% [ solution_norm, c11] = c11_solution( params, paramsP, grid, qdeg,...
-%     mu, required_residual_tol, max_iter, c11_min, c11_max, c11_num_interval);
+c11_min = 4e4;
+c11_max = 1e10;
+c11_num_interval = 10;
+[ condition_number, c11 ] = c11_condition_number...
+    ( params, paramsP, grid, qdeg, mu, c11_min, c11_max, c11_num_interval );
+[ solution_norm, c11] = c11_solution( params, paramsP, grid, qdeg,...
+    mu, required_residual_tol, max_iter, c11_min, c11_max, c11_num_interval);
+
+tol_newton = 1e-10;
+max_iter_newton = 10;
+tol_solver = 1e-11;
+max_iter_solver = 15;
+
+[ params,paramsP,flag,relres_solver,iter_solver,...
+    relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
+    newton_script( params,paramsP,grid,qdeg,mu,c11,...
+    tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
+
+disp('Entering into stiffness matrix tests')
+[ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
+( stifness_matrix_nonlinear, params, paramsP, grid, qdeg );

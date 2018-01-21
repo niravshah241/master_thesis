@@ -28,7 +28,7 @@ for i=1:1:params.dimrange
     else
         title(['Plotting Velocity in y direction'])
     end
-    axis equal
+    %axis equal
     ldg_plot(sdf,grid,params);
     plot(grid);
 end
@@ -41,7 +41,7 @@ for i=1:1:paramsP.dimrange
     disp(['Plotting ',num2str(i),' degree of freedom (for pressure)'])
     subplot(paramsP.dimrange,1,i)
     title(['Pressure degree of freedom number ',num2str(i)])
-    axis equal
+    %axis equal
     ldg_plot(sdf,grid,paramsP);
     plot(grid);
 end

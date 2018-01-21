@@ -11,7 +11,7 @@ for i=1:1:length(c11)
     
     [ params, paramsP, rhs, stifness_matrix] = assemble_stifness_matrix...
         ( params, paramsP, grid, qdeg, mu, c11(i) );
-    condition_number(i) = cond(full(stifness_matrix));
+    condition_number(i,1) = cond(full(stifness_matrix));
     
 end
 

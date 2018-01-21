@@ -2,6 +2,7 @@ function [ res ] = c_h_u_v_term_1_local( lcoord, params, paramsP, grid, tria_ind
 %C_H_U_V_LOCAL Summary of this function goes here
 %   Detailed explanation goes here
 
+JIT = [grid.JIT(tria_index,:,1)',grid.JIT(tria_index,:,2)'];
 gids = ldg_global_dof_index(params,grid);
 res = zeros(params.ndofs_per_element);
 velocity_basis_derivative = ldg_evaluate_basis_derivative(lcoord,params);
@@ -12,8 +13,8 @@ velocity_basis_vector = sum(velocity_basis,2);
 for a=1:1:params.dimrange
     for i=a:params.dimrange:params.ndofs_per_element
         for j=a:params.dimrange:params.ndofs_per_element
-            del_v = sum(velocity_basis_derivative{i},2);
-            res(i,j) = res(i,j) + w'*del_v*velocity_basis_vector(j);
+            del_v = sum(velocity_basis_derivative{i},1)*JIT';
+            res(i,j) = res(i,j) + (del_v*w)*velocity_basis_vector(j);
         end
     end
 end
