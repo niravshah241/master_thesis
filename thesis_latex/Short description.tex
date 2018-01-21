@@ -19,11 +19,10 @@
 \maketitle
 
 \end{center}
-\newpage
 
 \tableofcontents
 
-\newpage
+
 
 
 
@@ -112,7 +111,7 @@ The boundary conditions can be expressed as,
 
 Dirichlet boundary:
 \begin{equation}\label{dirichlet_ns}
-u=u_D \quad   \textnormal{on}  \quad \Gamma_D
+u=u_D \quad \textnormal{on} \quad \Gamma_D
 \end{equation}
 
 Neumann boundary:
@@ -150,7 +149,6 @@ In contrast, the Turbulent flow is characterised by fluctuations in velocity and
 The method used for solving equation \eqref{navier_stokes} numerically is known as Direct Numerical Simulation, abbreviated as DNS. The direct numerical simulation could be computationally very expensive especially in applications such as turbulent flows as the time and space grid size is of the order of Kolmogrov scale but the time period or space dimension over which the simulation is carried out are very large. In order to avoid such computational expenses alternate models are used replacing original model. However, the alternate model can not explain completely the flow physics. The prediction of accurate flow physics description requires economical numerical solution of \eqref{navier_stokes}. It is to be noted that simulation of turbulent flow is always a compromise between required flow physics prediction and computational efforts.
 
 \section{Wellposedness of strong form of Navier Stokes equation}
-
 
 \chapter{Discretization and function spaces}
 \section{Grid geometry}
@@ -392,7 +390,7 @@ $U$ = Global velocity degree of freedom vector\\
 $P$ = Global pressure degree of freedom vector\\
 $F$ = Right hand side vector\\
 
-\section{Coercivity of bilinear form}
+\section{Coercivity of bilinear form} 
 
 For the term $a_{IP}$ which has elliptic behavior we discuss now coercivity, continuity and inf-sup condition\cite{riviere}.
 
@@ -403,10 +401,9 @@ A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $c_{1
 a(v,v) > c_{11} ||v||^2   \exists   c_{11} > 0
 \end{equation}
 
+Based on \ref{basics}
 \begin{equation}\label{Coercivity_constant}
-\begin{Huge}
-C11 CONSTANT AND DERIVATION
-\end{Huge}
+a(v,v) \geq (1-\frac{\delta}{2} |1-\epsilon|) \Sigma_{E \epsilon \varepsilon_h} ||\nu^{1/2} \nabla v ||^2_{L^2(E)} + \Sigma_{e \epsilon \Gamma_h \cup \Gamma_D} \frac{\sigma_e^0 - \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0}|1-\epsilon|}{|e|^{\beta_0}} ||[v]||^2_{L^2(e)}
 \end{equation}
 
 \section{Continuity of bilinear form}
@@ -787,6 +784,169 @@ $\hat{X}$ Co-ordinates of vertices of reference triangle in local co-ordinate sy
 $L$ Characteristic length for Reynolds number\\
 
 \section{Mathematical preliminaries}
+
+\subsection{Basic definitions}\cite{crbm}
+
+Let $\mathbb{V}$ be a vector space $\mathbb{R}$
+
+1. For a set $\lbrace w_1,....,w_N \rbrace \subset \mathbb{V}$ we denote by \\
+\begin{equation} \label{vector space}
+span \lbrace w_1,....,w_2 \rbrace = \lbrace v \epsilon \mathbb{V} | v = \Sigma_{n=1}^N \alpha_n w_n, \alpha_n \epsilon \mathbb{R} \rbrace
+\end{equation} 
+
+The linear subspace spanned by the elements $w_1,....,w_N$.\\
+
+2. The space $\mathbb{V}$ is of finite dimension if there exists a maximal a set of linearly independent elements $v_1,....,v_N$, otherwise $\mathbb{V}$ is of finite dimension.\\
+
+3. A norm $||.||_\mathbb{V}$ on $\mathbb{V}$ is an application $||.||_\mathbb{V}$ on $\mathbb{V}$ is an application $||.||_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that\\ 
+A. $||v||_\mathbb{V} \geq 0 \forall v \epsilon \mathbb{V}$ and $||v||_\mathbb{V} = 0$ iff $v=0$\\
+B. $||\alpha v||_\mathbb{V} = |\alpha| ||v||_\mathbb{V}$  $\forall \alpha \epsilon \mathbb{R}, v \epsilon \mathbb{V}$\\
+C. $||u+v|| \leq ||u||_\mathbb{V} + ||v||_\mathbb{V}$\\
+
+4. The pair $(\mathbb{V},||.||_\mathbb{V})$ is a normed space and we can define a distance function $d(u,v) = ||u-v||_\mathbb{V}$ to measure the distance between two elements $u,v \epsilon \mathbb{V}$.\\
+
+5. A semi-norm on $\mathbb{V}$ is an application $|.|_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that $|v|_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that $|v|_\mathbb{V} \geq 0$ for all $v \epsilon \mathbb{V}$ and B. and C. above are satisfied. In consequence a semi-norm is a norm iff $|v|_\mathbb{V} = 0$ implies  $v = 0$.\\
+
+6. Two norms $||.||_1$ and $||.||_2$ are equivalent if there exists two constants $C_1,C_2 > 0$ such that \\
+
+\begin{equation} \label{norm_equivalent}
+C_1||.||_1 \leq ||.||_2 \leq C_2 ||.||_1 \forall v \epsilon V
+\end{equation}
+
+\subsection{Linear forms}
+
+Let $(\mathbb{V,||.||_\mathbb{V}})$ be a normed space. Then, we define the following notions.\\
+
+1. An application $F : \mathbb{V} \rightarrow \mathbb{R}$ is said to be linear, a $functional$ or a $linear form$ if  \\
+
+\begin{equation} 
+F(u+v) = F(u) + F(v) \forall u,v \epsilon \mathbb{V} 
+\end{equation}
+
+\begin{equation} 
+F(\alpha u) = \alpha F(u) \forall \alpha \epsilon \mathbb{R}, u \epsilon \mathbb{V}
+\end{equation}
+
+2. F is $bounded$ if there exists a constant $C > 0$ such that\\ 
+\begin{equation} 
+|F(v)| \leq C ||v||_\mathbb{V} \forall v \epsilon \mathbb{V}
+\end{equation}
+
+3. F is $continuous$ if for all $\epsilon > 0$ there exists a $\delta_\epsilon > 0$ such that \\
+\begin{equation}
+||u - v||_\mathbb{V} \leq \delta_\epsilon \Rightarrow  |F(u) - F(v)| < \epsilon
+\end{equation}
+
+The notion of continuity and boundedness is equivalent for linear forms.
+
+\subsection{Bilinear forms}
+
+1. A bilinear form $a(\cdot,\cdot)$ acting on the vector spaces $\mathbb{V}$ and $\mathbb{W}$ is given as\\
+\begin{equation}
+a : \mathbb{V} \times \mathbb{W} \rightarrow \mathbb{R}
+\end{equation}
+
+\begin{equation}
+(u,v) \rightarrow a(u,v)
+\end{equation}
+
+and is linear with respect to each of its argument.\\
+
+2. Let $\mathbb{V}$ and $\mathbb{W}$ be endowed with the norms $||\cdot||_\mathbb{V}$ and $||\cdot||_\mathbb{W}$. A bilinear form $a(\cdot,\cdot)$ is continuous if there exists a constant $\gamma > 0$ such that,\\
+\begin{equation}
+|a(\cdot,\cdot)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \forall u,v \epsilon \mathbb{V}
+\end{equation}
+
+3. If $\mathbb{V} = \mathbb{W}$, a bilinear form a is $coercive$ if there exists a constant $\alpha > 0$ such that \\
+\begin{equation}
+a(v,v) \geq \alpha ||v||_\mathbb{V}^2 \forall v \epsilon \mathbb{V}
+\end{equation}
+
+\subsection{Coercivity for stokes flow} \label{basics}
+
+We define lower and upper bound for viscocity such that \\
+\begin{equation}
+\nu_0 \leq \nu \leq \nu_1
+\end{equation}
+
+Using Cauchy Schwarz inequality
+
+$\Sigma_{e \epsilon \Gamma_h \cup \Gamma_D} \int_e {\nu}[n\otimes \phi] \leq \Sigma_{e \epsilon \Gamma_h \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} ||[\phi]||_{L^2(e)} \leq \Sigma_{e \epsilon \Gamma_h \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} {\frac{1}{|e|}}^{(1/2-1/2)} ||[\phi]||_{L^2(e)}$
+
+Based on Trace inequatlity and lower and upper bound for viscocity, for neighbouring elements $E_1^e$ and $E_2^e$ sharing edge $e$ 
+\begin{equation}
+||{\nu \nabla \phi \cdot n}||_{L^2(e)} \leq \frac{C_t \nu_1}{2} {h_{E_1^e}}^{-1/2} ||\nabla \phi||_{L^2(E_1^e)} + \frac{C_t \nu_1}{2} {h_{E_2^e}}^{-1/2} ||\nabla \phi||_{L^2(E_2^e)}
+\end{equation}
+
+where $h_E$ is diameter of element E.
+
+Again based on trace inequality
+
+\begin{equation}
+\int_e {\nu \nabla \phi}[n \otimes \phi] \leq (\frac{C_t \nu_1}{2} {h_{E_1^e}}^{-1/2} ||\nabla \phi||_{L^2(E_1^e)} + \frac{C_t \nu_1}{2} {h_{E_2^e}}^{-1/2} ||\nabla \phi||_{L^2(E_2^e)}) |e|^{\beta_0/2} {1/|e|}^{\beta_0/2} ||[\phi]||_{L^2(e)}
+\end{equation}
+
+For $h \leq 1$ and $\beta_0 (d-1) \geq 1$ we obtain similar bound for boundary edges.
+
+If $n_0$ denotes maximum number of neighbours $n_0 = 3$ for triangles,
+\begin{equation}
+\int_e {\nu \nabla \phi}[n \otimes \phi] \leq C_t \nu_1 (\Sigma_{e \ epsilon \Gamma_h \cup \Gamma_D} \frac{1}{|e|^\beta_0} ||[\phi]||^2_{L^2(e)})^(1/2) \times (\Sigma_{e \epsilon \Gamma_h} ||\nabla \phi||^2_{L^2(E_1^e)} + ||\nabla \phi||^2_{L^2(E_1^e)} + \Sigma_{e \epsilon \Gamma_D} ||\nabla \phi||^2_{0,E_1^e})
+\end{equation}
+
+Using Young's inequality for $\delta > 0$
+
+\begin{equation}
+\int_e {\nu \nabla \phi}[n \otimes \phi] \leq \frac{\delta}{2} \Sigma_{E \epsilon \varepsilon_h} ||\nu^{1/2} \nabla v ||^2_{L^2(E)} +  \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0} \frac{1}{|e|^{\beta_0}} ||[v]||^2_{L^2(e)}
+\end{equation}
+
+
+Substituting this in bilinear form we arrive at results in \ref{Coercivity_constant}.
+
+\subsection{Sobolev spaces} \cite{crbm}
+
+Let $\Omega$ be an open subset of $\mathbb{R}^d$ and $k$ a positive integer. Let $L^2(\Omega)$ denote the space of square integrable function on $\Omega$. 
+
+1. The $Sobolev space of order k$ on $\Omega$ is defined by\\
+\begin{equation}
+H^k (\Omega) = \lbrace f \epsilon L^2 (\Omega) | D^\alpha f \epsilon L^2 (\Omega), |\alpha| \leq k \rbrace ,
+\end{equation} 
+
+where $D^\alpha$ is the partial derivative
+\begin{equation}
+D^\alpha = \frac{\partial^{|\alpha|}}{\partial x_d^{\alpha_1} ..... \partial x_d^{\alpha_d}}
+\end{equation}
+
+in the sense of distribution for the multi-index $\alpha = (\alpha_1,.....,\alpha_d) \epsilon \mathbb{N}^d$ using the notation $|\alpha| = \alpha_1 + ..... + \alpha_d $.
+
+It holds by construction that $H^{k+1}(\Omega) \subset H^k (\Omega)$ and that $H^0 (\Omega) = L^2 (\Omega)$. $H^k(\Omega)$ is a Hilbert space with the inner product
+\begin{equation}
+(f,g)_{H^k(\Omega)} = \Sigma_{\alpha \epsilon \mathbb{N}^d, |\alpha| \leq k} \int_\Omega (D^\alpha f) (D^\alpha g)
+\end{equation}
+
+and the induced norm 
+
+\begin{equation}
+||f||_{H^k (\Omega)} = \sqrt{(f,f)_{H^k(\Omega)}} = \sqrt{\Sigma_{\alpha \epsilon \mathbb{N}^d, |\alpha| \leq k} \int_\Omega |D^\alpha f|^2}
+\end{equation}
+
+and the semi norm 
+
+\begin{equation}
+||f||_{H^k (\Omega)} = \sqrt{\Sigma_{\alpha \epsilon \mathbb{N}^d, |\alpha| = k} \int_\Omega |D^\alpha f|^2}
+\end{equation}
+
+In case of discontinuous Galerkin space we use broken Sobolev norm (for symmetric interior Galerkin), \cite{Montlaur2}
+
+\begin{equation}
+||f||_{1,h}^2 = \Sigma_{K \epsilon \tau_h} ||\nabla f||_{L^2(K)}^2 + \Sigma_{E \epsilon \varepsilon(\tau_h)} \kappa_E \nu ||[[u]]||_{L^2 (E)}^2
+\end{equation}
+
+and inner product \\
+
+\begin{equation}
+(f,g) = \Sigma_{K \epsilon \tau_h} (f,g)_{L^2(K)} + \Sigma_{E \epsilon \varepsilon(\tau_h)} \kappa_E \nu ([u],[v])_{L^2 (E)}
+\end{equation}
+
 
 \newpage
 

@@ -25,3 +25,8 @@
 \contentsline {chapter}{\numberline {5}Appendix}{29}
 \contentsline {section}{\numberline {5.1}List of symbols}{29}
 \contentsline {section}{\numberline {5.2}Mathematical preliminaries}{30}
+\contentsline {subsection}{\numberline {5.2.1}Basic definitions}{30}
+\contentsline {subsection}{\numberline {5.2.2}Linear forms}{30}
+\contentsline {subsection}{\numberline {5.2.3}Bilinear forms}{31}
+\contentsline {subsection}{\numberline {5.2.4}Coercivity for stokes flow}{31}
+\contentsline {subsection}{\numberline {5.2.5}Sobolev spaces}{32}

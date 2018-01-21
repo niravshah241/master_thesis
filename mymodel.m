@@ -4,36 +4,36 @@
 clc
 % ACTUAL GRID DO NOT DELETE
 
-params.mesh_number = 3;
-model.gridtype = 'triagrid';
-model.grid_initfile = ['mygridnirav', num2str(params.mesh_number), '.mat'];
-model.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
-model.bnd_rect_corner2=[2,2;1+eps,1-eps]';
-model.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
-model.bnd_rect_index=[-1,-2];
-grid=construct_grid(model);
-show_sparsity = false; % Bool variable which plots sparsity pattern of 
-% assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
-params.show_sparsity = show_sparsity;
-paramsP.show_sparsity = show_sparsity;
+% params.mesh_number = 3;
+% model.gridtype = 'triagrid';
+% model.grid_initfile = ['mygridnirav', num2str(params.mesh_number), '.mat'];
+% model.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
+% model.bnd_rect_corner2=[2,2;1+eps,1-eps]';
+% model.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
+% model.bnd_rect_index=[-1,-2];
+% grid=construct_grid(model);
+% show_sparsity = false; % Bool variable which plots sparsity pattern of 
+% % assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
+% params.show_sparsity = show_sparsity;
+% paramsP.show_sparsity = show_sparsity;
 
 %ACTUAL GRID OVER
 
 %ONLY FOR TEST GRID
 
-% params.xrange = [0,1];
-% params.yrange = [0,1];
-% params.xnumintervals = 1;
-% params.ynumintervals = 1;
-% params.bnd_rect_corner1=[-1,-1;1-eps,2.2518*10^14*eps]';
-% params.bnd_rect_corner2=[2,2;1+eps,1-eps]';
-% params.bnd_rect_corner2=[1-eps,eps;1+eps,1-eps]';
-% params.bnd_rect_index=[-1,-2];
-% grid = triagrid(params);
-% show_sparsity = false; % Bool variable which plots sparsity pattern of 
-% %assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
-% params.show_sparsity = show_sparsity;
-% paramsP.show_sparsity = show_sparsity;
+params.xrange = [0,1];
+params.yrange = [0,1];
+params.xnumintervals = 8;
+params.ynumintervals = 8;
+params.bnd_rect_corner1=[-1,-1;1-eps,2.2518*10^14*eps]';
+params.bnd_rect_corner2=[2,2;1+eps,1-eps]';
+params.bnd_rect_corner2=[1-eps,eps;1+eps,1-eps]';
+params.bnd_rect_index=[-1,-2];
+grid = triagrid(params);
+show_sparsity = false; % Bool variable which plots sparsity pattern of 
+%assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
+params.show_sparsity = show_sparsity;
+paramsP.show_sparsity = show_sparsity;
 
 %TEST GRID OVER
 
@@ -43,7 +43,7 @@ plot(grid);
 title('Grid')
 %pause();
 %close all
-params.pdeg = 2;
+params.pdeg = 4;
 paramsP.pdeg = params.pdeg-1;%taylor hood element
 params.dimrange = 2;
 paramsP.dimrange = 1;
@@ -74,8 +74,8 @@ c11 = 1e1;% penalty parameter, must be large enough for coercivity
 required_residual_tol = 1e-13; % allowable residual
 max_iter = 2e5; % maximum number of iterations
 
-[ params, paramsP, achieved_residual_tol_schur] =...
-    solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
+% [ params, paramsP, achieved_residual_tol_schur] =...
+%     solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
 
 [ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
     ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
@@ -93,24 +93,24 @@ paramsP.dof_derivative_analytical = @(glob) [-2*params.kinematic_viscosity(param
 
 % % ERROR FUNCTION CALL
 
-c11_min = 4e4;
-c11_max = 1e10;
-c11_num_interval = 10;
-[ condition_number, c11 ] = c11_condition_number...
-    ( params, paramsP, grid, qdeg, mu, c11_min, c11_max, c11_num_interval );
-[ solution_norm, c11] = c11_solution( params, paramsP, grid, qdeg,...
-    mu, required_residual_tol, max_iter, c11_min, c11_max, c11_num_interval);
-
-tol_newton = 1e-10;
-max_iter_newton = 10;
-tol_solver = 1e-11;
-max_iter_solver = 15;
-
-[ params,paramsP,flag,relres_solver,iter_solver,...
-    relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
-    newton_script( params,paramsP,grid,qdeg,mu,c11,...
-    tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
-
-disp('Entering into stiffness matrix tests')
-[ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
-( stifness_matrix_nonlinear, params, paramsP, grid, qdeg );
+% c11_min = 4e4;
+% c11_max = 1e10;
+% c11_num_interval = 10;
+% [ condition_number, c11 ] = c11_condition_number...
+%     ( params, paramsP, grid, qdeg, mu, c11_min, c11_max, c11_num_interval );
+% [ solution_norm, c11] = c11_solution( params, paramsP, grid, qdeg,...
+%     mu, required_residual_tol, max_iter, c11_min, c11_max, c11_num_interval);
+% 
+% tol_newton = 1e-10;
+% max_iter_newton = 10;
+% tol_solver = 1e-11;
+% max_iter_solver = 15;
+% 
+% [ params,paramsP,flag,relres_solver,iter_solver,...
+%     relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
+%     newton_script( params,paramsP,grid,qdeg,mu,c11,...
+%     tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
+% 
+% disp('Entering into stiffness matrix tests')
+% [ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
+% ( stifness_matrix_nonlinear, params, paramsP, grid, qdeg );

@@ -29,5 +29,3 @@ if tria_index_neighbour > 0
     res = w_dot_N * res;
 end
 end
-%check 1. % for dirichlet boundary this function returns zeros only 
-%2. check formula

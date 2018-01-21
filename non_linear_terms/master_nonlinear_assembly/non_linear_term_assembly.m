@@ -17,7 +17,7 @@ res.res1 = sparse(res1);
 res.res2 = sparse(res2.res);
 res.res3 = sparse(res3.res);
 res.res4 = sparse(res4);
-res.res = sparse(res1 + res2.res - res3.res + res4);
+res.res = sparse(res1 + res2.res + res3.res + res4);
 
 if params.show_sparsity == true
     figure()

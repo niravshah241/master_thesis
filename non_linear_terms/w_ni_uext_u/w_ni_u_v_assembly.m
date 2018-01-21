@@ -45,4 +45,3 @@ if params.show_sparsity == true
     title('spy of w \cdot n_i u \cdot \phi + w \cdot n_i u^{ext} \cdot \phi')
 end
 end
-%check 1. formula and 2. assembly indexes

@@ -51,10 +51,8 @@ res_nonlinear(1:params.ndofs,1:params.ndofs) = res.res;
 stifness_matrix_nonlinear = stifness_matrix_nonlinear + res_nonlinear;
 stifness_matrix_nonlinear = sparse(stifness_matrix_nonlinear);
 
-relres_newton = stifness_matrix_nonlinear * [params.dofs;paramsP.dofs]...
-    - [params.linear_side;params.rhs_continuity];
-% check relres formula
-% check sizes of differenet matrices
+relres_newton = norm((stifness_matrix_nonlinear * [params.dofs;paramsP.dofs]...
+    - [params.linear_side;params.rhs_continuity]),2)/norm(([params.linear_side;params.rhs_continuity]),2);
 
 close all
 

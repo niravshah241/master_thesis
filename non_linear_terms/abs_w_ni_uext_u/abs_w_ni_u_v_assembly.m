@@ -35,7 +35,7 @@ end
 
 res.res_internal = sparse(res_internal);
 res.res_external = sparse(res_external);
-res.res = sparse(res_internal + res_external);
+res.res = sparse(res_internal - res_external);
 
 if params.show_sparsity == true
     figure()
