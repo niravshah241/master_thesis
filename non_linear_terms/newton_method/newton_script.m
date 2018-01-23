@@ -12,7 +12,7 @@ end
 
 disp('Entering into solve (newton)');
 
-stifness_matrix_nonlinear = stifness_matrix;
+%stifness_matrix_nonlinear = stifness_matrix;
 
 h = zeros(params.ndofs+paramsP.ndofs,1);
 
@@ -21,13 +21,11 @@ for i = 1:1:max_iter_newton
     [ res ] = non_linear_term_assembly( params,paramsP,grid,qdeg );
     res_nonlinear = zeros(params.ndofs+paramsP.ndofs);
     res_nonlinear(1:params.ndofs,1:params.ndofs) = res.res;
-    stifness_matrix_nonlinear = stifness_matrix_nonlinear + res_nonlinear;
+    %stifness_matrix_nonlinear = stifness_matrix_nonlinear + res_nonlinear;
     lhs = 2 * res_nonlinear + stifness_matrix;
     rhs = (- res_nonlinear - stifness_matrix) * [params.dofs;paramsP.dofs] + ...
         [params.linear_side;params.rhs_continuity];
-    
-    %1. check formula
-    
+       
 %     [h, flag, relres_solver, iter_solver] = bicgstab(lhs,rhs,...
 %         tol_solver,max_iter_solver);
     
@@ -48,21 +46,23 @@ end
 res_nonlinear = zeros(params.ndofs+paramsP.ndofs);
 res_nonlinear(1:params.ndofs,1:params.ndofs) = res.res;
 
-stifness_matrix_nonlinear = stifness_matrix_nonlinear + res_nonlinear;
+stifness_matrix_nonlinear = stifness_matrix + res_nonlinear;
 stifness_matrix_nonlinear = sparse(stifness_matrix_nonlinear);
 
-relres_newton = norm((stifness_matrix_nonlinear * [params.dofs;paramsP.dofs]...
-    - [params.linear_side;params.rhs_continuity]),2)/norm(([params.linear_side;params.rhs_continuity]),2);
+relres_newton = norm(stifness_matrix_nonlinear * [params.dofs;paramsP.dofs]...
+    - [params.linear_side;params.rhs_continuity],2)/norm([params.linear_side;params.rhs_continuity],2);
 
 close all
 
 disp('entering into plotting Degrees of Freedom (Newton)')
-figure()
+
 for i=1:1:params.dimrange
+    figure()
+    axis equal
     [scalar_dofs, scalar_df_info] = ldg_scalar_component(params,i);
     sdf = ldgdiscfunc(scalar_dofs,scalar_df_info);
     disp(['Plotting ',num2str(i),' degree of freedom'])
-    subplot(params.dimrange,1,i)
+    %subplot(params.dimrange,1,i)
     %title(['Velocity degree of freedom number ',num2str(i)])
     if i==1
         title(['Plotting Velocity in x direction'])

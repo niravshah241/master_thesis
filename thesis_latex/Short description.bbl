@@ -40,4 +40,10 @@ B.~Riviere.
   Parabolic Equations: Theory and Implementation}.
 \newblock Frontiers in Applied Mathematics. Cambridge University Press, 2008.
 
+\bibitem{warburton}
+Timothy Warburton and Jan~S Hesthaven.
+\newblock On the constants in hp-finite element trace inverse inequalities.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  192(25):2765--2773, 2003.
+
 \end{thebibliography}

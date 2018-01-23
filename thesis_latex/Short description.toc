@@ -30,3 +30,5 @@
 \contentsline {subsection}{\numberline {5.2.3}Bilinear forms}{31}
 \contentsline {subsection}{\numberline {5.2.4}Coercivity for stokes flow}{31}
 \contentsline {subsection}{\numberline {5.2.5}Sobolev spaces}{32}
+\contentsline {subsection}{\numberline {5.2.6}Trace theoreom}{33}
+\contentsline {subsection}{\numberline {5.2.7}Cauchy-Schwarz's and Young's inequality}{33}

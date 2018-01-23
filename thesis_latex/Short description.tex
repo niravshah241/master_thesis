@@ -154,7 +154,7 @@ The method used for solving equation \eqref{navier_stokes} numerically is known 
 \section{Grid geometry}
 
 In numerical anlysis the problem is solved into finite dimensional domain. This finite dimensional domain is constructed by projecting actual domain onto a subdomain called as grid through a grid function.
-If the original domain is denoted by $\Omega$ we denote the grid by $\Omega_h$ and define grid function by $G:\Omega \rightarrow \Omega_h$ and we note that $\Omega_h \subset \Omega$. In present case we use triangular grid and denote each triangle as $\tau_h$. We also note that $\Omega_h = \cup_{h=1}^{nel} \tau_h$ where $nel$ is the total number of elements in the grid. Each triangle is an 'Element'of the grid. The boundary betwen elements i.e. interelement boundary is denoted by $\Gamma$. In case of grid the boundaries comprises domain boundaries and interelement boundaries i.e. $\partial \Omega = \Gamma_D \cup \Gamma_N \cup \Gamma$. During discussion on jump operator and average we denote the element under consideration as $\tau_{h}^-$ and neighbouring element as $\tau_{h}^+$. We also denote normal pointing from element itself towards neighbouring element as $n^+$ and normal pointing from neighbouring element towards element itself as $n^-$. Corresspondingly every quantity from element itself is denoted by superscript $+$ and from neighbouring element is denoted by $-$.
+If the original domain is denoted by $\Omega$ we denote the grid by $\Omega_h$ and define grid function by $G:\Omega \rightarrow \Omega_h$ and we note that $\Omega_h \subset \Omega$. In present case we use triangular grid and denote each triangle as $\tau_h$. We also note that $\Omega_h = \cup_{h=1}^{nel} \tau_h$ where $nel$ is the total number of elements in the grid. Each triangle is an 'Element'of the grid. The boundary betwen elements i.e. interelement boundary is denoted by $\Gamma$. In case of grid the boundaries comprises domain boundaries and interelement boundaries i.e. $\partial \Omega = \Gamma_D \cup \Gamma_N \cup \Gamma$. During discussion on jump operator and average we denote the element under consideration as $\tau_{h}^-$ and neighbouring element as $\tau_{h}^+$. We also denote normal pointing from element itself towards neighbouring element as $n^+$ and normal pointing from neighbouring element towards element itself as $n^-$. Corresspondingly every quantity from element itself is denoted by superscript $+$ and from neighbouring element is denoted by $-$.  We denote by $h_E$ the diameter of triangle on grid $\tau$ such that $h_E = sup||x-y||$ where, $(x,y) \epsilon \tau$. We also denote by $\theta$ the smallest angle of element $\tau$ on grid.
 
 In case of 2-dimensional domain the grid could be triangular grid or rectangular grid. The triangular grids are useful for irregular geometry and also on regular geometry if flow physics, and correspondigly the solution, is expected to be complex. This flexibility requires additional efforts to define the grid accurately. That is, unlike structured grid, an unstructured grid needs to define connectivity of vertices, which form an edge, which in turn forms a face. These faces in case of 3-dimensional grid constitute a tetrahedral elements. In case of 2-dimensional grids we have only faces which are 2-dimensional entity, edges which are 1-dimensional entity and points or vertices which are 0-dimensional entities.
 
@@ -757,6 +757,7 @@ $p$ Pressure unless specified otherwise\\
 $P$ Momentum of fluid flowing thorugh control volume\\
 $cv$ Control volume\\
 $cs$ Control system\\
+$e$ Edge between two elements\\ 
 $f$ Source/Sink/External force per unit volume\\
 $F$ External force acting on $cv$\\
 $\sigma$ Stress\\
@@ -947,6 +948,46 @@ and inner product \\
 (f,g) = \Sigma_{K \epsilon \tau_h} (f,g)_{L^2(K)} + \Sigma_{E \epsilon \varepsilon(\tau_h)} \kappa_E \nu ([u],[v])_{L^2 (E)}
 \end{equation}
 
+
+\subsection{Trace theoreom} \cite{riviere}
+
+The trace inequalities are used to define restrictions of Sobolev function along the boundary of domain. These inequalities are used for proper treatment of Boundary conditions. These conditions are stated below:
+
+$\forall \phi \epsilon \mathbb{P}_k(\tau)$, $\forall \Gamma \subset \partial \Omega$
+
+if $e$ is the length of $\Gamma$ and $E$ is the area of $\tau$
+
+\begin{equation}
+||\phi||_{L^2(\Gamma)} \leq \hat{C}_t |e|^{\frac{1}{2}} |E|^{\frac{-1}{2}} ||\phi||_{L^2(\tau)}
+\end{equation}
+
+\begin{equation}
+||\phi||_{L^2(\Gamma)} \leq {C}_t |h_E|^{\frac{-1}{2}} ||\phi||_{L^2(\tau)}
+\end{equation}
+
+\begin{equation}
+||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq \hat{C}_t |e|^{\frac{1}{2}} |E|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)}
+\end{equation}
+
+\begin{equation}
+||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq {C}_t |h_E|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)}
+\end{equation}
+
+Here, $\hat{C}_t$ and ${C}_t$ are constants independent of $h_E$ and $\phi$ but depenedent on polynomial degree $k$.
+
+The exact expressions for $C_t$ can be obtained from \cite{warburton}.
+
+\subsection{Cauchy-Schwarz's and Young's inequality}\cite{riviere}
+
+Cauchy-Schwarz's inequality,\\
+\begin{center}
+$\forall f,g \epsilon L^2(\Omega)$, $|(f,g)_{\Omega}| \leq ||f||_{L^2(\Omega)} ||g||_{L^2(\Omega)}$ \\
+\end{center}
+
+Young's inequality,\\
+\begin{center}
+$\forall \epsilon > 0$, $\forall a,b \epsilon \mathbb{R}$, $ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2$\\
+\end{center}
 
 \newpage
 
