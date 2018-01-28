@@ -22,13 +22,15 @@
 \contentsline {section}{\numberline {4.2}Assembly of average operator}{22}
 \contentsline {section}{\numberline {4.3}Jump operator}{23}
 \contentsline {subsection}{\numberline {4.3.1}Matrix assemblies}{23}
-\contentsline {chapter}{\numberline {5}Appendix}{29}
-\contentsline {section}{\numberline {5.1}List of symbols}{29}
-\contentsline {section}{\numberline {5.2}Mathematical preliminaries}{30}
-\contentsline {subsection}{\numberline {5.2.1}Basic definitions}{30}
-\contentsline {subsection}{\numberline {5.2.2}Linear forms}{30}
-\contentsline {subsection}{\numberline {5.2.3}Bilinear forms}{31}
-\contentsline {subsection}{\numberline {5.2.4}Coercivity for stokes flow}{31}
-\contentsline {subsection}{\numberline {5.2.5}Sobolev spaces}{32}
-\contentsline {subsection}{\numberline {5.2.6}Trace theoreom}{33}
-\contentsline {subsection}{\numberline {5.2.7}Cauchy-Schwarz's and Young's inequality}{33}
+\contentsline {section}{\numberline {.1}List of symbols}{29}
+\contentsline {section}{\numberline {.2}Mathematical preliminaries}{29}
+\contentsline {subsection}{\numberline {.2.1}Basic definitions}{29}
+\contentsline {subsection}{\numberline {.2.2}Linear forms}{30}
+\contentsline {subsection}{\numberline {.2.3}Bilinear forms}{31}
+\contentsline {subsection}{\numberline {.2.4}Coercivity constant for equation for Stokes flow}{31}
+\contentsline {subsection}{\numberline {.2.5}Sobolev spaces}{32}
+\contentsline {subsection}{\numberline {.2.6}Trace theorem}{32}
+\contentsline {subsection}{\numberline {.2.7}Cauchy-Schwarz and Young's inequality}{33}
+\contentsline {subsection}{\numberline {.2.8}Cholesky decomposition}{33}
+\contentsline {subsection}{\numberline {.2.9}Saddle point formulation}{33}
+\contentsline {subsection}{\numberline {.2.10}program flow}{33}

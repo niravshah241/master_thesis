@@ -10,11 +10,11 @@
 \begin{document}
 \begin{center}
 
-\title{Discontinuous Galerkin reduced basis approximation for direct numerical simulation of the Navier Stokes equation: Master Thesis Report}
+\title{Discontinuous Galerkin method for direct numerical simulation of the Navier Stokes equation: Master Thesis Report}
 
 
 \author{Nirav Vasant Shah, \\M.Sc. Candidate, Water Resources Engineering and Management, \\University of Stuttgart, \\Stuttgart, Deutschland\\ 
-\and Supervisor: Prof. Dr. Bernard Haasdonk,\\ Institute of Applied Analysis and Numerical Simulation, \\Universitity of Stuttgart,\\ Stuttgart, Deutschalnd\\ \and Co-advisor: Prof. Gianluigi Rozza,\\ Scuola Internazionale Superiore di Studi Avanzati, \\Trieste, Italy \\ \and Co-advisor: Dr. Martin Hess,\\ Scuola Internazionale Superiore di Studi Avanzati, \\Trieste, Italy }
+\and Supervisor: Prof. Dr. Bernard Haasdonk,\\ Institute of Applied Analysis and Numerical Simulation, \\Universitity of Stuttgart,\\ Stuttgart, Deutschland(Germany)\\ \and Co-advisor: Prof. Gianluigi Rozza,\\ Scuola Internazionale Superiore di Studi Avanzati, \\Trieste, Italy \\ \and Co-advisor: Dr. Martin Hess,\\ Scuola Internazionale Superiore di Studi Avanzati, \\Trieste, Italy }
 \date{\today}
 \maketitle
 
@@ -22,49 +22,44 @@
 
 \tableofcontents
 
-
-
-
-
-
 \chapter{Introduction}
 
-The topic of the thesis deals with the reduced basis approach for the numerical solution of Navier Stokes Equation which is the core of Computational Fluid Dynamics. The thesis performs numerical simulation of Navier Stokes equation through Discontinuos Galerkin method and subsequently the parametrization of equation and reduced basis approach though Proper Orthogonal Decomposition.
+The topic of the thesis deals with the numerical solution of Navier Stokes Equation which is the core of Computational Fluid Dynamics. The thesis performs numerical simulation of the Navier Stokes equation through the Discontinuous Galerkin method.
 
-The goal of thesis is to derive, discretize and implement the Discontinuous Galerkin weak form of Navier Stokes equation and perform numerical simulation of Navier Stokes equation. In the course of numerical solution we measure the simulation efforts.
+The goal of thesis is to derive, discretize and implement the Discontinuous Galerkin weak form of Navier Stokes equation and perform numerical simulation of the Navier Stokes equation. In the course of the numerical solution we measure the simulation efforts.
 
-Subsequently the equation is parametrized for parameters such as fluid property, geometry of domain, boundary condition. This allows the approximation of numerical solution, with approximation being with respect to parameter space. The solution of the parametrized form is stored for reduced basis evaluations.
+Subsequently the equation is parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. This allows the approximation of the numerical solution, with approximation being with respect to parameter space. The solution of the parametrized form is stored for reduced basis evaluations.
 
-The Proper Orthogonal Decompostion than sorts and extracts the stored  solutions based on eigen value. This extraction with parametrised form is used for prediction of full numerical solution. In this process the evaluations are made faster but with increase in induction of error. We compare the time saving vs. induced error.
+The Proper Orthogonal Decompostion then sorts and segregates the stored  snapshots based on eigen value. This sorted and segregated with parametrised form is used for prediction of full numerical solution. In this process the evaluations are made faster but with increase in approximation error. We compare the time saving vs. induced error.
 
-In chapter 2, Navier Stokes equation is introduces. We first derive the Navier Stokes equation from conservation equation or Reynolds Transport Theoreom. We discuss about the flow classification and important issues related to numerical simulation of Navier Stokes equation. At the end of the chapter we discuss boundary conditions and its consequences on well posedness of the problem.
+In chapter 2, Navier Stokes equation is introduced. We first derive the Navier Stokes equation from the conservation equation or Reynolds Transport Theoreom. We discuss the flow classification and important issues related to numerical simulation of the Navier Stokes equation. At the end of the chapter we discuss boundary conditions and its consequences on well posedness of the problem.
 
-In chapter 3, we bring the problem from infinite dimensional domain to finite dimensional problem by introducing discretisation. We first introduce grid, constituents of elements and transformation between local and global geometry. Further the function spaces over the grid are discussed during which, the interpolation function, need for different function spaces for pressure and velocity is discussed. We than discuss the advantages of Discontinuous Galerkin method over Finite Volume method and develop more detailed understanding of the interpolation function used over the element. We further introduce the weak form and discrete formulation of Navier Stokes equation.
+In Chapter 3, we bring the problem from an infinite dimensional space to a finite dimensional problem by introducing discretisation. We first introduce grid, constituents of elements and transformation between local and global geometry. Further the function spaces over the grid are discussed during which, the approximation or Ansatz function and the need for different function spaces for pressure and velocity is discussed. We then discuss the advantages of the Discontinuous Galerkin method and develop more detailed understanding of the interpolation function used over the element. We further introduce the weak form and discrete formulation of the Navier Stokes equation.
 
-In chapter 4, We discuss implementation of the discrete form of Navier Stokes equation in RBMATLAB, an opensource software developed by University of Stuttgart and University of Münster, for numerical simulation. During the chapter we discuss matrix assembly, dimension of assembled matrices, solver performance issues, boundary treatment and basis function formation in RBMATLAB.
+In Chapter 4, We discuss the implementation of the discrete form of the Navier Stokes equation in RBmatlab, an opensource software developed at the University of Stuttgart and the University of M\"unster, for numerical simulation. During the chapter we discuss matrix assembly, dimension of assembled matrices, solver performance issues, boundary treatment and basis function formation in RBmatlab.
 
-In chapter 5, we discuss some properties and tests useful for examination of assembled matrices. We further present results from numerical experiment and some case studies.
+In Chapter 5, we discuss some properties and tests useful for examination of assembled matrices. We further present results from numerical experiments and some case studies.
 
-In chapter 6, we interpret and explain the outcomes of numerical experiments. 
+In Chapter 6, we interpret and explain the outcomes of the numerical experiments. 
 
-In chapter 7, we introduce parametric space, discuss parametrization and empirical interpolation method. We than perform reduced basis approximation and proper orthogonal decomposition method. 
+In Chapter 7, we introduce parametric space, discuss parametrization and empirical interpolation method. We than perform reduced basis approximation and proper orthogonal decomposition method. 
 
-In chapter 8, we perform the numerical experiment related to reduced order modelling and discuss, interpret and assess the results form reduced basis method.
+In Chapter 8, we perform the numerical experiment related to reduced order modelling and discuss, interpret and assess the results form reduced basis method.
 
-In appendix, supplementary theoretical background is provided which is expected to help the readers to better comprehend the thesis.
+In the appendix, supplementary theoretical background is provided which is expected to help the readers to better comprehend the thesis.
 
 \newpage
 
 
 \chapter{Engineering perspective and mathematical formulation} 
 
-The subject of mathematical applications in fluid mechanics starts with  one of the variants of Navier Stokes equation. Almost all processes of fluid mechanics require considerations related to Navier Stokes equation. Hence the importance of Navier Stokes equation is impossible to be ignored as far as mathematical approaches in fluid mechanics are concerned. The numerical method for incompressible equation is far more simple as compared to compressible Navier Stokes equation. This is due to removal of dependence on equation of state. 
+The subject of mathematical applications in fluid mechanics starts with  one of the variants of the Navier Stokes equation. Almost all processes of fluid mechanics require considerations related to the Navier Stokes equation. Hence the importance of Navier Stokes equation is impossible to be ignored as far as mathematical approaches in fluid mechanics are concerned. The numerical method for the incompressible equation is far more simple as compared to the compressible Navier Stokes equation. This is due to removal of dependence on an equation of state. 
 
-\section{Derivation of Navier Stokes equation}
+\section{Derivation of Navier Stokes equation}\cite{white}
 
-Before deriving Navier Stokes equation we introduce some notations. The domain is denoted by $\Omega \subseteq \mathbb{R}^d $. The domain boundary is denoted by $\Gamma$. The domain boundary is divided into Dirichlet boundary $\Gamma_D$ and Neumann boundary $\Gamma_N$ i.e. $\Gamma_D \cup \Gamma_N = \Gamma $. 
+Before deriving the Navier Stokes equation we introduce some notations. The domain is denoted by $\Omega \subseteq \mathbb{R}^d $. The domain boundary is denoted by $\partial \Omega$. The domain boundary is divided into Dirichlet boundary $\Gamma_D$ and Neumann boundary $\Gamma_N$ i.e. $\Gamma_D \cup \Gamma_N = \partial \Omega $. 
 
-The governing equations for incompressible stokes flow are conservation equations: Mass conservation and momentum conservation. The cnoservations equations are derived based on concept of control volume and control surface. Control volume is the volume, fixed or moving with constant velocity in space, through which fluid moves. Control surface is the surface enclosing control volume. All equations can be derived from Reynold's transport equation:
+The governing equations for the incompressible Navier Stokes flow are conservation equations: Mass conservation and Momentum conservation. The conservation equations are derived based on the concept of control volume and control surface. The control volume is the volume, fixed or moving with constant velocity in space, through which the fluid moves. The control surface is the surface enclosing the control volume. All equations can be derived from Reynold's transport equation:\cite{white}
 
 
 \begin{equation} \label{rtt} 
@@ -75,28 +70,27 @@ The governing equations for incompressible stokes flow are conservation equation
 $cv$ = Control volume\\
 $cs$ = Control surface\\
 $B$ = Extensive property under consideration  \\
-$b$ = Intensive property corressponding to B \\
+$b$ = Intensive property corresponding to B \\
 $\rho$ = Density of fluid \\
 $u$ = Velocity of fluid at the control surface \\
 \end{center}
 
-If in the above equation $B$ is substituted as momentum $P$, correspondingly $b$ as velocity $u$, we receive change in momentum which as per Newton's Second law of Motion is equal to sum of external forces acting on the system. 
+If in the above equation $B$ is substituted as momentum $P$, correspondingly $b$ as velocity $u$, we obtain the change in momentum which as per Newton's Second law of Motion is equal to the sum of external forces acting on the system. 
 
 \begin{equation}\label{External force lhs}
 F = \frac{dP}{dt} = \frac{d}{dt} \int_{cv} u \rho dV + \int_{cs} u \rho u.dA 
 \end{equation}
 
-This sum of forces arises from stresses $\sigma$ (shear stresses and normal stresses) and external force $f$ such as weight, Electromagnetic force. 
+This sum of forces arises from stresses $\sigma$ (shear stresses and normal stresses) and external force $f$ such as weight. 
 
 \begin{equation}\label{External force rhs}
 F = \int_{cs} \sigma \cdot dA + \int_{cv} \rho f dV
 \end{equation}
-
-Where,\\
+\\
 $\sigma =$ Stress\\
 $f =$ External force per unit volume\\
 
-Equating external force with change in momentum i.e. equating \eqref{External force lhs} and \eqref{External force rhs} and with the application of Gauss divergence theoreom we derive Navier Stokes equation, 
+Equating external force with change in momentum i.e. equating \eqref{External force lhs} and \eqref{External force rhs} and with the application of Gauss divergence theorem we derive the Navier Stokes equation.
 
 \begin{equation} \label{navier_stokes}
 -2\nabla \cdot (\nu \nabla^s u) + (1/\rho) \nabla p + (u \cdot \nabla)u = f \quad   \textnormal{in}  \quad \Omega
@@ -104,7 +98,7 @@ Equating external force with change in momentum i.e. equating \eqref{External fo
 
 The incompressible mass conservation equation can be written as
 \begin{equation}\label{mass_conservation}
-\nabla \cdot u=0 \quad   \textnormal{in}  \quad \Omega
+\nabla \cdot u=0 \quad   \textnormal{in}  \quad \Omega \quad \textrm{.}
 \end{equation}
 
 The boundary conditions can be expressed as,
@@ -122,31 +116,34 @@ Neumann boundary:
 Where,\\
 $u$ = flow velocity and $u:\Omega \rightarrow \mathbb{R}^d$ \\
 $p$ = pressure and $p:\Omega \rightarrow \mathbb{R}$\\
-$\nu$ and $\rho$ = kinematic viscocity and density (fluid properties) and $\nu:\Omega \rightarrow \mathbb{R}$ and $\rho:\Omega \rightarrow \mathbb{R}$\\
+$\nu$ = kinematic viscocity (fluid property) $\nu:\Omega \rightarrow \mathbb{R}$\\ 
+$\rho$ = density (fluid property) $\rho:\Omega \rightarrow \mathbb{R}$\\
 $f$ = external force $f:\Omega \rightarrow \mathbb{R}^d$\\
 $u_D$ = specified flow velocity at Dirichlet boundary $u_D:\partial \Omega_D \rightarrow \mathbb{R}^d$\\
 $n$ = normal unit vector $n:\partial \Omega \rightarrow \mathbb{R}^d$\\
-$g$ = specified Neumann flux $g:\partial \Omega_{N} \rightarrow \mathbb{R}^d$\\
+$g$ = specified Neumann flux $g:\partial \Gamma_N \rightarrow \mathbb{R}^d$\\
 
-The \eqref{navier_stokes} is known as Strong form.
+The equation \eqref{navier_stokes} is known as Strong form.
 
-It can be seen that the steady state Navier Stokes equation is non linear and has two unknown variables, pressure $P$  and velocity $u$. The additional equation added by continuity equation is hence necessary in order to sufficient number of equation for sufficient number of unknowns.
+It can be seen that the steady state Navier Stokes equation is non linear and has two unknown variables, pressure $p$ and velocity $u$. The additional equation added by continuity equation is hence necessary in order to obtain a sufficient number of equations for the number of unknowns.
 
-We also introduce dimensionless number Reynolds number,$Re$ which is the most characteristic of the flow. Reynolds number is defined as the ratio of Inertial force to the viscous force and is measured by,
+We also introduce the dimensionless number Reynolds number, $Re$ which is the most characteristic quantity of the flow. The Reynolds number is defined as the ratio of Inertial force to the viscous force,\\
+
 \begin{equation} \label{reynolds_number}
 Re =  u L / \nu
 \end{equation}
+\\
 
-Here, $L$ = Characteristic geometrical dimension, for example Diameter of Pipe in case of pipe flow or Span of wing of Aircraft in case of flow over aircraft wing\\
+Where, $L$ is the Characteristic geometrical dimension, for example the diameter of a pipe in case of pipe flow or the span of the wing of an aircraft in case of flow over an aircraft wing.\\
 
 \subsection{Direct numerical simulation} 
 
 We now differentiate between the type of flows, Laminar and Turbulent.\\
-Laminar flow is characterised by well defined velocity and pressure field and low Reynolds number. This flow has very low velocity and pressure fluctuations. The viscous force is balanced by pressure force and the flow has negligible inertial force. Mathematically, the non linear term in \eqref{navier_stokes} is no longer present. Such equation is known as Stokes equation.\\
+A Laminar flow is characterised by well defined velocity and pressure field and low Reynolds number. This flow has very low velocity and pressure fluctuations. The viscous force is balanced by the pressure force and the flow has negligible inertial force. Mathematically, the non linear term in \eqref{navier_stokes} is no longer present. Such equation is known as Stokes equation.\cite{white}\\
 
-In contrast, the Turbulent flow is characterised by fluctuations in velocity and pressure field and high Reynolds number. The flow has high velocity and inertial force is present in addition to viscous and pressure force. This inertial force makes the equation \eqref{navier_stokes} non linear. The fluctuations of velocity and pressure are of the order of Kolmogrov scale.
+In contrast, the Turbulent flow is characterised by fluctuations in velocity and pressure field and a high Reynolds number. The flow has high velocity and an inertial force is present in addition to a viscous and a pressure force. This inertial force makes the Equation \eqref{navier_stokes} non linear. The fluctuations of velocity and pressure are of the order of the Kolmogrov scale.\\
 
-The method used for solving equation \eqref{navier_stokes} numerically is known as Direct Numerical Simulation, abbreviated as DNS. The direct numerical simulation could be computationally very expensive especially in applications such as turbulent flows as the time and space grid size is of the order of Kolmogrov scale but the time period or space dimension over which the simulation is carried out are very large. In order to avoid such computational expenses alternate models are used replacing original model. However, the alternate model can not explain completely the flow physics. The prediction of accurate flow physics description requires economical numerical solution of \eqref{navier_stokes}. It is to be noted that simulation of turbulent flow is always a compromise between required flow physics prediction and computational efforts.
+The method used for solving Equation \eqref{navier_stokes} numerically is known as Direct Numerical Simulation, abbreviated as DNS. The direct numerical simulation could be computationally very expensive especially in applications such as turbulent flows as the time and space grid size is of the order of the Kolmogrov scale but the time period or space dimension over which the simulation is carried out are very large. In order to avoid such computational expenses alternate models are used replacing the original model. However, the alternate model can not explain completely the flow physics. The prediction of accurate flow physics description requires economical numerical solution of \eqref{navier_stokes}. It is to be noted that simulation of turbulent flow is always a compromise between required flow physics prediction and computational efforts.
 
 \section{Wellposedness of strong form of Navier Stokes equation}
 
@@ -431,7 +428,7 @@ For the stability of non-coercive problem the inf-sup condition is important whi
 
 
 
-\chapter{Implementation aspects}
+\chapter{Implementation aspects} \label{implementation_aspects}
 
 We discuss now the implementation of discrete formulation of Navier Stokes Discontinuous Galerkin weak formulation in RBMATLAB, A MATLAB library containing all our reduced simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. 
 
@@ -742,11 +739,53 @@ Step 1: On local element following function is evaluated $res_1= n \otimes u_D  
 Step 2: An integral is performed over an element $res_2=\int_{\Gamma_D} res_1 2*A(k)$\\
 Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
 
+We discuss now assembly of non linear terms. We now introduce initial guess $u_k$ whihc will be iterated further.\\
+
+11. $-((u_k \cdot \nabla)\phi , \phi)$:\\
+Step 1: On local element following function is evaluated $res_1 = (u_k \cdot \nabla \hat{\phi_i} \hat{\phi_j}) $ in accordance with \ref{func_transformation}\\
+Step 2: An integral is performed over an element $res_2= - \int_{\Gamma_D} res_1 EL$\\
+Step 3: Loop over all elements and perform following operation in each loop $res_3[ids,ids]=res_2$\\
+
+12. $-((u_k \cdot n)\phi , \phi)$:\\
+Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j} $ in accordance with \ref{func_transformation}\\
+Step 2: An integral is performed over an element $res_2= \int_{\Gamma_N} res_1 EL $\\
+Step 3: Loop over all Neumann edge and perform following operation in each loop $res_3[ids,ids]=res_2$\\
+
+13. $((u_k \cdot n)\phi , \phi)$:\\
+Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j} $ in accordance with \ref{func_transformation}\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2}  \int_{\Gamma_N} res_1 EL $\\
+Step 3: Loop over all Neumann edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
+
+14. $((u_k \cdot n)\phi,\phi^{ext})_{\Gamma_N}$:\\
+Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}^{ext} $ in accordance with \ref{func_transformation}\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma_N} res_1 EL $\\
+Step 3: Loop over all Neumann edge and perform following operation in each loop $res_3[ids,ids^{ext}] = res_2$\\
+
+15. $((u_k \cdot n)\phi,\phi^{ext})_{\partial \Omega \setminus \Gamma_N}$:\\
+Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}^{ext} $ in accordance with \ref{func_transformation}\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL $\\
+Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids^{ext}] = res_2$\\
+
+16. $(|u_k \cdot n| \phi,\phi^{ext})_{\partial \Omega \setminus \Gamma_N}$:\\
+Step 1: On local element following function is evaluated $res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j}^{ext} $ in accordance with \ref{func_transformation}\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL $\\
+Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids^{ext}] = res_2$\\
+
+17. $((u_k \cdot n)\phi,\phi)_{\partial \Omega \setminus \Gamma_N}$:\\
+Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j} $ in accordance with \ref{func_transformation}\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL $\\
+Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
+
+18. $((|u_k \cdot n| \phi,\phi)_{\partial \Omega \setminus \Gamma_N}$:\\
+Step 1: On local element following function is evaluated $res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j} $ in accordance with \ref{func_transformation}\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL $\\
+Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
+
 \newpage
+\appendix
 
-\chapter{Appendix}
 
-\section{List of symbols}
+\section{List of symbols} \label{symbol_list}
 
 $\phi$ Velocity basis function\\
 $\hat{\phi}$ Velocity basis function on reference triangle\\
@@ -779,58 +818,59 @@ $b$ Intensive property corressponding to B \\
 $\rho$ Density of fluid \\
 $t$ time\\
 $J_k$ Jacobian matrix of element $k$ or Rotational matrix for transformation from local co-ordinate system to global co-ordinate system\\
-$C$ Translational matrix for transformation from local co-ordinate system to global co-ordinate system\\
-$X$ Co-ordinates of vertices of element in Global co-ordinate system\\
-$\hat{X}$ Co-ordinates of vertices of reference triangle in local co-ordinate system\\
+$C$ Translational vector for transformation from local coordinate system to global coordinate system\\
+$X$ Coordinates of vertices of element in Global coordinate system\\
+$\hat{X}$ Coordinates of vertices of reference triangle in local co-ordinate system\\
 $L$ Characteristic length for Reynolds number\\
+$\kappa_E$
 
 \section{Mathematical preliminaries}
 
 \subsection{Basic definitions}\cite{crbm}
 
-Let $\mathbb{V}$ be a vector space $\mathbb{R}$
+Let $\mathbb{V}$ be a vector space over $\mathbb{R}$
 
 1. For a set $\lbrace w_1,....,w_N \rbrace \subset \mathbb{V}$ we denote by \\
 \begin{equation} \label{vector space}
-span \lbrace w_1,....,w_2 \rbrace = \lbrace v \epsilon \mathbb{V} | v = \Sigma_{n=1}^N \alpha_n w_n, \alpha_n \epsilon \mathbb{R} \rbrace
+\mathrm{span} \lbrace w_1,....,w_2 \rbrace = \lbrace v \in \mathbb{V} | v = \Sigma_{n=1}^N \alpha_n w_n, \alpha_n \in \mathbb{R} \rbrace
 \end{equation} 
 
-The linear subspace spanned by the elements $w_1,....,w_N$.\\
+the linear subspace spanned by the elements $w_1,....,w_N$.\\
 
-2. The space $\mathbb{V}$ is of finite dimension if there exists a maximal a set of linearly independent elements $v_1,....,v_N$, otherwise $\mathbb{V}$ is of finite dimension.\\
+2. The space $\mathbb{V}$ is of finite dimension if there exists a maximal a set of linearly independent elements $v_1,....,v_N$, otherwise $\mathbb{V}$ is of infinite dimension.\\
 
-3. A norm $||.||_\mathbb{V}$ on $\mathbb{V}$ is an application $||.||_\mathbb{V}$ on $\mathbb{V}$ is an application $||.||_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that\\ 
-A. $||v||_\mathbb{V} \geq 0 \forall v \epsilon \mathbb{V}$ and $||v||_\mathbb{V} = 0$ iff $v=0$\\
-B. $||\alpha v||_\mathbb{V} = |\alpha| ||v||_\mathbb{V}$  $\forall \alpha \epsilon \mathbb{R}, v \epsilon \mathbb{V}$\\
+3. A norm $||.||_\mathbb{V}$ on $\mathbb{V}$ is a function $||.||_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that\\ 
+A. $||v||_\mathbb{V} \geq 0 \forall v \in \mathbb{V}$ and $||v||_\mathbb{V} = 0$ iff $v=0$\\
+B. $||\alpha v||_\mathbb{V} = |\alpha| ||v||_\mathbb{V}$  $\forall \alpha \in \mathbb{R}, v \in \mathbb{V}$\\
 C. $||u+v|| \leq ||u||_\mathbb{V} + ||v||_\mathbb{V}$\\
 
-4. The pair $(\mathbb{V},||.||_\mathbb{V})$ is a normed space and we can define a distance function $d(u,v) = ||u-v||_\mathbb{V}$ to measure the distance between two elements $u,v \epsilon \mathbb{V}$.\\
+4. The pair $(\mathbb{V},||.||_\mathbb{V})$ is a normed space and we can define a distance function $d(u,v) = ||u-v||_\mathbb{V}$ to measure the distance between two elements $u,v \in \mathbb{V}$.\\
 
-5. A semi-norm on $\mathbb{V}$ is an application $|.|_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that $|v|_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that $|v|_\mathbb{V} \geq 0$ for all $v \epsilon \mathbb{V}$ and B. and C. above are satisfied. In consequence a semi-norm is a norm iff $|v|_\mathbb{V} = 0$ implies  $v = 0$.\\
+5. A semi-norm on $\mathbb{V}$ is a function $|.|_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that $|v|_\mathbb{V} \geq 0$ for all $v \in \mathbb{V}$ and B. and C. above are satisfied. In consequence a semi-norm is a norm iff $|v|_\mathbb{V} = 0$ implies  $v = 0$.\\
 
 6. Two norms $||.||_1$ and $||.||_2$ are equivalent if there exists two constants $C_1,C_2 > 0$ such that \\
 
 \begin{equation} \label{norm_equivalent}
-C_1||.||_1 \leq ||.||_2 \leq C_2 ||.||_1 \forall v \epsilon V
+C_1||.||_1 \leq ||.||_2 \leq C_2 ||.||_1 \forall v \in V
 \end{equation}
 
 \subsection{Linear forms}
 
 Let $(\mathbb{V,||.||_\mathbb{V}})$ be a normed space. Then, we define the following notions.\\
 
-1. An application $F : \mathbb{V} \rightarrow \mathbb{R}$ is said to be linear, a $functional$ or a $linear form$ if  \\
+1. A function $F : \mathbb{V} \rightarrow \mathbb{R}$ is said to be linear, a $functional$ or a $linear form$ if  \\
 
 \begin{equation} 
-F(u+v) = F(u) + F(v) \forall u,v \epsilon \mathbb{V} 
+F(u+v) = F(u) + F(v) \forall u,v \in \mathbb{V} 
 \end{equation}
 
 \begin{equation} 
-F(\alpha u) = \alpha F(u) \forall \alpha \epsilon \mathbb{R}, u \epsilon \mathbb{V}
+F(\alpha u) = \alpha F(u) \forall \alpha \in \mathbb{R}, u \in \mathbb{V}
 \end{equation}
 
 2. F is $bounded$ if there exists a constant $C > 0$ such that\\ 
 \begin{equation} 
-|F(v)| \leq C ||v||_\mathbb{V} \forall v \epsilon \mathbb{V}
+|F(v)| \leq C ||v||_\mathbb{V} \forall v \in \mathbb{V}
 \end{equation}
 
 3. F is $continuous$ if for all $\epsilon > 0$ there exists a $\delta_\epsilon > 0$ such that \\
@@ -844,28 +884,28 @@ The notion of continuity and boundedness is equivalent for linear forms.
 
 1. A bilinear form $a(\cdot,\cdot)$ acting on the vector spaces $\mathbb{V}$ and $\mathbb{W}$ is given as\\
 \begin{equation}
-a : \mathbb{V} \times \mathbb{W} \rightarrow \mathbb{R}
+a : \mathbb{V} \times \mathbb{W} \Rightarrow \mathbb{R}
 \end{equation}
 
 \begin{equation}
-(u,v) \rightarrow a(u,v)
+(u,v) \mapsto a(u,v)
 \end{equation}
 
-and is linear with respect to each of its argument.\\
+and is linear with respect to each of its arguments.\\
 
 2. Let $\mathbb{V}$ and $\mathbb{W}$ be endowed with the norms $||\cdot||_\mathbb{V}$ and $||\cdot||_\mathbb{W}$. A bilinear form $a(\cdot,\cdot)$ is continuous if there exists a constant $\gamma > 0$ such that,\\
 \begin{equation}
-|a(\cdot,\cdot)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \forall u,v \epsilon \mathbb{V}
+|a(\cdot,\cdot)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \forall u,v \in \mathbb{V}
 \end{equation}
 
-3. If $\mathbb{V} = \mathbb{W}$, a bilinear form a is $coercive$ if there exists a constant $\alpha > 0$ such that \\
+3. If $\mathbb{V} = \mathbb{W}$, a bilinear form $a(\cdot,\cdot)$ is $coercive$ if there exists a constant $\alpha > 0$ such that \\
 \begin{equation}
-a(v,v) \geq \alpha ||v||_\mathbb{V}^2 \forall v \epsilon \mathbb{V}
+a(v,v) \geq \alpha ||v||_\mathbb{V}^2 \forall v \in \mathbb{V}
 \end{equation}
 
-\subsection{Coercivity for stokes flow} \label{basics}
+\subsection{Coercivity constant for equation for Stokes flow} \label{basics}
 
-We define lower and upper bound for viscocity such that \\
+We define a lower and upper bound for the viscosity such that \\
 \begin{equation}
 \nu_0 \leq \nu \leq \nu_1
 \end{equation}
@@ -874,20 +914,20 @@ Using Cauchy Schwarz inequality
 
 $\Sigma_{e \epsilon \Gamma_h \cup \Gamma_D} \int_e {\nu}[n\otimes \phi] \leq \Sigma_{e \epsilon \Gamma_h \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} ||[\phi]||_{L^2(e)} \leq \Sigma_{e \epsilon \Gamma_h \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} {\frac{1}{|e|}}^{(1/2-1/2)} ||[\phi]||_{L^2(e)}$
 
-Based on Trace inequatlity and lower and upper bound for viscocity, for neighbouring elements $E_1^e$ and $E_2^e$ sharing edge $e$ 
+Based on the Trace inequatlity and the lower and upper bound for viscocity, for neighbouring elements $E_1^e$ and $E_2^e$ sharing the edge $e$ 
 \begin{equation}
 ||{\nu \nabla \phi \cdot n}||_{L^2(e)} \leq \frac{C_t \nu_1}{2} {h_{E_1^e}}^{-1/2} ||\nabla \phi||_{L^2(E_1^e)} + \frac{C_t \nu_1}{2} {h_{E_2^e}}^{-1/2} ||\nabla \phi||_{L^2(E_2^e)}
 \end{equation}
 
-where $h_E$ is diameter of element E.
+where $h_E$ is the diameter of element E.
 
-Again based on trace inequality
+Again based on the trace inequality
 
 \begin{equation}
 \int_e {\nu \nabla \phi}[n \otimes \phi] \leq (\frac{C_t \nu_1}{2} {h_{E_1^e}}^{-1/2} ||\nabla \phi||_{L^2(E_1^e)} + \frac{C_t \nu_1}{2} {h_{E_2^e}}^{-1/2} ||\nabla \phi||_{L^2(E_2^e)}) |e|^{\beta_0/2} {1/|e|}^{\beta_0/2} ||[\phi]||_{L^2(e)}
 \end{equation}
 
-For $h \leq 1$ and $\beta_0 (d-1) \geq 1$ we obtain similar bound for boundary edges.
+For $h \leq 1$ and the $\beta_0 (d-1) \geq 1$ we obtain a similar bound for the boundary edges.
 
 If $n_0$ denotes maximum number of neighbours $n_0 = 3$ for triangles,
 \begin{equation}
@@ -901,15 +941,15 @@ Using Young's inequality for $\delta > 0$
 \end{equation}
 
 
-Substituting this in bilinear form we arrive at results in \ref{Coercivity_constant}.
+Substituting this in bilinear form we arrive at the result in \ref{Coercivity_constant}.
 
 \subsection{Sobolev spaces} \cite{crbm}
 
-Let $\Omega$ be an open subset of $\mathbb{R}^d$ and $k$ a positive integer. Let $L^2(\Omega)$ denote the space of square integrable function on $\Omega$. 
+Let $\Omega$ be an open subset of $\mathbb{R}^d$ and $k$ a positive integer. Let $L^2(\Omega)$ denote the space of square integrable functions on $\Omega$. 
 
-1. The $Sobolev space of order k$ on $\Omega$ is defined by\\
+1. The \textit{Sobolev space of order k} on $\Omega$ is defined by\\
 \begin{equation}
-H^k (\Omega) = \lbrace f \epsilon L^2 (\Omega) | D^\alpha f \epsilon L^2 (\Omega), |\alpha| \leq k \rbrace ,
+H^k (\Omega) = \lbrace f \in L^2 (\Omega) | D^\alpha f \in L^2 (\Omega), |\alpha| \leq k \rbrace ,
 \end{equation} 
 
 where $D^\alpha$ is the partial derivative
@@ -917,7 +957,7 @@ where $D^\alpha$ is the partial derivative
 D^\alpha = \frac{\partial^{|\alpha|}}{\partial x_d^{\alpha_1} ..... \partial x_d^{\alpha_d}}
 \end{equation}
 
-in the sense of distribution for the multi-index $\alpha = (\alpha_1,.....,\alpha_d) \epsilon \mathbb{N}^d$ using the notation $|\alpha| = \alpha_1 + ..... + \alpha_d $.
+in the sense of distributions for the multi-index $\alpha = (\alpha_1,.....,\alpha_d) \epsilon \mathbb{N}^d$ using the notation $|\alpha| = \alpha_1 + ..... + \alpha_d $.
 
 It holds by construction that $H^{k+1}(\Omega) \subset H^k (\Omega)$ and that $H^0 (\Omega) = L^2 (\Omega)$. $H^k(\Omega)$ is a Hilbert space with the inner product
 \begin{equation}
@@ -936,7 +976,7 @@ and the semi norm
 ||f||_{H^k (\Omega)} = \sqrt{\Sigma_{\alpha \epsilon \mathbb{N}^d, |\alpha| = k} \int_\Omega |D^\alpha f|^2}
 \end{equation}
 
-In case of discontinuous Galerkin space we use broken Sobolev norm (for symmetric interior Galerkin), \cite{Montlaur2}
+In case of the discontinuous Galerkin space we use the broken Sobolev norm (for symmetric interior penalty Galerkin), \cite{Montlaur2}
 
 \begin{equation}
 ||f||_{1,h}^2 = \Sigma_{K \epsilon \tau_h} ||\nabla f||_{L^2(K)}^2 + \Sigma_{E \epsilon \varepsilon(\tau_h)} \kappa_E \nu ||[[u]]||_{L^2 (E)}^2
@@ -945,11 +985,11 @@ In case of discontinuous Galerkin space we use broken Sobolev norm (for symmetri
 and inner product \\
 
 \begin{equation}
-(f,g) = \Sigma_{K \epsilon \tau_h} (f,g)_{L^2(K)} + \Sigma_{E \epsilon \varepsilon(\tau_h)} \kappa_E \nu ([u],[v])_{L^2 (E)}
+(f,g) = \Sigma_{K \in \tau_h} (f,g)_{L^2(K)} + \Sigma_{E \in \varepsilon(\tau_h)} \kappa_E \nu ([u],[v])_{L^2 (E)}
 \end{equation}
 
 
-\subsection{Trace theoreom} \cite{riviere}
+\subsection{Trace theorem} \cite{riviere}
 
 The trace inequalities are used to define restrictions of Sobolev function along the boundary of domain. These inequalities are used for proper treatment of Boundary conditions. These conditions are stated below:
 
@@ -977,9 +1017,9 @@ Here, $\hat{C}_t$ and ${C}_t$ are constants independent of $h_E$ and $\phi$ but 
 
 The exact expressions for $C_t$ can be obtained from \cite{warburton}.
 
-\subsection{Cauchy-Schwarz's and Young's inequality}\cite{riviere}
+\subsection{Cauchy-Schwarz and Young's inequality}\cite{riviere}
 
-Cauchy-Schwarz's inequality,\\
+Cauchy-Schwarz inequality,\\
 \begin{center}
 $\forall f,g \epsilon L^2(\Omega)$, $|(f,g)_{\Omega}| \leq ||f||_{L^2(\Omega)} ||g||_{L^2(\Omega)}$ \\
 \end{center}
@@ -989,7 +1029,12 @@ Young's inequality,\\
 $\forall \epsilon > 0$, $\forall a,b \epsilon \mathbb{R}$, $ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2$\\
 \end{center}
 
-\newpage
+\subsection{Cholesky decomposition} \label{chol}
+
+\subsection{Saddle point formulation} \label{saddle_point}
+
+\subsection{program flow}
+
 
 \bibliographystyle{plain}
 \bibliography{ref1}

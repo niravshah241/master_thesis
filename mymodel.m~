@@ -4,14 +4,14 @@
 clc
 % ACTUAL GRID DO NOT DELETE
 
-params.mesh_number = 1;
+params.mesh_number = 3;
 model.gridtype = 'triagrid';
 model.grid_initfile = ['mygridnirav', num2str(params.mesh_number), '.mat'];
-model.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
-model.bnd_rect_corner2=[2,2;1+eps,1-eps]';
-model.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
-% model.bnd_rect_corner1=[-1,-1;100,10]'; % for benchmark problem
-% model.bnd_rect_corner2=[2,2;100,10-eps]'; % for benchmark problem
+% model.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
+% model.bnd_rect_corner2=[2,2;1+eps,1-eps]';
+% model.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
+model.bnd_rect_corner1=[-1,-1;100,10]'; % for benchmark problem
+model.bnd_rect_corner2=[2,2;100,10-eps]'; % for benchmark problem
 model.bnd_rect_index=[-1,-2];
 grid=construct_grid(model);
 show_sparsity = false; % Bool variable which plots sparsity pattern of
@@ -67,7 +67,7 @@ df=ldgdiscfunc(df_info);
 display(df);
 qdeg=3;
 params.mu=4;
-params.kinematic_viscosity = @(params) params.mu*1e-6;
+params.kinematic_viscosity = @(params) params.mu*1e-3;
 
 mu = params.kinematic_viscosity(params);
 c11 = 1e1;% penalty parameter, must be large enough for coercivity
@@ -76,11 +76,11 @@ c11 = 1e1;% penalty parameter, must be large enough for coercivity
 required_residual_tol = 1e-12; % allowable residual
 max_iter = 1e6; % maximum number of iterations
 
-[ params, paramsP, achieved_residual_tol_schur] =...
-    solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
+% [ params, paramsP, achieved_residual_tol_schur] =...
+%     solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
 
-% [ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
-%     ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
+[ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
+    ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
 
 % disp('Entering into stiffness matrix tests')
 % [ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
@@ -106,9 +106,9 @@ max_iter = 1e6; % maximum number of iterations
 % [ solution_norm, c11] = c11_solution( params, paramsP, grid, qdeg,...
 %     mu, required_residual_tol, max_iter, c11_min, c11_max, c11_num_interval);
 %
-tol_newton = 1e-3;
-max_iter_newton = 40;
-tol_solver = 1e-13;
+tol_newton = 1e-8;
+max_iter_newton = 10;
+tol_solver = 1e-5;
 max_iter_solver = 100;
 
 [ params,paramsP,flag,relres_solver,iter_solver,...
