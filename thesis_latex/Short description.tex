@@ -22,6 +22,10 @@
 
 \tableofcontents
 
+\newenvironment{spmatrix}[1]
+ {\def\mysubscript{#1}\mathop\bgroup\begin{pmatrix}}
+ {\end{pmatrix}\egroup_{\textstyle\mathstrut\mysubscript}}
+
 \chapter{Introduction}
 
 The topic of the thesis deals with the numerical solution of Navier Stokes Equation which is the core of Computational Fluid Dynamics. The thesis performs numerical simulation of the Navier Stokes equation through the Discontinuous Galerkin method.
@@ -47,9 +51,6 @@ In Chapter 7, we introduce parametric space, discuss parametrization and empiric
 In Chapter 8, we perform the numerical experiment related to reduced order modelling and discuss, interpret and assess the results form reduced basis method.
 
 In the appendix, supplementary theoretical background is provided which is expected to help the readers to better comprehend the thesis.
-
-\newpage
-
 
 \chapter{Engineering perspective and mathematical formulation} 
 
@@ -426,8 +427,6 @@ For the stability of non-coercive problem the inf-sup condition is important whi
 \exists \beta > 0 : \beta(\mu) = inf v \epsilon V \ {0}  sup w \epsilon W \ {0} \frac{a(v,w;\mu)}{||v||_{\mathbb{V}} ||w||_{\mathbb{W}} } \geq \beta \forall \mu \epsilon \mathbb{P}
 \end{equation}
 
-
-
 \chapter{Implementation aspects} \label{implementation_aspects}
 
 We discuss now the implementation of discrete formulation of Navier Stokes Discontinuous Galerkin weak formulation in RBMATLAB, A MATLAB library containing all our reduced simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. 
@@ -781,9 +780,540 @@ Step 1: On local element following function is evaluated $res_1 = (|u_k \cdot n|
 Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL $\\
 Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
 
+\chapter{Numerical experiments}
+
+The chapter discusses results obtained by performing numerical experiments on Discontinuous Galerkin formulation of Stokes equation and Navier Stokes equation.
+
+\section{Error definitions}
+
+Error is the difference, measured in suitable norm, between true solution and approximated or computed solution. It is also a measure of how closely the used scheme simulates the physical nature of problem. A correct numerical scheme should converge to actual solution when number of degrees of freedom are increased. The degrees of freedom can be increased by discretizing the domain further ($h-$convergence) or by increasing degree of Ansatz function ($p-$convergence). If $P_h$ is the computed solution and $P$ is the true solution, error in $W$-norm is defined as,
+
+\begin{equation} \label{error_definition}
+P_{error} = ||P - P_h||_{W}
+\end{equation}
+
+In present analysis, we measure error in $L^2$ norm and present results of $h-$convergence test amd $p-$convergence test.
+
+The $L^2$ norm of error is measured as,
+
+\begin{equation}
+P_{error} = \int_{\Omega} |P - P_h|^2
+\end{equation}
+
+the $H_0$ norm of error is defined as,
+
+\begin{equation}
+P_{error} = \Sigma_{k=1}^{nel} \int_{\tau_k} |\nabla P - \nabla P_h|^2
+\end{equation}
+
+\section{Stokes flow}\cite{white} \label{Stokes_flow}
+
+We state here again the Stokes equation in weak form and strong form for convenience of reader.
+
+The strong form of Stokes equation is as follow,
+
+\begin{equation} \label{stokes_strong_form}
+-\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega
+\end{equation}
+
+\begin{equation} \label{dirichlet condition stokes}
+u = u_D \quad \textrm{on} \quad \Gamma_D
+\end{equation}
+
+\begin{equation} \label{neumann condition stokes}
+-pn + \nu n \cdot \nabla u = t \quad \textrm{on} \quad \Gamma_N
+\end{equation}
+
+The weak form of Stokes equation is as follow,
+
+\begin{equation}\label{stokes_weak}
+\begin{split}
+a_{IP}(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) 
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+a_{IP}(u,\phi) = (\nabla u, \nabla \phi) + C_{11} ([n \otimes u],[n \otimes \phi])_{\Gamma \cup \Gamma_D} \\
+- \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (n \otimes u_D, \nu \nabla \phi)_{\Gamma_D}
+\end{split}
+\end{equation}
+
+The discrete form of Stokes equation is written as,
+
+\begin{equation} \label{stokes discrete}
+AU + BP = F_1
+\end{equation}
+
+The strong form of continuity equation is as follow,
+
+\begin{equation}
+\nabla \cdot u = 0 \quad \textrm{in} \quad \Omega
+\end{equation}
+
+and the weak for of continuity equation is as follow,
+
+\begin{equation}\label{contiuity_weak}
+\begin{split}
+b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamma_D} 
+\end{split}
+\end{equation}
+
+The discrete form of continuity equation is written as,
+
+\begin{equation} \label{continuity discrete}
+B^T U  = F_2
+\end{equation}
+
+Discrete form of equations can be written in Matrix form as, \\
+
+\begin{equation} \label{Stokes_matrix}
+\begin{spmatrix}{K}
+    A & B \\
+    B^T & 0
+\end{spmatrix}
+\begin{spmatrix}{X}
+    U \\
+    P
+\end{spmatrix}
+=
+\begin{spmatrix}{B}
+    F_1  \\
+    F_2
+\end{spmatrix}
+\end{equation}
+
+Here, $b(\phi,\psi) = -\int_{\Omega} \psi \nabla \cdot \phi$, $(\cdot , \cdot)$ is $L^2$ inner product, $\{\cdot\}$ is average operator, $[\cdot]$ is jump operator and other Notations used above are as mentioned in section \ref{symbol_list}.\\
+
+\textbf{NOTE} : The present code provides routine $stifness\_matrix\_test$ which, \\
+
+1. checks whether co-efficient matrix $K$ is symmetric and number of non positive eigen values. The number of non positive eigen values should be same number of pressure degree of freedom. It also provides eigen values and eigen vectors as output.\\
+
+2. calculates condition number of co-efficient matrix $K$. \\
+
+3. rank of co-efficient matrix $K$.\\
+
+The same routine can also be used for matrix $A$ by giving matrix $A$ as input. In this case the matrix should be symmetric and all eigen values should be positive.\\
+
+Please note that matrix with very small non symmetricity (for example, error in symmetricity of order of $2.2204e-16$) should be considered symmetric due to round-off errors.
+
+\subsection{Analytical example}
+
+The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x-y$ plane. 
+The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (2 \nu - 1, 0)$. The analytical solution for pressure and velocity reads as,
+
+\begin{center}
+
+\begin{equation}
+p = (1 - x)
+\end{equation}
+
+\begin{equation} 
+ u = (y(1-y), 0)
+\end{equation}
+
+\end{center}
+
+The grid is equally divided in both directions with number of divisions in each direction as $5,10,15,20$ giving step size of each element in each of $x-y$ direction as $0.2,0.1,0.067,0.05$.
+
+The results of $h-$convergence test in $L^2$ norm is presented in figure $bvfhvg$ for velocity and in figure $nvjkv$ for pressure. The results of $p-$convergence test in $L^2$ norm is presented in figure $bvfhvg$ for velocity and in figure $nvjkv$ for pressure. The plots of pressure and velocity are shown in figure $bvjvjvj$ and $bvjfhjjrh$
+
+\begin{Huge}
+Add figure here and cite figure above
+\end{Huge}
+
+We now present additional examples and check whether the implementation of Stokes flow is capable of reproducing physics of the problem.
+
+\subsection{Lid-driven cavity problem}
+
+We next present benchmark $CFD$ problem, Lid-driven cavity flow from \cite{Montlaur}. We solve the Stokes flow on Unit square [0,1] $\times$ [0,1] in $x-y$ plane. On boundaries ${x = 0}, {x = 1}$ and ${y = 0}$, we impose no slip or zero velocity dirichlet condition. On ${y = 1}$, we impose Dirichlet condition with Dirichlet velocity,
+
+\begin{center}
+
+\begin{equation}
+u = (10x,0)^T \quad \textrm{for} \quad 0 \leq x \leq 0.1
+\end{equation}
+
+\begin{equation}
+u = (1,0)^T \quad \textrm{for} \quad 0.1 \leq x \leq 0.9
+\end{equation}
+
+\begin{equation}
+u = (10 - 10x,0)^T \quad \textrm{for} \quad 0.9 \leq x \leq 1
+\end{equation}
+
+\end{center}
+
+The results are found to reproduce the physics of the problem as shown in figure $bvjbjbj$.
+
+\begin{Huge}
+Add figure here and cite figure above
+\end{Huge}
+
+\subsection{Flow over cylinder}
+
+The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x-y$ plane with cylinder of diameter 0.2 centered at $(0.5,0.5)$ i.e. the center of cylinder coincides with center of square. The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (2 \nu - 1, 0)$. The results give physically relevant result for example, low pressure zone after cylinder, high pressure zone before cylinder and wake zone after cylinder for velocity.
+
+The results are shown in figure $dvjvhjh$ with solver $minres$ and in figure $dvjvhjh$ with Schur complement method.
+
+\begin{Huge}
+Add figure here and cite figure above
+\end{Huge}
+
+\section{Penalty parameter}
+
+We now measure the effect of Penalty parameter on condition number of matrix. While coercivity provides lower limit for penalty parameter, the upper limit is based on affordable condition number of stiffness matrix. As shown in figure $vnjkvhjkhjkgh$, the condition number of stiffness matrix increases with increasing penalty parameter.
+The condition number is measured on Unit square [0,1] $\times$ [0,1] in $x-y$ plane on $horizontal interval \times vertical interval$.
+
+\begin{Huge}
+Add figure here and cite figure above
+\end{Huge}
+
+\section{Selection of solver}
+
+In order to solve variation form of Stokes equation we use Biconjugate gradients stabilized method popularly known as $bicgstab$, Minimum residual method better knwon as $minres$ and Schur complement method. The $bicgstab$ and $minres$ are in built solvers of MATLAB $howtociteMATLAB$. Schur complement method (Section\ref{schur}) is implemented separately based on Cholesky decomposition (Section \ref{chol}).
+
+\subsection{Biconjugate gradients stabilized method}
+
+The $bicgstab$ works to minimise residual of linear equation of the form:
+
+\begin{equation} \label{linear_matrix_equation}
+KX = B
+\end{equation}
+
+with $K$ = Co-efficient matrix, $X$ = Vector of unknowns and $B$ = vector of value of known function. The co-efficient matrix $A$ need not be symmetric. 
+
+\begin{Huge}
+Add working algorithm
+\end{Huge}
+
+In present analysis it was found that the $bicgstab$ stops before converging to specified tolerance level or reaching maximum number of iterations. We expect that this is due to reaching a point which has zero Gradient but is not local optimal i.e. Saddle point formulation (Section \ref{saddle_point}). 
+
+\subsection{Minimum residual method} 
+
+The $minres$ method is special kind of Conjugate gradient method but does not require LU decomposition. It also solves the equations \ref{linear_matrix_equation}. However, the co-efficient matrix $K$ must be symmetric. 
+
+\begin{Huge}
+Add working algorithm
+\end{Huge}
+
+As the co-efficient matrix in case discrete form of Stokes equation is symmetric, the minres is suitable solver. Moreover, it has shown to coverge to required convergence level, provided sufficient number of iterations, when $bicgstab$ is not able to reach required level of convergence.
+
+\subsection{Schur complement method} \cite{Fritzen} \label{schur}
+
+We subdivide the matrix form of Stokes equation \eqref{Stokes_matrix} into smaller dimension system by Schur complement. We also note that matrix $A$ is symmetric positive definite and matrix $K$ is symmetric.
+Here, $A \in \mathbb{R}^{ndofs\quad velocity \times ndofs \quad velocity}$; $B \in \mathbb{R}^{ndofs \quad velocity \times ndofs \quad pressure}$; $U,F_1 \in \mathbb{R}^{ndofs \quad velocity}$; $P, F_2 \in \mathbb{R}^{ndofs \quad pressure}$. \\
+
+We solve equation \eqref{Stokes_matrix} in following steps,\\
+
+STEP 1: \\ 
+\begin{equation}\label{schur step 1}
+U = A^{-1}(F_1 - BP) 
+\end{equation}
+
+The matrix $A$ is inverted by Cholesky decomposition (section \ref{chol}). 
+
+STEP 2 : \\
+We substitute now equation \eqref{schur step 1} into equation \eqref{continuity discrete} and \eqref{stokes discrete}.
+\begin{equation}\label{schur step 2}
+(0 - B^T A^{-1} B) P = F_2 - B^T A^{-1} F_1
+\end{equation}
+
+STEP 3 : \\
+We now back substitute $P$ in equation \eqref{schur step 1} and compute $U$ in order to eventually obtain the solution vector.
+\\
+
+The success of this method primarily depends upon sparsity pattern of $B$ and efforts required for inverting $A$. The Cholesky decomposition provides faster approach for inverting $A$ due to symmetric positive definite nature of $A$. \\
+
+In present analysis we find that Schur complement is much faster and in fact, for low flow velocities accurate method. Also Cholesky decoposition provides error message in case $A$ is not symmetric positive definite, indicating improper choice of penalty parameter. However, for high flow velocity this method is not very accurate. 
+
+\section{Navier Stokes flow}
+
+Stokes flow is an example of Navier Stokes flow with low Reynolds number, $Re$. In case of high Reynolds number the inertial force can no longer be neglected and hence wee need to add inertial foces in Stokes flow. (We use the notations same as defined in section \ref{Stokes_flow}).
+
+The strong form of Navier Stokes equation can be written as,
+
+\begin{equation} \label{navier_stokes_strong}
+-\nu \Delta u + \nabla p + (u \cdot \nabla) u = f \quad \textrm{in} \quad \Omega
+\end{equation}
+
+with Dirichlet and Neumann boundary condition as per section \ref{Stokes_flow}. Also the continuity equation as mentioned in section \ref{Stokes_flow} is valid.
+
+The inertial forces term in weak form is as below,
+
+\begin{equation}
+\begin{split}
+c(w;u,\phi) = \sum_{i=1}^{nel} \int_{\partial \Omega_i \setminus \Gamma_N} \frac{1}{2} [[(w \cdot n_i)(u^{ext} + u) - |w \cdot n_i|(u^{ext} - u)]] \cdot \phi \\ + \int_{\Gamma_N} (w\cdot n) u \cdot \phi -((w\cdot \nabla)\phi,u)
+\end{split}
+\end{equation}
+
+Hence, Navier Stokes equation can be written as,
+
+\begin{equation}\label{navier_stokes_weak}
+\begin{split}
+a_{IP}(u,\phi) + c(u;u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) 
+\end{split}
+\end{equation}
+
+Here, we can see that the $c(u,u,\phi)$ is non linear term.
+
+In discrete form this equation can be written as,
+
+\begin{equation}
+AU + C(U) U + BP = F
+\end{equation} 
+
+Here, $C(U)$ is a matrix which is dependent on solution vector $U$ and hence making the system of equation non linear.
+
+In matrix form the Navier Stokes equation with Continuity equation can be written as,
+
+\begin{equation} \label{Stokes_matrix}
+\begin{spmatrix}{K}
+    A+C(U) & B \\
+    B^T & 0
+\end{spmatrix}
+\begin{spmatrix}{X}
+    U \\
+    P
+\end{spmatrix}
+=
+\begin{spmatrix}{B}
+    F_1  \\
+    F_2
+\end{spmatrix}
+\end{equation}
+
+\subsection{Newton method} \cite{Haasdonk}
+
+We derive newton method for solving non linear system of equation arising out of discrete form of Navier Stokes equation. For $u, \phi , h \in \mathbb{V}$ and $p, \psi , h' \in \mathbb{Q}$ \\
+\begin{equation}
+S(u) = a(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi)
+\end{equation}
+
+
+\begin{equation}
+\begin{split}
+S(u+h) - S(u) = (a(u+\delta h,\phi) + c(u + \delta h;u + \delta h,\phi)\\ + b(\phi,p+\delta h') + (\{p+\delta h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi)) - (a(u,\phi)\\ + c(u,u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi))
+\end{split}
+\end{equation}
+
+
+\begin{equation}
+\begin{split}
+S(u+h) - S(u) = 2\delta c(u,h,\cdot) + \delta^2 c(h,h,\cdot) + \delta a(h,\cdot)\\ + \delta b(h',\cdot) + \delta (\{h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D}
+\end{split}
+\end{equation}
+
+
+\begin{equation}
+DS(u) = \lim_{\delta \to 0} \frac{S(u+h)-S(u)}{\delta}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+DS(u) = 2 c(u,h,\cdot) + a(h,\cdot) + b(h',\cdot) + (\{h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D}
+\end{split}
+\end{equation}\\
+
+Following similar procedure we write for continuity equation:\\
+\begin{equation}
+S'(u) = b(u,\psi) + (\{\psi\},[n \cdot u])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D}
+\end{equation}
+
+\begin{equation}
+S'(u+\delta h) = b(u + \delta h,\psi) + (\{\psi\},[n \cdot u + \delta h])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D}
+\end{equation}
+
+\begin{equation}
+DS'(u) = b(h,\psi) + (\{\psi\},[n \cdot \delta h])_{\Gamma \cup \Gamma_D} 
+\end{equation}
+\\
+Algotrithm for the above newton method is as follow:\\
+
+1. Select $u^k \in \mathbb{V}$ at iteration $k$\\
+
+2. Verify $DS_{u^k}(h^k) = -S(u^k)$\\
+
+3. Set $u^{k+1} := u^k + h^k$ till $||u^{k+1} - u^k|| < tol$ where $tol$ is specified tolerance.\\
+
+In discrete form newton method means, solving the equation
+
+\begin{equation} 
+\begin{spmatrix}{K^k}
+    A+C(U^k) & B \\
+    B^T & 0
+\end{spmatrix}
+\begin{spmatrix}{X^{k+1}}
+    U^{k+1} \\
+    P
+\end{spmatrix}
+=
+\begin{spmatrix}{B}
+    F_1  \\
+    F_2
+\end{spmatrix}
+\end{equation}
+
+to reach convergence i.e. $||U^{k+1} - U^k|| < tol$
+
+\section{Sparsity pattern}
+
+It is the connectivity of a node with neighbouring nodes that gives rise to different discontinuous Galerkin formulations. In general the flux terms are responsible for connecting to other nodes. This is also demonstrated in assembly process in chapter \ref{implementation_aspects}. We plot sparsity patterns of different matrices in figure $dvfzhvgfgv$.
+
+\begin{huge}
+Add figure here and cite figure above
+\end{huge}
+
+
 \newpage
+
 \appendix
 
+\section{Mathematical preliminaries}
+
+\subsection{Cholesky decomposition} \label{chol}
+
+Every symmetric Positive Definite Matrix can be expressed as product of Lower Triangular and transpose of that Lower Triangular Matrix. That is, if $U$ is symmetric positive definite matrix then,
+
+\begin{equation}
+U = LL^T
+\end{equation}
+
+where, $L$ is lower triangular matrix. It is to be noted that $L^T$ is an upper triangular matrix. \\
+
+Cholesky decomposition is useful especially when inverting an Matrix in MATLAB, since the back division operator ($\setminus$) recognises the lower triangular structure of matrix and proceeds with faster division.\\
+
+We now explain the algorithm for Cholesky decomposition. \\
+
+\begin{equation} \label{Stokes_matrix}
+\begin{spmatrix}{U}
+    a_{11} & a_{12} & a_{13}\\
+    a_{21} & a_{22} & a_{23}\\
+    a_{31} & a_{32} & a_{33}\\
+\end{spmatrix}
+=
+\begin{spmatrix}{L}
+    l_{11} & 0 & 0\\
+    l_{21} & l_{22} & 0\\
+    l_{31} & l_{32} & l_{33}
+\end{spmatrix}
+\begin{spmatrix}{L^T}
+    l_{11} & l_{21} & l_{31}\\
+    0 & l_{22} & l_{32}\\
+    0 & 0 & l_{33}
+\end{spmatrix}
+\end{equation}
+
+We see that,\\
+\begin{equation}
+a_{11} = l_{11}^2, \quad a_{22} = l_{21}^2 + l_{22}^2, \quad a_{33} = l_{31}^2 + l_{32}^2 + l_{33}^2
+\end{equation}
+
+and 
+\begin{equation}
+a_{12} = a_{21} = l_{11}l_{21}, \quad a_{13} = a_{31} = l_{11}l_{31}, \quad a_{23} = a_{32} = l_{31}l_{21} + l_{32}l_{22}
+\end{equation}
+
+We now see that for diagonal elements,\\
+
+\begin{equation}
+l_{kk} = \sqrt{a_{kk} - \sum_{k=1}^{j-1} l_{kj}^2}
+\end{equation}
+
+and for elements below diagonal,\\
+
+\begin{equation}
+l_{ik} = \frac{1}{l_{kk}}(a_{ik}-\sum_{j=1}^{k-1} l_{ij}l_{kj})
+\end{equation}
+\\
+It is to be noted that similar theory is also applicable for Cholesky decomposition with upper triangular matrix instead of lower triangular matrix. Also, this algorithm can be extended to Matrix of any size. \\
+
+In MATLAB the cholesky decomposition is performed by $chol$. The choice of upper triangular or lower triangular matrix can be adjusted by providing additional input argument $'lower'$ or $'upper'$. More information can be found by $help$ in MATLAB and MATLAB documentation.
+ 
+\subsection{Saddle point formulation} \label{saddle_point} \cite{saddle}
+
+The saddle point problem has following form,
+
+\begin{equation} 
+\begin{spmatrix}{}
+    A & B_1 \\
+    B_2 & C
+\end{spmatrix}
+\begin{spmatrix}{}
+    X \\
+    Y
+\end{spmatrix}
+=
+\begin{spmatrix}{}
+    f  \\
+   	g
+\end{spmatrix}
+\end{equation}
+
+\begin{equation}
+A \in \mathbb{R}^{n \times n}; B_1, B_2 \in \mathbb{R}^{m \times n}; C \in \mathbb{R}^{m \times m} 
+\end{equation}
+
+with $n \geq m$.\\
+
+We assume here that $A, B_1, B_2$ are zeros. Usually constituents $A,B,C$ satisfy one or more of following properties.
+\\
+\\
+1. $A = A^T$ (Symmetric)\\
+2. Symmetric part of $A$ is positive semi definite\\
+3. $B_1 = B_2 = B$\\
+4. $C$ is symmetric and positive semidefinite\\
+5. $C = 0$ (Zero matrix)\\
+
+Stokes equation is an example of Saddle point problem. \\
+
+\textbf{Remarks}:\\
+
+1. In case $A$ is symmetric positive definite the Schur complement is very useful method.\\
+
+2. In general not much can be said about the eigen values of Saddle point matrix.\\ 
+
+3. Saddle point systems obtained in practical problems can be poorly conditioned.\\
+
+4. Also number of methods such as Krylov subspace methods, Multilevel methods have been developed for saddle point problems.\\
+
+\section{Program flow}
+
+\subsection{Grid Preparation}
+
+We use $pdegrid$ tool to generate grid. We generate mesh and export parameters $point(p)$, $edge(e)$ and $triangle(t)$. $params.bnd\_rect\_corner1$ marks the lower corner of to be marked boundary and $params.bnd\_rect\_corner2$ marks the upper corner of to be marked boundary. $params.bnd\_rect\_index$ marks the type of boundary. $-1$ represents Dirichlet boundary and $-2$ represents Neumann boundary. $params.gridtype$ defines the type of grid. $construct\_grid(params)$ constructs the grid as struct containing necessary fields for grid. 
+
+In case of creating rectangular grid without using $pdegrid$, we also define fields $xrange$, $yrange$, $xnumintervals$ and $ynumintervals$ defining range of x co-ordinates of domain, range of y co-ordinates of domain, number of intervals for x division and number of intervals for y division respectively. 
+
+\subsection{Function space formulation}
+
+We now define fields for constructing function spaces for pressure and velocity. We define now two structures $params$ for velocity and $paramsP$ for pressure. These structures contain fields (as relevant to function space formulation) $pdeg$ and $dimrange$. $pdeg$ represents polynomial degree of Ansatz function and $dimrange$ represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field $paramsP.pdeg$ is calculated as $paramsP.pdeg = params.pdeg - 1$ in accordance with Taylor hood element. Based on these fields $ndofs\_per\_element$, $ndofs$ are calculated. Number of elements in grid can be read from $grid.nelements$. We also define degree for integration $qdeg$ and kinematic viscocity in $params.kinematic\_viscosity$. Variable $mu$ also holds the value of kinematic viscocity. we define penalty parameter in variable $c11$. $show\_sparsity$ is the field used to plot sparsity pattern of each matrix if set to true.\\
+
+\subsection{Matrix assembly}
+
+We now assemble all the matrices as explained in chapter \ref{implementation_aspects}. \\$params.bilinear\_side$ contains $A$ or assembly of $a(u,\phi)$\\$params.bilinear\_side\_pressure\_terms$ contains assembly of $B$ or assembly of $b(\phi,\psi)$\\ $params.lhs\_continuity$ contains assembly of $B^T$\\ $rhs$ is the right hand side matrix $[F_1;F_2]$ as\\ $[params.linear\_side;params.rhs\_continuity]$. \\
+
+\subsection{Solving assembled form}
+
+We now define the solver specific variables. $required\_residual\_tol$ specifies the required accuracy from solver in solution and $max\_iter$ specifies the maximum number of iterations that is used to stop the solver in case the solver does not converge. We call the routine $solve\_plot\_solution$ for $bicgstab$,$minres$ (The solver is specified in $solve\_plot\_solution$). In case of Schur complement method, routine $solve\_plot\_solution\_schur$ is used. The output variable $achived\_residual\_tol$ contains residual value, $params$ and $paramsP$ are given new values $dofs$ which contain degree of freedom. $actual\_iter$ is the value of number of iterations at the end of iterations process. $flag$ specifies the criteria for end of iteration process.\\
+
+\subsection{Post processing}
+
+We now enter into $stifness\_matrix\_test$, explained in section \ref{Stokes_flow}. We now enter into error measurement which measures the error in $L^2$ or $H_0$ norm. $params.dof\_analytical$, $paramsP.dof\_analytical$ contain analytical expression against which numerical solution is to be compared. $params.dof\_derivative\_analytical$ and  $paramsP.dof\_derivative\_analytical$ contain anlytical exprression for derivative to be used for $H_0$ norm.\\
+
+\subsection{Newton method}
+
+We now enter into newton method $newton\_script$. We define again solver specific variables $tol\_newton$, $max\_iter\_newton$, $tol_solver$, $max\_iter\_solver$. $tol\_newton$, $max\_iter\_newton$ are variables for ending newton method and $tol_solver$, $max\_iter\_solver$ are variables for solver to solve $h^k$ in each newton loop. We again measure the error in $L^2$ and $H_0$ norm.\\
+
+
+\subsection{Additional remarks}
+
+We plot the solution using  $ldg\_plot$ written for plotting discontinuous functions. The Dirichlet values are defined in $dirichlet\_values$, the Neumann values are defined in $neumann\_values$ and source function is defined in $func\_rhs$. 
 
 \section{List of symbols} \label{symbol_list}
 
@@ -823,8 +1353,10 @@ $X$ Coordinates of vertices of element in Global coordinate system\\
 $\hat{X}$ Coordinates of vertices of reference triangle in local co-ordinate system\\
 $L$ Characteristic length for Reynolds number\\
 $\kappa_E$
+$CFD$ Computational Fluid Dynamics\\
+$bicgstab$ Biconjugate gradients stabilized method\\
+$minres$ Minimum residual method\\
 
-\section{Mathematical preliminaries}
 
 \subsection{Basic definitions}\cite{crbm}
 
@@ -1028,13 +1560,6 @@ Young's inequality,\\
 \begin{center}
 $\forall \epsilon > 0$, $\forall a,b \epsilon \mathbb{R}$, $ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2$\\
 \end{center}
-
-\subsection{Cholesky decomposition} \label{chol}
-
-\subsection{Saddle point formulation} \label{saddle_point}
-
-\subsection{program flow}
-
 
 \bibliographystyle{plain}
 \bibliography{ref1}

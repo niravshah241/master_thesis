@@ -1,4 +1,20 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Haasdonk}
+Haasdonk B.
+\newblock Lecture notes : Reduzierte-basis-methoden.
+\newblock {\em University of Stuttgart}, Summer term 2010.
+
+\bibitem{saddle}
+Michele Benzi, Gene~H. Golub, and Jörg Liesen.
+\newblock Numerical solution of saddle point problems.
+\newblock {\em Acta Numerica}, 14:1–137, 2005.
+
+\bibitem{Fritzen}
+Fritzen F.
+\newblock Lecture notes : Introduction to model order reduction of mechanical
+  systems.
+\newblock {\em University of Stuttgart}, winter term 2016-2017.
 
 \bibitem{crbm}
 Jan~S. Hesthaven, Gianluigi Rozza, and Benjamin Stamm.
@@ -45,5 +61,11 @@ Timothy Warburton and Jan~S Hesthaven.
 \newblock On the constants in hp-finite element trace inverse inequalities.
 \newblock {\em Computer methods in applied mechanics and engineering},
   192(25):2765--2773, 2003.
+
+\bibitem{white}
+F.M. White.
+\newblock {\em Fluid mechanics}.
+\newblock McGraw-Hill international editions. Mechanical engineering series.
+  McGraw-Hill Ryerson, Limited, 1986.
 
 \end{thebibliography}
