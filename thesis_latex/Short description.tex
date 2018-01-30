@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt]{book}
+\documentclass[a4paper,12pt]{book}
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{amsmath}
@@ -42,13 +42,7 @@ In Chapter 3, we bring the problem from an infinite dimensional space to a finit
 
 In Chapter 4, We discuss the implementation of the discrete form of the Navier Stokes equation in RBmatlab, an opensource software developed at the University of Stuttgart and the University of M\"unster, for numerical simulation. During the chapter we discuss matrix assembly, dimension of assembled matrices, solver performance issues, boundary treatment and basis function formation in RBmatlab.
 
-In Chapter 5, we discuss some properties and tests useful for examination of assembled matrices. We further present results from numerical experiments and some case studies.
-
-In Chapter 6, we interpret and explain the outcomes of the numerical experiments. 
-
-In Chapter 7, we introduce parametric space, discuss parametrization and empirical interpolation method. We than perform reduced basis approximation and proper orthogonal decomposition method. 
-
-In Chapter 8, we perform the numerical experiment related to reduced order modelling and discuss, interpret and assess the results form reduced basis method.
+In Chapter 5, We present results from numerical experiments and some case studies and explsnation for using the implemented code.
 
 In the appendix, supplementary theoretical background is provided which is expected to help the readers to better comprehend the thesis.
 
@@ -140,7 +134,22 @@ Where, $L$ is the Characteristic geometrical dimension, for example the diameter
 \subsection{Direct numerical simulation} 
 
 We now differentiate between the type of flows, Laminar and Turbulent.\\
-A Laminar flow is characterised by well defined velocity and pressure field and low Reynolds number. This flow has very low velocity and pressure fluctuations. The viscous force is balanced by the pressure force and the flow has negligible inertial force. Mathematically, the non linear term in \eqref{navier_stokes} is no longer present. Such equation is known as Stokes equation.\cite{white}\\
+A Laminar flow is characterised by well defined velocity and pressure field and low Reynolds number. This flow has very low velocity and pressure fluctuations. The viscous force is balanced by the pressure force and the flow has negligible inertial force. Mathematically, the non linear term in \eqref{navier_stokes} is no longer present. This equation is known as Stokes equation.\cite{white}\\
+
+The strong form of Stokes equation is as follow,
+
+\begin{equation} \label{stokes_strong_form}
+-\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega
+\end{equation}
+
+\begin{equation} \label{dirichlet condition stokes}
+u = u_D \quad \textrm{on} \quad \Gamma_D
+\end{equation}
+
+\begin{equation} \label{neumann condition stokes}
+-pn + \nu n \cdot \nabla u = t \quad \textrm{on} \quad \Gamma_N
+\end{equation}
+\\
 
 In contrast, the Turbulent flow is characterised by fluctuations in velocity and pressure field and a high Reynolds number. The flow has high velocity and an inertial force is present in addition to a viscous and a pressure force. This inertial force makes the Equation \eqref{navier_stokes} non linear. The fluctuations of velocity and pressure are of the order of the Kolmogrov scale.\\
 

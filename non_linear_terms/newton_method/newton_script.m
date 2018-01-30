@@ -17,7 +17,7 @@ stifness_matrix_nonlinear = stifness_matrix;
 h = zeros(params.ndofs+paramsP.ndofs,1);
 
 for i = 1:1:max_iter_newton
-    
+    disp(['Newton iteration number ',num2str(i)])
     [ res ] = non_linear_term_assembly( params,paramsP,grid,qdeg );
     res_nonlinear = zeros(params.ndofs+paramsP.ndofs);
     res_nonlinear(1:params.ndofs,1:params.ndofs) = res.res;

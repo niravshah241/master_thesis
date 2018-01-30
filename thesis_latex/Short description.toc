@@ -2,56 +2,56 @@
 \contentsline {chapter}{\numberline {2}Engineering perspective and mathematical formulation}{7}
 \contentsline {section}{\numberline {2.1}Derivation of Navier Stokes equation}{7}
 \contentsline {subsection}{\numberline {2.1.1}Direct numerical simulation}{9}
-\contentsline {section}{\numberline {2.2}Wellposedness of strong form of Navier Stokes equation}{9}
+\contentsline {section}{\numberline {2.2}Wellposedness of strong form of Navier Stokes equation}{10}
 \contentsline {chapter}{\numberline {3}Discretization and function spaces}{11}
 \contentsline {section}{\numberline {3.1}Grid geometry}{11}
 \contentsline {section}{\numberline {3.2}Grid parameters}{12}
-\contentsline {section}{\numberline {3.3}Global and local co-ordinate system}{13}
-\contentsline {subsection}{\numberline {3.3.1}Jump operator}{15}
-\contentsline {subsection}{\numberline {3.3.2}Average operator}{16}
-\contentsline {section}{\numberline {3.4}Discontinuous Galerkin Method}{16}
-\contentsline {subsection}{\numberline {3.4.1}Nodal basis function and Orthonormal basis function}{17}
-\contentsline {subsection}{\numberline {3.4.2}Nodal Basis Function}{17}
-\contentsline {subsection}{\numberline {3.4.3}Orthonormal Basis Function}{17}
-\contentsline {section}{\numberline {3.5}Weak and discrete form of Navier Stokes equation}{19}
-\contentsline {section}{\numberline {3.6}Coercivity of bilinear form}{19}
-\contentsline {section}{\numberline {3.7}Continuity of bilinear form}{20}
-\contentsline {section}{\numberline {3.8}Inf-sup contdition}{20}
-\contentsline {chapter}{\numberline {4}Implementation aspects}{21}
-\contentsline {section}{\numberline {4.1}Terminologies}{21}
-\contentsline {section}{\numberline {4.2}Assembly of average operator}{22}
-\contentsline {section}{\numberline {4.3}Jump operator}{23}
-\contentsline {subsection}{\numberline {4.3.1}Matrix assemblies}{23}
-\contentsline {chapter}{\numberline {5}Numerical experiments}{29}
-\contentsline {section}{\numberline {5.1}Error definitions}{29}
-\contentsline {section}{\numberline {5.2}Stokes flow}{29}
-\contentsline {subsection}{\numberline {5.2.1}Analytical example}{31}
-\contentsline {subsection}{\numberline {5.2.2}Lid-driven cavity problem}{31}
-\contentsline {subsection}{\numberline {5.2.3}Flow over cylinder}{32}
-\contentsline {section}{\numberline {5.3}Penalty parameter}{32}
-\contentsline {section}{\numberline {5.4}Selection of solver}{32}
-\contentsline {subsection}{\numberline {5.4.1}Biconjugate gradients stabilized method}{33}
-\contentsline {subsection}{\numberline {5.4.2}Minimum residual method}{33}
-\contentsline {subsection}{\numberline {5.4.3}Schur complement method}{33}
-\contentsline {section}{\numberline {5.5}Navier Stokes flow}{34}
-\contentsline {subsection}{\numberline {5.5.1}Newton method}{35}
-\contentsline {section}{\numberline {5.6}Sparsity pattern}{36}
-\contentsline {section}{\numberline {.1}Mathematical preliminaries}{37}
-\contentsline {subsection}{\numberline {.1.1}Cholesky decomposition}{37}
-\contentsline {subsection}{\numberline {.1.2}Saddle point formulation}{38}
-\contentsline {section}{\numberline {.2}Program flow}{38}
-\contentsline {subsection}{\numberline {.2.1}Grid Preparation}{38}
-\contentsline {subsection}{\numberline {.2.2}Function space formulation}{39}
-\contentsline {subsection}{\numberline {.2.3}Matrix assembly}{39}
-\contentsline {subsection}{\numberline {.2.4}Solving assembled form}{39}
-\contentsline {subsection}{\numberline {.2.5}Post processing}{39}
-\contentsline {subsection}{\numberline {.2.6}Newton method}{40}
-\contentsline {subsection}{\numberline {.2.7}Additional remarks}{40}
-\contentsline {section}{\numberline {.3}List of symbols}{40}
-\contentsline {subsection}{\numberline {.3.1}Basic definitions}{41}
-\contentsline {subsection}{\numberline {.3.2}Linear forms}{42}
-\contentsline {subsection}{\numberline {.3.3}Bilinear forms}{42}
-\contentsline {subsection}{\numberline {.3.4}Coercivity constant for equation for Stokes flow}{42}
-\contentsline {subsection}{\numberline {.3.5}Sobolev spaces}{43}
-\contentsline {subsection}{\numberline {.3.6}Trace theorem}{44}
-\contentsline {subsection}{\numberline {.3.7}Cauchy-Schwarz and Young's inequality}{44}
+\contentsline {section}{\numberline {3.3}Global and local co-ordinate system}{14}
+\contentsline {subsection}{\numberline {3.3.1}Jump operator}{17}
+\contentsline {subsection}{\numberline {3.3.2}Average operator}{17}
+\contentsline {section}{\numberline {3.4}Discontinuous Galerkin Method}{17}
+\contentsline {subsection}{\numberline {3.4.1}Nodal basis function and Orthonormal basis function}{18}
+\contentsline {subsection}{\numberline {3.4.2}Nodal Basis Function}{19}
+\contentsline {subsection}{\numberline {3.4.3}Orthonormal Basis Function}{21}
+\contentsline {section}{\numberline {3.5}Weak and discrete form of Navier Stokes equation}{22}
+\contentsline {section}{\numberline {3.6}Coercivity of bilinear form}{22}
+\contentsline {section}{\numberline {3.7}Continuity of bilinear form}{23}
+\contentsline {section}{\numberline {3.8}Inf-sup contdition}{23}
+\contentsline {chapter}{\numberline {4}Implementation aspects}{25}
+\contentsline {section}{\numberline {4.1}Terminologies}{25}
+\contentsline {section}{\numberline {4.2}Assembly of average operator}{27}
+\contentsline {section}{\numberline {4.3}Jump operator}{27}
+\contentsline {subsection}{\numberline {4.3.1}Matrix assemblies}{27}
+\contentsline {chapter}{\numberline {5}Numerical experiments}{35}
+\contentsline {section}{\numberline {5.1}Error definitions}{35}
+\contentsline {section}{\numberline {5.2}Stokes flow}{36}
+\contentsline {subsection}{\numberline {5.2.1}Analytical example}{37}
+\contentsline {subsection}{\numberline {5.2.2}Lid-driven cavity problem}{38}
+\contentsline {subsection}{\numberline {5.2.3}Flow over cylinder}{39}
+\contentsline {section}{\numberline {5.3}Penalty parameter}{39}
+\contentsline {section}{\numberline {5.4}Selection of solver}{39}
+\contentsline {subsection}{\numberline {5.4.1}Biconjugate gradients stabilized method}{39}
+\contentsline {subsection}{\numberline {5.4.2}Minimum residual method}{40}
+\contentsline {subsection}{\numberline {5.4.3}Schur complement method}{40}
+\contentsline {section}{\numberline {5.5}Navier Stokes flow}{41}
+\contentsline {subsection}{\numberline {5.5.1}Newton method}{42}
+\contentsline {section}{\numberline {5.6}Sparsity pattern}{43}
+\contentsline {section}{\numberline {.1}Mathematical preliminaries}{44}
+\contentsline {subsection}{\numberline {.1.1}Cholesky decomposition}{44}
+\contentsline {subsection}{\numberline {.1.2}Saddle point formulation}{45}
+\contentsline {section}{\numberline {.2}Program flow}{46}
+\contentsline {subsection}{\numberline {.2.1}Grid Preparation}{46}
+\contentsline {subsection}{\numberline {.2.2}Function space formulation}{46}
+\contentsline {subsection}{\numberline {.2.3}Matrix assembly}{47}
+\contentsline {subsection}{\numberline {.2.4}Solving assembled form}{47}
+\contentsline {subsection}{\numberline {.2.5}Post processing}{47}
+\contentsline {subsection}{\numberline {.2.6}Newton method}{47}
+\contentsline {subsection}{\numberline {.2.7}Additional remarks}{48}
+\contentsline {section}{\numberline {.3}List of symbols}{48}
+\contentsline {subsection}{\numberline {.3.1}Basic definitions}{49}
+\contentsline {subsection}{\numberline {.3.2}Linear forms}{50}
+\contentsline {subsection}{\numberline {.3.3}Bilinear forms}{50}
+\contentsline {subsection}{\numberline {.3.4}Coercivity constant for equation for Stokes flow}{51}
+\contentsline {subsection}{\numberline {.3.5}Sobolev spaces}{52}
+\contentsline {subsection}{\numberline {.3.6}Trace theorem}{53}
+\contentsline {subsection}{\numberline {.3.7}Cauchy-Schwarz and Young's inequality}{53}
