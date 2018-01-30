@@ -36,22 +36,23 @@
 \contentsline {section}{\numberline {5.5}Navier Stokes flow}{41}
 \contentsline {subsection}{\numberline {5.5.1}Newton method}{42}
 \contentsline {section}{\numberline {5.6}Sparsity pattern}{43}
-\contentsline {section}{\numberline {.1}Mathematical preliminaries}{44}
-\contentsline {subsection}{\numberline {.1.1}Cholesky decomposition}{44}
-\contentsline {subsection}{\numberline {.1.2}Saddle point formulation}{45}
-\contentsline {section}{\numberline {.2}Program flow}{46}
-\contentsline {subsection}{\numberline {.2.1}Grid Preparation}{46}
-\contentsline {subsection}{\numberline {.2.2}Function space formulation}{46}
-\contentsline {subsection}{\numberline {.2.3}Matrix assembly}{47}
-\contentsline {subsection}{\numberline {.2.4}Solving assembled form}{47}
-\contentsline {subsection}{\numberline {.2.5}Post processing}{47}
-\contentsline {subsection}{\numberline {.2.6}Newton method}{47}
-\contentsline {subsection}{\numberline {.2.7}Additional remarks}{48}
-\contentsline {section}{\numberline {.3}List of symbols}{48}
-\contentsline {subsection}{\numberline {.3.1}Basic definitions}{49}
-\contentsline {subsection}{\numberline {.3.2}Linear forms}{50}
-\contentsline {subsection}{\numberline {.3.3}Bilinear forms}{50}
-\contentsline {subsection}{\numberline {.3.4}Coercivity constant for equation for Stokes flow}{51}
-\contentsline {subsection}{\numberline {.3.5}Sobolev spaces}{52}
-\contentsline {subsection}{\numberline {.3.6}Trace theorem}{53}
-\contentsline {subsection}{\numberline {.3.7}Cauchy-Schwarz and Young's inequality}{53}
+\contentsline {section}{\numberline {5.7}Program flow}{43}
+\contentsline {subsection}{\numberline {5.7.1}Grid Preparation}{43}
+\contentsline {subsection}{\numberline {5.7.2}Function space formulation}{44}
+\contentsline {subsection}{\numberline {5.7.3}Matrix assembly}{44}
+\contentsline {subsection}{\numberline {5.7.4}Solving assembled form}{44}
+\contentsline {subsection}{\numberline {5.7.5}Post processing}{45}
+\contentsline {subsection}{\numberline {5.7.6}Newton method}{45}
+\contentsline {subsection}{\numberline {5.7.7}Additional remarks}{45}
+\contentsline {chapter}{\numberline {6}Appendix}{47}
+\contentsline {section}{\numberline {6.1}Mathematical preliminaries}{47}
+\contentsline {subsection}{\numberline {6.1.1}Cholesky decomposition}{47}
+\contentsline {subsection}{\numberline {6.1.2}Saddle point formulation}{48}
+\contentsline {section}{\numberline {6.2}List of symbols}{49}
+\contentsline {subsection}{\numberline {6.2.1}Basic definitions}{50}
+\contentsline {subsection}{\numberline {6.2.2}Linear forms}{51}
+\contentsline {subsection}{\numberline {6.2.3}Bilinear forms}{52}
+\contentsline {subsection}{\numberline {6.2.4}Coercivity constant for equation for Stokes flow}{52}
+\contentsline {subsection}{\numberline {6.2.5}Sobolev spaces}{53}
+\contentsline {subsection}{\numberline {6.2.6}Trace theorem}{54}
+\contentsline {subsection}{\numberline {6.2.7}Cauchy-Schwarz and Young's inequality}{54}
