@@ -160,32 +160,33 @@ The method used for solving Equation \eqref{navier_stokes} numerically is known 
 \chapter{Discretization and function spaces}
 \section{Grid geometry}
 
-In numerical anlysis the problem is solved into finite dimensional domain. This finite dimensional domain is constructed by projecting actual domain onto a subdomain called as grid through a grid function.
-If the original domain is denoted by $\Omega$ we denote the grid by $\Omega_h$ and define grid function by $G:\Omega \rightarrow \Omega_h$ and we note that $\Omega_h \subset \Omega$. In present case we use triangular grid and denote each triangle as $\tau_h$. We also note that $\Omega_h = \cup_{h=1}^{nel} \tau_h$ where $nel$ is the total number of elements in the grid. Each triangle is an 'Element'of the grid. The boundary betwen elements i.e. interelement boundary is denoted by $\Gamma$. In case of grid the boundaries comprises domain boundaries and interelement boundaries i.e. $\partial \Omega = \Gamma_D \cup \Gamma_N \cup \Gamma$. During discussion on jump operator and average we denote the element under consideration as $\tau_{h}^-$ and neighbouring element as $\tau_{h}^+$. We also denote normal pointing from element itself towards neighbouring element as $n^+$ and normal pointing from neighbouring element towards element itself as $n^-$. Corresspondingly every quantity from element itself is denoted by superscript $+$ and from neighbouring element is denoted by $-$.  We denote by $h_E$ the diameter of triangle on grid $\tau$ such that $h_E = sup||x-y||$ where, $(x,y) \epsilon \tau$. We also denote by $\theta$ the smallest angle of element $\tau$ on grid.
+In numerical anlysis the problem is solved on finite domain. This domain is constructed by projecting original domain onto a subdomain called as grid. If the original domain is denoted by $\Omega$ we denote the grid by $\Omega_h$. In the present case we use triangular grid and denote each triangle as $\tau_k$. We also note that $\Omega_k = \cup_{k=1}^{nel} \tau_k$ where $nel$ is the total number of elements in the grid. Each triangle is an 'Element' of the grid. The boundary betwen elements i.e. interelement boundary is denoted by $\Gamma$. In case of a grid, the boundaries comprise of domain boundaries and interelement boundaries i.e. $\partial \Omega_h = \Gamma_D \cup \Gamma_N \cup \Gamma$. During discussion on jump operator and average we denote the element under consideration as $\tau_{h}^-$ and neighbouring element as $\tau_{h}^+$. \begin{Huge}
+Add photo here of neighbouring and self element to clarify notation
+\end{Huge}. We also denote the normal pointing from element itself towards neighbouring element as $n^+$ and the normal pointing from neighbouring element towards element itself as $n^-$. Corresspondingly every quantity on element itself is denoted by superscript $+$ and from neighbouring element is denoted by $-$.  We denote by $h_{\tau}$ the diameter of element on grid $\tau$ such that $h_{\tau} = \sup ||x-y||$ where, $(x,y) \in \tau$. We also denote by $\theta$ the smallest angle of element $\tau$ in the grid.
 
-In case of 2-dimensional domain the grid could be triangular grid or rectangular grid. The triangular grids are useful for irregular geometry and also on regular geometry if flow physics, and correspondigly the solution, is expected to be complex. This flexibility requires additional efforts to define the grid accurately. That is, unlike structured grid, an unstructured grid needs to define connectivity of vertices, which form an edge, which in turn forms a face. These faces in case of 3-dimensional grid constitute a tetrahedral elements. In case of 2-dimensional grids we have only faces which are 2-dimensional entity, edges which are 1-dimensional entity and points or vertices which are 0-dimensional entities.
+In case of a 2-dimensional domain the grid could be a triangular grid or a rectangular grid. The triangular grids are useful for irregular geometry and also on regular geometry if flow physics, and correspondigly the solution, is expected to be complex. This flexibility requires additional efforts to define the grid accurately. That is, unlike a structured grid, an unstructured grid needs to define connectivity of vertices, which form an edge, which in turn forms a face. These faces in case of 3-dimensional grid constitute a tetrahedral elements. In case of a 2-dimensional grids we have only faces which are 2-dimensional entity, edges which are 1-dimensional entities and points or vertices which are 0-dimensional entities.
 
-For triangular grids we also consider Barycentric co-ordinate system. In Barycentric co-ordinate system any point within the triangle is reprensented in terms of vertices forming the triangle. Any point $r$ within triangle is expressed in terms of vertices forming the triangle $r_1,r_2,r_3$. This is represented as,
+For triangular grids we also consider a Barycentric co-ordinate system. In Barycentric co-ordinate system any point within the triangle is represented in terms of vertices forming the triangle. Any point $r$ within a triangle is expressed in terms of vertices $r_1,r_2,r_3$ forming the triangle. This is represented as,
 
 \begin{equation}\label{barycentric point}
 r = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3
 \end{equation}
 
-where, $\lambda_1, \lambda_2, \lambda_3$ are weightages which represent the distance of point $r$ from respective vertices. The weightages satisfy the criteria,
+where, $\lambda_1, \lambda_2, \lambda_3$ are weights. The weights satisfy the criterion,
 
 \begin{equation}\label{lambda constraint}
 \lambda_1 + \lambda_2 + \lambda_3 = 1
 \end{equation}
 
-Hence we only need to satisfy 2 values in 2-dimensional plane in order to fully define the position of point.
+Hence, we only need to specify 2 values in 2-dimensional plane in order to fully define the position of point.
 
-For example, the centroid of triangle will have $\lambda_1 = 1/3, \lambda_2 = 1/3$. By \eqref{lambda constraint} we have $\lambda_3=1/3$ i.e. a point which is equidistant to all vertices.
+For example, the centroid of triangle will have $\lambda_1 = 1/3, \lambda_2 = 1/3$. By equation \eqref{lambda constraint} we have $\lambda_3=1/3$.
 
 \section{Grid parameters}
 
-We refer "Grid parameters" as the geometrical parmeters which are dependent only on the geometry of the problem or the grid or both. These parameters do not depend upon the mathematical formulation but are supplementry to the mathematical formulation. On the triangular grid we have 3 entities faces, edges, vertices as explained above. From faces we have the area (equivalent to volume of element in case of 3-dimensional grid) and Jacobian. As explained later in the weak form of Navier Stokes Compact Discontinuous Galerkin and transformation between local and global geometry the area of element is useful for volume intergral terms and the Jacobian is useful for gradient transformation. From edges we derive the edge length which is useful for boundary integral terms and normal vector which is useful for flux calculation. The normal vector is considered positive when pointing outward from the element negative when pointing inward to the element. Every element has 3 neighbouring element and the element shares each of his edge with one of its neighbour. From vertices we derive the vertex index which helps to define the connectivity of the vertices which is useful especially in case of unstructured grid. 
+We refer to "Grid parameters" as the geometrical parmeters which are dependent only on the geometry of the problem or the grid or both. These parameters do not depend upon the mathematical formulation but are supplementry to the mathematical formulation. On the triangular grid we have 3 entities faces, edges, vertices as explained above. From faces we have the area (equivalent to volume of element in case of a 3-dimensional grid) and the Jacobian. As explained later in the weak form of the Navier Stokes Discontinuous Galerkin and transformation between local and global geometry the area of element is useful for volume intergral terms and the Jacobian is useful for gradient transformation. From edges we derive the edge length $l$ which is useful for boundary integral terms and normal vector $n$ which is useful for flux calculation. The normal vector is the normal vector to the boundary pointing outward from the element. Every element has 3 neighbouring element and the element shares each of his edge with one of its neighbour. From vertices we derive the vertex index which helps to define the connectivity of the vertices which is useful especially in case of unstructured grid. 
 
-In order to give clear visualization of domain or precisely, continuous domain and grid or discretiozed domain we introduce a unit square with circular obstacle with center of circle coinciding with center of square. 
+In order to give clear visualization of domain or precisely, the continuous domain and the grid or discretized domain we introduce a unit square with circular obstacle with the center of the circle coinciding with center of square. 
 
 \newpage
 
@@ -204,9 +205,60 @@ In order to give clear visualization of domain or precisely, continuous domain a
 \newpage
 \newpage
 
+
+\section{Discontinuous Galerkin Method}
+
+In the context of the discontinuous Galerkin method we introduce the function spaces $V$($\mathcal{T}_h$) and $Q$($\mathcal{T}_h$) for analytical solution of velocity and analytical solution of pressure respectively. The space containing high fidelity solution (in this case Discontinuous Galerkin) is called truth space denoted by $V_h$ for velocity and $Q_h$ for pressure. The dimension of truth space is denoted as $N_h$. (The subscript $h$ hereafter refers to the truth space.)
+
+\begin{equation} \label{velocity_test}
+V_h = \lbrace \phi \in (L^2(\Omega))^2| \phi |_\tau \in P^D(\tau \forall \tau \in \mathcal{T}_h \rbrace
+\end{equation}
+
+\begin{equation} \label{pressure_test}
+Q_h = \lbrace \psi \in L^2(\Omega)| \psi |_\tau \in P^{D-1}(\tau) \forall \tau \in \mathcal{T}_h \rbrace
+\end{equation}
+
+Here, $P^D(\tau)$ denotes space of polynomials of degree at most $D$ over $\tau$.
+
+We apply a similar procedure as in the finite element method i.e. multiplying the partial differential equation by a test function and integration by parts. However, we note that our test function is not continuous on the interface. Hence, we require flux approximations and jumps at the interface. These requirements have given rise to different discontinuous Galerkin methods. For explanation of each method we refer to literatures such as \cite{persson} for local discontinuous Galerkin and \cite{Montlaur} for the Compact discontinuous Galerkin and the Interior penalty method. 
+
+Discontinuous Galerkin methods for the Navier Stokes equation were compared by \cite{Montlaur}. The local discontinuous Galerkin (LDG) method extends the computational stencil beyond immediate neighbours whereas compact discontinuous Galerkin (CDG) and interior penalty method (IPM) only connect to neighbouring elements. The CDG method provides more flexibility with respect to the stabilisation constant (citetion needed) at the cost of additional simulation effort related to computation of the lifting operator, while the IPM method requires restrictions on penalty parameter in order to maintain coercivity of bilinear form. Both methods, CDG and IPM, have almost similar convergence rates. 
+
+\subsection{Nodal basis function and Orthonormal basis function}
+
+The "Basis functions" are also known as "Ansatz function". There are two kinds of basis function which are used in the application of Finite element or Discontinuous Galerkin Method. 
+Before, explaining the diferrence between two types of basis functions, we understand the procedure to define the function completely. \\
+
+In order to define a polynomial of given degree completely, we need to calculate its co-efficients. A polynomial of degree $n$ in a 1-dimensional domain has $n+1$ coefficients. In case of a 2-dimensional domain the number of coefficients become $(n+1)(n+2)/2$. To define these coefficients the known values of function at a number of points equal to the number of coefficients is required. These points are known as nodes. In case of triangular element, the nodes are located as,\\
+
+1. For polynomials of degree 1 i.e. $p=1$, the nodes are selected as vertices of an element.\\
+2. For polynomials of degree 2 i.e. $p=2$, the nodes are selected as the vertices of an element and mid points of edges.\\
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{fem_triangle.jpg}
+  \caption{Finite Element nodes on triangle for $p=1$ and $p=2$ \cite{plasma}}
+  \label{fig:Nodes on Triangular Element}
+\end{figure}
+
+Similarly for higher order polynomials the nodes are selected as shown in Figure \ref{fig:Nodes on Triangular Element}.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{fem_triangle_2.png}
+  \caption{Finite Element nodes on triangle for polynomials of different degrees \\ http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html}
+  \label{fig:Nodes on Triangular Element}
+\end{figure}
+
+\subsection{Nodal Basis Functions}
+
+Nodal basis functions are also known as "Shape function". Such a basis function has value of 1 at its respective node and 0 at other nodes. At all other points it is interpolated based on the degree of the basis function. 
+
+\subsection{Orthonormal Basis Functions}
+
+Orthonormal basis functions are the basis functions defined in such a way that all basis functions are orthonormal to each other. The number of orthonormal basis functions for a given element is the same as the number of nodal basis functions. In fact, in present analysis the orthonormal basis functions are derived from Nodal basis functions.
+
 \section{Global and local co-ordinate system}
 
-The integral terms are evaluated on a reference triangle instead of element itself. Accordingly, a co-ordinate transformation is performed for every element to reference triangle for evaluating integrals. The co-ordinate system in which reference triangle lies is called reference or local co-ordinate system and the co-ordinate system in which element itself lies is called global co-ordinate system. The reference triangle has vertices $(0,0),(1,0),(0,1)$ in order. The element is defined by vertex indices in order forming triangle. The mapping from reference triangle $\hat{T}$ to each element $\tau_k$ is defined by mapping,
+Integral terms are evaluated on a reference triangle instead of the element itself. Accordingly, a co-ordinate transformation is performed for every element from a reference triangle for evaluating integrals. The co-ordinate system in which the reference triangle lies is called reference or local co-ordinate system and the co-ordinate system in which element itself lies is called global co-ordinate system. The reference triangle has vertices $(0,0),(1,0),(0,1) \in \mathbb{R}^2$ in order. The element is defined by vertex indices in order forming triangle. The mapping from reference triangle $\hat{T}$ to each element $\tau_k$ is defined by the mapping,
 
 \begin{equation}\label{local global mapping}
 F_k:\hat{T} \rightarrow \tau_k
@@ -220,13 +272,12 @@ F_k: X = J_k \hat{X} + C
 
 Here,
 
-$J_k$ = Jacobian matrix of element $k$ or Rotational matrix for transformation from local co-ordinate system to global co-ordinate system\\
-$C$ = Translational matrix for transformation from local co-ordinate system to global co-ordinate system\\
-$X$ = Co-ordinates of vertices of element in Global co-ordinate system\\
-$\hat{X}$ = Co-ordinates of vertices of reference triangle in local co-ordinate system\\
+$J_k$ = Jacobian matrix of element $\tau_k$ for transformation from local co-ordinate system to global co-ordinate system, $J_k \in R^{d \times d}$\\
+$C$ = Translational vector for transformation from local co-ordinate system to global co-ordinate system, $C \in R^d$\\
+$X$ = Co-ordinates of points of element in Global co-ordinate system, $X \in \tau_k$ \\
+$\hat{X}$ = Co-ordinates of points of reference triangle in local co-ordinate system, $\hat{X} \in \hat{T}$\\
 
-
-We consider image of global function space on reference triangle and is represented by superscript $\hat{•}$. This function space is known as local basis function space. 
+We consider the image of a global function space on reference triangle and it is represented by superscript $\hat{•}$ . This function space is known as local basis function space. 
 
 \begin{picture}(300,100)(0,0) 
 \put(0,0){\line(1,0){50}}
@@ -241,50 +292,49 @@ We consider image of global function space on reference triangle and is represen
 Global geometry (left) to Local geometry (right)
 \end{center}
 
-The volume integral of function $f(x)$ in global geometry is related to volume integral on local geometry as 
+The volume integral of a function $f(x)$ in global coordinates is related to volume integral on reference geometry as 
 \begin{equation}\label{integral_local_global_volume}
-\int_\Omega f(x) dx = \sum_{k=1}^{nel} \int_{\tau_k} f(x) dx = \sum_{k=1}^{nel} \int_{\hat{T}} f(\hat{x}) \det(J_k) d \hat{x}
+\int_\Omega f(x) dx = \sum_{k=1}^{nel} \int_{\tau_k} f(x) dx = \sum_{k=1}^{nel} \int_{\hat{T}} f(\hat{x}) |\det(J_k)| d \hat{x}
 \end{equation}
 
-The linear boundary integral of function $f(x)$ on global geometry is related to boundary integral on local geometry as, 
+The linear boundary integral of a function $f(x)$ on global coordinates is related to boundary integral on reference geometry as, 
 \begin{equation}\label{integral_local_global_boundary}
-\int_{\partial\Omega} f(x) ds = \int_{\partial\hat{\Omega}} f(\hat{x}) l d \hat{s}
+\int_{\Gamma} f(x) ds = \int_{\hat{\Gamma}} f(\hat{x}) l d \hat{s}
 \end{equation}
 
 Also, the following holds,
 \begin{equation}\label{derivative_transformation}
-\nabla g = JIT * \hat{\nabla} \hat{g}
+\nabla g = JIT \quad \hat{\nabla} \hat{g} 
 \end{equation}
 
 
-where, \\
-
+where,
+\\
 $l$ = length of boundary on global geometry\\
-$g$  = A function in global co-ordinate system\\
-$\hat{g}$  = A function in local co-ordinate system corresponding to function in $g$ in global co-rodinate system\\
+$g$  = A function in global co-ordinate system, $g:\Omega \mapsto \mathbb{R}$\\
+$\hat{g}$  = A function in local co-ordinate system corresponding to function in $g$ in global coordinate system, $\hat{g}:\hat{T} \mapsto \mathbb{R}$\\
 
 Here $g$ and $\hat{g}$ satisfy,
 \begin{equation}\label{func_transformation}
-g(x) = \hat{g}(\hat{x})
+g(x) = \hat{g}(\hat{x}) \quad \textrm{for}  \quad x = F_k(\hat{x}) \quad \textrm{according to equation \eqref{local global mapping equation}}
 \end{equation}
 
 \subsection{Jump operator}
 
-The jump operator of quantity u at an internal boundary is defined as,
+The jump operator of a quantity $[u]$ at an internal boundary is defined as,
 \begin{equation}\label{jump operator}
 [u]=u^+ \cdot n^+ + u^- \cdot n^-
 \end{equation}
 
-where n is normal to the cell boundary pointing outwards from the cell.
+where $n$ is the normal to the cell boundary pointing outwards from the cell.
 
 As pointed out by \cite{Montlaur2} this jump has two disadvantages.
 
-1. The function space of quantity itself and the function space of jump are diferrent that is, jump of vector is scalar and jump of scalar is vector.\\
-2. The use of this definition camoulages the presence of normal.
+1. The function space of the quantity itself and the function space of the jump are diferrent that is, the jump of a vector is scalar and jump of a scalar is vector.\\
+2. The use of this definition camouflages the presence of a normal.\\
 
-To overcome this disadvantages \citep{Montlaur2} used the jump definitions as ,
-
-(here, Subscript i referes to the elements itself and subscript j refers to the neoghbouring element, $[[ ]]$ refers to jump and n refers to normal vector.)
+To overcome this disadvantages \cite{Montlaur2} used the jump definitions as ,
+($n \otimes v = v n^T$)
 
 1. \\
 $[[pn]] = p^+ n^+ + p^- n^- $ on $\Gamma$\\
@@ -299,11 +349,6 @@ $[[n \cdot v]] = n^+ \cdot v^+ + n^- \cdot v^-$ on $\Gamma$\\
 $[[n \cdot v]] = n \cdot v$ on $\Gamma_D$\\
 where $v$ is vector\\
 
-3. \\
-$[[n \cdot \sigma]] = n^+ \cdot \sigma^+ + n^- \cdot \sigma^-$ on $\Gamma$\\
-$[[n \cdot \sigma]] = n \cdot \sigma$ on $\Gamma_D$\\
-where $\sigma$ is Second order vector
-
 \subsection{Average operator}
 
 Similarly the average operator is defined as,
@@ -312,95 +357,181 @@ Similarly the average operator is defined as,
 \left\lbrace u \right\rbrace = \frac{u^+ + u^-}{2}  
 \end{equation} 
 
-\section{Discontinuous Galerkin Method}
+\section{Problem statement}
 
-In the context of discontinuous galerkin method we introduce function space $V$($\tau_h$) and $Q$($\tau_h$) for analytical solution of velocity and analytical solution of pressure respectively. The space containing high fidelity solution is called truth space denoted by $V_h$. The dimension of $V_h$ is denoted as $N_h$. (The subscript h hereafter refers to truth space.)
+With the above background we are now ready to derive weak formulation and define problem in weak form. Following the approach presented by \cite{Montlaur} and \cite{Montlaur2} we arrive at weak form of Stokes and Navier Stokes interior penalty approximation.
 
-\begin{equation} \label{velocity_test}
-V = \lbrace \phi \in L^2(\Omega)| v|_k \in P^D(K) \forall K \in \tau_h \rbrace
+\subsection{Stokes strong, weak and discrete form} \label{Stokes_flow_ch3}
+
+The strong form of Stokes equation is as follow,
+
+\begin{equation} \label{stokes_strong_form_ch3}
+-\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega
 \end{equation}
 
-\begin{equation} \label{pressure_test}
-Q = \lbrace \psi \in L^2(\Omega)| q|_k \in P^{D-1}(K) \forall K \in \tau_h \rbrace
+\begin{equation} \label{dirichlet condition stokes_ch3}
+u = u_D \quad \textrm{on} \quad \Gamma_D
 \end{equation}
 
-Here, $P^D$ denotes space of polynomials of degree at most $D$ over $\Omega$.
-
-We apply similar procedure as in Finite element method i.e. multiplying the partial differential equation by test function and intergration by parts. However, we note that our test function is not continuous on the interface. Hence, we require flux approximations and jumps at the interface. These requirements have given rise to different discontinuous Galerkin methods. For explanation of each method we refer to literatures such as \cite{persson} for local discontinuous galerkin and \cite{Montlaur} for Compact discontinuous Galerkin and Interior penalty method. 
-
-Discontinuous Galerkin methods for Navier Stokes equation were compared by \cite{Montlaur}. The local discontinuous Galerkin(LDG) method extends the computational stencil beyond immediate neighbours whereas compact discontinuous Galerkin(CDG) and interior penalty method(IPM) only connect to neighbouring elements. The CDG method provides more flexibility with respect to stabilisation constant at the cost of additional simulation effort related to computation of lifting operator, while the IPM method requires restrictions on penalty parameter in order to maintain coercivity of bilinear form. Both methods, CDG and IPM, have almost similar convergence rates. 
-
-\subsection{Nodal basis function and Orthonormal basis function}
-
-The "Basis function" are also known as "Interpolation function" or "Ansatz function". There are two kinds of basis function which are used in the application of Finite element or Discontinuous Galerkin Method. 
-Before, explaining the diferrence between two types of basis functions, we understand the procedure to define the function completely. \\
-
-In order to define a polynomial of given degree completely, we need to calculate its co-efficients. A polynomial of degree n in 1-dimensional domain has $n+1$ coefficients. In case of 2-dimensional domain the number of co-efficients become $(n+1)(n+2)/2$. Two define these co-efficients the known values of function at number of points equal to the number of co-efficients is required. These points are known as nodes. In case of triangular element, the nodes located as,\\
-
-1. For polynomial of degree 1 i.e. $p=1$, the nodes are selected as vertices of element.\\
-2. For polynomial of degree 2 i.e. $p=2$, the nodes are selected as vertices of element and mid point of edges.\\
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{fem_triangle.jpg}
-  \caption{Finite Element nodes on triangle for $p=1$ and $p=2$ \cite{plasma}}
-  \label{fig:Nodes on Triangular Element}
-\end{figure}
-
-Similarly for higher order polynomial the nodes are selected as shown in \ref{fig:Nodes on Triangular Element}.
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{fem_triangle_2.png}
-  \caption{Finite Element nodes on triangle for polynomials of different degrees \\ http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html}
-  \label{fig:Nodes on Triangular Element}
-\end{figure}
-
-\subsection{Nodal Basis Function}
-
-Nodal basis function is also known as "Shape function". This basis function has value of 1 at its respetive node and 0 at other nodes. At all other points it is interpolated based on the degree of the basis function. 
-
-\subsection{Orthonormal Basis Function}
-
-Orthonormal basis functions are the basis functions defined in such a way that all basis functions are orthonormal to each other. The number of orthonormal basis functions for a given element is same as number of Nodal basis functions. In fact, in present analysis the orthonormal basis functions are derived from Nodal basis functions.
-
-\newpage
-\section{Weak and discrete form of Navier Stokes equation}
-
-Following the approach presented by \cite{Montlaur} and \cite{Montlaur2} we arrive at weak form of Navier Stokes interior penalty approximation as,
-
-\begin{equation}\label{Navier Stokes weak form}
-a_{IP}(u,\phi)+c(u : u, \phi) + b(\phi , p) + ({p},[n \cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi)
+\begin{equation} \label{neumann condition stokes_ch3}
+-pn + \nu n \cdot \nabla u = t \quad \textrm{on} \quad \Gamma_N
 \end{equation}
 
-\begin{equation}\label{aIP}
-a_{IP} = (2\nu \nabla^s u,\nabla^s \phi) + C_{11}([n \otimes u],[n \otimes u])_{\Gamma \cup \Gamma_D} - (2 \nu {\nabla^s u},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - (2 \nu [n \otimes u], {\nabla^s \phi})_{\Gamma \cup \Gamma_D} 
+The weak form of Stokes equation is as follow,
+
+\begin{equation}\label{stokes_weak_ch3}
+\begin{split}
+a_{IP}(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) 
+\end{split}
+\end{equation}
+\\
+\begin{equation}
+\begin{split}
+a_{IP}(u,\phi) = (\nabla u, \nabla \phi) + C_{11} ([n \otimes u],[n \otimes \phi])_{\Gamma \cup \Gamma_D} \\
+- \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D}
+\end{split}
+\end{equation}
+\\
+\begin{equation}
+\begin{split}
+l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (n \otimes u_D, \nu \nabla \phi)_{\Gamma_D}
+\end{split}
 \end{equation}
 
-\begin{equation}\label{lIP}
-l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11}(u_D,\phi)_{\Gamma_D} - (n \otimes u_D, 2 \nu \nabla^s \phi)_{\Gamma_D}
+The discrete form of Stokes equation is written as,
+
+\begin{equation} \label{stokes discrete_ch3}
+AU + BP = F_1 \textrm{.}
 \end{equation}
 
-\begin{equation}\label{b_continuity}
-b(\phi,p) = -\int_{\Omega} \psi \nabla \cdot \phi
+The strong form of continuity equation is as follow,
+
+\begin{equation}
+\nabla \cdot u = 0 \quad \textrm{in} \quad \Omega \textrm{.}
 \end{equation}
 
-Here, $c(u : u, \phi)$ is non linear term which we discuss later.
+and the weak for of continuity equation is as follow,
 
-Following discretization of the continuous form we arrive at discrete form as below. We refer hereafter, throughout thesis, subscript $h$ for function in discrete form.
-
-\begin{equation}\label{Navier Stokes Matrix form}
-A U + B P = F
+\begin{equation}\label{contiuity_weak_ch3}
+\begin{split}
+b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamma_D} \textrm{.}
+\end{split}
 \end{equation}
 
-where,\\
-$A$ and $B$ = Stiffness matrix\\
-$U$ = Global velocity degree of freedom vector\\
-$P$ = Global pressure degree of freedom vector\\
-$F$ = Right hand side vector\\
+The discrete form of continuity equation is written as,
+
+\begin{equation} \label{continuity discrete_ch3}
+B^T U  = F_2 \textrm{.}
+\end{equation}
+
+Discrete form of equations can be written in Matrix form as, 
+
+\begin{equation} \label{Stokes_matrix_ch3}
+\begin{spmatrix}{K}
+    A & B \\
+    B^T & 0
+\end{spmatrix}
+\begin{spmatrix}{X}
+    U \\
+    P
+\end{spmatrix}
+=
+\begin{spmatrix}{B}
+    F_1  \\
+    F_2
+\end{spmatrix}
+\end{equation}
+
+Here, $b(\phi,\psi) = -\int_{\Omega} \psi \nabla \cdot \phi$, $(\cdot , \cdot)$ is $L^2$ inner product, $\{\cdot\}$ is average operator, $[\cdot]$ is jump operator. 
+
+
+\subsection{Upwinding} \label{upwinding}
+
+Upwinding is method used to discretise the convective term. In case of discontinuous Galerkin method we define the upwinding as follow.\\
+
+If $n_\tau$ is the unit normal from $\tau_1$ to $\tau_2$ and if we denote the upwind value of function $w$ as $w^{up}$ \cite{riviere}
+\begin{equation}
+\begin{split}
+w^{up} = w|_{\tau_1} \quad \textrm{if} \quad w \cdot n_\tau \geq 0 \\
+w^{up} = w|_{\tau_2} \quad \textrm{if} \quad w \cdot n_\tau < 0
+\end{split}
+\end{equation}
+\\
+In our analysis this is explicitly defined in the term $c(u,u,\phi)$ in section \ref{n_s_ch3}. The scheme is such that,
+\begin{equation}
+\begin{split}
+u^{up} = u \quad \textrm{if} \quad u \cdot n \geq 0 \\
+u^{up} = u^{ext} \quad \textrm{if} \quad u \cdot n < 0
+\end{split}
+\end{equation}
+
+\subsection{Navier Stokes strong, weak and discrete form:} \label{n_s_ch3}
+
+Stokes flow is an example of Navier Stokes flow with low Reynolds number, $Re$. In case of high Reynolds number the inertial force can no longer be neglected and hence we need to add inertial foces in Stokes flow. 
+
+The strong form of Navier Stokes equation can be written as,
+
+\begin{equation} \label{navier_stokes_strong_ch3}
+-\nu \Delta u + \nabla p + (u \cdot \nabla) u = f \quad \textrm{in} \quad \Omega
+\end{equation}
+
+with Dirichlet and Neumann boundary condition as per section \ref{Stokes_flow_ch3}. Also the continuity equation as mentioned in section \ref{Stokes_flow_ch3} is valid.
+
+The inertial forces term in weak form with upwinding (section \ref{upwinding}) is as below,
+
+\begin{equation}
+\begin{split}
+c(w;u,\phi) = \sum_{i=1}^{nel} \int_{\partial \Omega_i \setminus \Gamma_N} \frac{1}{2} [[(w \cdot n_i)(u^{ext} + u) - |w \cdot n_i|(u^{ext} - u)]] \cdot \phi \\ + \int_{\Gamma_N} (w\cdot n) u \cdot \phi -((w\cdot \nabla)\phi,u)
+\end{split}
+\end{equation}
+
+Hence, Navier Stokes equation can be written as,
+
+\begin{equation}\label{navier_stokes_weak_ch3}
+\begin{split}
+a_{IP}(u,\phi) + c(u;u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) 
+\end{split}
+\end{equation}
+
+Here, we can see that the $c(u,u,\phi)$ is non linear term.
+
+In discrete form this equation can be written as,
+
+\begin{equation}
+AU + C(U) U + BP = F
+\end{equation} 
+
+Here, $C(U)$ is a matrix which is dependent on solution vector $U$ and hence making the system of equation non linear.
+
+In matrix form the Navier Stokes equation with Continuity equation can be written as,
+
+\begin{equation} \label{Stokes_matrix_ch3}
+\begin{spmatrix}{K}
+    A+C(U) & B \\
+    B^T & 0
+\end{spmatrix}
+\begin{spmatrix}{X}
+    U \\
+    P
+\end{spmatrix}
+=
+\begin{spmatrix}{B}
+    F_1  \\
+    F_2
+\end{spmatrix}
+\end{equation}
+
+In the present analysis, we use Newton method to solve non linear system of equations. We present the Newton scheme in section \ref{newton_method}. 
+
+Our problem statement now reduces to, find $(u,p) \in (\mathbb{V},\mathbb{Q})$ such that $\forall (\phi,\psi) \in (\mathbb{V},\mathbb{Q})$ equation \ref{stokes_weak_ch3} for Stokes flow and \ref{navier_stokes_weak_ch3} for Navier Stokes flow is satisfied.
+
+\section{Boundary condition}
+
+We impose in our analysis boundary condition weakly. This is done by the rhs terms $(t,\phi)_{\Gamma_N}$, $(u_D,\phi)_{\Gamma_D}$, $(n \otimes u_D, \nu \nabla \phi)_{\Gamma_D}$.
 
 \section{Coercivity of bilinear form} 
 
 For the term $a_{IP}$ which has elliptic behavior we discuss now coercivity, continuity and inf-sup condition\cite{riviere}.
-
 
 A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $c_{11} > 0$ such that
 
@@ -409,31 +540,17 @@ a(v,v) > c_{11} ||v||^2   \exists   c_{11} > 0
 \end{equation}
 
 Based on \ref{basics}
+
 \begin{equation}\label{Coercivity_constant}
 a(v,v) \geq (1-\frac{\delta}{2} |1-\epsilon|) \Sigma_{E \epsilon \varepsilon_h} ||\nu^{1/2} \nabla v ||^2_{L^2(E)} + \Sigma_{e \epsilon \Gamma_h \cup \Gamma_D} \frac{\sigma_e^0 - \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0}|1-\epsilon|}{|e|^{\beta_0}} ||[v]||^2_{L^2(e)}
 \end{equation}
 
 \section{Continuity of bilinear form}
 
-A bilinear form $a(u,v)$ is said to be continuous if there exists a constant $\Gamma > 0$ such that
-
-\begin{equation}\label{Continuity}
-a(u,v) \leq \Gamma ||u||||v||   \exists   \Gamma > 0
-\end{equation}
-
+A bilinear form $a_{IP}(u,v)$ is said to be continuous if there exists a constant $\gamma > 0$ such that
 
 \begin{equation}\label{Continuity_constant}
-\begin{Huge}
-\Gamma CONSTANT AND DERIVATION
-\end{Huge}
-\end{equation}
-
-\section{Inf-sup contdition}
-
-For the stability of non-coercive problem the inf-sup condition is important which is stated as, \cite{crbm} 
-
-\begin{equation}
-\exists \beta > 0 : \beta(\mu) = inf v \epsilon V \ {0}  sup w \epsilon W \ {0} \frac{a(v,w;\mu)}{||v||_{\mathbb{V}} ||w||_{\mathbb{W}} } \geq \beta \forall \mu \epsilon \mathbb{P}
+a_{IP}(u,v) \leq \gamma ||u||||v||   \exists   \gamma > 0
 \end{equation}
 
 \chapter{Implementation aspects} \label{implementation_aspects}
@@ -473,7 +590,7 @@ We also use some other local variables as below:
 
 11. $ids$ : $ids(i,:)$ represents the indices of degree of freedom of element $i$ where 1$\leq i \leq nelements$ in global degree of fredom vector. Size of $ids(i,:)$ is $ndofs\_per\_element$. $ids\_velocity$ corressponds to indices corressponding to velocity and $ids\_pressure$ corressponds to indices corressponding to pressure. Further notations such as $ids\_velocity\_neighbour$ should be read as $ids$ of velocity degree of freedom of neighbouring element.\\
 
-Basis Function $\phi_h$ in RBMATLAB :\\
+\section{Basis Function in RBMATLAB}
 
 The Basis functions in RBMATLAB is generated by routine called ldg\_evaluate\_basis.m.\\
 
@@ -789,6 +906,16 @@ Step 1: On local element following function is evaluated $res_1 = (|u_k \cdot n|
 Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL $\\
 Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
 
+\section{Setting boundary conditions}
+
+We extract the Dirichlet boundary edges and Neumann boundary edges by routine $tria\_edge\_index\_Dirichlet$ and $tria\_edge\_index\_Neumann$ respectively.
+
+We set the Dirichlet and Neumann boundary values in routine $Dirichlet\_values$ and $Neumann\_values$ respectively as column vectors. 
+
+\section{Setting source term}
+
+We set the source term values in routine $func\_rhs$ as column vectors. 
+
 \chapter{Numerical experiments}
 
 The chapter discusses results obtained by performing numerical experiments on Discontinuous Galerkin formulation of Stokes equation and Navier Stokes equation.
@@ -996,7 +1123,7 @@ The $bicgstab$ works to minimise residual of linear equation of the form:
 KX = B
 \end{equation}
 
-with $K$ = Co-efficient matrix, $X$ = Vector of unknowns and $B$ = vector of value of known function. The co-efficient matrix $A$ need not be symmetric. 
+with $K$ = Coefficient matrix, $X$ = Vector of unknowns and $B$ = vector of value of known function. The coefficient matrix $A$ need not be symmetric. 
 
 \begin{Huge}
 Add working algorithm
@@ -1044,7 +1171,7 @@ In present analysis we find that Schur complement is much faster and in fact, fo
 
 \section{Navier Stokes flow}
 
-Stokes flow is an example of Navier Stokes flow with low Reynolds number, $Re$. In case of high Reynolds number the inertial force can no longer be neglected and hence wee need to add inertial foces in Stokes flow. (We use the notations same as defined in section \ref{Stokes_flow}).
+Stokes flow is an example of Navier Stokes flow with low Reynolds number, $Re$. In case of high Reynolds number the inertial force can no longer be neglected and hence we need to add inertial foces in Stokes flow. (We use the notations same as defined in section \ref{Stokes_flow}).
 
 The strong form of Navier Stokes equation can be written as,
 
@@ -1098,7 +1225,7 @@ In matrix form the Navier Stokes equation with Continuity equation can be writte
 \end{spmatrix}
 \end{equation}
 
-\subsection{Newton method} \cite{Haasdonk}
+\subsection{Newton method} \cite{Haasdonk} \label{newton_method}
 
 We derive newton method for solving non linear system of equation arising out of discrete form of Navier Stokes equation. For $u, \phi , h \in \mathbb{V}$ and $p, \psi , h' \in \mathbb{Q}$ \\
 \begin{equation}
@@ -1170,6 +1297,8 @@ In discrete form newton method means, solving the equation
 \end{equation}
 
 to reach convergence i.e. $||U^{k+1} - U^k|| < tol$
+
+For success of Newton method it is important to have good initial guess. For Navier Stokes method we use solution of Stokes equation as initial guess.
 
 \section{Sparsity pattern}
 

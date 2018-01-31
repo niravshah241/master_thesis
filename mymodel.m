@@ -6,21 +6,21 @@ clc
 %% Actual grid
 % ACTUAL GRID DO NOT DELETE
 
-% params.mesh_number = 1;
-% model.gridtype = 'triagrid';
-% model.grid_initfile = ['mygridnirav', num2str(params.mesh_number), '.mat'];
-% model.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
-% model.bnd_rect_corner2=[eps,1+eps;eps,1-3*10^14*eps]';% for analytical ex.
-% model.bnd_rect_corner1=[-1,-1;100,10]'; % for benchmark problem
-% model.bnd_rect_corner2=[2,2;100,10-eps]'; % for benchmark problem
-% model.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]'; % for standard
-% model.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]'; % for standard
-% model.bnd_rect_index=[-1,-2];
-% grid=construct_grid(model);
-% show_sparsity = false; % Bool variable which plots sparsity pattern of
-% assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
-% params.show_sparsity = show_sparsity;
-% paramsP.show_sparsity = show_sparsity;
+params.mesh_number = 1;
+params.gridtype = 'triagrid';
+params.grid_initfile = ['mygridnirav', num2str(params.mesh_number), '.mat'];
+% params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
+% params.bnd_rect_corner2=[eps,1+eps;eps,1-3*10^14*eps]';% for analytical ex.
+% params.bnd_rect_corner1=[-1,-1;100,10]'; % for benchmark problem
+% params.bnd_rect_corner2=[2,2;100,10-eps]'; % for benchmark problem
+params.bnd_rect_corner1=[-1,-1;1-eps,-eps]'; % for standard
+params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]'; % for standard
+params.bnd_rect_index=[-1,-2];
+grid=construct_grid(params);
+show_sparsity = false; % Bool variable which plots sparsity pattern of
+% % assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
+params.show_sparsity = show_sparsity;
+paramsP.show_sparsity = show_sparsity;
 
 %ACTUAL GRID OVER
 
@@ -28,21 +28,21 @@ clc
 
 %ONLY FOR TEST GRID
 
-params.xrange = [0,1];
-params.yrange = [0,1];
-params.xnumintervals = 15;
-params.ynumintervals = 15;
-params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
-params.bnd_rect_corner2=[2,2;eps,1-6*10^14*eps]';% for analytical ex.
-% params.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
-% params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
-params.bnd_rect_index=[-1,-2];
-params.gridtype = 'triagrid';
-grid = construct_grid(params);
-show_sparsity = false; % Bool variable which plots sparsity pattern of
-%assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
-params.show_sparsity = show_sparsity;
-paramsP.show_sparsity = show_sparsity;
+% params.xrange = [0,1];
+% params.yrange = [0,1];
+% params.xnumintervals = 5;
+% params.ynumintervals = 5;
+% params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
+% params.bnd_rect_corner2=[2,2;eps,1-6*10^12*eps]';% for analytical ex.
+% % params.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
+% % params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
+% params.bnd_rect_index=[-1,-2];
+% params.gridtype = 'triagrid';
+% grid = construct_grid(params);
+% show_sparsity = false; % Bool variable which plots sparsity pattern of
+% %assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
+% params.show_sparsity = show_sparsity;
+% paramsP.show_sparsity = show_sparsity;
 
 %TEST GRID OVER
 
@@ -114,7 +114,7 @@ max_iter = 1e5; % maximum number of iterations
 %
 
 %% Navier Stokes
-tol_newton = 1e-3;
+tol_newton = 1e-7;
 max_iter_newton = 30;
 tol_solver = 1e-13;
 max_iter_solver = 100;

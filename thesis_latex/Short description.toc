@@ -6,22 +6,28 @@
 \contentsline {chapter}{\numberline {3}Discretization and function spaces}{11}
 \contentsline {section}{\numberline {3.1}Grid geometry}{11}
 \contentsline {section}{\numberline {3.2}Grid parameters}{12}
-\contentsline {section}{\numberline {3.3}Global and local co-ordinate system}{14}
-\contentsline {subsection}{\numberline {3.3.1}Jump operator}{17}
-\contentsline {subsection}{\numberline {3.3.2}Average operator}{17}
-\contentsline {section}{\numberline {3.4}Discontinuous Galerkin Method}{17}
-\contentsline {subsection}{\numberline {3.4.1}Nodal basis function and Orthonormal basis function}{18}
-\contentsline {subsection}{\numberline {3.4.2}Nodal Basis Function}{19}
-\contentsline {subsection}{\numberline {3.4.3}Orthonormal Basis Function}{21}
-\contentsline {section}{\numberline {3.5}Weak and discrete form of Navier Stokes equation}{22}
-\contentsline {section}{\numberline {3.6}Coercivity of bilinear form}{22}
-\contentsline {section}{\numberline {3.7}Continuity of bilinear form}{23}
-\contentsline {section}{\numberline {3.8}Inf-sup contdition}{23}
+\contentsline {section}{\numberline {3.3}Discontinuous Galerkin Method}{14}
+\contentsline {subsection}{\numberline {3.3.1}Nodal basis function and Orthonormal basis function}{16}
+\contentsline {subsection}{\numberline {3.3.2}Nodal Basis Functions}{17}
+\contentsline {subsection}{\numberline {3.3.3}Orthonormal Basis Functions}{17}
+\contentsline {section}{\numberline {3.4}Global and local co-ordinate system}{17}
+\contentsline {subsection}{\numberline {3.4.1}Jump operator}{20}
+\contentsline {subsection}{\numberline {3.4.2}Average operator}{21}
+\contentsline {section}{\numberline {3.5}Problem statement}{21}
+\contentsline {subsection}{\numberline {3.5.1}Stokes strong, weak and discrete form}{21}
+\contentsline {subsection}{\numberline {3.5.2}Upwinding}{22}
+\contentsline {subsection}{\numberline {3.5.3}Navier Stokes strong, weak and discrete form:}{22}
+\contentsline {section}{\numberline {3.6}Boundary condition}{23}
+\contentsline {section}{\numberline {3.7}Coercivity of bilinear form}{24}
+\contentsline {section}{\numberline {3.8}Continuity of bilinear form}{24}
 \contentsline {chapter}{\numberline {4}Implementation aspects}{25}
 \contentsline {section}{\numberline {4.1}Terminologies}{25}
-\contentsline {section}{\numberline {4.2}Assembly of average operator}{27}
-\contentsline {section}{\numberline {4.3}Jump operator}{27}
-\contentsline {subsection}{\numberline {4.3.1}Matrix assemblies}{27}
+\contentsline {section}{\numberline {4.2}Basis Function in RBMATLAB}{26}
+\contentsline {section}{\numberline {4.3}Assembly of average operator}{27}
+\contentsline {section}{\numberline {4.4}Jump operator}{27}
+\contentsline {subsection}{\numberline {4.4.1}Matrix assemblies}{27}
+\contentsline {section}{\numberline {4.5}Setting boundary conditions}{34}
+\contentsline {section}{\numberline {4.6}Setting source term}{34}
 \contentsline {chapter}{\numberline {5}Numerical experiments}{35}
 \contentsline {section}{\numberline {5.1}Error definitions}{35}
 \contentsline {section}{\numberline {5.2}Stokes flow}{36}
@@ -40,7 +46,7 @@
 \contentsline {subsection}{\numberline {5.7.1}Grid Preparation}{43}
 \contentsline {subsection}{\numberline {5.7.2}Function space formulation}{44}
 \contentsline {subsection}{\numberline {5.7.3}Matrix assembly}{44}
-\contentsline {subsection}{\numberline {5.7.4}Solving assembled form}{44}
+\contentsline {subsection}{\numberline {5.7.4}Solving assembled form}{45}
 \contentsline {subsection}{\numberline {5.7.5}Post processing}{45}
 \contentsline {subsection}{\numberline {5.7.6}Newton method}{45}
 \contentsline {subsection}{\numberline {5.7.7}Additional remarks}{45}
