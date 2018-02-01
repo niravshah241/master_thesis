@@ -448,29 +448,7 @@ Discrete form of equations can be written in Matrix form as,
 
 Here, $b(\phi,\psi) = -\int_{\Omega} \psi \nabla \cdot \phi$, $(\cdot , \cdot)$ is $L^2$ inner product, $\{\cdot\}$ is average operator, $[\cdot]$ is jump operator. 
 
-\subsection{Coercivity of bilinear form} 
 
-For the term $a_{IP}$ which has elliptic behavior we discuss now coercivity, continuity and inf-sup condition\cite{riviere}.
-
-A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $c_{11} > 0$ such that
-
-\begin{equation}\label{Coercivity}
-a(v,v) > c_{11} ||v||^2   \exists   c_{11} > 0
-\end{equation}
-
-Based on \ref{basics}
-
-\begin{equation}\label{Coercivity_constant}
-a(v,v) \geq (1-\frac{\delta}{2} |1-\epsilon|) \Sigma_{E \epsilon \varepsilon_h} ||\nu^{1/2} \nabla v ||^2_{L^2(E)} + \Sigma_{e \epsilon \Gamma_h \cup \Gamma_D} \frac{\sigma_e^0 - \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0}|1-\epsilon|}{|e|^{\beta_0}} ||[v]||^2_{L^2(e)}
-\end{equation}
-
-\subsection{Continuity of bilinear form}
-
-A bilinear form $a_{IP}(u,v)$ is said to be continuous if there exists a constant $\gamma > 0$ such that
-
-\begin{equation}\label{Continuity_constant}
-a_{IP}(u,v) \leq \gamma ||u||||v||   \exists   \gamma > 0
-\end{equation}
 
 \subsection{Upwinding} \label{upwinding}
 
@@ -1589,6 +1567,31 @@ and is linear with respect to each of its arguments.\\
 \begin{equation}
 a(v,v) \geq \alpha ||v||_\mathbb{V}^2 \forall v \in \mathbb{V}
 \end{equation}
+
+\section{Coercivity of bilinear form} 
+
+For the term $a_{IP}$ which has elliptic behavior we discuss now coercivity, continuity and inf-sup condition\cite{riviere}.
+
+A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $c_{11} > 0$ such that
+
+\begin{equation}\label{Coercivity}
+a(v,v) > c_{11} ||v||^2   \exists   c_{11} > 0
+\end{equation}
+
+Based on \ref{basics}
+
+\begin{equation}\label{Coercivity_constant}
+a(v,v) \geq (1-\frac{\delta}{2} |1-\epsilon|) \Sigma_{E \epsilon \varepsilon_h} ||\nu^{1/2} \nabla v ||^2_{L^2(E)} + \Sigma_{e \epsilon \Gamma_h \cup \Gamma_D} \frac{\sigma_e^0 - \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0}|1-\epsilon|}{|e|^{\beta_0}} ||[v]||^2_{L^2(e)}
+\end{equation}
+
+\section{Continuity of bilinear form}
+
+A bilinear form $a_{IP}(u,v)$ is said to be continuous if there exists a constant $\gamma > 0$ such that
+
+\begin{equation}\label{Continuity_constant}
+a_{IP}(u,v) \leq \gamma ||u||||v||   \exists   \gamma > 0
+\end{equation}
+
 
 \subsection{Coercivity constant for equation for Stokes flow} \label{basics}
 

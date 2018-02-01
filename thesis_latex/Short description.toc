@@ -15,11 +15,9 @@
 \contentsline {section}{\numberline {3.7}Average operator}{21}
 \contentsline {section}{\numberline {3.8}Problem statement}{21}
 \contentsline {subsection}{\numberline {3.8.1}Stokes strong, weak and discrete form}{21}
-\contentsline {subsection}{\numberline {3.8.2}Coercivity of bilinear form}{22}
-\contentsline {subsection}{\numberline {3.8.3}Continuity of bilinear form}{23}
-\contentsline {subsection}{\numberline {3.8.4}Upwinding}{23}
-\contentsline {subsection}{\numberline {3.8.5}Navier Stokes strong, weak and discrete form:}{23}
-\contentsline {subsection}{\numberline {3.8.6}Boundary condition}{24}
+\contentsline {subsection}{\numberline {3.8.2}Upwinding}{22}
+\contentsline {subsection}{\numberline {3.8.3}Navier Stokes strong, weak and discrete form:}{23}
+\contentsline {subsection}{\numberline {3.8.4}Boundary condition}{24}
 \contentsline {chapter}{\numberline {4}Implementation aspects}{25}
 \contentsline {section}{\numberline {4.1}Terminologies}{25}
 \contentsline {section}{\numberline {4.2}Basis Function in RBmatlab}{26}
@@ -58,7 +56,9 @@
 \contentsline {subsection}{\numberline {6.2.3}Basic definitions}{51}
 \contentsline {subsection}{\numberline {6.2.4}Linear forms}{52}
 \contentsline {subsection}{\numberline {6.2.5}Bilinear forms}{52}
-\contentsline {subsection}{\numberline {6.2.6}Coercivity constant for equation for Stokes flow}{53}
-\contentsline {subsection}{\numberline {6.2.7}Sobolev spaces}{53}
-\contentsline {subsection}{\numberline {6.2.8}Trace theorem}{54}
-\contentsline {subsection}{\numberline {6.2.9}Cauchy-Schwarz and Young's inequality}{55}
+\contentsline {section}{\numberline {6.3}Coercivity of bilinear form}{53}
+\contentsline {section}{\numberline {6.4}Continuity of bilinear form}{53}
+\contentsline {subsection}{\numberline {6.4.1}Coercivity constant for equation for Stokes flow}{53}
+\contentsline {subsection}{\numberline {6.4.2}Sobolev spaces}{54}
+\contentsline {subsection}{\numberline {6.4.3}Trace theorem}{55}
+\contentsline {subsection}{\numberline {6.4.4}Cauchy-Schwarz and Young's inequality}{56}
