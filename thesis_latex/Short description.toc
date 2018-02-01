@@ -7,27 +7,27 @@
 \contentsline {section}{\numberline {3.1}Grid geometry}{11}
 \contentsline {section}{\numberline {3.2}Grid parameters}{12}
 \contentsline {section}{\numberline {3.3}Discontinuous Galerkin Method}{14}
-\contentsline {subsection}{\numberline {3.3.1}Nodal basis function and Orthonormal basis function}{16}
-\contentsline {subsection}{\numberline {3.3.2}Nodal Basis Functions}{17}
-\contentsline {subsection}{\numberline {3.3.3}Orthonormal Basis Functions}{17}
-\contentsline {section}{\numberline {3.4}Global and local co-ordinate system}{17}
-\contentsline {subsection}{\numberline {3.4.1}Jump operator}{20}
-\contentsline {subsection}{\numberline {3.4.2}Average operator}{21}
-\contentsline {section}{\numberline {3.5}Problem statement}{21}
-\contentsline {subsection}{\numberline {3.5.1}Stokes strong, weak and discrete form}{21}
-\contentsline {subsection}{\numberline {3.5.2}Upwinding}{22}
-\contentsline {subsection}{\numberline {3.5.3}Navier Stokes strong, weak and discrete form:}{22}
-\contentsline {section}{\numberline {3.6}Boundary condition}{23}
-\contentsline {section}{\numberline {3.7}Coercivity of bilinear form}{24}
-\contentsline {section}{\numberline {3.8}Continuity of bilinear form}{24}
+\contentsline {section}{\numberline {3.4}Nodal basis function and Orthonormal basis function}{16}
+\contentsline {subsection}{\numberline {3.4.1}Nodal Basis Functions}{17}
+\contentsline {subsection}{\numberline {3.4.2}Orthonormal Basis Functions}{17}
+\contentsline {section}{\numberline {3.5}Global and local co-ordinate system}{17}
+\contentsline {section}{\numberline {3.6}Jump operator}{20}
+\contentsline {section}{\numberline {3.7}Average operator}{21}
+\contentsline {section}{\numberline {3.8}Problem statement}{21}
+\contentsline {subsection}{\numberline {3.8.1}Stokes strong, weak and discrete form}{21}
+\contentsline {subsection}{\numberline {3.8.2}Coercivity of bilinear form}{22}
+\contentsline {subsection}{\numberline {3.8.3}Continuity of bilinear form}{23}
+\contentsline {subsection}{\numberline {3.8.4}Upwinding}{23}
+\contentsline {subsection}{\numberline {3.8.5}Navier Stokes strong, weak and discrete form:}{23}
+\contentsline {subsection}{\numberline {3.8.6}Boundary condition}{24}
 \contentsline {chapter}{\numberline {4}Implementation aspects}{25}
 \contentsline {section}{\numberline {4.1}Terminologies}{25}
-\contentsline {section}{\numberline {4.2}Basis Function in RBMATLAB}{26}
+\contentsline {section}{\numberline {4.2}Basis Function in RBmatlab}{26}
 \contentsline {section}{\numberline {4.3}Assembly of average operator}{27}
-\contentsline {section}{\numberline {4.4}Jump operator}{27}
-\contentsline {subsection}{\numberline {4.4.1}Matrix assemblies}{27}
-\contentsline {section}{\numberline {4.5}Setting boundary conditions}{34}
-\contentsline {section}{\numberline {4.6}Setting source term}{34}
+\contentsline {section}{\numberline {4.4}Assembly of jump operator}{27}
+\contentsline {section}{\numberline {4.5}Matrix assemblies}{27}
+\contentsline {section}{\numberline {4.6}Setting boundary conditions}{34}
+\contentsline {section}{\numberline {4.7}Setting source term}{34}
 \contentsline {chapter}{\numberline {5}Numerical experiments}{35}
 \contentsline {section}{\numberline {5.1}Error definitions}{35}
 \contentsline {section}{\numberline {5.2}Stokes flow}{36}
@@ -51,14 +51,14 @@
 \contentsline {subsection}{\numberline {5.7.6}Newton method}{45}
 \contentsline {subsection}{\numberline {5.7.7}Additional remarks}{45}
 \contentsline {chapter}{\numberline {6}Appendix}{47}
-\contentsline {section}{\numberline {6.1}Mathematical preliminaries}{47}
-\contentsline {subsection}{\numberline {6.1.1}Cholesky decomposition}{47}
-\contentsline {subsection}{\numberline {6.1.2}Saddle point formulation}{48}
-\contentsline {section}{\numberline {6.2}List of symbols}{49}
-\contentsline {subsection}{\numberline {6.2.1}Basic definitions}{50}
-\contentsline {subsection}{\numberline {6.2.2}Linear forms}{51}
-\contentsline {subsection}{\numberline {6.2.3}Bilinear forms}{52}
-\contentsline {subsection}{\numberline {6.2.4}Coercivity constant for equation for Stokes flow}{52}
-\contentsline {subsection}{\numberline {6.2.5}Sobolev spaces}{53}
-\contentsline {subsection}{\numberline {6.2.6}Trace theorem}{54}
-\contentsline {subsection}{\numberline {6.2.7}Cauchy-Schwarz and Young's inequality}{54}
+\contentsline {section}{\numberline {6.1}List of symbols}{47}
+\contentsline {section}{\numberline {6.2}Mathematical preliminaries}{49}
+\contentsline {subsection}{\numberline {6.2.1}Cholesky decomposition}{49}
+\contentsline {subsection}{\numberline {6.2.2}Saddle point formulation}{50}
+\contentsline {subsection}{\numberline {6.2.3}Basic definitions}{51}
+\contentsline {subsection}{\numberline {6.2.4}Linear forms}{52}
+\contentsline {subsection}{\numberline {6.2.5}Bilinear forms}{52}
+\contentsline {subsection}{\numberline {6.2.6}Coercivity constant for equation for Stokes flow}{53}
+\contentsline {subsection}{\numberline {6.2.7}Sobolev spaces}{53}
+\contentsline {subsection}{\numberline {6.2.8}Trace theorem}{54}
+\contentsline {subsection}{\numberline {6.2.9}Cauchy-Schwarz and Young's inequality}{55}
