@@ -13,17 +13,18 @@
 \contentsline {section}{\numberline {3.5}Global and local co-ordinate system}{17}
 \contentsline {section}{\numberline {3.6}Jump operator}{20}
 \contentsline {section}{\numberline {3.7}Average operator}{21}
-\contentsline {section}{\numberline {3.8}Problem statement}{21}
-\contentsline {subsection}{\numberline {3.8.1}Stokes strong, weak and discrete form}{21}
-\contentsline {subsection}{\numberline {3.8.2}Upwinding}{22}
-\contentsline {subsection}{\numberline {3.8.3}Navier Stokes strong, weak and discrete form:}{23}
-\contentsline {subsection}{\numberline {3.8.4}Boundary condition}{24}
+\contentsline {section}{\numberline {3.8}$L^2$ scalar product}{21}
+\contentsline {section}{\numberline {3.9}Problem statement}{21}
+\contentsline {subsection}{\numberline {3.9.1}Stokes strong, weak and discrete form}{21}
+\contentsline {subsection}{\numberline {3.9.2}Upwinding}{23}
+\contentsline {subsection}{\numberline {3.9.3}Navier Stokes strong, weak and discrete form:}{23}
+\contentsline {subsection}{\numberline {3.9.4}Boundary condition}{24}
 \contentsline {chapter}{\numberline {4}Implementation aspects}{25}
 \contentsline {section}{\numberline {4.1}Terminologies}{25}
 \contentsline {section}{\numberline {4.2}Basis Function in RBmatlab}{26}
 \contentsline {section}{\numberline {4.3}Assembly of average operator}{27}
 \contentsline {section}{\numberline {4.4}Assembly of jump operator}{27}
-\contentsline {section}{\numberline {4.5}Matrix assemblies}{27}
+\contentsline {section}{\numberline {4.5}Matrix assemblies}{28}
 \contentsline {section}{\numberline {4.6}Setting boundary conditions}{34}
 \contentsline {section}{\numberline {4.7}Setting source term}{34}
 \contentsline {chapter}{\numberline {5}Numerical experiments}{35}

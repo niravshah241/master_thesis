@@ -203,10 +203,6 @@ In order to give clear visualization of domain or precisely, the continuous doma
   \label{fig:Domain}
 \end{figure}
 
-\newpage
-\newpage
-
-
 \section{Discontinuous Galerkin Method}
 
 In the context of the discontinuous Galerkin method we introduce the function spaces $V_h$($\mathcal{T}$) and $Q_h$($\mathcal{T}$) for analytical solution of velocity and analytical solution of pressure respectively. The space containing high fidelity solution (in this case Discontinuous Galerkin) is called truth space denoted by $V_h$ for velocity and $Q_h$ for pressure. The dimension of truth space is denoted as $N_h$. (The subscript $h$ hereafter refers to the truth space.)
@@ -358,6 +354,25 @@ Similarly the average operator is defined as,
 \left\lbrace u \right\rbrace = \frac{u^+ + u^-}{2}  
 \end{equation} 
 
+\section{$L^2$ scalar product}
+
+We denote the scalar product by $(p,q)$ which refers to,
+
+If $p$ and $q$ are scalars,
+\begin{equation}\label{inner product scalars}
+(p,q)=\int_{\Omega} pq d \Omega 
+\end{equation}
+
+If $p$ and $q$ are vectors,
+\begin{equation}\label{Inner product vectors}
+(p,q)=\int_{\Omega} p \cdot q d\Omega
+\end{equation}
+
+If $p$ and $q$ are tensors,
+\begin{equation}\label{Inner product tensors}
+(p,q)=\int_{\Omega} p:q d\Omega
+\end{equation}
+
 \section{Problem statement}
 
 With the above background we are now ready to derive weak formulation and define problem in weak form. Following the approach presented by \cite{Montlaur} and \cite{Montlaur2} we arrive at weak form of Stokes and Navier Stokes interior penalty approximation.
@@ -448,8 +463,6 @@ Discrete form of equations can be written in Matrix form as,
 
 Here, $b(\phi,\psi) = -\int_{\Omega} \psi \nabla \cdot \phi$, $(\cdot , \cdot)$ is $L^2$ inner product, $\{\cdot\}$ is average operator, $[\cdot]$ is jump operator. 
 
-
-
 \subsection{Upwinding} \label{upwinding}
 
 Upwinding is method used to discretise the convective term. In case of discontinuous Galerkin method we define the upwinding as follow.\\
@@ -536,14 +549,14 @@ We impose in our analysis boundary condition weakly. This is done by the rhs ter
 
 \chapter{Implementation aspects} \label{implementation_aspects}
 
-We discuss now the implementation of discrete formulation of Navier Stokes Discontinuous Galerkin weak formulation in RBMATLAB, A MATLAB library containing all our reduced simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. 
+We discuss now the implementation of discrete formulation of Navier Stokes discontinuous Galerkin weak formulation in RBmatlab, A MATLAB library containing all our reduced simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. 
 
-Before we discuss details of implementation it is important to understand some frequently used terminologies and the data type of Basis Function and derivative of basis function in RBMATLAB.
+Before we discuss details of implementation it is important to understand some frequently used terminologies and the data type of Basis Function and derivative of basis function in RBmatlab.
 
 \section{Terminologies}
 
 
-A. $params$ and $paramsP$ : $params$ and $paramsP$ are structures corressponding to velocity and pressure respective containing following fields\\
+A. $params$ and $paramsP$ : $params$ and $paramsP$ are structures corressponding to velocity and pressure respectively and primarily containing following fields\\
 
 1. $dimrange$ : We refer $dimrange$ as dimension of range or solution. In present analysis this means Velocity has $dimrange$ of 2 and Pressure has $dimrange$ of 1.\\
 
@@ -551,43 +564,49 @@ A. $params$ and $paramsP$ : $params$ and $paramsP$ are structures corressponding
 
 3. $ndofs\_per\_element$ : We refer $ndofs\_per\_element$ as the number of degrees of freedom over an element. \\
 
+4. $dofs$ : $dofs$ is the field containing solution vector.
+
+5. $ndofs$ : $ndofs$ is the total number of degrees of freedom.
+
+6. $show\_sparsity$ : $show\_sparsity$ is the switch for plotting sparsity pattern.
+
 B. $grid$ : $grid$ is the structure containing following fields\\
 
-4. $nelements$ : $nelements$ is total number of elements in grid.\\
+7. $nelements$ : $nelements$ is total number of elements in grid.\\
 
-5. $NBI$ : $NBI(i,j)$ represents element number of $j$th neighbour of element $i$. 1$\leq i \leq nelements$ and 1$\leq j \leq$3.\\
+8. $NBI$ : $NBI(i,j)$ represents element number of $j$th neighbour of element $i$. 1$\leq i \leq nelements$ and 1$\leq j \leq$3.\\
 
-6. $NX$ and $NY$ : $NX(i,j)$ and $NY(i,j)$ represent x component and y component of normal from  element $i$ to $j$ numbered neighbour.\\
+9. $NX$ and $NY$ : $NX(i,j)$ and $NY(i,j)$ represent x component and y component of normal from  element $i$ to $j$ numbered neighbour.\\
 
-7. $JIT$ : $[JIT(k,:,1)',JIT(k,:,2)']$ represents Jacobian Inverse Transpose of element $k$.\\
+10. $JIT$ : $[JIT(k,:,1)',JIT(k,:,2)']$ represents Jacobian Inverse Transpose of element $k$.\\
 
-8. $A$ : $A(k)$ represents area of $k$th element.\\
+11. $A$ : $A(k)$ represents area of $k$th element.\\
 
-9. $EL$ : $EL(i,j)$ represents length of edge between element $i$ and $j$th neighbour of Element $i$. The notation $EL$ is used when $i$ refers to superscript $+$ and $j$ refers to element with superscript $-$.\\
+12. $EL$ : $EL(i,j)$ represents length of edge between element $i$ and $j$th neighbour of Element $i$. The notation $EL$ is used when $i$ refers to superscript $+$ and $j$ refers to element with superscript $-$.\\
 
 We also use some other local variables as below:
 
-10. $k$ : $k$ represents the element number and 1$\leq k \leq nelements$.\\
+13. $k$ : $k$ represents the element number and 1$\leq k \leq nelements$.\\
 
-11. $ids$ : $ids(i,:)$ represents the indices of degree of freedom of element $i$ where 1$\leq i \leq nelements$ in global degree of fredom vector. Size of $ids(i,:)$ is $ndofs\_per\_element$. $ids\_velocity$ corressponds to indices corressponding to velocity and $ids\_pressure$ corressponds to indices corressponding to pressure. Further notations such as $ids\_velocity\_neighbour$ should be read as $ids$ of velocity degree of freedom of neighbouring element.\\
+14. $ids$ : $ids(i,:)$ represents the indices of degree of freedom of element $i$ where 1$\leq i \leq nelements$ in global degree of fredom vector. Size of $ids(i,:)$ is $ndofs\_per\_element$. $ids\_velocity$ corressponds to indices corressponding to velocity and $ids\_pressure$ corressponds to indices corressponding to pressure. Further notations such as $ids\_velocity\_neighbour$ should be read as $ids$ of velocity degree of freedom of neighbouring element. $ids$ are generated by routine $ldg\_global\_dof\_index$.\\
 
 \section{Basis Function in RBmatlab}
 
-The Basis functions in RBMATLAB is generated by routine called ldg\_evaluate\_basis.m.\\
+The Basis functions in RBmatlab is generated by routine called $ldg\_evaluate\_basis.m$.\\
 
-We interpolate the solution from solution at known degrees of freedom. In matrix formulation this means basis function is matrix of the size,
+We approximatete the solution at any point from solution of degrees of freedom in orthonormal basis. In matrix formulation this means basis function is matrix of the size,
 
 \begin{equation}\label{basis_func_rbmatlab}
 \phi_h \epsilon \mathbb{R}^{ndofs\_per\_element X dimrange}
 \end{equation}
 
-where each row of $\phi_h$ denotes 
+where each row of $\phi_h$ denotes one degree of freedom.
 
-This representation creates many zeros in matrix, however, it does not require new evaluation for each component of vector quantity in dimrange of solution.
+This representation creates many zeros in matrix, however, it does not require new evaluation for each component of vector quantity in $dimrange$ of solution.
 
 Due to the zeros in the basis function, zeros in derivative of basis functions are produced. 
 
-The derivative of basis function is generated by routine ldg\_evaluate\_basis\_derivative. The derivative of basis function $(\phi_h)_{i}$, where 1$\leq i \leq nodfs\_per\_element$ is a cell containing matrix $\nabla (\phi_h)_{i}$ of size,
+The derivative of basis function is generated by routine $ldg\_evaluate\_basis\_derivative$. The derivative of basis function $(\phi_h)_{i}$, where $1 \leq i \leq nodfs\_per\_element$ is a cell containing matrix $\nabla (\phi_h)_{i}$ of size,
 \begin{equation}\label{basis_func_derivative_rbmatlab}
 \nabla (\phi_h)_{i} \epsilon \mathbb{R}^{{dimrange} X 2}
 \end{equation}
@@ -628,7 +647,7 @@ and for dirichlet edges $\Gamma_D$
 
 \section{Matrix assemblies}
 
-We repeat here, for conveniece, again notations of $L^2$ scalar product from weak form
+We repeat here, for conveniece, again the notations of $L^2$ scalar product from weak form
 
 Here, $(p,q)$ refers to,
 
@@ -649,6 +668,8 @@ If $p$ and $q$ are tensors,
 
 i.e. (.,.) denotes $L_2$ inner product.
 
+It is to be noted that $\hat{\phi_h}$ is evaluated at local coordinate corresponding to global coordinate in accordance with \ref{func_transformation}.
+
 The matrices from weak form of Navier Stokes equation have been assembled in 3 steps,
 
 1. Evaluating function at vertex of local element and transform to global geometry\\
@@ -663,9 +684,9 @@ We also perform numerical integration over domain $\Omega$ as,
 
 Where, \\
 
-$x_i$ = Location of function evaluation
-$w_i$ = Weight at corressponding point
-$nop$ = Number of points
+$x_i$ = Location of function evaluation\\
+$w_i$ = Weight at corressponding point\\
+$nop$ = Number of points\\
 
 The location of function evaluation, number of points and weights are based on Gaussian quadrature rule.
 
@@ -681,7 +702,7 @@ With this preliminary informations we discuss now the assembly of matrices.
 
 Step 1: Evalauation of $(\nabla \phi , \nabla \phi)$,
 
-We first evaluate derivative of $\hat{\phi}$ and $JIT(k,:,:)$ through ldg\_evaluate\_basis\_derivative and grid structure. We also perform elementary operation so as to rceiv one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the formula \ref{derivative_transformation}.
+We first evaluate derivative of $\hat{\phi}$ and $JIT(k,:,:)$ through ldg\_evaluate\_basis\_derivative and grid structure. We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the formula \ref{derivative_transformation}.
 
 We than assemble matrix $res_1[i,j]=\phi_i*\phi_j^T$ for $1 \leq i,j \leq ndofs\_per\_element$\\
 
@@ -734,8 +755,6 @@ $res_1^{++} = {\nabla u_h}^+ [n \otimes \hat{\phi_h}]^+$\\
 $res_1^{+-} = {\nabla u_h}^+ [n \otimes \hat{\phi_h}]^-$\\
 $res_1^{-+} = {\nabla u_h}^- [n \otimes \hat{\phi_h}]^+$\\
 $res_1^{--} = {\nabla u_h}^- [n \otimes \hat{\phi_h}]^-$\\
-
-Please note that $\hat{\phi_h}$ is evaluated at local coordinate corresponding to global coordinate in accordance with \ref{func_transformation}.
 
 Step 2: In step 2 we perform following integration, 
 We perform the numerical integration as per \ref{integral_local_global_boundary}
@@ -1037,7 +1056,7 @@ p = (1 - x)
 
 \end{center}
 
-The grid is equally divided in both directions with number of divisions in each direction as $5,10,15,20$ giving step size of each element in each of $x-y$ direction as $0.2,0.1,0.067,0.05$.
+The grid is equally divided in both directions with number of divisions in each direction as $5,10,15,20$ giving step size of each element in each of $x-y$ direction as $0.2,0.1,0.067,0.05$.\\
 
 The results of $h-$convergence test in $L^2$ norm is presented in figure $bvfhvg$ for velocity and in figure $nvjkv$ for pressure. The results of $p-$convergence test in $L^2$ norm is presented in figure $bvfhvg$ for velocity and in figure $nvjkv$ for pressure. The plots of pressure and velocity are shown in figure $bvjvjvj$ and $bvjfhjjrh$
 
@@ -1094,7 +1113,7 @@ Add figure here and cite figure above
 
 \section{Selection of solver}
 
-In order to solve variation form of Stokes equation we use Biconjugate gradients stabilized method popularly known as $bicgstab$, Minimum residual method better knwon as $minres$ and Schur complement method. The $bicgstab$ and $minres$ are in built solvers of MATLAB $howtociteMATLAB$. Schur complement method (Section\ref{schur}) is implemented separately based on Cholesky decomposition (Section \ref{chol}).
+In order to solve variation form of Stokes equation we use Biconjugate gradients stabilized method popularly known as $bicgstab$, Minimum residual method better knwon as $minres$ and Schur complement method. The $bicgstab$ and $minres$ are in built solvers of MATLAB $howtociteMATLAB$. Schur complement method (Section \ref{schur}) is implemented separately based on Cholesky decomposition (Section \ref{chol}).
 
 \subsection{Biconjugate gradients stabilized method}
 
@@ -1110,7 +1129,7 @@ with $K$ = Coefficient matrix, $X$ = Vector of unknowns and $B$ = vector of valu
 Add working algorithm
 \end{Huge}
 
-In present analysis it was found that the $bicgstab$ stops before converging to specified tolerance level or reaching maximum number of iterations. We expect that this is due to reaching a point which has zero Gradient but is not local optimal i.e. Saddle point formulation (Section \ref{saddle_point}). 
+In the present analysis it was found that the $bicgstab$ stops before converging to specified tolerance level or reaching maximum number of iterations. We expect that this is due to reaching a point which has zero Gradient but is not local optimal i.e. Saddle point formulation (Section \ref{saddle_point}). 
 
 \subsection{Minimum residual method} 
 
@@ -1148,7 +1167,7 @@ We now back substitute $P$ in equation \eqref{schur step 1} and compute $U$ in o
 
 The success of this method primarily depends upon sparsity pattern of $B$ and efforts required for inverting $A$. The Cholesky decomposition provides faster approach for inverting $A$ due to symmetric positive definite nature of $A$. \\
 
-In present analysis we find that Schur complement is much faster and in fact, for low flow velocities accurate method. Also Cholesky decoposition provides error message in case $A$ is not symmetric positive definite, indicating improper choice of penalty parameter. However, for high flow velocity this method is not very accurate. 
+In the present analysis, we find that Schur complement is much faster and in fact, for low flow velocities accurate method. Also Cholesky decoposition provides error message in case $A$ is not symmetric positive definite, indicating improper choice of penalty parameter. However, for high flow velocity this method is not very accurate. 
 
 \section{Navier Stokes flow}
 
@@ -1170,7 +1189,7 @@ c(w;u,\phi) = \sum_{i=1}^{nel} \int_{\partial \Omega_i \setminus \Gamma_N} \frac
 \end{split}
 \end{equation}
 
-Hence, Navier Stokes equation can be written as,
+Hence, the Navier Stokes equation can be written as,
 
 \begin{equation}\label{navier_stokes_weak}
 \begin{split}
@@ -1295,11 +1314,11 @@ Add figure here and cite figure above
 
 We use $pdegrid$ tool to generate grid. We generate mesh and export parameters $point(p)$, $edge(e)$ and $triangle(t)$. $params.bnd\_rect\_corner1$ marks the lower corner of to be marked boundary and $params.bnd\_rect\_corner2$ marks the upper corner of to be marked boundary. $params.bnd\_rect\_index$ marks the type of boundary. $-1$ represents Dirichlet boundary and $-2$ represents Neumann boundary. $params.gridtype$ defines the type of grid. $construct\_grid(params)$ constructs the grid as struct containing necessary fields for grid. 
 
-In case of creating rectangular grid without using $pdegrid$, we also define fields $xrange$, $yrange$, $xnumintervals$ and $ynumintervals$ defining range of x co-ordinates of domain, range of y co-ordinates of domain, number of intervals for x division and number of intervals for y division respectively. 
+In case of creating rectangular grid without using $pdegrid$, we define fields $xrange$, $yrange$, $xnumintervals$ and $ynumintervals$ defining range of x co-ordinates of domain, range of y co-ordinates of domain, number of intervals for x division and number of intervals for y division respectively and call routine $construct\_grid$.
 
 \subsection{Function space formulation}
 
-We now define fields for constructing function spaces for pressure and velocity. We define now two structures $params$ for velocity and $paramsP$ for pressure. These structures contain fields (as relevant to function space formulation) $pdeg$ and $dimrange$. $pdeg$ represents polynomial degree of Ansatz function and $dimrange$ represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field $paramsP.pdeg$ is calculated as $paramsP.pdeg = params.pdeg - 1$ in accordance with Taylor hood element. Based on these fields $ndofs\_per\_element$, $ndofs$ are calculated. Number of elements in grid can be read from $grid.nelements$. We also define degree for integration $qdeg$ and kinematic viscocity in $params.kinematic\_viscosity$. Variable $mu$ also holds the value of kinematic viscocity. we define penalty parameter in variable $c11$. $show\_sparsity$ is the field used to plot sparsity pattern of each matrix if set to true.\\
+We now define fields for constructing function spaces for pressure and velocity. We define now two structures $params$ for velocity and $paramsP$ for pressure. These structures contain fields (as relevant to function space formulation) $pdeg$ and $dimrange$. $pdeg$ represents polynomial degree of Ansatz function and $dimrange$ represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field $paramsP.pdeg$ is calculated as $paramsP.pdeg = params.pdeg - 1$ in accordance with Taylor hood element. Based on these fields $ndofs\_per\_element$, $ndofs$ are calculated. Number of elements in grid can be read from $grid.nelements$. We also define degree for integration $qdeg$ and kinematic viscocity in $params.kinematic\_viscosity$. Variable $mu$ also holds the value of kinematic viscocity. we define penalty parameter in variable $C11$. $show\_sparsity$ is the field used to plot sparsity pattern of each matrix if set to true.\\
 
 \subsection{Matrix assembly}
 
@@ -1307,11 +1326,11 @@ We now assemble all the matrices as explained in chapter \ref{implementation_asp
 
 \subsection{Solving assembled form}
 
-We now define the solver specific variables. $required\_residual\_tol$ specifies the required accuracy from solver in solution and $max\_iter$ specifies the maximum number of iterations that is used to stop the solver in case the solver does not converge. We call the routine $solve\_plot\_solution$ for $bicgstab$,$minres$ (The solver is specified in $solve\_plot\_solution$). In case of Schur complement method, routine $solve\_plot\_solution\_schur$ is used. The output variable $achived\_residual\_tol$ contains residual value, $params$ and $paramsP$ are given new values $dofs$ which contain degree of freedom. $actual\_iter$ is the value of number of iterations at the end of iterations process. $flag$ specifies the criteria for end of iteration process.\\
+We now define the solver specific variables. $required\_residual\_tol$ specifies the required accuracy from solver in solution and $max\_iter$ specifies the maximum number of iterations that is used to stop the solver in case the solver does not converge. We call the routine $solve\_plot\_solution$ for $bicgstab$,$minres$ (The solver is specified in $solve\_plot\_solution$). In case of Schur complement method, routine $solve\_plot\_solution\_schur$ is used. The output variable $achieved\_residual\_tol$ contains residual value, $params$ and $paramsP$ are given new values $dofs$ which contain degree of freedom. $actual\_iter$ is the value of number of iterations at the end of iterations process. $flag$ specifies the criteria for end of iteration process.\\
 
 \subsection{Post processing}
 
-We now enter into $stifness\_matrix\_test$, explained in section \ref{Stokes_flow}. We now enter into error measurement which measures the error in $L^2$ or $H_0$ norm. $params.dof\_analytical$, $paramsP.dof\_analytical$ contain analytical expression against which numerical solution is to be compared. $params.dof\_derivative\_analytical$ and  $paramsP.dof\_derivative\_analytical$ contain anlytical exprression for derivative to be used for $H_0$ norm.\\
+We now enter into $stifness\_matrix\_test$, explained in section \ref{Stokes_flow}. Then we enter into error measurement which measures the error in $L^2$ or $H_0$ norm. $params.dof\_analytical$, $paramsP.dof\_analytical$ contain analytical expression against which numerical solution is to be compared. $params.dof\_derivative\_analytical$ and  $paramsP.dof\_derivative\_analytical$ contain anlytical exprression for derivative to be used for $H_0$ norm.\\
 
 \subsection{Newton method}
 
@@ -1325,6 +1344,8 @@ We plot the solution using  $ldg\_plot$ written for plotting discontinuous funct
 
 \section{List of symbols} \label{symbol_list}
 
+$w_i$ = Weight at corressponding point\\
+$nop$ = Number of points\\
 $h_\tau$ Diameter of element $\tau$\\
 $\mathcal{T}$ Discretised domain\\
 $\theta$ Smallest angle in all triangles $\tau \in \mathcal{T}$\\
@@ -1361,11 +1382,11 @@ $\tau$ Triangular grid element\\
 $JIT$ Jacobian Inverse Transpose\\
 $n$ Unit normal to an edge pointing outwards from the element\\
 $\Omega$ Continuous domain\\
-$\partial \Omega$ Domain boundaries\\
+$\partial \Omega$ Continuous domain boundary\\
 $\hat{T}$ Reference Triangle\\
 $P^D$ Polynomial of degree at most $D$ over $\Omega$\\
 $C_{11}$ Coercivity constant\\
-$\Gamma$ Continuity constant\\
+$\gamma$ Continuity constant\\
 $\beta$ Inf-sup constant\\
 $\nu$ Kinematic viscocity\\
 $B'$ Extensive property under consideration  \\
@@ -1395,7 +1416,7 @@ U = LL^T
 
 where, $L$ is lower triangular matrix. It is to be noted that $L^T$ is an upper triangular matrix. \\
 
-Cholesky decomposition is useful especially when inverting an Matrix in MATLAB, since the back division operator ($\setminus$) recognises the lower triangular structure of matrix and proceeds with faster division.\\
+Cholesky decomposition is useful especially when inverting an Matrix in MATLAB. Since the back division operator ($\setminus$) recognises the lower triangular structure of matrix, it proceeds with division process.\\
 
 We now explain the algorithm for Cholesky decomposition. \\
 
@@ -1470,7 +1491,7 @@ A \in \mathbb{R}^{n \times n}; B_1, B_2 \in \mathbb{R}^{m \times n}; C \in \math
 
 with $n \geq m$.\\
 
-We assume here that $A, B_1, B_2$ are zeros. Usually constituents $A,B,C$ satisfy one or more of following properties.
+We assume here that $A, B_1, B_2$ are non zeros. Usually constituents $A,B,C$ satisfy one or more of following properties.
 \\
 \\
 1. $A = A^T$ (Symmetric)\\
@@ -1479,9 +1500,11 @@ We assume here that $A, B_1, B_2$ are zeros. Usually constituents $A,B,C$ satisf
 4. $C$ is symmetric and positive semidefinite\\
 5. $C = 0$ (Zero matrix)\\
 
-Stokes equation is an example of Saddle point problem. \\
+Incompressible Stokes equation is an example of Saddle point problem with $A$ being symmetric positive definite matrix, $B_2 = B_1^T$ and $C = 0$. \\
 
 \textbf{Remarks}:\\
+
+1. Saddle point problem has points with zero slope but not local optimum.\\
 
 1. In case $A$ is symmetric positive definite the Schur complement is very useful method.\\
 
