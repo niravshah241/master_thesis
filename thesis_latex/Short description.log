@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  1 FEB 2018 10:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  1 FEB 2018 16:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -544,19 +544,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 701--702
  []
 
 
-Overfull \hbox (55.89374pt too wide) in paragraph at lines 705--706
+Overfull \hbox (62.71976pt too wide) in paragraph at lines 705--706
 []\OT1/cmr/m/n/12 We first eval-u-ate deriva-tive of $[]$ and $\OML/cmm/m/it/12
  JIT\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 k; \OT1/cmr/m/n/12 :\OML/cmm/m/it/12 ; \O
-T1/cmr/m/n/12 :)$ through ldg[]evaluate[]basis[]derivative
+T1/cmr/m/n/12 :)$ through $\OML/cmm/m/it/12 ldg[]evaluate[]basis[]derivative$
  []
 
 
-Overfull \hbox (15.80008pt too wide) in paragraph at lines 707--708
+Overfull \hbox (9.80006pt too wide) in paragraph at lines 707--708
 []\OT1/cmr/m/n/12 We than as-sem-ble ma-trix $\OML/cmm/m/it/12 res[]\OT1/cmr/m/
-n/12 [\OML/cmm/m/it/12 i; j\OT1/cmr/m/n/12 ] = \OML/cmm/m/it/12 ^^^[] \OMS/cmsy
-/m/n/12 ^^C \OML/cmm/m/it/12 ^^^[]$ \OT1/cmr/m/n/12 for $1 \OMS/cmsy/m/n/12 ^^T
- \OML/cmm/m/it/12 i; j \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 ndofs[]per[]elemen
-t$ 
+n/12 [\OML/cmm/m/it/12 i; j\OT1/cmr/m/n/12 ] = \OML/cmm/m/it/12 ^^^[]^^^[]$ \OT
+1/cmr/m/n/12 for $1 \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 i; j \OMS/cmsy/m/n/12
+ ^^T \OML/cmm/m/it/12 ndofs[]per[]element$ 
  []
 
 
@@ -804,280 +803,288 @@ Underfull \hbox (badness 10000) in paragraph at lines 1059--1060
 
  []
 
-[38]
-Overfull \hbox (2.24774pt too wide) in paragraph at lines 1116--1117
+
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1062
+
+ []
+
+<velocity_error_stokes.jpg, id=146, 562.1pt x 421.575pt>
+File: velocity_error_stokes.jpg Graphic file (type jpg)
+
+<use velocity_error_stokes.jpg>
+Package pdftex.def Info: velocity_error_stokes.jpg used on input line 1064.
+(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+
+<pressure_error_stokes.jpg, id=147, 562.1pt x 421.575pt>
+File: pressure_error_stokes.jpg Graphic file (type jpg)
+
+<use pressure_error_stokes.jpg>
+Package pdftex.def Info: pressure_error_stokes.jpg used on input line 1070.
+(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+ [38 <./velocity_error_stokes.jpg>] [39 <./pressure_error_stokes.jpg>]
+
+LaTeX Warning: Reference `velocity_y_benchmark_stokes' on page 40 undefined on 
+input line 1097.
+
+<velocity_x_schur.jpg, id=154, 562.1pt x 421.575pt>
+File: velocity_x_schur.jpg Graphic file (type jpg)
+ <use velocity_x_schur.jpg>
+Package pdftex.def Info: velocity_x_schur.jpg used on input line 1101.
+(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+
+<velocity_y_schur.jpg, id=155, 562.1pt x 421.575pt>
+File: velocity_y_schur.jpg Graphic file (type jpg)
+ <use velocity_y_schur.jpg>
+Package pdftex.def Info: velocity_y_schur.jpg used on input line 1107.
+(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+
+<pressure.jpg, id=156, 562.1pt x 421.575pt>
+File: pressure.jpg Graphic file (type jpg)
+ <use pressure.jpg>
+Package pdftex.def Info: pressure.jpg used on input line 1113.
+(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+ [40 <./velocity_x_schur.jpg>] [41 <./velocity_y_schur.jpg>] [42 <./pressure.jp
+g>]
+<velocity_X_schur.jpg, id=167, 562.1pt x 421.575pt>
+File: velocity_X_schur.jpg Graphic file (type jpg)
+ <use velocity_X_schur.jpg>
+Package pdftex.def Info: velocity_X_schur.jpg used on input line 1125.
+(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+
+<velocity_Y_schur.jpg, id=168, 562.1pt x 421.575pt>
+File: velocity_Y_schur.jpg Graphic file (type jpg)
+ <use velocity_Y_schur.jpg>
+Package pdftex.def Info: velocity_Y_schur.jpg used on input line 1131.
+(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+
+<pressure_Schur.jpg, id=169, 562.1pt x 421.575pt>
+File: pressure_Schur.jpg Graphic file (type jpg)
+ <use pressure_Schur.jpg>
+Package pdftex.def Info: pressure_Schur.jpg used on input line 1137.
+(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [43 <./velocity_X_schur.jpg>] [44 <./velocity_Y_schur.jpg>] [45 <./pressure_Sc
+hur.jpg>]
+Overfull \hbox (2.24774pt too wide) in paragraph at lines 1154--1155
 \OT1/cmr/m/n/12 method bet-ter kn-won as $\OML/cmm/m/it/12 minres$ \OT1/cmr/m/n
 /12 and Schur com-ple-ment method. The $\OML/cmm/m/it/12 bicgstab$
  []
 
 
-Overfull \hbox (17.59021pt too wide) in paragraph at lines 1116--1117
+Overfull \hbox (17.59021pt too wide) in paragraph at lines 1154--1155
 \OT1/cmr/m/n/12 com-ple-ment method (Sec-tion 5.4.3[]) is im-ple-mented sep-a-r
 ately based on Cholesky
  []
 
-[39]
-Overfull \hbox (35.89076pt too wide) in paragraph at lines 1146--1148
+[46]
+Overfull \hbox (35.89076pt too wide) in paragraph at lines 1184--1186
 \OT1/cmr/m/n/12 pos-i-tive def-i-nite and ma-trix $\OML/cmm/m/it/12 K$ \OT1/cmr
 /m/n/12 is sym-met-ric. Here, $\OML/cmm/m/it/12 A \OMS/cmsy/m/n/12 2 \U/msb/m/n
 /12 R[]$\OT1/cmr/m/n/12 ;
  []
 
 
-Overfull \hbox (26.40453pt too wide) in paragraph at lines 1146--1148
+Overfull \hbox (26.40453pt too wide) in paragraph at lines 1184--1186
 \OML/cmm/m/it/12 B \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 R[]$\OT1/cmr/m/n/12 ; $\OML
 /cmm/m/it/12 U; F[] \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 R[]$\OT1/cmr/m/n/12 ; $\OM
 L/cmm/m/it/12 P; F[] \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 R[]$\OT1/cmr/m/n/12 . 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1146--1148
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1149--1150
+Underfull \hbox (badness 10000) in paragraph at lines 1187--1188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1151--1152
+Underfull \hbox (badness 10000) in paragraph at lines 1189--1190
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1164--1167
-
- []
-
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 1168--1169
-
- []
-
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 1230--1231
+Underfull \hbox (badness 10000) in paragraph at lines 1202--1205
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1258--1259
+Underfull \hbox (badness 10000) in paragraph at lines 1206--1207
+
+ []
+
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 1268--1269
+
+ []
+
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 1296--1297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1260--1261
-
- []
-
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 1271--1274
+Underfull \hbox (badness 10000) in paragraph at lines 1298--1299
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
+Underfull \hbox (badness 10000) in paragraph at lines 1309--1312
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1277--1278
+Underfull \hbox (badness 10000) in paragraph at lines 1313--1314
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1279--1280
-
- []
-
-[43]
-Underfull \hbox (badness 10000) in paragraph at lines 1321--1322
+Underfull \hbox (badness 10000) in paragraph at lines 1315--1316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1325--1326
+Underfull \hbox (badness 10000) in paragraph at lines 1317--1318
+
+ []
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1359--1360
+
+ []
+
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 1363--1364
 
  []
 
 
-Overfull \hbox (16.90672pt too wide) in paragraph at lines 1329--1330
+Overfull \hbox (16.90672pt too wide) in paragraph at lines 1367--1368
 \OML/cmm/m/it/12 paramsP$ \OT1/cmr/m/n/12 are given new val-ues $\OML/cmm/m/it/
 12 dofs$ \OT1/cmr/m/n/12 which con-tain de-gree of free-dom. $\OML/cmm/m/it/12 
 actual[]iter$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1329--1330
+Underfull \hbox (badness 10000) in paragraph at lines 1367--1368
 
  []
 
-[44]
-Overfull \hbox (72.06549pt too wide) in paragraph at lines 1333--1334
+
+Overfull \hbox (72.06549pt too wide) in paragraph at lines 1371--1372
 \OT1/cmr/m/n/12 sion against which nu-mer-i-cal so-lu-tion is to be com-pared. 
 $\OML/cmm/m/it/12 params:dof[]derivative[]analytical$
  []
 
 
-Overfull \hbox (16.29851pt too wide) in paragraph at lines 1333--1334
+Overfull \hbox (16.29851pt too wide) in paragraph at lines 1371--1372
 \OT1/cmr/m/n/12 and $\OML/cmm/m/it/12 paramsP:dof[]derivative[]analytical$ \OT1
 /cmr/m/n/12 con-tain an-lyt-i-cal ex-prres-sion for deriva-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1333--1334
+Underfull \hbox (badness 10000) in paragraph at lines 1371--1372
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 1375--1376
 
  []
 
-[45] [46
-
-]
+[52]
 Chapter 6.
 
-Overfull \hbox (1.56416pt too wide) in paragraph at lines 1347--1406
+Overfull \hbox (1.56416pt too wide) in paragraph at lines 1385--1444
 \OML/cmm/m/it/12 a[]; b; c$ \OT1/cmr/m/n/12 Terms in weak for-mu-la-tion of Nav
 ier Stoks equa-tion (Equa-tion []) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1347--1406
+Underfull \hbox (badness 10000) in paragraph at lines 1385--1444
 
  []
 
 
 Underfull \vbox (badness 1975) has occurred while \output is active []
 
- [47]
+ [53
+
+]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1417--1418
+ [54]
+Underfull \hbox (badness 10000) in paragraph at lines 1455--1456
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1419--1420
+Underfull \hbox (badness 10000) in paragraph at lines 1457--1458
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1421--1422
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1460
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1442--1443
+Underfull \hbox (badness 10000) in paragraph at lines 1480--1481
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1452--1453
+Underfull \hbox (badness 10000) in paragraph at lines 1490--1491
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1458--1459
+Underfull \hbox (badness 10000) in paragraph at lines 1496--1497
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1462--1465
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1503
 
  []
 
-[49]
-Underfull \hbox (badness 10000) in paragraph at lines 1492--1493
+[55]
+Underfull \hbox (badness 10000) in paragraph at lines 1530--1531
 
  []
 
 
-Overfull \hbox (0.59596pt too wide) in paragraph at lines 1494--1502
+Overfull \hbox (0.59596pt too wide) in paragraph at lines 1532--1540
 []\OT1/cmr/m/n/12 We as-sume here that $\OML/cmm/m/it/12 A; B[]; B[]$ \OT1/cmr/
 m/n/12 are non ze-ros. Usu-ally con-stituents $\OML/cmm/m/it/12 A; B; C$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1494--1502
+Underfull \hbox (badness 10000) in paragraph at lines 1532--1540
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1494--1502
+Underfull \hbox (badness 10000) in paragraph at lines 1532--1540
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1503--1504
+Underfull \hbox (badness 10000) in paragraph at lines 1541--1542
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1505--1506
+Underfull \hbox (badness 10000) in paragraph at lines 1543--1544
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1507--1508
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1509--1510
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1511--1512
-
- []
-
-[50]
-Underfull \hbox (badness 10000) in paragraph at lines 1513--1514
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1515--1516
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1521--1522
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1526--1527
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1528--1529
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1530--1534
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1535--1536
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1537--1538
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1539--1540
+Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
 
  []
 
@@ -1086,8 +1093,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1547--1548
 
  []
 
-[51]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1549--1550
+
+ []
+
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 1551--1552
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1553--1554
 
  []
 
@@ -1102,27 +1119,72 @@ Underfull \hbox (badness 10000) in paragraph at lines 1564--1565
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 1566--1567
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1568--1572
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 1573--1574
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1582--1583
+Underfull \hbox (badness 10000) in paragraph at lines 1575--1576
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1584--1585
+Underfull \hbox (badness 10000) in paragraph at lines 1577--1578
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1589--1590
+Underfull \hbox (badness 10000) in paragraph at lines 1585--1586
 
  []
 
-[52]
-Overfull \hbox (11.46666pt too wide) detected at line 1608
+[57]
+Underfull \hbox (badness 10000) in paragraph at lines 1587--1588
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1597--1598
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1602--1603
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1611--1612
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1620--1621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1622--1623
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1627--1628
+
+ []
+
+[58]
+Overfull \hbox (11.46666pt too wide) detected at line 1646
 \OML/cmm/m/it/12 a\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 v; v\OT1/cmr/m/n/12 ) \OMS/
 cmsy/m/n/12 ^^U \OT1/cmr/m/n/12 (1 \OMS/cmsy/m/n/12 ^^@ []j\OT1/cmr/m/n/12 1 \O
 MS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^O\OMS/cmsy/m/n/12 j\OT1/cmr/m/n/12 )^^F[]
@@ -1132,12 +1194,12 @@ MS/cmsy/m/n/12 jj[] \OT1/cmr/m/n/12 + ^^F[][]\OMS/cmsy/m/n/12 jj\OT1/cmr/m/n/12
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1621--1622
+Underfull \hbox (badness 10000) in paragraph at lines 1659--1660
 
  []
 
 
-Overfull \hbox (72.04959pt too wide) detected at line 1641
+Overfull \hbox (72.04959pt too wide) detected at line 1679
 [][] []\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 n \OMS/cmsy/m/n/12 
  \OML/cmm/m/it/12 ^^^\OT1/cmr/m/n/12 ] \OMS/cmsy/m/n/12 ^^T \OT1/cmr/m/n/12 ([]
 [][]\OMS/cmsy/m/n/12 jjr\OML/cmm/m/it/12 ^^^\OMS/cmsy/m/n/12 jj[] \OT1/cmr/m/n/
@@ -1146,8 +1208,8 @@ r/m/n/12 )\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 e\OMS/cmsy/m/n/12 j[][][]jj\OT1/cm
 r/m/n/12 [\OML/cmm/m/it/12 ^^^\OT1/cmr/m/n/12 ]\OMS/cmsy/m/n/12 jj[]
  []
 
-[53]
-Overfull \hbox (145.60854pt too wide) detected at line 1648
+[59]
+Overfull \hbox (145.60854pt too wide) detected at line 1686
 [][] []\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 n \OMS/cmsy/m/n/12 
  \OML/cmm/m/it/12 ^^^\OT1/cmr/m/n/12 ] \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 C[
 ]^^W[]\OT1/cmr/m/n/12 (^^F[][]\OMS/cmsy/m/n/12 jj\OT1/cmr/m/n/12 [\OML/cmm/m/it
@@ -1159,26 +1221,26 @@ msy/m/n/12 jjr\OML/cmm/m/it/12 ^^^\OMS/cmsy/m/n/12 jj[]\OT1/cmr/m/n/12 )
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1663--1664
+Underfull \hbox (badness 10000) in paragraph at lines 1701--1702
 
  []
 
-[54]
-Underfull \hbox (badness 10000) in paragraph at lines 1698--1699
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 1736--1737
 
  []
 
-[55]
-Underfull \hbox (badness 10000) in paragraph at lines 1735--1736
+[61]
+Underfull \hbox (badness 10000) in paragraph at lines 1773--1774
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1740--1741
+Underfull \hbox (badness 10000) in paragraph at lines 1778--1779
 
  []
 
-(./Short description.bbl [56]
+(./Short description.bbl [62]
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¶ in font cmr12!
 Missing character: There is no â in font cmr12!
@@ -1190,18 +1252,21 @@ Missing character: There is no “ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [57
+ [63
 
-]) [58] (./Short description.aux)
+]) [64] (./Short description.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3973 strings out of 493029
- 57825 string characters out of 6136233
- 126488 words of memory out of 5000000
- 7450 multiletter control sequences out of 15000+600000
+ 4022 strings out of 493029
+ 59055 string characters out of 6136233
+ 126576 words of memory out of 5000000
+ 7491 multiletter control sequences out of 15000+600000
  16449 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,17n,42p,1225b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1220,10 +1285,10 @@ m/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Short description.pdf" (60 pages, 437035 bytes).
+Output written on "Short description.pdf" (66 pages, 790548 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
+ 295 PDF objects out of 1000 (max. 8388607)
+ 196 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -679,7 +679,7 @@ The matrices from weak form of Navier Stokes equation have been assembled in 3 s
 We also perform numerical integration over domain $\Omega$ as,
 
 \begin{equation}\label{numerical integration}
-\int_{\Omega} f(x) = \Sigma_{i=1}^{nop} f(x_i) * w_i
+\int_{\Omega} f(x) = \Sigma_{i=1}^{nop} f(x_i) w_i
 \end{equation}
 
 Where, \\
@@ -693,7 +693,7 @@ The location of function evaluation, number of points and weights are based on G
 Also the determinant of jacobian is twice the area of triangle.
 
 \begin{equation}\label{determinant to area}
-J(k) = 2*A(k)
+J(k) = 2A(k)
 \end{equation}
 
 With this preliminary informations we discuss now the assembly of matrices.
@@ -702,15 +702,15 @@ With this preliminary informations we discuss now the assembly of matrices.
 
 Step 1: Evalauation of $(\nabla \phi , \nabla \phi)$,
 
-We first evaluate derivative of $\hat{\phi}$ and $JIT(k,:,:)$ through ldg\_evaluate\_basis\_derivative and grid structure. We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the formula \ref{derivative_transformation}.
+We first evaluate derivative of $\hat{\phi}$ and $JIT(k,:,:)$ through $ldg\_evaluate\_basis\_derivative$ and grid structure. We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the formula \ref{derivative_transformation}.
 
-We than assemble matrix $res_1[i,j]=\phi_i*\phi_j^T$ for $1 \leq i,j \leq ndofs\_per\_element$\\
+We than assemble matrix $res_1[i,j]=\phi_i \phi_j^T$ for $1 \leq i,j \leq ndofs\_per\_element$\\
 
 Step 2: Performing integration in global co-ordinate system,
 
 We perform the numerical integration as per \ref{numerical integration} 
 
-$res_2 = \int_{\hat{\Omega}} res_1 *2*grid.A(k)  d \hat{\Omega}$\\
+$res_2 = \int_{\hat{\Omega}} res_1 2 grid.A(k)  d \hat{\Omega}$\\
 
 Step 3: Looping over each element and performing following operation in each loop $res_3[ids\_velocity,ids\_velocity]=res_2$\\
 
@@ -729,10 +729,10 @@ Please note that $\hat{\phi_h}$ is evaluated at local coordinate corressponding 
 Step 2: In step 2 we perform following integration, 
 We perform the numerical integration as per \ref{integral_local_global_boundary}
 \\ 
-$res_2^{++} = \int_{\Gamma} res_1^{++} * grid.EL$\\
-$res_2^{+-} = \int_{\Gamma} res_1^{+-} * grid.EL$\\
-$res_2^{-+} = \int_{\Gamma} res_1^{-+} * grid.EL$\\
-$res_2^{--} = \int_{\Gamma} res_1^{--} * grid.EL$\\
+$res_2^{++} = \int_{\Gamma} res_1^{++} grid.EL$\\
+$res_2^{+-} = \int_{\Gamma} res_1^{+-} grid.EL$\\
+$res_2^{-+} = \int_{\Gamma} res_1^{-+} grid.EL$\\
+$res_2^{--} = \int_{\Gamma} res_1^{--} grid.EL$\\
 
 Step 3: Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
 \\
@@ -759,10 +759,10 @@ $res_1^{--} = {\nabla u_h}^- [n \otimes \hat{\phi_h}]^-$\\
 Step 2: In step 2 we perform following integration, 
 We perform the numerical integration as per \ref{integral_local_global_boundary}
 \\ 
-$res_2^{++} = \int_{\Gamma} res_1^{++} * grid.EL$\\
-$res_2^{+-} = \int_{\Gamma} res_1^{+-} * grid.EL$\\
-$res_2^{-+} = \int_{\Gamma} res_1^{-+} * grid.EL$\\
-$res_2^{--} = \int_{\Gamma} res_1^{--} * grid.EL$\\
+$res_2^{++} = \int_{\Gamma} res_1^{++} grid.EL$\\
+$res_2^{+-} = \int_{\Gamma} res_1^{+-} grid.EL$\\
+$res_2^{-+} = \int_{\Gamma} res_1^{-+} grid.EL$\\
+$res_2^{--} = \int_{\Gamma} res_1^{--} grid.EL$\\
 
 Step 3: Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
 \\
@@ -793,10 +793,10 @@ Please note that $\hat{\phi}$ is evaluated at local coordinate corresponding to 
 Step 2: In step 2 we perform following integration, 
 We perform the numerical integration as per \ref{integral_local_global_boundary}
 \\ 
-$res_2^{++} = \int_{\Gamma} res_1^{++} * grid.EL$\\
-$res_2^{+-} = \int_{\Gamma} res_1^{+-} * grid.EL$\\
-$res_2^{-+} = \int_{\Gamma} res_1^{-+} * grid.EL$\\
-$res_2^{--} = \int_{\Gamma} res_1^{--} * grid.EL$\\
+$res_2^{++} = \int_{\Gamma} res_1^{++} grid.EL$\\
+$res_2^{+-} = \int_{\Gamma} res_1^{+-} grid.EL$\\
+$res_2^{-+} = \int_{\Gamma} res_1^{-+} grid.EL$\\
+$res_2^{--} = \int_{\Gamma} res_1^{--} grid.EL$\\
 
 Step 3: Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
 \\
@@ -824,7 +824,7 @@ Step 1 : We first evaluate $JIT$, $\hat{\nabla} \hat{\phi}$ and $\psi$ and assem
 $res_1 = \hat{\psi_i} \hat{\nabla} \cdot \hat{\phi_j}$\\
 
 Step 2 : We integrate the function over domain\\
-$res_2 = -\int_{\hat{\Omega}} res_1 * 2 * A(k)$\\
+$res_2 = -\int_{\hat{\Omega}} res_1 2 A(k)$\\
 
 Step 3: Assemble the global matrix\\
 $res_3[ids\_presure,ids\_velocity] = res_2$\\
@@ -841,7 +841,7 @@ Step 3: Loop over element having Neumann boundary and perform following operatio
 7. $(u_D,\phi)_{\Gamma_D}$:
 \\
 
-Step 1: On local element following function is evaluated $res_1=\hat{\phi}_i*u_D$ in accordance with \ref{func_transformation}\\
+Step 1: On local element following function is evaluated $res_1=\hat{\phi}_i u_D$ in accordance with \ref{func_transformation}\\
 Step 2: An integral is performed over an element $res_2=\int_{\Gamma_D} res_1 EL $\\
 Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
 
@@ -854,7 +854,7 @@ Step 3: Loop over element having Dirichlet boundary and perform following operat
 9. $(f,\phi) $:
 
 Step 1: On local element following function is evaluated $res_1= \hat{\phi} f$ in accordance with \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2=\int_{\hat{\Omega}} res_1 2*A(k)$\\
+Step 2: An integral is performed over an element $res_2=\int_{\hat{\Omega}} res_1 2 A(k)$\\
 Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
 
 
@@ -1058,11 +1058,19 @@ p = (1 - x)
 
 The grid is equally divided in both directions with number of divisions in each direction as $5,10,15,20$ giving step size of each element in each of $x-y$ direction as $0.2,0.1,0.067,0.05$.\\
 
-The results of $h-$convergence test in $L^2$ norm is presented in figure $bvfhvg$ for velocity and in figure $nvjkv$ for pressure. The results of $p-$convergence test in $L^2$ norm is presented in figure $bvfhvg$ for velocity and in figure $nvjkv$ for pressure. The plots of pressure and velocity are shown in figure $bvjvjvj$ and $bvjfhjjrh$
+The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{fig:vel_stoke_conv} for velocity and in figure \ref{fig:pre_stoke_conv} for pressure. \\
 
-\begin{Huge}
-Add figure here and cite figure above
-\end{Huge}
+\begin{figure}
+  \includegraphics[width=\linewidth]{velocity_error_stokes.jpg}
+  \caption{$h-$ convergence test for velocity in $L^2$ norm}
+  \label{fig:vel_stoke_conv}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{pressure_error_stokes.jpg}
+  \caption{$h-$ convergence test for pressure in $L^2$ norm}
+  \label{fig:pre_stoke_conv}
+\end{figure}
 
 We now present additional examples and check whether the implementation of Stokes flow is capable of reproducing physics of the problem.
 
@@ -1086,21 +1094,68 @@ u = (10 - 10x,0)^T \quad \textrm{for} \quad 0.9 \leq x \leq 1
 
 \end{center}
 
-The results are found to reproduce the physics of the problem as shown in figure $bvjbjbj$.
+The results are found to reproduce the physics of the problem. The plots of pressure are shown in figure \ref{fig:pressure_benchmark_stokes}, for $x-$velocity in figure \ref{fig:velocity_x_benchmark_stokes} and for $y-$velocity in figure \ref{velocity_y_benchmark_stokes}
 
-\begin{Huge}
-Add figure here and cite figure above
-\end{Huge}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{velocity_x_schur.jpg}
+  \caption{x-velocity for Stokes flow for lid driven cavity problem}
+  \label{fig:velocity_x_benchmark_stokes}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{velocity_y_schur.jpg}
+  \caption{y-velocity for Stokes flow for lid driven cavity problem}
+  \label{fig:velocity_y_benchmark_stokes}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{pressure.jpg}
+  \caption{pressure for Stokes flow for lid driven cavity problem}
+  \label{fig:pressure_benchmark_stokes}
+\end{figure}
 
 \subsection{Flow over cylinder}
 
 The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x-y$ plane with cylinder of diameter 0.2 centered at $(0.5,0.5)$ i.e. the center of cylinder coincides with center of square. The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (2 \nu - 1, 0)$. The results give physically relevant result for example, low pressure zone after cylinder, high pressure zone before cylinder and wake zone after cylinder for velocity.
 
-The results are shown in figure $dvjvhjh$ with solver $minres$ and in figure $dvjvhjh$ with Schur complement method.
+The results are shown in figure \ref{fig:pressure_cylinder_stokes_minres} for pressure, figure \ref{fig:velocity_x_cylinder_stokes_minres} for $x-$velocity, \ref{fig:velocity_y_cylinder_stokes_minres} for $y-$velocity with solver $minres$ and in figure \ref{fig:pressure_cylinder_stokes_schur} for pressure, figure \ref{fig:velocity_x_cylinder_stokes_schur} for $x-$velocity, \ref{fig:velocity_y_cylinder_stokes_schur} for $y-$velocity with Schur complement method.
 
-\begin{Huge}
-Add figure here and cite figure above
-\end{Huge}
+\begin{figure}
+  \includegraphics[width=\linewidth]{velocity_X_schur.jpg}
+  \caption{$x-$velocity for Stokes flow for flow over cylinder (Schur complement)}
+  \label{fig:velocity_x_cylinder_stokes_schur}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{velocity_Y_schur.jpg}
+  \caption{$y-$velocity for Stokes flow for flow over cylinder (Schur complement)}
+  \label{fig:velocity_y_cylinder_stokes_schur}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{pressure_Schur.jpg}
+  \caption{pressure for Stokes flow for flow over cylinder (Schur complement)}
+  \label{fig:pressure_cylinder_stokes_schur}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{velocity_X_schur.jpg}
+  \caption{$x-$velocity for Stokes flow for flow over cylinder (Schur complement)}
+  \label{fig:velocity_x_cylinder_stokes_schur}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{velocity_Y_schur.jpg}
+  \caption{$y-$velocity for Stokes flow for flow over cylinder (Schur complement)}
+  \label{fig:velocity_y_cylinder_stokes_schur}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{pressure_Schur.jpg}
+  \caption{pressure for Stokes flow for flow over cylinder (Schur complement)}
+  \label{fig:pressure_cylinder_stokes_schur}
+\end{figure}
 
 \section{Penalty parameter}
 

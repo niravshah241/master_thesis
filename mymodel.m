@@ -6,7 +6,7 @@ clc
 %% Actual grid
 % ACTUAL GRID DO NOT DELETE
 
-params.mesh_number = 1;
+params.mesh_number = 3;
 params.gridtype = 'triagrid';
 params.grid_initfile = ['mygridnirav', num2str(params.mesh_number), '.mat'];
 % params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
@@ -30,12 +30,12 @@ paramsP.show_sparsity = show_sparsity;
 
 % params.xrange = [0,1];
 % params.yrange = [0,1];
-% params.xnumintervals = 5;
-% params.ynumintervals = 5;
-% params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
-% params.bnd_rect_corner2=[2,2;eps,1-6*10^12*eps]';% for analytical ex.
-% % params.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
-% % params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
+% params.xnumintervals = 10;
+% params.ynumintervals = 10;
+% % params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
+% % params.bnd_rect_corner2=[2,2;eps,1-6*10^12*eps]';% for analytical ex.
+% params.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
+% params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
 % params.bnd_rect_index=[-1,-2];
 % params.gridtype = 'triagrid';
 % grid = construct_grid(params);
@@ -79,7 +79,7 @@ qdeg=3;
 params.mu=4;
 params.kinematic_viscosity = @(params) params.mu*1e-6;
 mu = params.kinematic_viscosity(params);
-c11 = 1e3;% penalty parameter, must be large enough for coercivity
+c11 = 1e-1;% penalty parameter, must be large enough for coercivity
 
 %% Assembly of stinfness matrix
 
@@ -88,7 +88,7 @@ c11 = 1e3;% penalty parameter, must be large enough for coercivity
 
 %% Stokes problem
 
-required_residual_tol = 1e-10; % allowable residual
+required_residual_tol = 1e-14; % allowable residual
 max_iter = 1e5; % maximum number of iterations
 
 % [ params, paramsP, achieved_residual_tol_schur] =...
@@ -114,15 +114,15 @@ max_iter = 1e5; % maximum number of iterations
 %
 
 %% Navier Stokes
-tol_newton = 1e-7;
-max_iter_newton = 30;
-tol_solver = 1e-13;
-max_iter_solver = 100;
-
-[ params,paramsP,flag,relres_solver,iter_solver,...
-    relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
-    newton_script( params,paramsP,grid,qdeg,mu,c11,...
-    tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
+% tol_newton = 1e-7;
+% max_iter_newton = 30;
+% tol_solver = 1e-13;
+% max_iter_solver = 100;
+% 
+% [ params,paramsP,flag,relres_solver,iter_solver,...
+%     relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
+%     newton_script( params,paramsP,grid,qdeg,mu,c11,...
+%     tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
 % 
 % %% non linear Stiffness matrix tests 
 % 

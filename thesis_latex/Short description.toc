@@ -32,34 +32,34 @@
 \contentsline {section}{\numberline {5.2}Stokes flow}{36}
 \contentsline {subsection}{\numberline {5.2.1}Analytical example}{37}
 \contentsline {subsection}{\numberline {5.2.2}Lid-driven cavity problem}{38}
-\contentsline {subsection}{\numberline {5.2.3}Flow over cylinder}{39}
-\contentsline {section}{\numberline {5.3}Penalty parameter}{39}
-\contentsline {section}{\numberline {5.4}Selection of solver}{39}
-\contentsline {subsection}{\numberline {5.4.1}Biconjugate gradients stabilized method}{39}
-\contentsline {subsection}{\numberline {5.4.2}Minimum residual method}{40}
-\contentsline {subsection}{\numberline {5.4.3}Schur complement method}{40}
-\contentsline {section}{\numberline {5.5}Navier Stokes flow}{41}
-\contentsline {subsection}{\numberline {5.5.1}Newton method}{42}
-\contentsline {section}{\numberline {5.6}Sparsity pattern}{43}
-\contentsline {section}{\numberline {5.7}Program flow}{43}
-\contentsline {subsection}{\numberline {5.7.1}Grid Preparation}{43}
-\contentsline {subsection}{\numberline {5.7.2}Function space formulation}{44}
-\contentsline {subsection}{\numberline {5.7.3}Matrix assembly}{44}
-\contentsline {subsection}{\numberline {5.7.4}Solving assembled form}{45}
-\contentsline {subsection}{\numberline {5.7.5}Post processing}{45}
-\contentsline {subsection}{\numberline {5.7.6}Newton method}{45}
-\contentsline {subsection}{\numberline {5.7.7}Additional remarks}{45}
-\contentsline {chapter}{\numberline {6}Appendix}{47}
-\contentsline {section}{\numberline {6.1}List of symbols}{47}
-\contentsline {section}{\numberline {6.2}Mathematical preliminaries}{49}
-\contentsline {subsection}{\numberline {6.2.1}Cholesky decomposition}{49}
-\contentsline {subsection}{\numberline {6.2.2}Saddle point formulation}{50}
-\contentsline {subsection}{\numberline {6.2.3}Basic definitions}{51}
-\contentsline {subsection}{\numberline {6.2.4}Linear forms}{52}
-\contentsline {subsection}{\numberline {6.2.5}Bilinear forms}{52}
-\contentsline {section}{\numberline {6.3}Coercivity of bilinear form}{53}
-\contentsline {section}{\numberline {6.4}Continuity of bilinear form}{53}
-\contentsline {subsection}{\numberline {6.4.1}Coercivity constant for equation for Stokes flow}{53}
-\contentsline {subsection}{\numberline {6.4.2}Sobolev spaces}{54}
-\contentsline {subsection}{\numberline {6.4.3}Trace theorem}{55}
-\contentsline {subsection}{\numberline {6.4.4}Cauchy-Schwarz and Young's inequality}{56}
+\contentsline {subsection}{\numberline {5.2.3}Flow over cylinder}{43}
+\contentsline {section}{\numberline {5.3}Penalty parameter}{46}
+\contentsline {section}{\numberline {5.4}Selection of solver}{46}
+\contentsline {subsection}{\numberline {5.4.1}Biconjugate gradients stabilized method}{46}
+\contentsline {subsection}{\numberline {5.4.2}Minimum residual method}{46}
+\contentsline {subsection}{\numberline {5.4.3}Schur complement method}{47}
+\contentsline {section}{\numberline {5.5}Navier Stokes flow}{48}
+\contentsline {subsection}{\numberline {5.5.1}Newton method}{48}
+\contentsline {section}{\numberline {5.6}Sparsity pattern}{50}
+\contentsline {section}{\numberline {5.7}Program flow}{50}
+\contentsline {subsection}{\numberline {5.7.1}Grid Preparation}{50}
+\contentsline {subsection}{\numberline {5.7.2}Function space formulation}{51}
+\contentsline {subsection}{\numberline {5.7.3}Matrix assembly}{51}
+\contentsline {subsection}{\numberline {5.7.4}Solving assembled form}{51}
+\contentsline {subsection}{\numberline {5.7.5}Post processing}{52}
+\contentsline {subsection}{\numberline {5.7.6}Newton method}{52}
+\contentsline {subsection}{\numberline {5.7.7}Additional remarks}{52}
+\contentsline {chapter}{\numberline {6}Appendix}{53}
+\contentsline {section}{\numberline {6.1}List of symbols}{53}
+\contentsline {section}{\numberline {6.2}Mathematical preliminaries}{55}
+\contentsline {subsection}{\numberline {6.2.1}Cholesky decomposition}{55}
+\contentsline {subsection}{\numberline {6.2.2}Saddle point formulation}{56}
+\contentsline {subsection}{\numberline {6.2.3}Basic definitions}{57}
+\contentsline {subsection}{\numberline {6.2.4}Linear forms}{58}
+\contentsline {subsection}{\numberline {6.2.5}Bilinear forms}{58}
+\contentsline {section}{\numberline {6.3}Coercivity of bilinear form}{59}
+\contentsline {section}{\numberline {6.4}Continuity of bilinear form}{59}
+\contentsline {subsection}{\numberline {6.4.1}Coercivity constant for equation for Stokes flow}{59}
+\contentsline {subsection}{\numberline {6.4.2}Sobolev spaces}{60}
+\contentsline {subsection}{\numberline {6.4.3}Trace theorem}{61}
+\contentsline {subsection}{\numberline {6.4.4}Cauchy-Schwarz and Young's inequality}{62}
