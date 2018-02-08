@@ -70,20 +70,20 @@ res.res = res_plus_plus + res_plus_minus + res_minus_plus + res_minus_minus;
 if params.show_sparsity == true
     figure()
     spy(res.plus_plus)
-    title('Spy of (\nabla \phi)^+ : ([[n \otimes \phi]])^+')
+    title('Spy of ({ \nabla \phi })^+ : ([[n \otimes \phi]])^+')
     figure()
     spy(res.plus_minus)
-    title('Spy of (\nabla \phi)^- : ([[n \otimes \phi]])^+')
+    title('Spy of ({ \nabla \phi })^- : ([n \otimes \phi])^+')
     figure()
     spy(res.minus_plus)
-    title('Spy of (\nabla \phi)^+ : ([[n \otimes \phi]])^-')
+    title('Spy of ({ \nabla \phi })^+ : ([n \otimes \phi])^-')
     figure()
     spy(res.minus_minus)
-    title('Spy of (\nabla \phi)^- : ([[n \otimes \phi]])^-')
+    title('Spy of ({ \nabla \phi })^- : ([n \otimes \phi])^-')
     figure()
     spy(res.res)
-    title('Spy of (\nabla \phi) : ([[n \otimes \phi]])')
-    sprintf('Observe all graphs %s','[(\nabla \phi) : ([[n \otimes \phi]])')
+    title('Spy of ({ \nabla \phi }) : ([n \otimes \phi])')
+    sprintf('Observe all graphs %s','[({\nabla \phi \rbrace) : ([[n \otimes \phi]])')
     pause();
     close all
 end

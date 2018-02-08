@@ -72,20 +72,20 @@ res.res = res_plus_plus + res_plus_minus + res_minus_plus + res_minus_minus;
 if params.show_sparsity == true
     figure()
     spy(res.plus_plus)
-    title('Spy of (\psi^+,n^+ \cdot \phi^+)')
+    title('Spy of ({\psi^+},[n^+ \cdot \phi^+])')
     figure()
     spy(res.plus_minus)
-    title('Spy of (\psi^+,n^- \cdot \phi^-)')
+    title('Spy of ({\psi^+},[n^- \cdot \phi^-])')
     figure()
     spy(res.minus_plus)
-    title('Spy of (\psi^-,n^+ \cdot \phi^+)')
+    title('Spy of ({\psi^-},[n^+ \cdot \phi^+])')
     figure()
     spy(res.minus_minus)
-    title('Spy of (\psi^-,n^- \cdot \phi^-)')
+    title('Spy of ({\psi^-},[n^- \cdot \phi^-])')
     figure()
     spy(res.res)
-    title('Spy of ({\psi},[[n \cdot \phi]])')
-    sprintf('Observe all graphs %s','{\psi},[[n \cdot \phi]]')
+    title('Spy of ({\psi},[n \cdot \phi])')
+    sprintf('Observe all graphs %s','{\psi},[n \cdot \phi]')
     pause();
     close all
 end

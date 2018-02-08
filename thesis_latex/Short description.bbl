@@ -16,6 +16,11 @@ Fritzen F.
   systems.
 \newblock {\em University of Stuttgart}, winter term 2016-2017.
 
+\bibitem{Haasdonk_book}
+B.~Haasdonk.
+\newblock {\em Model Reduction and Approximation Theory and Algorithms}.
+\newblock 2018.
+
 \bibitem{crbm}
 Jan~S. Hesthaven, Gianluigi Rozza, and Benjamin Stamm.
 \newblock {\em Certified Reduced Basis Methods for Parametrized Partial
@@ -36,12 +41,6 @@ A.~Montlaur, S.~Fernandez-Mendez, J.~Peraire, and A.~Huerta.
   using solenoidal approximations.
 \newblock {\em International Journal for Numerical Methods in Fluids},
   64(5):549--564, 2010.
-
-\bibitem{plasma}
-A.~C.~J. {Paes}, N.~M. {Abe}, V.~A. {Serr{\~a}o}, and A.~{Passaro}.
-\newblock {Simulations of Plasmas with Electrostatic PIC Models Using the
-  Finite Element Method}.
-\newblock {\em Brazilian Journal of Physics}, 33:411--417, June 2003.
 
 \bibitem{persson}
 P.-O. Persson, J.~Bonet, and J.~Peraire.

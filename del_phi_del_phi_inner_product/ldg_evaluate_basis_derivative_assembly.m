@@ -19,6 +19,8 @@ if params.show_sparsity == true
     figure()
     spy(res) % visualise sparsity pattern
     title('Spy of \nabla \phi : \nabla \phi')
+    axis equal
+    axis tight
     disp('Observe all graphs of \nabla \phi : \nabla \phi')
     pause()
 end

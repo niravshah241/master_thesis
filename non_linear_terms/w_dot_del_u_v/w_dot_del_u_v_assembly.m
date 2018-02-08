@@ -13,6 +13,9 @@ end
 
 if params.show_sparsity == true
     spy(res)
+    title('((u_k \cdot \nabla)\phi,\phi)')
+    axis tight
+    axis equal
 end
 
 end

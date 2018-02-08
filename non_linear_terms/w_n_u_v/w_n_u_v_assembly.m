@@ -20,7 +20,9 @@ end
 if params.show_sparsity == true
     figure()
     spy(res)
-    title('(w \cdot n) u \cdot \phi')
+    title('(u_k \cdot n) \phi \cdot \phi')
+    axis equal
+    axis tight
 end
 
 end

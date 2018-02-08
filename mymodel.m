@@ -91,11 +91,11 @@ c11 = 1e-1;% penalty parameter, must be large enough for coercivity
 required_residual_tol = 1e-14; % allowable residual
 max_iter = 1e5; % maximum number of iterations
 
-% [ params, paramsP, achieved_residual_tol_schur] =...
-%     solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
+[ params, paramsP, achieved_residual_tol_schur] =...
+    solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
 
-[ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
-    ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
+% [ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
+%     ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
 
 %% Stiffness matrix tests
 

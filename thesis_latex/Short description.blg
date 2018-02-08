@@ -1,46 +1,49 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Short description.aux
 The style file: plain.bst
 Database file #1: ref1.bib
+Warning--I didn't find a database entry for "matlab"
+Warning--empty publisher in Haasdonk_book
 You've used 11 entries,
             2118 wiz_defined-function locations,
-            575 strings with 5917 characters,
-and the built_in function-call counts, 3436 in all, are:
-= -- 339
-> -- 159
+            575 strings with 5816 characters,
+and the built_in function-call counts, 3270 in all, are:
+= -- 321
+> -- 143
 < -- 0
-+ -- 63
-- -- 52
-* -- 247
-:= -- 603
++ -- 57
+- -- 46
+* -- 224
+:= -- 574
 add.period$ -- 36
 call.type$ -- 11
-change.case$ -- 57
+change.case$ -- 53
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 122
-empty$ -- 269
-format.name$ -- 52
-if$ -- 703
+cite$ -- 12
+duplicate$ -- 123
+empty$ -- 265
+format.name$ -- 46
+if$ -- 671
 int.to.chr$ -- 0
 int.to.str$ -- 11
-missing$ -- 14
+missing$ -- 15
 newline$ -- 58
 num.names$ -- 22
-pop$ -- 51
+pop$ -- 55
 preamble$ -- 1
-purify$ -- 48
+purify$ -- 45
 quote$ -- 0
-skip$ -- 74
+skip$ -- 73
 stack$ -- 0
-substring$ -- 217
+substring$ -- 196
 swap$ -- 11
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 38
-warning$ -- 0
-while$ -- 31
+type$ -- 36
+warning$ -- 1
+while$ -- 30
 width$ -- 13
-write$ -- 123
+write$ -- 121
+(There were 2 warnings)

@@ -40,13 +40,13 @@ res.res = sparse(res_internal - res_external);
 if params.show_sparsity == true
     figure()
     spy(full(res_internal))
-    title('spy of abs(w \cdot n_i) u \cdot \phi')
+    title('spy of abs(u_k \cdot n) \phi \cdot \phi')
     figure()
     spy(full(res_internal))
-    title('spy of abs(w \cdot n_i) u^{ext} \cdot \phi')
+    title('spy of abs(u_k \cdot n) {\phi}^{ext} \cdot \phi')
     figure()
     spy(full(res.res))
-    title('spy of abs(w \cdot n_i) u \cdot \phi + abs(w \cdot n_i) u^{ext} \cdot \phi')
+    title('spy of abs(u_k \cdot n) \phi \cdot \phi + abs(u_k \cdot n) \phi^{ext} \cdot \phi')
 end
 
 end
