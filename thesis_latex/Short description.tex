@@ -1378,32 +1378,32 @@ The Basis functions in RBmatlab can be point evaluated by a routine called $ldg\
 We approximatete the solution at any point from solution of degrees of freedom in orthonormal basis. In matrix formulation this means basis function is matrix of the size,
 
 \begin{equation}\label{basis_func_velocity_rbmatlab}
-\phi_h \in \mathbb{R}^{u_{npe} \times d_u}
+\phi \in \mathbb{R}^{u_{npe} \times d_u}
 \end{equation}
 
 \begin{equation}\label{basis_func_pressure_rbmatlab}
-\psi_h \in \mathbb{R}^{p_{npe} \times d_p}
+\psi \in \mathbb{R}^{p_{npe} \times d_p}
 \end{equation}
 
 This representation creates many zeros in matrix, however, it does not require new evaluation for each component of vector quantity. Due to the zeros in the basis function, derivative of basis functions also has many zeros.
 
-The derivative of the basis functions is provided by a routine $ldg\_evaluate\_basis\_derivative$. The derivative of basis function $(\phi_h)_{i}$, where $1 \leq i \leq nodfs\_per\_element$ is a cell containing matrix $\nabla (\phi_h)_{i}$ of size,
+The derivative of the basis functions is provided by a routine $ldg\_evaluate\_basis\_derivative$. The derivative of basis function $(\phi)_{i}$, where $1 \leq i \leq u_{npe}$ is a cell containing matrix $\nabla (\phi)_{i}$ of size,
 \begin{equation}\label{basis_func_derivative_velocity_rbmatlab}
-\nabla (\phi_h)_{i} \in \mathbb{R}^{{d_u} \times d}
+\nabla (\phi)_{i} \in \mathbb{R}^{{d_u} \times d}
 \end{equation}
 
-where the columns of the matrix correspond to $\nabla_x (\phi_h)_{i}$ and $\nabla_y (\phi_h)_{i}$ .
+where the columns of the matrix correspond to $\nabla_x (\phi)_{i}$ and $\nabla_y (\phi)_{i}$ .
 
-The derivative of basis function $(\psi_h)_{i}$, where $1 \leq i \leq nodfs\_per\_element$ is a cell containing matrix $\nabla (\psi_h)_{i}$ of size,
+The derivative of basis function $(\psi)_{i}$, where $1 \leq i \leq p_{npe}$ is a cell containing matrix $\nabla (\psi)_{i}$ of size,
 \begin{equation}\label{basis_func_derivative_pressure_rbmatlab}
-\nabla (\psi_h)_{i} \in \mathbb{R}^{{d_p} \times d}
+\nabla (\psi)_{i} \in \mathbb{R}^{{d_p} \times d}
 \end{equation}
 
-where the columns of the matrix correspond to $\nabla_x (\psi_h)_{i}$ and $\nabla_y (\psi_h)_{i}$ .
+where the columns of the matrix correspond to $\nabla_x (\psi)_{i}$ and $\nabla_y (\psi)_{i}$ .
 
 \section{Assembly of average operator}
 
-Average of quantity, $A_h$ in discrete form is assembled as,
+Average of quantity $A_h$ in discrete form is assembled as,
 
 \begin{equation}\label{Average operator}
 \lbrace A_h \rbrace = (A_h^+ + A_h^-)/2
@@ -1435,7 +1435,7 @@ and for Dirichlet edges $\Gamma_D$
 
 \section{Matrix assemblies}
 
-It is to be noted that $\hat{\phi_h}$ is evaluated at local coordinate corresponding to global coordinate in accordance with equation \ref{func_transformation}.
+It is to be noted that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with equation \ref{func_transformation}.
 
 The matrices from weak form of Navier Stokes equation have been assembled in 3 steps,
 
@@ -1446,7 +1446,7 @@ The matrices from weak form of Navier Stokes equation have been assembled in 3 s
 We also perform numerical integration over domain $\Omega$ as,
 
 \begin{equation}\label{numerical integration}
-\int_{\Omega} f(x) = \Sigma_{i=1}^{nop} f(x_i) w_i
+\int_{\Omega} f(x) = \sum_{i=1}^{nop} f(x_i) w_i
 \end{equation}
 
 Where, \\
@@ -1477,29 +1477,29 @@ Step 2: Performing integration in global co-ordinate system,
 
 We perform the numerical integration as per \ref{numerical integration} 
 
-$res_2 = \int_{\hat{T}} (res_1) (2 A(k))$\\
+$res_2 = \int_{\hat{T}} (res_1) (2 Ar(k))$\\
 
 Step 3: Looping over each element and performing following operation in each loop $res_3[ids\_velocity,ids\_velocity]=res_2$\\
 
 
-2. $([n \otimes \phi_h], [n \otimes \phi_h])_{\Gamma \cup \Gamma_D}$ :
+2. $([n \otimes \phi], [n \otimes \phi])_{\Gamma \cup \Gamma_D}$ :
 
 Step 1: On local element following matrices are evaluated,\\
 \\
-$res_1^{++} = [n \otimes \hat{\phi_h]}^+ [n \otimes \hat{\phi_h}]^+$\\
-$res_1^{+-} = [n \otimes \hat{\phi_h}]^+ [n \otimes \hat{\phi_h}]^-$\\
-$res_1^{-+} = [n \otimes \hat{\phi_h}]^- [n \otimes \hat{\phi_h}]^+$\\
-$res_1^{--} = [n \otimes \hat{\phi_h}]^- [n \otimes \hat{\phi_h}]^-$\\
+$res_1^{++} = [n \otimes \hat{\phi]}^+ [n \otimes \hat{\phi}]^+$\\
+$res_1^{+-} = [n \otimes \hat{\phi}]^+ [n \otimes \hat{\phi}]^-$\\
+$res_1^{-+} = [n \otimes \hat{\phi}]^- [n \otimes \hat{\phi}]^+$\\
+$res_1^{--} = [n \otimes \hat{\phi}]^- [n \otimes \hat{\phi}]^-$\\
 
 Please note that $\hat{\phi_h}$ is evaluated at local coordinate corressponding to global coordinate.
 
 Step 2: In step 2 we perform following integration, 
 We perform the numerical integration as per equation \ref{integral_local_global_boundary}
 \\ 
-$res_2^{++} = \int_{\Gamma} res_1^{++} grid.EL(i,j)$\\
-$res_2^{+-} = \int_{\Gamma} res_1^{+-} grid.EL(i,j)$\\
-$res_2^{-+} = \int_{\Gamma} res_1^{-+} grid.EL(i,j)$\\
-$res_2^{--} = \int_{\Gamma} res_1^{--} grid.EL(i,j)$\\
+$res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)$\\
+$res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j)$\\
+$res_2^{-+} = \int_{\Gamma} res_1^{-+} EL(i,j)$\\
+$res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)$\\
 
 Step 3: Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
 \\
@@ -1514,22 +1514,22 @@ $res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--}$\\
 
 It is to be noted that on dirichlet boundary only $res_1^{++}, res_2^{++}, res_3^{++}$ is evaluated as all other terms are zero.
 
-3. $({\nabla u_h}, [n \otimes \phi_h])_{\Gamma \cup \Gamma_D}$ :
+3. $(\lbrace \nabla \phi \rbrace, [n \otimes \phi])_{\Gamma \cup \Gamma_D}$ :
 
 Step 1: On local element following matrices are evaluated,\\
 \\
-$res_1^{++} = {\nabla u_h}^+ [n \otimes \hat{\phi_h}]^+$\\
-$res_1^{+-} = {\nabla u_h}^+ [n \otimes \hat{\phi_h}]^-$\\
-$res_1^{-+} = {\nabla u_h}^- [n \otimes \hat{\phi_h}]^+$\\
-$res_1^{--} = {\nabla u_h}^- [n \otimes \hat{\phi_h}]^-$\\
+$res_1^{++} = {\lbrace \nabla \phi \rbrace}^+ [n \otimes \hat{\phi}]^+$\\
+$res_1^{+-} = {\lbrace \nabla \phi \rbrace}^+ [n \otimes \hat{\phi}]^-$\\
+$res_1^{-+} = {\lbrace \nabla \phi \rbrace}^- [n \otimes \hat{\phi}]^+$\\
+$res_1^{--} = {\lbrace \nabla \phi \rbrace}^- [n \otimes \hat{\phi}]^-$\\
 
 Step 2: In step 2 we perform following integration, 
 We perform the numerical integration as per equation \ref{integral_local_global_boundary}
 \\ 
-$res_2^{++} = \int_{\Gamma} res_1^{++} grid.EL(i,j)$\\
-$res_2^{+-} = \int_{\Gamma} res_1^{+-} grid.EL(i,j)$\\
-$res_2^{-+} = \int_{\Gamma} res_1^{-+} grid.EL(i,j)$\\
-$res_2^{--} = \int_{\Gamma} res_1^{--} grid.EL(i,j)$\\
+$res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)$\\
+$res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j)$\\
+$res_2^{-+} = \int_{\Gamma} res_1^{-+} EL(i,j)$\\
+$res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)$\\
 
 Step 3: Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
 \\
@@ -1544,26 +1544,26 @@ $res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--}$\\
 
 It is to be noted that on Dirichlet boundary only $res_1^{++}, res_2^{++}, res_3^{++}$ is evaluated as all other terms are zero.
 
-The same routine is also used in case of $([n \otimes \phi],{\nabla u})_{\Gamma \cup \Gamma_D}$
+The same routine is also used in case of $([n \otimes \phi],\lbrace \nabla u \rbrace )_{\Gamma \cup \Gamma_D}$
 
-4. $({\psi_h}, [n \cdot \phi_h])_{\Gamma \cup \Gamma_D}$ :
+4. $(\lbrace \psi \rbrace, [n \cdot \phi])_{\Gamma \cup \Gamma_D}$ :
 
 Step 1: On local element following matrices are evaluated,\\
 \\
-$res_1^{++} = {\psi_h}^+ [n \cdot \hat{\phi_h}]^+$\\
-$res_1^{+-} = {\psi_h}^+ [n \cdot \hat{\phi_h}]^-$\\
-$res_1^{-+} = {\psi_h}^- [n \cdot \hat{\phi_h}]^+$\\
-$res_1^{--} = {\psi_h}^- [n \cdot \hat{\phi_h}]^-$\\
+$res_1^{++} = {\lbrace \psi \rbrace}^+ [n \cdot \hat{\phi}]^+$\\
+$res_1^{+-} = {\lbrace \psi \rbrace}^+ [n \cdot \hat{\phi}]^-$\\
+$res_1^{-+} = {\lbrace \psi \rbrace}^- [n \cdot \hat{\phi}]^+$\\
+$res_1^{--} = {\lbrace \psi \rbrace}^- [n \cdot \hat{\phi}]^-$\\
 
 Please note that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with \ref{func_transformation}.
 
 Step 2: In step 2 we perform following integration, 
 We perform the numerical integration as per equation \ref{integral_local_global_boundary}
 \\ 
-$res_2^{++} = \int_{\Gamma} res_1^{++} grid.EL(i,j)$\\
-$res_2^{+-} = \int_{\Gamma} res_1^{+-} grid.EL(i,j)$\\
-$res_2^{-+} = \int_{\Gamma} res_1^{-+} grid.EL(i,j)$\\
-$res_2^{--} = \int_{\Gamma} res_1^{--} grid.EL(i,j)$\\
+$res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)$\\
+$res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j)$\\
+$res_2^{-+} = \int_{\Gamma} res_1^{-+} EL(i,j)$\\
+$res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)$\\
 
 Step 3: Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
 \\
@@ -1592,7 +1592,7 @@ Step 1 : We first evaluate $JIT$, $\hat{\nabla} \hat{\phi}$ and $\psi$ and assem
 $res_1 = \hat{\psi_i} \hat{\nabla} \cdot \hat{\phi_j}$\\
 
 Step 2 : We integrate the function over domain\\
-$res_2 = -\int_{\hat{T}} (res_1) (2 A(k))$\\
+$res_2 = -\int_{\hat{T}} (res_1) (2 Ar(k))$\\
 
 Step 3: Assemble the global matrix\\
 $res_3[ids\_presure,ids\_velocity] = res_2$\\
@@ -1603,12 +1603,11 @@ We use the same routine for $-\int_{\hat{T}} \nabla \cdot \phi_i \psi_j $
 \\
 
 Step 1: On local element following function is evaluated $res_1=\hat{\phi}_i \cdot t$ in accordance with equation  \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2=\int_{\Gamma_N} res_1 grid.EL(i,j) $\\
+Step 2: An integral is performed over an element $res_2=\int_{\Gamma_N} res_1 EL(i,j) $\\
 Step 3: Loop over element having Neumann boundary and perform following operation in each loop $res_3[ids]=res_2$\\
 
 7. $(u_D,\phi)_{\Gamma_D}$:
 \\
-
 Step 1: On local element following function is evaluated $res_1=\hat{\phi}_i u_D$ in accordance with equation \ref{func_transformation}\\
 Step 2: An integral is performed over an element $res_2=\int_{\Gamma_D} res_1 grid.EL(i,j) $\\
 Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
@@ -1622,56 +1621,46 @@ Step 3: Loop over element having Dirichlet boundary and perform following operat
 9. $(f,\phi) $:
 
 Step 1: On local element following function is evaluated $res_1= \hat{\phi} f$ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2=\int_{\hat{\Omega}} res_1 2 A(k)$\\
+Step 2: An integral is performed over an element $res_2=\int_{\hat{\Omega}} res_1 2 Ar(k)$\\
 Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
 
 
 10. $(n \otimes u_D,\nabla \phi)_{\Gamma_D} $:
 
 Step 1: On local element following function is evaluated $res_1= n \otimes u_D  \nabla \phi$ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2=\int_{\Gamma_D} res_1 grid.EL(i,j)$\\
+Step 2: An integral is performed over an element $res_2=\int_{\Gamma_D} res_1 EL(i,j)$\\
 Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
 
 We discuss now assembly of non linear terms. We now introduce initial guess $u_k$ which will be iterated further.\\
 
 11. $-((u_k \cdot \nabla)\phi , \phi)$:\\
 Step 1: On local element following function is evaluated $res_1 = (u_k \cdot \nabla \hat{\phi_i} \hat{\phi_j}) $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2= - \int_{\hat{T}} (res_1) (2A(k))$\\
+Step 2: An integral is performed over an element $res_2= - \int_{\hat{T}} (res_1) (2Ar(k))$\\
 Step 3: Loop over all elements and perform following operation in each loop $res_3[ids,ids]=res_2$\\
 
-12. $-((u_k \cdot n)\phi , \phi)$:\\
+12. $((u_k \cdot n)\phi , \phi)$:\\
 Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2= \int_{\Gamma_N} res_1 grid.EL(i,j) $\\
-Step 3: Loop over all Neumann edge and perform following operation in each loop $res_3[ids,ids]=res_2$\\
-
-13. $((u_k \cdot n)\phi , \phi)$:\\
-Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2}  \int_{\Gamma_N} res_1 grid.EL(i,j) $\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2}  \int_{\Gamma_N} res_1 EL(i,j) $\\
 Step 3: Loop over all Neumann edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
 
-14. $((u_k \cdot n)\phi,\phi^{ext})_{\Gamma_N}$:\\
+13. $((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$:\\
 Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}^{ext} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma_N} res_1 grid.EL(i,j) $\\
-Step 3: Loop over all Neumann edge and perform following operation in each loop $res_3[ids,ids^{ext}] = res_2$\\
-
-15. $((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$:\\
-Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}^{ext} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL $\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) $\\
 Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids^{ext}] = res_2$\\
 
-16. $(|u_k \cdot n| \phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$:\\
+14. $(|u_k \cdot n| \phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$:\\
 Step 1: On local element following function is evaluated $res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j}^{ext} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL $\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) $\\
 Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids^{ext}] = res_2$\\
 
-17. $((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$:\\
+15. $((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$:\\
 Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL $\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) $\\
 Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
 
-18. $((|u_k \cdot n| \phi,\phi)_{\partial T \setminus \Gamma_N}$:\\
+16. $((|u_k \cdot n| \phi,\phi)_{\partial T \setminus \Gamma_N}$:\\
 Step 1: On local element following function is evaluated $res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL $\\
+Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) $\\
 Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
 
 \section{Setting boundary conditions}
@@ -1698,7 +1687,7 @@ We now define fields for constructing function spaces for pressure and velocity.
 
 \subsection{Matrix assembly}
 
-We now assemble all the matrices as explained in chapter \ref{implementation_aspects}. \\$params.bilinear\_side$ contains $A$ or assembly of $a(u,\phi)$\\$params.bilinear\_side\_pressure\_terms$ contains assembly of $B$ or assembly of $b(\phi,\psi)$\\ $params.lhs\_continuity$ contains assembly of $B^T$\\ $rhs$ is the right hand side matrix $[F_1;F_2]$ as\\ $[params.linear\_side;params.rhs\_continuity]$. \\
+We now assemble all the matrices as explained. \\$params.bilinear\_side$ contains $A$ or assembly of $a(u,\phi)$\\$params.bilinear\_side\_pressure\_terms$ contains assembly of $B$ or assembly of $b(\phi,\psi)$\\ $params.lhs\_continuity$ contains assembly of $B^T$\\ $rhs$ is the right hand side matrix $[F_1;F_2]$ as\\ $[params.linear\_side;params.rhs\_continuity]$. \\
 
 \subsection{Solving assembled form}
 
@@ -1725,13 +1714,13 @@ It is the connectivity of a node with neighbouring nodes that gives rise to diff
 \hline
 \textbf{Matrix term} & \textbf{Size} & \textbf{Sparsity pattern} \\
 \hline
-$(\nabla \phi_h, \nabla \phi_h)$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{fig:sparsity_del_phi_del_phi}\\
+$(\nabla \phi, \nabla \phi)$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{fig:sparsity_del_phi_del_phi}\\
 \hline
-$([n \otimes \phi_h],[n \otimes \phi_h])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_2_all}\\
+$([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_2_all}\\
 \hline
-$(\lbrace \nabla u_h \rbrace,[n \otimes \phi_h])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_3_all}\\
+$(\lbrace \nabla \phi \rbrace,[n \otimes \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_3_all}\\
 \hline
-$(\lbrace \psi \rbrace,[n \cdot \phi_h])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{p_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_4_all}\\
+$(\lbrace \psi \rbrace,[n \cdot \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{p_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_4_all}\\
 \hline
 $(- \int_{\hat{T}} \psi \nabla \cdot \phi)$ & $\mathbb{R}^{p_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_5} \\
 \hline
@@ -1739,9 +1728,9 @@ $-((u_k \cdot \nabla)\phi , \phi)$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ &
 \hline
 $((u_k \cdot n)\phi , \phi)_{\Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_7}\\
 \hline
-$((u_k \cdot n)\phi^{ext},\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_81}\\
+$((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_81}\\
 \hline
-$(|u_k \cdot n|\phi^{ext},\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_91}\\
+$(|u_k \cdot n|\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_91}\\
 \hline
 $((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_82}\\
 \hline
@@ -1887,7 +1876,7 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
 \begin{subfigure}{.5\textwidth}
 \centering
   \includegraphics[width=\linewidth]{figure81.jpg}
-  \caption{($((u_k \cdot n)\phi^{ext},\phi)_{\partial T \setminus \Gamma_N}$)}
+  \caption{($((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$)}
   \label{figure_81}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}	
@@ -1899,10 +1888,10 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
 \begin{subfigure}{\textwidth}	
 \centering
   \includegraphics[width=\linewidth]{figure8.jpg}
-  \caption{$((u_k \cdot n)\phi^{ext},\phi)_{\partial T \setminus \Gamma_N} + ((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
+  \caption{$((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N} + ((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
   \label{figure_8}
 \end{subfigure}
-\caption{Sparsity patterns of constituents of $((u_k \cdot n)\phi^{ext},\phi)_{\partial T \setminus \Gamma_N} + ((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
+\caption{Sparsity patterns of constituents of $((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N} + ((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
 \label{figure_8_all}
 \end{figure}
 
@@ -1910,7 +1899,7 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
 \begin{subfigure}{.5\textwidth}
 \centering
   \includegraphics[width=\linewidth]{figure91.jpg}
-  \caption{($(abs(u_k \cdot n)\phi^{ext},\phi)_{\partial T \setminus \Gamma_N}$)}
+  \caption{($(abs(u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$)}
   \label{figure_91}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}	
@@ -1922,10 +1911,10 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
 \begin{subfigure}{\textwidth}	
 \centering
   \includegraphics[width=\linewidth]{figure9.jpg}
-  \caption{$(abs(u_k \cdot n)\phi^{ext},\phi)_{\partial T \setminus \Gamma_N} + (abs(u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
+  \caption{$(abs(u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N} + (abs(u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
   \label{figure_9}
 \end{subfigure}
-\caption{Sparsity patterns of constituents of $(abs(u_k \cdot n)\phi^{ext},\phi)_{\partial T \setminus \Gamma_N} + (abs(u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
+\caption{Sparsity patterns of constituents of $(abs(u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N} + (abs(u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
 \label{figure_9_all}
 \end{figure}
 

@@ -47,15 +47,15 @@
 \contentsline {section}{\numberline {4.3}Assembly of average operator}{43}
 \contentsline {section}{\numberline {4.4}Assembly of jump operator}{43}
 \contentsline {section}{\numberline {4.5}Matrix assemblies}{44}
-\contentsline {section}{\numberline {4.6}Setting boundary conditions}{50}
+\contentsline {section}{\numberline {4.6}Setting boundary conditions}{49}
 \contentsline {section}{\numberline {4.7}Setting source term}{50}
 \contentsline {section}{\numberline {4.8}Program flow}{50}
 \contentsline {subsection}{\numberline {4.8.1}Grid Preparation}{50}
 \contentsline {subsection}{\numberline {4.8.2}Function space formulation}{50}
 \contentsline {subsection}{\numberline {4.8.3}Matrix assembly}{51}
 \contentsline {subsection}{\numberline {4.8.4}Solving assembled form}{51}
-\contentsline {subsection}{\numberline {4.8.5}Post processing}{52}
-\contentsline {subsection}{\numberline {4.8.6}Newton method}{52}
+\contentsline {subsection}{\numberline {4.8.5}Post processing}{51}
+\contentsline {subsection}{\numberline {4.8.6}Newton method}{51}
 \contentsline {subsection}{\numberline {4.8.7}Additional remarks}{52}
 \contentsline {section}{\numberline {4.9}Sparsity pattern}{52}
 \contentsline {chapter}{\numberline {5}Numerical experiments}{61}
