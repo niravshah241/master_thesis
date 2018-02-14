@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  9 FEB 2018 04:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  14 FEB 2018 04:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -441,44 +441,68 @@ Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
 \c@subfigure=\count123
 \c@subtable=\count124
 )
-(./Short description.aux
+(/usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 
-LaTeX Warning: Label `fig:velocity_x_cylinder_stokes_schur' multiply defined.
-
-
-LaTeX Warning: Label `fig:velocity_y_cylinder_stokes_schur' multiply defined.
-
-
-LaTeX Warning: Label `fig:pressure_cylinder_stokes_schur' multiply defined.
-
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen167
+\extrarowheight=\dimen168
+\NC@list=\toks34
+\extratabsurround=\skip48
+\backup@length=\skip49
 )
+\rotheadsize=\dimen169
+\c@nlinenum=\count125
+\TeXr@lab=\toks35
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip50
+\LTright=\skip51
+\LTpre=\skip52
+\LTpost=\skip53
+\LTchunksize=\count126
+\LTcapwidth=\dimen170
+\LT@head=\box41
+\LT@firsthead=\box42
+\LT@foot=\box43
+\LT@lastfoot=\box44
+\LT@cols=\count127
+\LT@rows=\count128
+\c@LT@tables=\count129
+\c@LT@chunks=\count130
+\LT@p@ftn=\toks36
+)
+(./Short description.aux)
 \openout1 = `"Short description.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count125
-\scratchdimen=\dimen167
-\scratchbox=\box41
-\nofMPsegments=\count126
-\nofMParguments=\count127
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count128
-\MPscratchDim=\dimen168
-\MPnumerator=\count129
-\makeMPintoPDFobject=\count130
-\everyMPtoPDFconversion=\toks35
+\scratchcounter=\count131
+\scratchdimen=\dimen171
+\scratchbox=\box45
+\nofMPsegments=\count132
+\nofMParguments=\count133
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count134
+\MPscratchDim=\dimen172
+\MPnumerator=\count135
+\makeMPintoPDFobject=\count136
+\everyMPtoPDFconversion=\toks38
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -528,6 +552,11 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: longtable package is loaded.
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
+)
 Package caption Info: End \AtBeginDocument code.
 
 ABD: EveryShipout initializing macros [1{/var/lib/texmf/fonts/map/pdftex/updmap
@@ -536,21 +565,21 @@ ABD: EveryShipout initializing macros [1{/var/lib/texmf/fonts/map/pdftex/updmap
 ] [2
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 22.
+LaTeX Font Info:    Try loading font information for U+msa on input line 24.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 22.
+LaTeX Font Info:    Try loading font information for U+msb on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 22.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
-Overfull \hbox (31.03156pt too wide) in paragraph at lines 22--22
+Overfull \hbox (31.03156pt too wide) in paragraph at lines 24--24
  [][] 
  []
 
@@ -565,61 +594,86 @@ Chapter 1.
 [5
 
 ]
-Overfull \hbox (0.35289pt too wide) in paragraph at lines 48--49
-[]\OT1/cmr/m/n/12 In the ap-pendix, sup-ple-men-tary the-o-ret-i-cal back-groun
-d is pro-vided, which
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--145
-
- []
-
-[6] [7]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Overfull \hbox (50.18175pt too wide) in paragraph at lines 60--60
+[]|\OT1/cmr/bx/n/12 Symbol/Abbreviation| 
+ []
+
+
+Overfull \hbox (25.19998pt too wide) in alignment at lines 58--99
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 99
+ []
+
+
+Overfull \hbox (25.19998pt too wide) in alignment at lines 99--139
+ [] [] 
+ []
+
+[6]
+Overfull \hbox (25.19998pt too wide) in alignment at lines 139--179
+ [] [] 
+ []
+
+
+Overfull \hbox (25.19998pt too wide) in alignment at lines 179--219
+ [] [] 
+ []
+
+[7]
+Overfull \hbox (25.19998pt too wide) in alignment at lines 219--236
+ [] [] 
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 203--206
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
 
 
-Overfull \hbox (18.79926pt too wide) in paragraph at lines 235--243
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 296--299
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
+
+ []
+
+
+Overfull \hbox (18.79926pt too wide) in paragraph at lines 328--336
 []\OT1/cmr/m/n/12 We as-sume here that $\OMS/cmsy/m/n/12 A\OML/cmm/m/it/12 ; \O
 MS/cmsy/m/n/12 B[]\OML/cmm/m/it/12 ; \OMS/cmsy/m/n/12 B[]$ \OT1/cmr/m/n/12 are 
 non ze-ros. Usu-ally con-stituents $\OMS/cmsy/m/n/12 A\OML/cmm/m/it/12 ; \OMS/c
@@ -628,151 +682,151 @@ sy/m/n/12 C$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--243
+Underfull \hbox (badness 10000) in paragraph at lines 328--336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--243
+Underfull \hbox (badness 10000) in paragraph at lines 328--336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 337--338
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--247
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 300--302
+Underfull \hbox (badness 10000) in paragraph at lines 339--340
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--304
+Underfull \hbox (badness 10000) in paragraph at lines 393--394
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 305--306
+Underfull \hbox (badness 10000) in paragraph at lines 395--396
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 309--310
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 311--312
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
+Underfull \hbox (badness 10000) in paragraph at lines 397--398
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 399--400
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
+Underfull \hbox (badness 10000) in paragraph at lines 401--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 367--368
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 369--370
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--376
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--376
+Underfull \hbox (badness 10000) in paragraph at lines 461--462
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 377--378
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 379--380
+Underfull \hbox (badness 10000) in paragraph at lines 465--470
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--382
+Underfull \hbox (badness 10000) in paragraph at lines 465--470
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--390
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 405--406
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 423--424
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 
  []
 
-[14] [15] [16
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--484
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 499--500
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
+
+ []
+
+[14] [15] [16]
+Chapter 2.
+[17
 
 ]
-Chapter 2.
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 521--525
+Underfull \hbox (badness 10000) in paragraph at lines 615--619
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 537--538
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 549--559
+Underfull \hbox (badness 10000) in paragraph at lines 631--632
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 571--572
+Underfull \hbox (badness 10000) in paragraph at lines 643--653
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 575--577
+Underfull \hbox (badness 10000) in paragraph at lines 665--666
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 669--671
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 590--593
+Underfull \hbox (badness 10000) in paragraph at lines 684--687
 
  []
 
@@ -781,7 +835,7 @@ Chapter 3.
 <ch_3_fig_1.jpg, id=90, 318.43968pt x 190.46156pt>
 File: ch_3_fig_1.jpg Graphic file (type jpg)
  <use ch_3_fig_1.jpg>
-Package pdftex.def Info: ch_3_fig_1.jpg used on input line 603.
+Package pdftex.def Info: ch_3_fig_1.jpg used on input line 697.
 (pdftex.def)             Requested size: 390.0pt x 233.26076pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -793,15 +847,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: domain.jpg Graphic file (type jpg)
 
 <use domain.jpg>
-Package pdftex.def Info: domain.jpg used on input line 635.
+Package pdftex.def Info: domain.jpg used on input line 727.
 (pdftex.def)             Requested size: 195.0pt x 193.39775pt.
  <grid.jpg, id=98, 356.0803pt x 289.83281pt>
 File: grid.jpg Graphic file (type jpg)
  <use grid.jpg>
-Package pdftex.def Info: grid.jpg used on input line 641.
+Package pdftex.def Info: grid.jpg used on input line 733.
 (pdftex.def)             Requested size: 195.0pt x 158.71861pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 633--645
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 725--737
 []$[]$ $[]$ 
  []
 
@@ -809,30 +863,35 @@ Overfull \hbox (2.61108pt too wide) in paragraph at lines 633--645
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
-Underfull \hbox (badness 10000) in paragraph at lines 661--662
+Underfull \hbox (badness 10000) in paragraph at lines 751--752
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 753--754
 
  []
 
 [24 <./domain.jpg> <./grid.jpg>]
-Overfull \hbox (5.54576pt too wide) in paragraph at lines 665--665
+Overfull \hbox (5.54576pt too wide) in paragraph at lines 757--757
 []\OT1/cmr/bx/n/17.28 Nodal ba-sis func-tion and Or-thonor-mal ba-
  []
 
 <fem_triangle_2.png, id=107, 239.2137pt x 155.1396pt>
 File: fem_triangle_2.png Graphic file (type png)
  <use fem_triangle_2.png>
-Package pdftex.def Info: fem_triangle_2.png used on input line 684.
+Package pdftex.def Info: fem_triangle_2.png used on input line 776.
 (pdftex.def)             Requested size: 390.0pt x 252.95578pt.
 
-Underfull \vbox (badness 3792) has occurred while \output is active []
+Underfull \vbox (badness 6691) has occurred while \output is active []
 
  [25]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 699.
+(amsmath)                trying to recover with `aligned' on input line 791.
 
 [26 <./fem_triangle_2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 735--741
+Underfull \hbox (badness 10000) in paragraph at lines 827--833
 
  []
 
@@ -843,52 +902,57 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ¢ in font cmr12!
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 794--795
+Underfull \hbox (badness 10000) in paragraph at lines 886--887
 
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 796--798
+Underfull \hbox (badness 10000) in paragraph at lines 888--890
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 799--800
+Underfull \hbox (badness 10000) in paragraph at lines 891--892
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 808--809
+Underfull \hbox (badness 10000) in paragraph at lines 900--901
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 829--831
+Underfull \hbox (badness 10000) in paragraph at lines 920--922
 
  []
 
-[29] [30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 961--963
+[29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 995--996
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1056
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 964--965
+Underfull \hbox (badness 10000) in paragraph at lines 1057--1058
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 981--988
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1081
 
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1000--1001
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1094
 
  []
 
 [33]
-Overfull \hbox (20.7694pt too wide) detected at line 1047
+Overfull \hbox (20.7694pt too wide) detected at line 1140
 \OML/cmm/m/it/12 a[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^^; ^^^\OT1/cmr/m/n/12 )
  \OMS/cmsy/m/n/12 ^^U [] [] jj\OML/cmm/m/it/12 ^^W[]\OMS/cmsy/m/n/12 r\OML/cmm/
 m/it/12 v\OMS/cmsy/m/n/12 jj[] \OT1/cmr/m/n/12 + [] []\OMS/cmsy/m/n/12 jj\OT1/c
@@ -896,108 +960,114 @@ mr/m/n/12 [\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 ]\OMS/cmsy/m/n/12 jj[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1051--1052
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1060--1061
-
- []
-
-[34] [35]
 Underfull \hbox (badness 10000) in paragraph at lines 1144--1145
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1172--1173
+Underfull \hbox (badness 10000) in paragraph at lines 1153--1154
+
+ []
+
+[34] [35]
+Underfull \hbox (badness 10000) in paragraph at lines 1237--1238
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1174--1175
+Underfull \hbox (badness 10000) in paragraph at lines 1259--1260
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1261--1262
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1272--1273
 
  []
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1185--1188
+Underfull \hbox (badness 10000) in paragraph at lines 1274--1275
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1189--1190
+Underfull \hbox (badness 10000) in paragraph at lines 1276--1277
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1192
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1193--1194
+Overfull \hbox (10.21931pt too wide) in paragraph at lines 1296--1296
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1298--1299
 
  []
 
 
-Overfull \hbox (10.21931pt too wide) detected at line 1211
-[] [] \OT1/cmr/m/n/12 = []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1213--1214
+Underfull \hbox (badness 10000) in paragraph at lines 1304--1305
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1219--1220
+Underfull \hbox (badness 10000) in paragraph at lines 1313--1314
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1228--1229
-
+Underfull \hbox (badness 10000) in paragraph at lines 1319--1320
+\OT1/cmr/m/n/12 ear terms on right hand side of equa-tion $(\OML/cmm/m/it/12 t;
+ ^^^\OT1/cmr/m/n/12 )[]$, $(\OML/cmm/m/it/12 u[]; ^^^\OT1/cmr/m/n/12 )[]$,
  []
 
 [37]
-Overfull \hbox (2.24774pt too wide) in paragraph at lines 1238--1239
-\OT1/cmr/m/n/12 method bet-ter kn-won as $\OML/cmm/m/it/12 minres$ \OT1/cmr/m/n
-/12 and Schur com-ple-ment method. The $\OML/cmm/m/it/12 bicgstab$
+Overfull \hbox (2.57413pt too wide) in paragraph at lines 1323--1324
+\OT1/cmr/m/n/12 method bet-ter known as $\OML/cmm/m/it/12 minres$ \OT1/cmr/m/n/
+12 and Schur com-ple-ment method. The $\OML/cmm/m/it/12 bicgstab$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1248--1249
+Underfull \hbox (badness 10000) in paragraph at lines 1333--1334
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1255
+Underfull \hbox (badness 10000) in paragraph at lines 1339--1340
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1345--1347
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1260--1262
+Underfull \hbox (badness 10000) in paragraph at lines 1348--1349
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1263--1264
+Underfull \hbox (badness 10000) in paragraph at lines 1350--1351
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1265--1266
+Underfull \hbox (badness 10000) in paragraph at lines 1363--1366
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1278--1281
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1282--1283
+Underfull \hbox (badness 10000) in paragraph at lines 1367--1368
 
  []
 
@@ -1006,372 +1076,510 @@ Underfull \hbox (badness 10000) in paragraph at lines 1282--1283
 ]
 Chapter 4.
 
-Overfull \hbox (137.39075pt too wide) in paragraph at lines 1298--1315
- [][] 
+Underfull \hbox (badness 1888) in paragraph at lines 1373--1374
+\OT1/cmr/m/n/12 We re-fer to lit-er-a-tures of B. Haas-donk [[]] and RB-mat-lab
+ web-site:
  []
 
 
-Overfull \hbox (137.39075pt too wide) in paragraph at lines 1318--1335
- [][] 
- []
-
-[41]
-Overfull \hbox (75.86023pt too wide) in paragraph at lines 1340--1359
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 1373--1374
+\OT1/cmr/m/n/12 http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.16
+.09/
  []
 
 
-Overfull \hbox (35.89761pt too wide) in paragraph at lines 1363--1372
+Overfull \hbox (0.93542pt too wide) in paragraph at lines 1390--1390
+[]|$\OML/cmm/m/it/12 ndofs[]per[]element$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1394--1395
+[]|\OT1/cmr/m/n/12 Calculated af-ter
+ []
+
+
+Underfull \hbox (badness 4765) in paragraph at lines 1394--1395
+\OT1/cmr/m/n/12 solv-ing 3.51[] and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1396--1397
+[]|\OT1/cmr/m/n/12 User de-fined
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1396--1397
+\OT1/cmr/m/n/12 switch to plot
+ []
+
+
+Overfull \hbox (49.99997pt too wide) in paragraph at lines 1382--1399
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1376--1377
+Underfull \hbox (badness 10000) in paragraph at lines 1378--1400
 
  []
 
 
-Overfull \hbox (86.52084pt too wide) in paragraph at lines 1390--1391
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [41]
+Overfull \hbox (0.93542pt too wide) in paragraph at lines 1413--1413
+[]|$\OML/cmm/m/it/12 ndofs[]per[]element$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1417--1418
+[]|\OT1/cmr/m/n/12 Calculated af-ter
+ []
+
+
+Underfull \hbox (badness 4765) in paragraph at lines 1417--1418
+\OT1/cmr/m/n/12 solv-ing 3.51[] and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1419--1420
+[]|\OT1/cmr/m/n/12 User de-fined
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1419--1420
+\OT1/cmr/m/n/12 switch to plot
+ []
+
+
+Overfull \hbox (49.99997pt too wide) in paragraph at lines 1405--1422
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1434
+[]|\OT1/cmr/m/n/12 User de-fined or
+ []
+
+
+Underfull \hbox (badness 2635) in paragraph at lines 1435--1436
+\OT1/cmr/m/n/12 neigh-bour of el-e-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1437--1438
+[]|$\OML/cmm/m/it/12 x\OMS/cmsy/m/n/12 ^^@$\OT1/cmr/m/n/12 component of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1439--1440
+[]|$\OML/cmm/m/it/12 y\OMS/cmsy/m/n/12 ^^@$\OT1/cmr/m/n/12 component of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1445--1446
+[]|\OT1/cmr/m/n/12 Jacobian in-verse
+ []
+
+
+Overfull \hbox (49.99997pt too wide) in paragraph at lines 1429--1448
+ [] 
+ []
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1460
+[]|\OT1/cmr/m/n/12 element num-ber,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1461--1462
+\OT1/cmr/m/n/12 of free-dom in
+ []
+
+
+Overfull \hbox (49.99997pt too wide) in paragraph at lines 1455--1464
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1469--1470
+
+ []
+
+[43]
+Underfull \hbox (badness 2653) in paragraph at lines 1483--1484
 []\OT1/cmr/m/n/12 The deriva-tive of the ba-sis func-tions is pro-vided by a ro
-u-tine $\OML/cmm/m/it/12 ldg[]evaluate[]basis[]derivative$\OT1/cmr/m/n/12 .
- []
-
-[42] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1442--1445
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1452--1453
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1454--1457
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1468--1469
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1474--1475
-
+u-tine
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1480--1481
+Underfull \hbox (badness 10000) in paragraph at lines 1535--1538
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1482--1483
+Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1487--1493
+Underfull \hbox (badness 10000) in paragraph at lines 1547--1550
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1487--1493
+Underfull \hbox (badness 10000) in paragraph at lines 1561--1562
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1496--1503
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1504--1510
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1513--1514
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1519--1525
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1519--1525
+Underfull \hbox (badness 10000) in paragraph at lines 1567--1568
 
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1526--1533
+Underfull \hbox (badness 10000) in paragraph at lines 1573--1574
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1534--1540
+Underfull \hbox (badness 10000) in paragraph at lines 1575--1576
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1543--1544
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1586
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1551--1557
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1586
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1551--1557
+Underfull \hbox (badness 10000) in paragraph at lines 1589--1596
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1560--1567
+Underfull \hbox (badness 10000) in paragraph at lines 1597--1603
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1606--1607
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1612--1618
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1612--1618
 
  []
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 1568--1574
+Underfull \hbox (badness 10000) in paragraph at lines 1619--1626
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1577--1578
+Underfull \hbox (badness 10000) in paragraph at lines 1627--1633
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1591--1593
+Underfull \hbox (badness 10000) in paragraph at lines 1636--1637
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1594--1596
+Underfull \hbox (badness 10000) in paragraph at lines 1644--1650
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1597--1599
+Underfull \hbox (badness 10000) in paragraph at lines 1644--1650
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1602--1604
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1605--1608
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1609--1614
+Underfull \hbox (badness 10000) in paragraph at lines 1653--1660
 
  []
 
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 1617--1620
+Underfull \hbox (badness 10000) in paragraph at lines 1661--1667
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1623--1626
+Underfull \hbox (badness 10000) in paragraph at lines 1670--1671
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1630--1633
+Underfull \hbox (badness 10000) in paragraph at lines 1684--1686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1634--1635
+Underfull \hbox (badness 10000) in paragraph at lines 1687--1689
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1636--1640
+Underfull \hbox (badness 10000) in paragraph at lines 1690--1692
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1641--1645
+Underfull \hbox (badness 10000) in paragraph at lines 1695--1697
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1698--1701
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1702--1707
 
  []
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1646--1650
+Underfull \hbox (badness 10000) in paragraph at lines 1710--1713
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1651--1655
+Underfull \hbox (badness 10000) in paragraph at lines 1716--1719
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1656--1660
+Underfull \hbox (badness 10000) in paragraph at lines 1723--1726
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1661--1665
+Underfull \hbox (badness 10000) in paragraph at lines 1727--1728
 
  []
 
 
-Overfull \hbox (26.86722pt too wide) in paragraph at lines 1670--1671
-[]\OT1/cmr/m/n/12 We set the Dirich-let and Neu-mann bound-ary val-ues in rou-t
-ine $\OML/cmm/m/it/12 Dirichlet[]values$
+Underfull \hbox (badness 10000) in paragraph at lines 1729--1733
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1734--1738
+
  []
 
 [49]
-Underfull \hbox (badness 10000) in paragraph at lines 1686--1687
+Underfull \hbox (badness 10000) in paragraph at lines 1739--1743
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1690--1691
+Underfull \hbox (badness 10000) in paragraph at lines 1744--1748
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1749--1753
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1754--1758
+
+ []
+
+
+Overfull \hbox (21.90784pt too wide) in paragraph at lines 1763--1764
+[]\OT1/cmr/m/n/12 We set the Dirich-let and Neu-mann bound-ary val-ues in rou-t
+ine $[]$
  []
 
 [50]
-Overfull \hbox (16.90672pt too wide) in paragraph at lines 1694--1695
-\OML/cmm/m/it/12 paramsP$ \OT1/cmr/m/n/12 are given new val-ues $\OML/cmm/m/it/
-12 dofs$ \OT1/cmr/m/n/12 which con-tain de-gree of free-dom. $\OML/cmm/m/it/12 
-actual[]iter$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1694--1695
+Underfull \hbox (badness 10000) in paragraph at lines 1779--1780
 
  []
 
 
-LaTeX Warning: Reference `Stokes_flow' on page 51 undefined on input line 1698.
+Underfull \hbox (badness 10000) in paragraph at lines 1783--1784
 
+ []
 
-
-Overfull \hbox (72.06549pt too wide) in paragraph at lines 1698--1699
-\OT1/cmr/m/n/12 sion against which nu-mer-i-cal so-lu-tion is to be com-pared. 
-$\OML/cmm/m/it/12 params:dof[]derivative[]analytical$
+[51]
+Overfull \hbox (0.73027pt too wide) in paragraph at lines 1787--1788
+\OT1/cmr/m/n/12 does not con-verge. We call the rou-tine $[]$ for $\OML/cmm/m/i
+t/12 bicgstab$\OT1/cmr/m/n/12 ,$\OML/cmm/m/it/12 minres$
  []
 
 
-Overfull \hbox (16.29851pt too wide) in paragraph at lines 1698--1699
-\OT1/cmr/m/n/12 and $\OML/cmm/m/it/12 paramsP:dof[]derivative[]analytical$ \OT1
-/cmr/m/n/12 con-tain an-lyt-i-cal ex-prres-sion for deriva-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1698--1699
+Underfull \hbox (badness 10000) in paragraph at lines 1787--1788
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1702--1703
+LaTeX Warning: Reference `Stokes_flow' on page 52 undefined on input line 1791.
+
+
+
+Overfull \hbox (40.54553pt too wide) in paragraph at lines 1791--1792
+\OT1/cmr/m/n/12 against which nu-mer-i-cal so-lu-tion is to be com-pared. $[]$
+ []
+
+
+Overfull \hbox (3.42851pt too wide) in paragraph at lines 1791--1792
+\OT1/cmr/m/n/12 and $[]$ con-tain an-lyt-i-cal ex-pres-sion for deriva-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1791--1792
 
  []
 
-[51] <figure1.jpg, id=197, 1540.75626pt x 824.07875pt>
-File: figure1.jpg Graphic file (type jpg)
- <use figure1.jpg>
-Package pdftex.def Info: figure1.jpg used on input line 1744.
-(pdftex.def)             Requested size: 390.0pt x 208.58435pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 1795--1796
 
- [52]
+ []
+
+[52]
+Overfull \hbox (37.59998pt too wide) in paragraph at lines 1807--1834
+ [] 
+ []
+
 <figure21.jpg, id=201, 562.1pt x 421.575pt>
 File: figure21.jpg Graphic file (type jpg)
  <use figure21.jpg>
-Package pdftex.def Info: figure21.jpg used on input line 1752.
+Package pdftex.def Info: figure21.jpg used on input line 1840.
 (pdftex.def)             Requested size: 195.0pt x 146.2476pt.
 
 <figure22.jpg, id=202, 562.1pt x 421.575pt>
 File: figure22.jpg Graphic file (type jpg)
  <use figure22.jpg>
-Package pdftex.def Info: figure22.jpg used on input line 1758.
+Package pdftex.def Info: figure22.jpg used on input line 1846.
 (pdftex.def)             Requested size: 195.0pt x 146.2476pt.
 
 <figure23.jpg, id=203, 562.1pt x 421.575pt>
 File: figure23.jpg Graphic file (type jpg)
  <use figure23.jpg>
-Package pdftex.def Info: figure23.jpg used on input line 1764.
+Package pdftex.def Info: figure23.jpg used on input line 1852.
 (pdftex.def)             Requested size: 195.0pt x 146.2476pt.
 
 <figure24.jpg, id=204, 562.1pt x 421.575pt>
 File: figure24.jpg Graphic file (type jpg)
  <use figure24.jpg>
-Package pdftex.def Info: figure24.jpg used on input line 1770.
+Package pdftex.def Info: figure24.jpg used on input line 1858.
 (pdftex.def)             Requested size: 195.0pt x 146.2476pt.
 
 <figure2.jpg, id=205, 562.1pt x 421.575pt>
 File: figure2.jpg Graphic file (type jpg)
  <use figure2.jpg>
-Package pdftex.def Info: figure2.jpg used on input line 1776.
+Package pdftex.def Info: figure2.jpg used on input line 1864.
 (pdftex.def)             Requested size: 390.0pt x 292.50166pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 1750--1780
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1838--1868
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 1750--1780
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1838--1868
+[]$ $[]$
+ []
+
+<figure31.jpg, id=206, 562.1pt x 421.575pt>
+File: figure31.jpg Graphic file (type jpg)
+ <use figure31.jpg>
+Package pdftex.def Info: figure31.jpg used on input line 1874.
+(pdftex.def)             Requested size: 195.0pt x 146.2476pt.
+
+<figure32.jpg, id=207, 562.1pt x 421.575pt>
+File: figure32.jpg Graphic file (type jpg)
+ <use figure32.jpg>
+Package pdftex.def Info: figure32.jpg used on input line 1880.
+(pdftex.def)             Requested size: 195.0pt x 146.2476pt.
+
+<figure33.jpg, id=208, 562.1pt x 421.575pt>
+File: figure33.jpg Graphic file (type jpg)
+ <use figure33.jpg>
+Package pdftex.def Info: figure33.jpg used on input line 1886.
+(pdftex.def)             Requested size: 195.0pt x 146.2476pt.
+
+<figure34.jpg, id=209, 562.1pt x 421.575pt>
+File: figure34.jpg Graphic file (type jpg)
+ <use figure34.jpg>
+Package pdftex.def Info: figure34.jpg used on input line 1892.
+(pdftex.def)             Requested size: 195.0pt x 146.2476pt.
+
+<figure3.jpg, id=210, 562.1pt x 421.575pt>
+File: figure3.jpg Graphic file (type jpg)
+ <use figure3.jpg>
+Package pdftex.def Info: figure3.jpg used on input line 1898.
+(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1872--1902
+[]$[]$ $[]$
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1872--1902
 []$ $[]$
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [53 <./figure1.jpg>]
+ [53]
 Overfull \vbox (78.29683pt too high) has occurred while \output is active []
 
 
 [54 <./figure21.jpg> <./figure22.jpg> <./figure23.jpg> <./figure24.jpg> <./figu
-re2.jpg>] <figure31.jpg, id=214, 562.1pt x 421.575pt>
-File: figure31.jpg Graphic file (type jpg)
- <use figure31.jpg>
-Package pdftex.def Info: figure31.jpg used on input line 1787.
+re2.jpg>] <figure41.jpg, id=219, 1540.75626pt x 824.07875pt>
+File: figure41.jpg Graphic file (type jpg)
+
+<use figure41.jpg>
+Package pdftex.def Info: figure41.jpg used on input line 1908.
+(pdftex.def)             Requested size: 195.0pt x 104.29218pt.
+ <figure42.jpg, id=220, 1540.75626pt x 824.07875pt>
+File: figure42.jpg Graphic file (type jpg)
+
+<use figure42.jpg>
+Package pdftex.def Info: figure42.jpg used on input line 1914.
+(pdftex.def)             Requested size: 195.0pt x 104.29218pt.
+ <figure43.jpg, id=221, 562.1pt x 421.575pt>
+File: figure43.jpg Graphic file (type jpg)
+
+<use figure43.jpg>
+Package pdftex.def Info: figure43.jpg used on input line 1920.
 (pdftex.def)             Requested size: 195.0pt x 146.2476pt.
+ <figure44.jpg, id=222, 1540.75626pt x 824.07875pt>
+File: figure44.jpg Graphic file (type jpg)
 
-<figure32.jpg, id=215, 562.1pt x 421.575pt>
-File: figure32.jpg Graphic file (type jpg)
- <use figure32.jpg>
-Package pdftex.def Info: figure32.jpg used on input line 1793.
-(pdftex.def)             Requested size: 195.0pt x 146.2476pt.
+<use figure44.jpg>
+Package pdftex.def Info: figure44.jpg used on input line 1926.
+(pdftex.def)             Requested size: 195.0pt x 104.29218pt.
+ <figure4.jpg, id=223, 1540.75626pt x 824.07875pt>
+File: figure4.jpg Graphic file (type jpg)
 
-<figure33.jpg, id=216, 562.1pt x 421.575pt>
-File: figure33.jpg Graphic file (type jpg)
- <use figure33.jpg>
-Package pdftex.def Info: figure33.jpg used on input line 1799.
-(pdftex.def)             Requested size: 195.0pt x 146.2476pt.
+<use figure4.jpg>
+Package pdftex.def Info: figure4.jpg used on input line 1932.
+(pdftex.def)             Requested size: 390.0pt x 208.58435pt.
 
-<figure34.jpg, id=217, 562.1pt x 421.575pt>
-File: figure34.jpg Graphic file (type jpg)
- <use figure34.jpg>
-Package pdftex.def Info: figure34.jpg used on input line 1805.
-(pdftex.def)             Requested size: 195.0pt x 146.2476pt.
-
-<figure3.jpg, id=218, 562.1pt x 421.575pt>
-File: figure3.jpg Graphic file (type jpg)
- <use figure3.jpg>
-Package pdftex.def Info: figure3.jpg used on input line 1811.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
-
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 1785--1815
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1906--1936
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 1785--1815
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1906--1936
 []$ $[]$
  []
 
@@ -1380,245 +1588,423 @@ Overfull \vbox (78.29683pt too high) has occurred while \output is active []
 
 
 [55 <./figure31.jpg> <./figure32.jpg> <./figure33.jpg> <./figure34.jpg> <./figu
-re3.jpg>] <figure41.jpg, id=222, 1540.75626pt x 824.07875pt>
-File: figure41.jpg Graphic file (type jpg)
-
-<use figure41.jpg>
-Package pdftex.def Info: figure41.jpg used on input line 1822.
-(pdftex.def)             Requested size: 195.0pt x 104.29218pt.
- <figure42.jpg, id=223, 1540.75626pt x 824.07875pt>
-File: figure42.jpg Graphic file (type jpg)
-
-<use figure42.jpg>
-Package pdftex.def Info: figure42.jpg used on input line 1828.
-(pdftex.def)             Requested size: 195.0pt x 104.29218pt.
- <figure43.jpg, id=224, 562.1pt x 421.575pt>
-File: figure43.jpg Graphic file (type jpg)
-
-<use figure43.jpg>
-Package pdftex.def Info: figure43.jpg used on input line 1834.
-(pdftex.def)             Requested size: 195.0pt x 146.2476pt.
- <figure44.jpg, id=225, 1540.75626pt x 824.07875pt>
-File: figure44.jpg Graphic file (type jpg)
-
-<use figure44.jpg>
-Package pdftex.def Info: figure44.jpg used on input line 1840.
-(pdftex.def)             Requested size: 195.0pt x 104.29218pt.
- <figure4.jpg, id=226, 1540.75626pt x 824.07875pt>
-File: figure4.jpg Graphic file (type jpg)
-
-<use figure4.jpg>
-Package pdftex.def Info: figure4.jpg used on input line 1846.
-(pdftex.def)             Requested size: 390.0pt x 208.58435pt.
-
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 1820--1850
-[]$[]$ $[]$
- []
-
-
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 1820--1850
-[]$ $[]$
- []
-
-<figure5.jpg, id=227, 1540.75626pt x 824.07875pt>
+re3.jpg>] <figure5.jpg, id=227, 1540.75626pt x 824.07875pt>
 File: figure5.jpg Graphic file (type jpg)
  <use figure5.jpg>
-Package pdftex.def Info: figure5.jpg used on input line 1856.
+Package pdftex.def Info: figure5.jpg used on input line 1941.
 (pdftex.def)             Requested size: 390.0pt x 208.58435pt.
+
+<figure6.jpg, id=228, 562.1pt x 421.575pt>
+File: figure6.jpg Graphic file (type jpg)
+ <use figure6.jpg>
+Package pdftex.def Info: figure6.jpg used on input line 1947.
+(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [56 <./figure41.jpg> <./figure42.jpg> <./figure43.jpg> <./figure44.jpg> <./fig
 ure4.jpg>]
-<figure6.jpg, id=231, 562.1pt x 421.575pt>
-File: figure6.jpg Graphic file (type jpg)
- <use figure6.jpg>
-Package pdftex.def Info: figure6.jpg used on input line 1863.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
-
 <figure7.jpg, id=232, 562.1pt x 421.575pt>
 File: figure7.jpg Graphic file (type jpg)
  <use figure7.jpg>
-Package pdftex.def Info: figure7.jpg used on input line 1870.
+Package pdftex.def Info: figure7.jpg used on input line 1953.
 (pdftex.def)             Requested size: 390.0pt x 292.50166pt.
- [57 <./figure5.jpg> <./figure6.jpg>] <figure81.jpg, id=236, 1540.75626pt x 824
+
+<figure1.jpg, id=233, 1540.75626pt x 824.07875pt>
+File: figure1.jpg Graphic file (type jpg)
+ <use figure1.jpg>
+Package pdftex.def Info: figure1.jpg used on input line 1959.
+(pdftex.def)             Requested size: 390.0pt x 208.58435pt.
+ [57 <./figure5.jpg> <./figure6.jpg>] <figure81.jpg, id=237, 1540.75626pt x 824
 .07875pt>
 File: figure81.jpg Graphic file (type jpg)
 
 <use figure81.jpg>
-Package pdftex.def Info: figure81.jpg used on input line 1878.
+Package pdftex.def Info: figure81.jpg used on input line 1966.
 (pdftex.def)             Requested size: 195.0pt x 104.29218pt.
- <figure82.jpg, id=237, 1540.75626pt x 824.07875pt>
+ <figure82.jpg, id=238, 1540.75626pt x 824.07875pt>
 File: figure82.jpg Graphic file (type jpg)
 
 <use figure82.jpg>
-Package pdftex.def Info: figure82.jpg used on input line 1884.
+Package pdftex.def Info: figure82.jpg used on input line 1972.
 (pdftex.def)             Requested size: 195.0pt x 104.29218pt.
- <figure8.jpg, id=238, 1540.75626pt x 824.07875pt>
+ <figure8.jpg, id=239, 1540.75626pt x 824.07875pt>
 File: figure8.jpg Graphic file (type jpg)
 
 <use figure8.jpg>
-Package pdftex.def Info: figure8.jpg used on input line 1890.
+Package pdftex.def Info: figure8.jpg used on input line 1978.
 (pdftex.def)             Requested size: 390.0pt x 208.58435pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 1876--1894
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1964--1982
 []$[]$ $[]$
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [58 <./figure7.jpg>] <figure91.jpg, id=242, 1540.75626pt x 824.07875pt>
+<figure91.jpg, id=240, 1540.75626pt x 824.07875pt>
 File: figure91.jpg Graphic file (type jpg)
-
-<use figure91.jpg>
-Package pdftex.def Info: figure91.jpg used on input line 1901.
+ <use figure91.jpg>
+Package pdftex.def Info: figure91.jpg used on input line 1988.
 (pdftex.def)             Requested size: 195.0pt x 104.29218pt.
- <figure92.jpg, id=243, 1540.75626pt x 824.07875pt>
+
+<figure92.jpg, id=241, 1540.75626pt x 824.07875pt>
 File: figure92.jpg Graphic file (type jpg)
-
-<use figure92.jpg>
-Package pdftex.def Info: figure92.jpg used on input line 1907.
+ <use figure92.jpg>
+Package pdftex.def Info: figure92.jpg used on input line 1994.
 (pdftex.def)             Requested size: 195.0pt x 104.29218pt.
- <figure9.jpg, id=244, 1540.75626pt x 824.07875pt>
-File: figure9.jpg Graphic file (type jpg)
 
-<use figure9.jpg>
-Package pdftex.def Info: figure9.jpg used on input line 1913.
+<figure9.jpg, id=242, 1540.75626pt x 824.07875pt>
+File: figure9.jpg Graphic file (type jpg)
+ <use figure9.jpg>
+Package pdftex.def Info: figure9.jpg used on input line 2000.
 (pdftex.def)             Requested size: 390.0pt x 208.58435pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 1899--1917
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1986--2004
 []$[]$ $[]$
  []
 
-
+[58 <./figure7.jpg> <./figure1.jpg>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [59 <./figure81.jpg> <./figure82.jpg> <./figure8.jpg>] [60 <./figure91.jpg> <.
 /figure92.jpg> <./figure9.jpg>]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1954--1955
+Underfull \hbox (badness 10000) in paragraph at lines 2041--2042
 
  []
 
 [61
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1956--1957
+Underfull \hbox (badness 10000) in paragraph at lines 2043--2044
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1958--1959
+Underfull \hbox (badness 10000) in paragraph at lines 2045--2046
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1960--1961
+Underfull \hbox (badness 10000) in paragraph at lines 2047--2048
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1962--1963
+Underfull \hbox (badness 10000) in paragraph at lines 2049--2050
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1983--1984
+Underfull \hbox (badness 10000) in paragraph at lines 2070--2071
 
  []
 
 [62]
-Underfull \hbox (badness 10000) in paragraph at lines 1985--1986
+
+Package caption Warning: \label without proper reference on input line 2095.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:l2_stokes' on page 63 undefined on input line 207
+2.
+
+
+Package caption Warning: \label without proper reference on input line 2119.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:h0_stokes' on page 63 undefined on input line 207
+2.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2073
 
  []
 
-<velocity_error_stokes.jpg, id=258, 562.1pt x 421.575pt>
-File: velocity_error_stokes.jpg Graphic file (type jpg)
+<l2_velocity_stokes.jpg, id=259, 4005.96625pt x 2066.72125pt>
+File: l2_velocity_stokes.jpg Graphic file (type jpg)
 
-<use velocity_error_stokes.jpg>
-Package pdftex.def Info: velocity_error_stokes.jpg used on input line 1988.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+<use l2_velocity_stokes.jpg>
+Package pdftex.def Info: l2_velocity_stokes.jpg used on input line 2076.
+(pdftex.def)             Requested size: 390.0pt x 201.19704pt.
 
-<pressure_error_stokes.jpg, id=259, 562.1pt x 421.575pt>
-File: pressure_error_stokes.jpg Graphic file (type jpg)
+<l2_pressure_stokes.jpg, id=260, 903.375pt x 627.34375pt>
+File: l2_pressure_stokes.jpg Graphic file (type jpg)
 
-<use pressure_error_stokes.jpg>
-Package pdftex.def Info: pressure_error_stokes.jpg used on input line 1994.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+<use l2_pressure_stokes.jpg>
+Package pdftex.def Info: l2_pressure_stokes.jpg used on input line 2081.
+(pdftex.def)             Requested size: 390.0pt x 270.83424pt.
 
-Underfull \vbox (badness 1019) has occurred while \output is active []
+<l2_velocity_log_stokes.jpg, id=261, 4005.96625pt x 2066.72125pt>
+File: l2_velocity_log_stokes.jpg Graphic file (type jpg)
 
- [63 <./velocity_error_stokes.jpg>] [64 <./pressure_error_stokes.jpg>]
+<use l2_velocity_log_stokes.jpg>
+Package pdftex.def Info: l2_velocity_log_stokes.jpg used on input line 2086.
+(pdftex.def)             Requested size: 390.0pt x 201.19704pt.
 
-LaTeX Warning: Reference `velocity_y_benchmark_stokes' on page 65 undefined on 
-input line 2021.
+<l2_pressure_log_stokes.jpg, id=262, 4005.96625pt x 2066.72125pt>
+File: l2_pressure_log_stokes.jpg Graphic file (type jpg)
 
-<velocity_x_schur.jpg, id=266, 562.1pt x 421.575pt>
-File: velocity_x_schur.jpg Graphic file (type jpg)
- <use velocity_x_schur.jpg>
-Package pdftex.def Info: velocity_x_schur.jpg used on input line 2025.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+<use l2_pressure_log_stokes.jpg>
+Package pdftex.def Info: l2_pressure_log_stokes.jpg used on input line 2091.
+(pdftex.def)             Requested size: 390.0pt x 201.19704pt.
 
-<velocity_y_schur.jpg, id=267, 562.1pt x 421.575pt>
-File: velocity_y_schur.jpg Graphic file (type jpg)
- <use velocity_y_schur.jpg>
-Package pdftex.def Info: velocity_y_schur.jpg used on input line 2031.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<pressure.jpg, id=268, 562.1pt x 421.575pt>
-File: pressure.jpg Graphic file (type jpg)
- <use pressure.jpg>
-Package pdftex.def Info: pressure.jpg used on input line 2037.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
- [65 <./velocity_x_schur.jpg>] [66 <./velocity_y_schur.jpg>] [67 <./pressure.jp
-g>]
-
-LaTeX Warning: Reference `fig:pressure_cylinder_stokes_minres' on page 68 undef
-ined on input line 2046.
+ [63]
+Overfull \vbox (364.82532pt too high) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `fig:velocity_x_cylinder_stokes_minres' on page 68 und
-efined on input line 2046.
+[64 <./l2_velocity_stokes.jpg> <./l2_pressure_stokes.jpg> <./l2_velocity_log_st
+okes.jpg> <./l2_pressure_log_stokes.jpg>]
+<h0_velocity_stokes.jpg, id=269, 4005.96625pt x 2066.72125pt>
+File: h0_velocity_stokes.jpg Graphic file (type jpg)
+
+<use h0_velocity_stokes.jpg>
+Package pdftex.def Info: h0_velocity_stokes.jpg used on input line 2100.
+(pdftex.def)             Requested size: 390.0pt x 201.19704pt.
+
+<h0_pressure_stokes.jpg, id=270, 4005.96625pt x 2066.72125pt>
+File: h0_pressure_stokes.jpg Graphic file (type jpg)
+
+<use h0_pressure_stokes.jpg>
+Package pdftex.def Info: h0_pressure_stokes.jpg used on input line 2105.
+(pdftex.def)             Requested size: 390.0pt x 201.19704pt.
+
+<h0_velocity_log_stokes.jpg, id=271, 4005.96625pt x 2066.72125pt>
+File: h0_velocity_log_stokes.jpg Graphic file (type jpg)
+
+<use h0_velocity_log_stokes.jpg>
+Package pdftex.def Info: h0_velocity_log_stokes.jpg used on input line 2110.
+(pdftex.def)             Requested size: 390.0pt x 201.19704pt.
+
+<h0_pressure_log_stokes.jpg, id=272, 4005.96625pt x 2066.72125pt>
+File: h0_pressure_log_stokes.jpg Graphic file (type jpg)
+
+<use h0_pressure_log_stokes.jpg>
+Package pdftex.def Info: h0_pressure_log_stokes.jpg used on input line 2115.
+(pdftex.def)             Requested size: 390.0pt x 201.19704pt.
+
+Overfull \vbox (295.18811pt too high) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `fig:velocity_y_cylinder_stokes_minres' on page 68 und
-efined on input line 2046.
+[65 <./h0_velocity_stokes.jpg> <./h0_pressure_stokes.jpg> <./h0_velocity_log_st
+okes.jpg> <./h0_pressure_log_stokes.jpg>]
 
-<velocity_X_schur.jpg, id=279, 562.1pt x 421.575pt>
-File: velocity_X_schur.jpg Graphic file (type jpg)
- <use velocity_X_schur.jpg>
-Package pdftex.def Info: velocity_X_schur.jpg used on input line 2049.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
+Package caption Warning: \label without proper reference on input line 2248.
+See the caption package documentation for explanation.
 
-<velocity_Y_schur.jpg, id=280, 562.1pt x 421.575pt>
-File: velocity_Y_schur.jpg Graphic file (type jpg)
- <use velocity_Y_schur.jpg>
-Package pdftex.def Info: velocity_Y_schur.jpg used on input line 2055.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
 
-<pressure_Schur.jpg, id=281, 562.1pt x 421.575pt>
-File: pressure_Schur.jpg Graphic file (type jpg)
- <use pressure_Schur.jpg>
-Package pdftex.def Info: pressure_Schur.jpg used on input line 2061.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
-File: velocity_X_schur.jpg Graphic file (type jpg)
+LaTeX Warning: Reference `lid_driven_cavity' on page 66 undefined on input line
+ 2145.
 
-<use velocity_X_schur.jpg>
-Package pdftex.def Info: velocity_X_schur.jpg used on input line 2067.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
-File: velocity_Y_schur.jpg Graphic file (type jpg)
- <use velocity_Y_schur.jpg>
-Package pdftex.def Info: velocity_Y_schur.jpg used on input line 2073.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
-File: pressure_Schur.jpg Graphic file (type jpg)
- <use pressure_Schur.jpg>
-Package pdftex.def Info: pressure_Schur.jpg used on input line 2079.
-(pdftex.def)             Requested size: 390.0pt x 292.50166pt.
 
-[68 <./velocity_X_schur.jpg>] [69 <./velocity_Y_schur.jpg>] [70 <./pressure_Sch
-ur.jpg>] [71] [72] [73] (./Short description.bbl [74]
+Package caption Warning: \label without proper reference on input line 2199.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `flow_over_cylinder' on page 66 undefined on input lin
+e 2151.
+
+<cylinder_bicgstab_vx.jpg, id=277, 878.28125pt x 658.46pt>
+File: cylinder_bicgstab_vx.jpg Graphic file (type jpg)
+
+<use cylinder_bicgstab_vx.jpg>
+Package pdftex.def Info: cylinder_bicgstab_vx.jpg used on input line 2155.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+
+<cylinder_minres_vx.jpg, id=278, 878.28125pt x 658.46pt>
+File: cylinder_minres_vx.jpg Graphic file (type jpg)
+
+<use cylinder_minres_vx.jpg>
+Package pdftex.def Info: cylinder_minres_vx.jpg used on input line 2160.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+
+<cylinder_schur_vx.jpg, id=279, 878.28125pt x 658.46pt>
+File: cylinder_schur_vx.jpg Graphic file (type jpg)
+
+<use cylinder_schur_vx.jpg>
+Package pdftex.def Info: cylinder_schur_vx.jpg used on input line 2165.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2166--2166
+[]\OT1/cmr/m/n/10.95 (c) |$\OML/cmm/m/it/10.95 x\OMS/cmsy/m/n/10.95 ^^@$\OT1/cm
+r/m/n/10.95 velocity (schur com-ple-ment
+ []
+
+<cylinder_bicgstab_vy.jpg, id=280, 894.34125pt x 705.63625pt>
+File: cylinder_bicgstab_vy.jpg Graphic file (type jpg)
+
+<use cylinder_bicgstab_vy.jpg>
+Package pdftex.def Info: cylinder_bicgstab_vy.jpg used on input line 2170.
+(pdftex.def)             Requested size: 195.0pt x 153.85149pt.
+
+<cylinder_minres_vy.jpg, id=281, 878.28125pt x 658.46pt>
+File: cylinder_minres_vy.jpg Graphic file (type jpg)
+
+<use cylinder_minres_vy.jpg>
+Package pdftex.def Info: cylinder_minres_vy.jpg used on input line 2175.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+
+<cylinder_schur_vy.jpg, id=282, 862.22125pt x 611.28375pt>
+File: cylinder_schur_vy.jpg Graphic file (type jpg)
+
+<use cylinder_schur_vy.jpg>
+Package pdftex.def Info: cylinder_schur_vy.jpg used on input line 2180.
+(pdftex.def)             Requested size: 195.0pt x 138.24179pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2181--2181
+[]\OT1/cmr/m/n/10.95 (f) |$\OML/cmm/m/it/10.95 y\OMS/cmsy/m/n/10.95 ^^@$\OT1/cm
+r/m/n/10.95 velocity (schur com-ple-ment
+ []
+
+<cylinder_bicgstab_pressure.jpg, id=283, 878.28125pt x 658.46pt>
+File: cylinder_bicgstab_pressure.jpg Graphic file (type jpg)
+
+<use cylinder_bicgstab_pressure.jpg>
+Package pdftex.def Info: cylinder_bicgstab_pressure.jpg used on input line 2185
+.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+
+<cylinder_minres_pressure.jpg, id=284, 862.22125pt x 611.28375pt>
+File: cylinder_minres_pressure.jpg Graphic file (type jpg)
+
+<use cylinder_minres_pressure.jpg>
+Package pdftex.def Info: cylinder_minres_pressure.jpg used on input line 2190.
+(pdftex.def)             Requested size: 195.0pt x 138.24179pt.
+
+<cylinder_schur_pressure.jpg, id=285, 878.28125pt x 658.46pt>
+File: cylinder_schur_pressure.jpg Graphic file (type jpg)
+
+<use cylinder_schur_pressure.jpg>
+Package pdftex.def Info: cylinder_schur_pressure.jpg used on input line 2195.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 2154--2200
+[]$[]$ $[]$
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 2154--2200
+[]$ $[]$
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 2154--2200
+[]$ $[]$
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 2154--2200
+[]$ $[]$
+ []
+
+[66]
+Overfull \vbox (260.19328pt too high) has occurred while \output is active []
+
+
+[67 <./cylinder_bicgstab_vx.jpg> <./cylinder_minres_vx.jpg> <./cylinder_schur_v
+x.jpg> <./cylinder_bicgstab_vy.jpg> <./cylinder_minres_vy.jpg> <./cylinder_schu
+r_vy.jpg> <./cylinder_bicgstab_pressure.jpg> <./cylinder_minres_pressure.jpg> <
+./cylinder_schur_pressure.jpg>]
+<lid_bicgstab_vx.jpg, id=292, 2406.9925pt x 1287.81125pt>
+File: lid_bicgstab_vx.jpg Graphic file (type jpg)
+
+<use lid_bicgstab_vx.jpg>
+Package pdftex.def Info: lid_bicgstab_vx.jpg used on input line 2204.
+(pdftex.def)             Requested size: 195.0pt x 104.32393pt.
+ <lid_minres_vx.jpg, id=293, 878.28125pt x 658.46pt>
+File: lid_minres_vx.jpg Graphic file (type jpg)
+
+<use lid_minres_vx.jpg>
+Package pdftex.def Info: lid_minres_vx.jpg used on input line 2209.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+ <lid_schur_vx.jpg, id=294, 878.28125pt x 658.46pt>
+File: lid_schur_vx.jpg Graphic file (type jpg)
+
+<use lid_schur_vx.jpg>
+Package pdftex.def Info: lid_schur_vx.jpg used on input line 2214.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2215--2215
+[]\OT1/cmr/m/n/10.95 (c) |$\OML/cmm/m/it/10.95 x\OMS/cmsy/m/n/10.95 ^^@$\OT1/cm
+r/m/n/10.95 velocity (schur com-ple-ment
+ []
+
+<lid_bicgstab_vy.jpg, id=295, 878.28125pt x 658.46pt>
+File: lid_bicgstab_vy.jpg Graphic file (type jpg)
+
+<use lid_bicgstab_vy.jpg>
+Package pdftex.def Info: lid_bicgstab_vy.jpg used on input line 2219.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+ <lid_minres_vy.jpg, id=296, 878.28125pt x 658.46pt>
+File: lid_minres_vy.jpg Graphic file (type jpg)
+
+<use lid_minres_vy.jpg>
+Package pdftex.def Info: lid_minres_vy.jpg used on input line 2224.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+ <lid_schur_vy.jpg, id=297, 878.28125pt x 658.46pt>
+File: lid_schur_vy.jpg Graphic file (type jpg)
+
+<use lid_schur_vy.jpg>
+Package pdftex.def Info: lid_schur_vy.jpg used on input line 2229.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2230--2230
+[]\OT1/cmr/m/n/10.95 (f) |$\OML/cmm/m/it/10.95 y\OMS/cmsy/m/n/10.95 ^^@$\OT1/cm
+r/m/n/10.95 velocity (schur com-ple-ment
+ []
+
+<lid_bicgstab_pressure.jpg, id=298, 878.28125pt x 658.46pt>
+File: lid_bicgstab_pressure.jpg Graphic file (type jpg)
+
+<use lid_bicgstab_pressure.jpg>
+Package pdftex.def Info: lid_bicgstab_pressure.jpg used on input line 2234.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+
+<lid_minres_pressure.jpg, id=299, 878.28125pt x 658.46pt>
+File: lid_minres_pressure.jpg Graphic file (type jpg)
+
+<use lid_minres_pressure.jpg>
+Package pdftex.def Info: lid_minres_pressure.jpg used on input line 2239.
+(pdftex.def)             Requested size: 195.0pt x 146.18788pt.
+
+<lid_schur_pressure.jpg, id=300, 894.34125pt x 705.63625pt>
+File: lid_schur_pressure.jpg Graphic file (type jpg)
+
+<use lid_schur_pressure.jpg>
+Package pdftex.def Info: lid_schur_pressure.jpg used on input line 2244.
+(pdftex.def)             Requested size: 195.0pt x 153.85149pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 2203--2249
+[]$[]$ $[]$
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 2203--2249
+[]$ $[]$
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 2203--2249
+[]$ $[]$
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 2203--2249
+[]$ $[]$
+ []
+
+
+Overfull \vbox (275.80298pt too high) has occurred while \output is active []
+
+
+[68 <./lid_bicgstab_vx.jpg> <./lid_minres_vx.jpg> <./lid_schur_vx.jpg> <./lid_b
+icgstab_vy.jpg> <./lid_minres_vy.jpg> <./lid_schur_vy.jpg> <./lid_bicgstab_pres
+sure.jpg> <./lid_minres_pressure.jpg> <./lid_schur_pressure.jpg>]
+(./Short description.bbl [69] [70
+
+]
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¶ in font cmr12!
 Missing character: There is no â in font cmr12!
@@ -1630,22 +2016,16 @@ Missing character: There is no “ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [75
-
-]) [76]
-(./Short description.aux)
+ [71]) [72] (./Short description.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 14124 strings out of 493029
- 273290 string characters out of 6136233
- 315983 words of memory out of 5000000
- 17355 multiletter control sequences out of 15000+600000
+ 14576 strings out of 493029
+ 280550 string characters out of 6136233
+ 340813 words of memory out of 5000000
+ 17776 multiletter control sequences out of 15000+600000
  19950 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,54p,1422b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1664,12 +2044,13 @@ s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Short description.pdf" (78 pages, 1762754 bytes).
+dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "Short description.pdf" (74 pages, 4741609 bytes).
 PDF statistics:
- 371 PDF objects out of 1000 (max. 8388607)
- 232 compressed objects within 3 object streams
+ 381 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 198 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 288 words of extra memory for PDF output out of 10000 (max. 10000000)
 

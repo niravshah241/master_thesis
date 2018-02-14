@@ -26,24 +26,25 @@ for i=1:1:params.dimrange
     %subplot(params.dimrange,1,i)
     %title(['Velocity degree of freedom number ',num2str(i)])
     if i==1
-        title(['Plotting Velocity in x direction'])
+        title(['Velocity in x direction'])
     else
-        title(['Plotting Velocity in y direction'])
+        title(['Velocity in y direction'])
     end
-    %axis equal
+    axis equal
+    axis tight
     ldg_plot(sdf,grid,params);
     plot(grid);
 end
 
 for i=1:1:paramsP.dimrange
     figure()
-    axis equal
     [scalar_dofs, scalar_df_info] = ldg_scalar_component(paramsP,i);
     sdf = ldgdiscfunc(scalar_dofs,scalar_df_info);
     disp(['Plotting ',num2str(i),' degree of freedom (for pressure)'])
     %subplot(paramsP.dimrange,1,i)
-    title(['Pressure degree of freedom number ',num2str(i)])
-    %axis equal
+    title('Pressure')
+    axis equal
+    axis tight
     ldg_plot(sdf,grid,paramsP);
     plot(grid);
 end

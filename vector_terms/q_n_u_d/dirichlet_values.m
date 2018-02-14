@@ -8,14 +8,14 @@ y = glob(2);
 
 % 
 %% analytical example from paper
-% if y < eps || y > (1-eps) || x > (1-eps)
-%     res = [0 0]';
-% else
-%     res = [0 0]';
-% end
+if y < eps || y > (1-eps) || x > (1-eps)
+    res = [0 0]';
+else
+    res = [0 0]';
+end
 
 %% benchmark problem
-% a = 1e-1; %factor for reynolds number
+% a = 1e5; %factor for reynolds number
 % if x>(-eps) & x<(0.1+eps) & y>(1-eps)
 %     res = a*[10*x 0]';
 %     
@@ -31,15 +31,15 @@ y = glob(2);
 % end
 
 %% standard
-if glob(1)<eps
-    res = 1e0*glob(2)*(1-glob(2));
-    res = [res 0]';
-
-elseif (glob(2)>(1-eps) || glob(2)<eps)
-    res = [0 0]';
-
-else
-    res = [0 0]'; %on circular object
-end
+% if glob(1)<eps
+%     res = 1e4*glob(2)*(1-glob(2));
+%     res = [res 0]';
+% 
+% elseif (glob(2)>(1-eps) || glob(2)<eps)
+%     res = [0 0]';
+% 
+% else
+%     res = [0 0]'; %on circular object
+% end
 
 end

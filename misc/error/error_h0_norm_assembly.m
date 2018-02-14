@@ -9,4 +9,4 @@ for tria_index = 1:1:grid.nelements
     res(tria_index) = res(tria_index) + res_integral;
 end
 
-%res = (sum(res))^(1/2);
+res = sum(res);

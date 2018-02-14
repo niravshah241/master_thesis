@@ -18,8 +18,11 @@ Fritzen F.
 
 \bibitem{Haasdonk_book}
 B.~Haasdonk.
-\newblock {\em Model Reduction and Approximation Theory and Algorithms}.
-\newblock 2018.
+\newblock {\em Reduced Basis Methods for Parametrized PDEs -- A Tutorial
+  Introduction for Stationary and Instationary Problems. Chapter to appear in
+  in P. Benner, A. Cohen, M. Ohlberger and K. Willcox (eds.): "Model Reduction
+  and Approximation: Theory and Algorithms",}.
+\newblock SIAM, Philadelphia, 2016.
 
 \bibitem{crbm}
 Jan~S. Hesthaven, Gianluigi Rozza, and Benjamin Stamm.
