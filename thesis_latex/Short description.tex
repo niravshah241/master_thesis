@@ -119,19 +119,19 @@ $nel$ & Total number of elements of grid\\
 \hline
 $k$ & Index of an element, $1\leq k \leq nel$\\
 \hline
-$n^+$ & \makecell{Unit normal vector pointing from element \\ itself to neighbouring element} \\
+$n^+$ & Unit normal vector pointing from element itself to neighbouring element\\
 \hline
-$n^-$ & \makecell{Unit normal vector pointing from neighbouring element \\ to element itself} \\
+$n^-$ & Unit normal vector pointing from neighbouring element to element itself \\
 \hline
 $h_{\tau_k}$ & Diameter of element $k$\\
 \hline
-$\theta$ & \makecell{Smallest angle of triangle among \\ all triangles on $\mathcal{T}$}\\ 
+$\theta$ & Smallest angle of triangle among all triangles on $\mathcal{T}$\\ 
 \hline
-$r$ & \makecell{Coordinates of point in Barycentric \\ coordinate system}\\
+$r$ & Coordinates of point in Barycentric coordinate system\\
 \hline
 $r_1, r_2, r_3$ & Coordinates of Vertices of triangle\\
 \hline
-$\lambda_1, \lambda_2, \lambda_3$ & \makecell{Weights in barycentric coordinate system \\ (Equation \ref{barycentric point})}\\
+$\lambda_1, \lambda_2, \lambda_3$ & Weights in barycentric coordinate system (Equation \ref{barycentric point})\\
 \hline
 $\mathbb{V}$ & Function space for velocity\\
 \hline
@@ -151,7 +151,7 @@ $\hat{\psi}$ & Pressure basis function in local space\\
 \hline
 $N$ & Truth space dimension\\
 \hline
-$F_k$ & \makecell{Mapping from local coordinate system to \\ global coordinate system (Equation \ref{local global mapping equation})}\\
+$F_k$ & Mapping from local coordinate system to global coordinate system (Equation \ref{local global mapping equation})\\
 \hline
 $\hat{T}$ & Reference triangle\\
 \hline
@@ -159,11 +159,11 @@ $\tau_k$ & Triangular element $k$\\
 \hline
 $J_k$ & Jacobian (Equation \ref{local global mapping equation})\\
 \hline
-$\hat{X}$ & \makecell{Coordinates of point in local coordinate system \\ $\hat{X} \in \mathbb{R}^d$}\\
+$\hat{X}$ & Coordinates of point in local coordinate system $\hat{X} \in \mathbb{R}^d$\\
 \hline
-$X$ & \makecell{Coordinates of point in glocal coordinate system\\ $X \in \mathbb{R}^d$} \\
+$X$ & Coordinates of point in glocal coordinate system $X \in \mathbb{R}^d$\\
 \hline
-$C$ & \makecell{Translational vector for local to global mapping\\ (Equation \ref{local global mapping equation})}\\
+$C$ & Translational vector for local to global mapping (Equation \ref{local global mapping equation})\\
 \hline
 $g$ & Function in global space \\
 \hline
@@ -179,11 +179,11 @@ $JIT$ & Jacobian inverse transpose\\
 \hline
 $C_{11}$ & Penalty parameter \\
 \hline
-$a_{IP}$ & \makecell{Term representing poisson operator of strong form \\ in weak formulation of \\ the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})} \\
+$a_{IP}$ & Term representing poisson operator of strong form in weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3}) \\
 \hline
-$b$ & \makecell{Term representing gradient operator in weak formulation of \\ the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})} \\
+$b$ & Term representing gradient operator in weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})\\
 \hline
-$c$ & \makecell{Term representing non linear terms in weak formulation of\\ the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})} \\
+$c$ & Term representing non linear terms in weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})\\
 \hline
 $A$ & Matrix terms corressponding to $a_{IP}$\\
 \hline
@@ -191,7 +191,7 @@ $B$ & Matrix terms in corressponding to $b$\\
 \hline
 $C$ & Matrix terms in corressponding to $c$\\
 \hline
-$l_{IP}$ & \makecell{Term representing right hand side of strong form \\ in weak formulation of the \\ Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})} \\
+$l_{IP}$ & Term representing right hand side of strong form in weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3}) \\
 \hline
 $u^{ext}$ & External trace of Velocity (Equation \ref{uext})\\
 \hline
@@ -201,9 +201,9 @@ $U$ & Velocity solution vector \\
 \hline
 $P$ & Pressure solution vector\\
 \hline
-$F_1$ & \makecell{Discrete form of right hand side of equation\\ \eqref{navier_stokes_weak_ch3}}\\
+$F_1$ & Discrete form of right hand side of equatio \eqref{navier_stokes_weak_ch3}\\
 \hline
-$F_2$ & \makecell{Discrete form of right hand side of equation \\ \eqref{contiuity_weak_ch3}}\\
+$F_2$ & Discrete form of right hand side of equation \eqref{contiuity_weak_ch3}\\
 \hline
 $u_{ndofs}$ & Total number of degrees of freedom of Velocity\\
 \hline
@@ -227,9 +227,9 @@ $S$ & Schur complement\\
 \hline
 $I$ & Identity matrix\\
 \hline
-$u_{npe}$ & \makecell{Number of degrees of freedom per element \\ for Velocity}\\
+$u_{npe}$ & Number of degrees of freedom per element for Velocity\\
 \hline
-$p_{npe}$ & \makecell{Number of degrees of freedom per element \\ for Pressure}\\
+$p_{npe}$ & Number of degrees of freedom per element for Pressure\\
 \hline
 $d$ & Dimension of problem\\
 \hline
@@ -688,6 +688,7 @@ In contrast, the Turbulent flow is characterised by fluctuations in velocity and
 The method used for solving Equation \eqref{navier_stokes} numerically is known as Direct Numerical Simulation, abbreviated as DNS. The direct numerical simulation could be computationally very expensive especially in applications such as turbulent flows as the time and space grid size is of the order of the Kolmogrov scale but the time period or space dimension over which the simulation is carried out are very large. In order to avoid such computational expenses alternate models are used replacing the original model. However, the alternate model can not explain the flow physics completely. The prediction of accurate flow physics description requires economical numerical solution of \eqref{navier_stokes}. It is to be noted that simulation of turbulent flow is always a compromise between required flow physics and computational efforts.
 
 \chapter{Discretisation and function spaces}
+
 \section{Grid geometry}
 
 In numerical analysis a continuous problem is posed over finite number of degrees of freedom. This domain is constructed by dividing the original domain. This divided domain is called grid. If the original domain is denoted by $\Omega$, we denote the grid by $\mathcal{T}$. In the present case we use triangular grid and denote each triangle as $\tau_k$ with $k$ as element index. If $nel$ is the total number of elements in the grid, $1\leq k \leq nel$. We note that $\mathcal{T} = \cup_{k=1}^{nel} \tau_k$. Each triangle is an 'Element' of the grid. The boundary betwen elements i.e. interelement boundary is denoted by $\Gamma$. In case of a grid, the boundary $\partial \mathcal{T}$ comprises of domain boundaries and interelement boundaries i.e. $\partial \mathcal{T} = \Gamma_D \cup \Gamma_N \cup \Gamma$. During discussion on jump operator and average operator we denote the element under consideration as $\tau_{h}^+$ and neighbouring element as $\tau_{h}^-$. 
@@ -709,9 +710,7 @@ For triangular grids we also consider a barycentric coordinate system. In baryce
 r = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3
 \end{equation}
 
-where, $\lambda_1, \lambda_2, \lambda_3$ are weights. The weights satisfy the criterion,
-\begin{equation}\label{lambda constraint}
-\lambda_1 + \lambda_2 + \lambda_3 = 1
+where, $\lambda_1, \lambda_2, \lambda_3$ are weights. The weights satisfy the criterion, \begin{equation}\label{lambda constraint} \lambda_1 + \lambda_2 + \lambda_3 = 1 \quad \textrm{.}
 \end{equation}
 Hence, we only need to specify 2 values in 2-dimensional plane in order to fully define the position of point.
 
