@@ -25,6 +25,43 @@
 
 \end{center}
 
+\section{Acknowledgement}
+
+The  presented in this thesis is a result of the work carried out between Spetember 2017 - March 2018 at the Institute of Applied Analysis and Numerical Simulation, Universit\"at of Stuttgart and Scuola Internazionale Superiore di Studi Avanzati, Trieste. \\
+
+Undoubtedly, this result could only be achieved by the support of a number of people to whom I would
+like to express my gratitude.\\
+
+To my supervisor Professor Bernard Haasdonk: I experienced the freedom I needed to be
+creative while at the same time I was always helped to continue research in case of diffi-
+culties. \\
+
+To my coadvisors Dr. Martin Hess and Professor Dr. Gianluigi Rozza: I am thankful for their positive coordination and helping me to develop necessary skills in the field of work. \\
+
+I am really looking forward to continue these valuable working relationships.\\
+
+To my colleagues: I would also thank colleagues for their positive interest in my work and very positive support for the work.\\
+
+To my parents:  Last but most importantly, I would like to thank my parents for their encouragement, infusing new energy to continue with my work.
+
+\newpage
+
+\section{Declaration/Selbst\"andigerkl\"arung}
+
+I hereby certify that I have prepared this master‘s thesis independently, and that only those sources, aids and advisors that are duly noted herein have been used and / or consulted.\\
+
+Ich  versichere  durch  eigenhändige  Unterschrift,  dass  ich  die  Arbeit  selbstst\"andig  und  ohne  
+Benutzung  anderer  als  der  angegebenen  Hilfsmittel  angefertigt  habe.  Alle  Stellen,  die  
+w\"ortlich  oder  sinngem\"a\ss  aus  Ver\"offentlichungen  (auch  aus  dem  Internet)  entnommen  sind,  
+habe   ich   als   solche   kenntlich   gemacht.   Ich   wei\ss,   dass   bei   Abgabe   einer   falschen   
+Versicherung  die  Arbeit  als  mit  'nicht  ausreichend'  (1  Bewertungspunkt  gem\"a\ss  §  16  Abs.  2  
+Allgemeine Bestimmungen, Note 5, ECTS-Grade F) bewertet gilt.\\
+
+
+Signature/Unterschrift\\
+
+Place,Date/Ort, Datum
+
 \tableofcontents
 
 \newenvironment{spmatrix}[1]
@@ -234,7 +271,10 @@ $p_{npe}$ & Number of degrees of freedom per element for Pressure\\
 $d$ & Dimension of problem\\
 \hline
 \end{longtable}
+\listoffigures
+\listoftables
 
+\newpage
 
 \section{Mathematical preliminaries}
 
@@ -2033,7 +2073,7 @@ P_{error} = \sum_{k=1}^{nel} \int_{\tau_k} |\nabla P - \nabla P_h|^2
 
 We use notations from section \ref{navier_stokes_weak_ch3} and \ref{stokes_weak_ch3}.
 
-\section{Stokes flow}
+\section{Stokes flow}\label{Stokes-ch5}
 
 \subsection{Properties of Stiffness matrix}
 
@@ -2081,6 +2121,8 @@ The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{f
   \caption{$h-$ convergence test for pressure in $L^2$ error}
   \label{fig:pre_stoke_conv}
 \end{subfigure}
+\end{figure}
+\begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{l2_velocity_log_stokes.jpg}
   \caption{$h-$ convergence test for velocity $L^2$ error (logarithmic scale)}
@@ -2105,6 +2147,8 @@ The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{f
   \caption{$h-$ convergence test for pressure in $h^0$ error}
   \label{fig:pre_stoke_conv_h0}
 \end{subfigure}
+\end{figure}
+\begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_velocity_log_stokes.jpg}
   \caption{$h-$ convergence test for velocity $h^0$ error (logarithmic scale)}
@@ -2118,12 +2162,13 @@ The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{f
 \label{fig:h0_stokes}
 \end{figure}
 
+\newpage
 
 We now present additional examples and check whether the implementation of Stokes flow is capable of reproducing physics of the problem.
 
 \subsection{Lid-driven cavity problem}
 
-We next present benchmark $CFD$ problem, Lid-driven cavity flow from \cite{Montlaur}. We solve the Stokes flow on Unit square [0,1] $\times$ [0,1] in $x-y$ plane. On boundaries ${x = 0}, {x = 1}$ and ${y = 0}$, we impose no slip or zero velocity dirichlet condition. On ${y = 1}$, we impose Dirichlet condition with Dirichlet velocity,
+We next present benchmark $CFD$ problem, Lid-driven cavity flow \cite{Montlaur2}. We solve the Stokes flow on Unit square [0,1] $\times$ [0,1] in $x-y$ plane. On boundaries ${x = 0}, {x = 1}$ and ${y = 0}$, we impose no slip or zero velocity dirichlet condition. On ${y = 1}$, we impose Dirichlet condition with Dirichlet velocity,
 
 \begin{center}
 
@@ -2141,62 +2186,9 @@ u = (10 - 10x,0)^T \quad \textrm{for} \quad 0.9 \leq x \leq 1
 
 \end{center}
 
-The results are found to reproduce the physics of the problem (Figure \ref{lid_driven_cavity}). 
+\subsection{Flow over cylinder} \label{flow_over_cylinder_stokes}
 
-\subsection{Flow over cylinder}
-
-The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x-y$ plane with cylinder of diameter 0.2 centered at $(0.5,0.5)$ i.e. the center of cylinder coincides with center of square. The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (2 \nu - 1, 0)$. The results give physically relevant result for example, low pressure zone after cylinder, high pressure zone before cylinder and wake zone after cylinder for velocity.
-
-The results are shown in figure \ref{flow_over_cylinder} with different solvers.
-
-\begin{figure}[H]
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_bicgstab_vx.jpg}
-  \caption{$x-$ velocity (bicgstab solver)}
-  \label{x_vel_stoke_bicgstab}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_minres_vx.jpg}
-  \caption{$x-$ velocity (minres solver)}
-  \label{x_vel_stoke_minres}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_schur_vx.jpg}
-  \caption{$x-$velocity (schur complement method)}
-  \label{x_vel_stoke_schur}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_bicgstab_vy.jpg}
-  \caption{$y-$ velocity (bicgstab solver)}
-  \label{y_vel_stoke_bicgstab}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_minres_vy.jpg}
-  \caption{$y-$ velocity (minres solver)}
-  \label{y_vel_stoke_minres}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_schur_vy.jpg}
-  \caption{$y-$velocity (schur complement method)}
-  \label{y_vel_stoke_schur}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_bicgstab_pressure.jpg}
-  \caption{Pressure (bicgstab solver)}
-  \label{pressure_stoke_bicgstab}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_minres_pressure.jpg}
-  \caption{Pressure (minres solver)}
-  \label{pressure_stoke_minres}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_schur_pressure.jpg}
-  \caption{Pressure (schur complement method)}
-  \label{pressure_stoke_schur}
-\end{subfigure}
-\label{flow_over_cylinder}
-\end{figure}
+The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x-y$ plane with cylinder of diameter 0.2 centered at $(0.5,0.5)$ i.e. the center of cylinder coincides with center of square. The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (0, 0)$. The results give physically relevant result for example, low pressure zone after cylinder, high pressure zone before cylinder and wake zone after cylinder for velocity.
 
 \begin{figure}[H]
 \begin{subfigure}{0.5\textwidth}	
@@ -2205,41 +2197,45 @@ The results are shown in figure \ref{flow_over_cylinder} with different solvers.
   \label{x_vel_stoke_bicgstab_lid}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_minres_vx.jpg}
-  \caption{$x-$ velocity (minres solver)}
-  \label{x_vel_stoke_minres_lid}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_schur_vx.jpg}
-  \caption{$x-$velocity (schur complement method)}
-  \label{x_vel_stoke_schur_lid}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
   \includegraphics[width=\linewidth]{lid_bicgstab_vy.jpg}
   \caption{$y-$ velocity (bicgstab solver)}
   \label{y_vel_stoke_bicgstab_lid}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{lid_bicgstab_pressure.jpg}
+  \caption{Pressure (bicgstab solver)}
+  \label{pressure_stoke_bicgstab_lid}
+\end{subfigure}
+\end{figure}
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{lid_minres_vx.jpg}
+  \caption{$x-$ velocity (minres solver)}
+  \label{x_vel_stoke_minres_lid}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}	
   \includegraphics[width=\linewidth]{lid_minres_vy.jpg}
   \caption{$y-$ velocity (minres solver)}
   \label{y_vel_stoke_minres_lid}
 \end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{lid_minres_pressure.jpg}
+  \caption{Pressure (minres solver)}
+  \label{pressure_stoke_minres_lid}
+\end{subfigure}
+\end{figure}
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{lid_schur_vx.jpg}
+  \caption{$x-$velocity (schur complement method)}
+  \label{x_vel_stoke_schur_lid}
+\end{subfigure}
 \begin{subfigure}{0.5\textwidth}	
   \includegraphics[width=\linewidth]{lid_schur_vy.jpg}
   \caption{$y-$velocity (schur complement method)}
   \label{y_vel_stoke_schur_lid}
 \end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_bicgstab_pressure.jpg}
-  \caption{Pressure (bicgstab solver)}
-  \label{pressure_stoke_bicgstab_lid}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_minres_pressure.jpg}
-  \caption{Pressure (minres solver)}
-  \label{pressure_stoke_minres_lid}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
+\begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{lid_schur_pressure.jpg}
   \caption{Pressure (schur complement method)}
   \label{pressure_stoke_schur_lid}
@@ -2247,26 +2243,117 @@ The results are shown in figure \ref{flow_over_cylinder} with different solvers.
 \label{lid_driven_cavity}
 \end{figure}
 
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_bicgstab_vx.jpg}
+  \caption{$x-$ velocity (bicgstab solver)}
+  \label{x_vel_stoke_bicgstab}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_bicgstab_vy.jpg}
+  \caption{$y-$ velocity (bicgstab solver)}
+  \label{y_vel_stoke_bicgstab}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_bicgstab_pressure.jpg}
+  \caption{Pressure (bicgstab solver)}
+  \label{pressure_stoke_bicgstab}
+\end{subfigure}
+\label{flow_over_cylinder_bicgstab}
+\end{figure}
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_minres_vx.jpg}
+  \caption{$x-$ velocity (minres solver)}
+  \label{x_vel_stoke_minres}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_minres_vy.jpg}
+  \caption{$y-$ velocity (minres solver)}
+  \label{y_vel_stoke_minres}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_minres_pressure.jpg}
+  \caption{Pressure (minres solver)}
+  \label{pressure_stoke_minres}
+\end{subfigure}
+\label{flow_over_cylinder_minres}
+\end{figure}
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_schur_vx.jpg}
+  \caption{$x-$velocity (schur complement method)}
+  \label{x_vel_stoke_schur}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_schur_vy.jpg}
+  \caption{$y-$velocity (schur complement method)}
+  \label{y_vel_stoke_schur}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_schur_pressure.jpg}
+  \caption{Pressure (schur complement method)}
+  \label{pressure_stoke_schur}
+\end{subfigure}
+\label{flow_over_cylinder_schur}
+\end{figure}
+
 \section{Penalty parameter}
 
-We now measure the effect of Penalty parameter on condition number of matrix. While coercivity provides lower limit for penalty parameter, the upper limit is based on affordable condition number of stiffness matrix. As shown in figure $vnjkvhjkhjkgh$, the condition number of stiffness matrix increases with increasing penalty parameter.
-The condition number is measured on Unit square [0,1] $\times$ [0,1] in $x-y$ plane on $horizontal interval \times vertical interval$.
+We now measure the effect of Penalty parameter on condition number of matrix. While coercivity provides lower limit for penalty parameter, the upper limit is based on affordable condition number of stiffness matrix. As shown in figure \ref{penalty_condition_number}, the condition number of stiffness matrix increases with increasing penalty parameter.
+The condition number is measured on Unit square [0,1] $\times$ [0,1] in $x-y$ plane on with number of intervals $8 \times 8$. The penalty parameter ranged from $1e-2$ to $1e4$. The corresponding condition number ranged from $3.750e5$ to $1.445e10$. We see a linear increase in condition number of stiffness matrix with respect to Penalty parameter.
 
-\begin{Huge}
-Add figure here and cite figure above
-\end{Huge}
+\begin{figure}[H]
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{grid_penalty_parameter.jpg}
+  \caption{Unit square with $8 \times 8$ discretisation}
+  \label{grid_penalty_para}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+	\includegraphics[width=\linewidth]{penalty_condition_number.jpg}
+	\caption{Penalty parameter vs Condition number}
+	\label{penalty_condition_number}
+\end{subfigure}
+\end{figure}
 
-\section{Navier Stokes flow}
+\section{Navier Stokes flow}\label{N-S-ch5}
 
 We recall that we use initial guess from Stokes equation and the Newton method presented in section  \ref{newton_method}. We also note that Stiffness matrix in case of Navier Stokes equation is non symmetric we can not use solver applicable only for symmetric matrix. 
 
+\section{Solver selection}
 
+As demonstrated earlier in section \ref{Stokes-ch5} and \ref{N-S-ch5}, the use of different solvers leads to different solution. We also present now an example measuring residual vs. run time for different solver for same problem.
 
+We again consider the problem from section \ref{flow_over_cylinder_stokes}. The residual and the run time for the same is presented in table below.
 
+\begin{longtable}{| p{.30\textwidth} | p{.30\textwidth} | p{.30\textwidth} |}
+\hline
+\textbf{Solver/Method} & \textbf{Residual} & \textbf{Run time}\\
+\hline
+Schur complement method & 2.4436e-08 & 6.6253 Seconds\\
+\hline
+$minres$ & 2.4618e-05 & 35.7372 Seconds\\
+\hline
+$bicgstab$ & 9.0071e-05 & 58.3472 Seconds\\
+\hline
+\end{longtable}
 
-
+It is to be noted that $bicgstab$ has shown to stop before convergence and without reaching to maximum number of iterations.
 
 \bibliographystyle{plain}
 \bibliography{ref1}
+
+\section{Online resources}
+
+We would also like to mention below online resources which have frequently served as valuable source of information.\\
+
+1. http://mathworld.wolfram.com/\\
+2. https://de.mathworks.com/products/matlab.html\\
+3. http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.13.10/doc/index.html \\
+
+\section{Code access}
+
+The codes used for the present thesis is uploaded under: \\
+https://github.com/niravshah241/master\_thesis.git
 
 \end{document}

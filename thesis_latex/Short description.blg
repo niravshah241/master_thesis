@@ -6,7 +6,7 @@ Database file #1: ref1.bib
 Warning--can't use both author and editor fields in Haasdonk_book
 You've used 11 entries,
             2118 wiz_defined-function locations,
-            576 strings with 6073 characters,
+            575 strings with 6055 characters,
 and the built_in function-call counts, 3274 in all, are:
 = -- 322
 > -- 143

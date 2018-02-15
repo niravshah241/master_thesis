@@ -30,8 +30,8 @@ clc
 
 params.xrange = [0,1];
 params.yrange = [0,1];
-params.xnumintervals = 10;
-params.ynumintervals = 10;
+params.xnumintervals = 8;
+params.ynumintervals = 8;
 params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
 params.bnd_rect_corner2=[2,2;eps,1-0.06]';% for analytical ex.
 % params.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
@@ -108,10 +108,10 @@ times_solver = toc;
 % ( stifness_matrix, params, paramsP, grid, qdeg );
 
 %% Penalty parameter tests
-% c11_min = 4e4;
-% c11_max = 1e10;
+% c11_min = 1e-3;
+% c11_max = 1e5;
 % c11_num_interval = 10;
-% [ condiclosetion_number, c11 ] = c11_condition_number...
+% [ condition_number, c11 ] = c11_condition_number...
 %     ( params, paramsP, grid, qdeg, mu, c11_min, c11_max, c11_num_interval );
 % [ solution_norm, c11] = c11_solution( params, paramsP, grid, qdeg,...
 %     mu, required_residual_tol, max_iter, c11_min, c11_max, c11_num_interval);

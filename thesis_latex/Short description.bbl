@@ -1,14 +1,37 @@
 \begin{thebibliography}{10}
 
+\bibitem{Montlaur2}
+Montlaur A., Fernandez-Mendez S., and Huerta A.
+\newblock Discontinuous {G}alerkin methods for the {S}tokes equations using
+  divergence-free approximations.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  57(9):1071--1092, 2008.
+
+\bibitem{Montlaur}
+Montlaur A., Fernandez-Mendez S., Peraire J., and Huerta A.
+\newblock Discontinuous {G}alerkin methods for the {N}avier {S}tokes equations
+  using solenoidal approximations.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  64(5):549--564, 2010.
+
+\bibitem{Haasdonk_book}
+Haasdonk B.
+\newblock {\em Reduced Basis Methods for Parametrized PDEs -- A Tutorial
+  Introduction for Stationary and Instationary Problems. Chapter to appear in
+  in P. Benner, A. Cohen, M. Ohlberger and K. Willcox (eds.): "Model Reduction
+  and Approximation: Theory and Algorithms",}.
+\newblock SIAM, Philadelphia, 2016.
+
 \bibitem{Haasdonk}
 Haasdonk B.
-\newblock Lecture notes : Reduzierte-basis-methoden.
+\newblock Lecture notes : Reduzierte-{B}asis-{M}ethoden.
 \newblock {\em University of Stuttgart}, Summer term 2010.
 
-\bibitem{saddle}
-Michele Benzi, Gene~H. Golub, and Jörg Liesen.
-\newblock Numerical solution of saddle point problems.
-\newblock {\em Acta Numerica}, 14:1–137, 2005.
+\bibitem{riviere}
+Riviere B.
+\newblock {\em Discontinuous Galerkin Methods for Solving Elliptic and
+  Parabolic Equations: Theory and Implementation}.
+\newblock Frontiers in Applied Mathematics. Cambridge University Press, 2008.
 
 \bibitem{Fritzen}
 Fritzen F.
@@ -16,58 +39,35 @@ Fritzen F.
   systems.
 \newblock {\em University of Stuttgart}, winter term 2016-2017.
 
-\bibitem{Haasdonk_book}
-B.~Haasdonk.
-\newblock {\em Reduced Basis Methods for Parametrized PDEs -- A Tutorial
-  Introduction for Stationary and Instationary Problems. Chapter to appear in
-  in P. Benner, A. Cohen, M. Ohlberger and K. Willcox (eds.): "Model Reduction
-  and Approximation: Theory and Algorithms",}.
-\newblock SIAM, Philadelphia, 2016.
+\bibitem{white}
+White F.M.
+\newblock {\em Fluid mechanics}.
+\newblock McGraw-Hill international editions. Mechanical engineering series.
+  McGraw-Hill Ryerson, Limited, 1986.
 
 \bibitem{crbm}
-Jan~S. Hesthaven, Gianluigi Rozza, and Benjamin Stamm.
+Hesthaven J.~S., Rozza G., and Stamm B.
 \newblock {\em Certified Reduced Basis Methods for Parametrized Partial
   Differential Equations}.
 \newblock Springer Briefs in Mathematics. Springer, Switzerland, 1 edition,
   2015.
 
-\bibitem{Montlaur2}
-A.~Montlaur, S.~Fernandez-Mendez, and A.~Huerta.
-\newblock Discontinuous galerkin methods for the stokes equations using
-  divergence-free approximations.
-\newblock {\em International Journal for Numerical Methods in Fluids},
-  57(9):1071--1092, 2008.
-
-\bibitem{Montlaur}
-A.~Montlaur, S.~Fernandez-Mendez, J.~Peraire, and A.~Huerta.
-\newblock Discontinuous galerkin methods for the navier–stokes equations
-  using solenoidal approximations.
-\newblock {\em International Journal for Numerical Methods in Fluids},
-  64(5):549--564, 2010.
+\bibitem{saddle}
+Benzi M., Golub G.~H., and Liesen J.
+\newblock Numerical solution of saddle point problems.
+\newblock {\em Acta Numerica}, 14:1–137, 2005.
 
 \bibitem{persson}
-P.-O. Persson, J.~Bonet, and J.~Peraire.
-\newblock Discontinuous galerkin solution of the navier–stokes equations on
-  deformable domains.
+Persson P.-O., Bonet J., and Peraire J.
+\newblock Discontinuous {G}alerkin solution of the {N}avier {S}tokes equations
+  on deformable domains.
 \newblock {\em Computer Methods in Applied Mechanics and Engineering},
   198(17):1585 -- 1595, 2009.
 
-\bibitem{riviere}
-B.~Riviere.
-\newblock {\em Discontinuous Galerkin Methods for Solving Elliptic and
-  Parabolic Equations: Theory and Implementation}.
-\newblock Frontiers in Applied Mathematics. Cambridge University Press, 2008.
-
 \bibitem{warburton}
-Timothy Warburton and Jan~S Hesthaven.
+Warburton T. and Hesthaven J.~S.
 \newblock On the constants in hp-finite element trace inverse inequalities.
 \newblock {\em Computer methods in applied mechanics and engineering},
   192(25):2765--2773, 2003.
-
-\bibitem{white}
-F.M. White.
-\newblock {\em Fluid mechanics}.
-\newblock McGraw-Hill international editions. Mechanical engineering series.
-  McGraw-Hill Ryerson, Limited, 1986.
 
 \end{thebibliography}
