@@ -2046,7 +2046,7 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
 
 \chapter{Numerical experiments}
 
-The chapter discusses results obtained by performing numerical experiments on Discontinuous Galerkin formulation of Stokes equation and Navier Stokes equation.
+The chapter discusses results obtained by performing numerical experiments on discontinuous Galerkin formulation of Stokes equation and Navier Stokes equation.
 
 \section{Error definitions}
 
@@ -2166,7 +2166,7 @@ The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{f
 
 We now present additional examples and check whether the implementation of Stokes flow is capable of reproducing physics of the problem.
 
-\subsection{Lid-driven cavity problem}
+\subsection{Lid-driven cavity problem} \label{lid_driven_cavity_stokes}
 
 We next present benchmark $CFD$ problem, Lid-driven cavity flow \cite{Montlaur2}. We solve the Stokes flow on Unit square [0,1] $\times$ [0,1] in $x-y$ plane. On boundaries ${x = 0}, {x = 1}$ and ${y = 0}$, we impose no slip or zero velocity dirichlet condition. On ${y = 1}$, we impose Dirichlet condition with Dirichlet velocity,
 
@@ -2318,7 +2318,48 @@ The condition number is measured on Unit square [0,1] $\times$ [0,1] in $x-y$ pl
 
 \section{Navier Stokes flow}\label{N-S-ch5}
 
-We recall that we use initial guess from Stokes equation and the Newton method presented in section  \ref{newton_method}. We also note that Stiffness matrix in case of Navier Stokes equation is non symmetric we can not use solver applicable only for symmetric matrix. 
+We recall that we use initial guess from Stokes equation and the Newton method presented in section  \ref{newton_method}. We also note that Stiffness matrix in case of Navier Stokes equation is non symmetric and therefore, solvers applicable only for symmetric matrix can not be used. 
+
+\subsection{Analytical example}
+
+We now present analytical example from \cite{Montlaur}. The domain considered for this example is Unit square $[0,1] \times [0,1]$ in $x-y$ plane. 
+The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (0, 0)$. The boundaries ${x = 1}$,${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 0}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = ADDSOURCETERM$. The analytical solution for pressure and velocity reads as,
+
+\begin{center}
+
+\begin{equation}
+p = x(1 - x)
+\end{equation}
+
+\begin{equation} 
+u = (x^2(1-y)^2(2y-6y^2+4y^3),-y^2(1-y)^2(2x-6x^2+4x^3))
+\end{equation}
+
+\end{center}
+
+The grid is equally divided in both directions with number of divisions in each direction as $10,15,17,20$ giving step size of each element in each of $x-y$ direction as $0.1,0.0667,0.0558,0.05$.\\
+
+The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{fig:l2_navier_stokes} in $H^0$ norm is presented in figure \ref{fig:h0_navier_stokes}. \\
+
+\begin{Huge}
+add figure here and cite above and add source term in text 
+\end{Huge}
+
+\subsection{Lid-driven cavity problem} \label{lid_driven_cavity_navier_stokes}
+
+We again consider example presented in section \ref{lid_driven_cavity_stokes} i.e. Benchmark $CFD$ problem. The results are presented in figure $ADD figure NAME$. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers.
+
+\begin{Huge}
+add figure here and cite above and add source term in text 
+\end{Huge}
+
+\subsection{Flow over cylinder} \label{flow_over_cylinder_navier_stokes}
+
+We again consider example presented in section \ref{flow_over_cylinder_stokes} . However, we multiply the inlet velocity on left boundary with certain factor to regulate Reynolds number. The results are presented in figure $ADD figure NAME$. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers.
+
+\begin{Huge}
+add figure here and cite above and add source term in text 
+\end{Huge}
 
 \section{Solver selection}
 
@@ -2338,7 +2379,9 @@ $bicgstab$ & 9.0071e-05 & 58.3472 Seconds\\
 \hline
 \end{longtable}
 
-It is to be noted that $bicgstab$ has shown to stop before convergence and without reaching to maximum number of iterations.
+It is to be noted that $bicgstab$ stops before convergence and without reaching to maximum number of iterations.
+
+\chapter{Summary and Conclusion}
 
 \bibliographystyle{plain}
 \bibliography{ref1}

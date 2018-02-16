@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  15 FEB 2018 18:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  16 FEB 2018 16:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2069,46 +2069,68 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [84 <./grid_penalty_parameter.jpg> <./penalty_condition_number.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 2333--2333
+Underfull \hbox (badness 10000) in paragraph at lines 2340--2341
+
+ []
+
+
+LaTeX Warning: Reference `fig:l2_navier_stokes' on page 85 undefined on input l
+ine 2342.
+
+
+LaTeX Warning: Reference `fig:h0_navier_stokes' on page 85 undefined on input l
+ine 2342.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2342--2343
+
+ []
+
+[85]
+Underfull \hbox (badness 10000) in paragraph at lines 2374--2374
 []|\OT1/cmr/m/n/12 Schur com-ple-ment
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2339
+Underfull \vbox (badness 10000) detected at line 2380
  []
 
-(./Short description.bbl [85] [86
+[86]
+Chapter 6.
+(./Short description.bbl [87
+
+] [88
 
 ]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [87])
-Underfull \hbox (badness 10000) in paragraph at lines 2348--2349
+ [89])
+Underfull \hbox (badness 10000) in paragraph at lines 2391--2392
 
  []
 
 
-Overfull \hbox (77.78914pt too wide) in paragraph at lines 2350--2353
+Overfull \hbox (77.78914pt too wide) in paragraph at lines 2393--2396
 \OT1/cmr/m/n/12 3. http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1
 .13.10/doc/index.html 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2350--2353
+Underfull \hbox (badness 10000) in paragraph at lines 2393--2396
 
  []
 
-[88] (./Short description.aux)
+[90] (./Short description.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 14603 strings out of 493029
- 281176 string characters out of 6136233
- 339073 words of memory out of 5000000
- 17795 multiletter control sequences out of 15000+600000
+ 14609 strings out of 493029
+ 281320 string characters out of 6136233
+ 339112 words of memory out of 5000000
+ 17801 multiletter control sequences out of 15000+600000
  19950 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,54p,1422b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2130,10 +2152,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Short description.pdf" (90 pages, 4847198 bytes).
+Output written on "Short description.pdf" (92 pages, 4851424 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 261 compressed objects within 3 object streams
+ 440 PDF objects out of 1000 (max. 8388607)
+ 266 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  298 words of extra memory for PDF output out of 10000 (max. 10000000)
 

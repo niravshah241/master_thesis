@@ -32,7 +32,7 @@ end
 
 %% standard
 % if glob(1)<eps
-%     res = 1e4*glob(2)*(1-glob(2));
+%     res = 1e0*glob(2)*(1-glob(2));
 %     res = [res 0]';
 % 
 % elseif (glob(2)>(1-eps) || glob(2)<eps)

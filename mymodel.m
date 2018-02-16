@@ -9,10 +9,10 @@ clc
 % params.mesh_number = 1;
 % params.gridtype = 'triagrid';
 % params.grid_initfile = ['mygridnirav', num2str(params.mesh_number), '.mat'];
-% params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
-% params.bnd_rect_corner2=[eps,1+eps;eps,1-3*10^14*eps]';% for analytical ex.
-% params.bnd_rect_corner1=[-1,-1;100,10]'; % for benchmark problem
-% params.bnd_rect_corner2=[2,2;100,10-eps]'; % for benchmark problem
+% % params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
+% % params.bnd_rect_corner2=[eps,1+eps;eps,1-3*10^14*eps]';% for analytical ex.
+% % params.bnd_rect_corner1=[-1,-1;100,10]'; % for benchmark problem
+% % params.bnd_rect_corner2=[2,2;100,10-eps]'; % for benchmark problem
 % params.bnd_rect_corner1=[-1,-1;1-eps,3*10^14*eps]'; % for standard
 % params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]'; % for standard
 % params.bnd_rect_index=[-1,-2];
@@ -30,8 +30,8 @@ clc
 
 params.xrange = [0,1];
 params.yrange = [0,1];
-params.xnumintervals = 8;
-params.ynumintervals = 8;
+params.xnumintervals = 10;
+params.ynumintervals = 10;
 params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
 params.bnd_rect_corner2=[2,2;eps,1-0.06]';% for analytical ex.
 % params.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
@@ -51,8 +51,8 @@ disp('Please check the grid')
 figure()
 plot(grid);
 title('Grid')
-%pause();
-%close all
+% pause();
+% close all
 
 %% Values setting 
 params.pdeg = 2;
@@ -141,9 +141,13 @@ max_iter_solver = 100;
 params.dof_analytical = @(glob)...
     [glob(1)^2*(1-glob(1))^2*(2*glob(2)-6*glob(2)^2+4*glob(2)^3) ...
     -glob(2)^2*(1-glob(2))^2*(2*glob(1)-6*glob(1)^2+4*glob(1)^3)];
-params.dof_derivative_analytical = @(glob) [0 1-2*glob(2);0 0];
+params.dof_derivative_analytical = @(glob)...
+     [(2*glob(2)-6*(glob(2))^2+4*(glob(2))^3) ...
+     glob(1)^2*(1-glob(1))^2*(2-12*glob(2)+12*glob(2)^2);...
+    -glob(2)^2*(1-glob(2))^2*(2-12*glob(1)+12*glob(1)^2) ...
+    -(2*glob(1)-6*glob(1)^2+4*glob(1)^3)*(glob(2)^2+glob(2)^4-2*glob(2)^3)];
 paramsP.dof_analytical = @(glob) (glob(1)*(1-glob(1)));
-paramsP.dof_derivative_analytical = @(glob) [-1 0];
+paramsP.dof_derivative_analytical = @(glob) [(1-2*glob(1)) 0];
 % 
 % % Standard
 % 
