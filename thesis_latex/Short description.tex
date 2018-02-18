@@ -11,6 +11,7 @@
 \usepackage{subcaption}
 \usepackage{makecell}
 \usepackage{longtable}
+\usepackage{cprotect}
 
 \begin{document}
 \begin{center}
@@ -1419,81 +1420,81 @@ We discuss now the implementation of the discrete formulation of the Navier Stok
 Before we discuss details of the implementation it is important to understand some frequently used terminologies and the data type of Basis Function and derivative of basis function in RBmatlab.
 \section{Terminology}
 
-A. $params$ and $paramsP$ : These are structures corresponding to velocity and pressure respectively and primarily containing following fields. (Table \ref{table_params} and Table \ref{table_paramsP})\\
+A. \verb|params| and \verb|paramsP| : These are structures corresponding to velocity and pressure respectively and primarily containing following fields. (Table \ref{table_params} and Table \ref{table_paramsP})\\
 
-B. $grid$ : $grid$ is the structure containing fields relevant to information stored in grid. Below are the fields of grid. (Table \ref{table_grid})\\
+B. \verb|grid| : It is the structure containing fields relevant to information stored in grid. Below are the fields of grid. (Table \ref{table_grid})\\
 
 C. We also some other variables. (Table \ref{table_variable})\\
 \newpage
 \begin{table}[H]
-\caption{Fields of $params$}
+\cprotect\caption{Fields of \verb|params|}
 \label{table_params}
 \begin{center}
 \begin{tabular}{| p{.25\textwidth}| p{.25\textwidth} |  p{.25\textwidth} | p{.25\textwidth}|} 
 \hline
 \textbf{Fieldname} & \textbf{Representation} & \textbf{Size} & \textbf{Description}\\
 \hline
-$dimrange$ & $d_u$ & $\mathbb{N}$ & User defined field\\
+\verb|dimrange| & $d_u$ & $\mathbb{N}$ & User defined field\\
 \hline
-$pdeg$ & $D$ & $\mathbb{N}$ & User defined field\\
+\verb|pdeg| & $D$ & $\mathbb{N}$ & User defined field\\
 \hline
-$ndofs\_per\_element$ & $u_{npe}$ & $\mathbb{N}$ & Calculated as per equation \ref{unpe}\\
+\verb|ndofs_per_element| & $u_{npe}$ & $\mathbb{N}$ & Calculated as per equation \ref{unpe}\\
 \hline
-$ndofs$ & $u_{ndofs}$ & $\mathbb{N}$ & Calculated as per equation \ref{undofs}\\
+\verb|ndofs| & $u_{ndofs}$ & $\mathbb{N}$ & Calculated as per equation \ref{undofs}\\
 \hline
-$dofs$ & $U$ & $\mathbb{R}^{u_{ndofs}}$ & Calculated after solving \ref{navier_stokes_weak_ch3} and \ref{stokes_weak_ch3}\\
+\verb|dofs| & $U$ & $\mathbb{R}^{u_{ndofs}}$ & Calculated after solving \ref{navier_stokes_weak_ch3} and \ref{stokes_weak_ch3}\\
 \hline
-$show\_sparsity$ & - & Bool variable & User defined switch to plot sparsity pattern\\
+\verb|show_sparsity| & - & Bool variable & User defined switch to plot sparsity pattern\\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 
 \begin{table}[H]
-\caption{Fields of $paramsP$}
+\cprotect\caption{Fields of \verb|paramsP|}
 \label{table_paramsP}
 \begin{center}
 \begin{tabular}{| p{.25\textwidth}| p{.25\textwidth} |  p{.25\textwidth} | p{.25\textwidth}|}
 \hline
 \textbf{Fieldname} & \textbf{Representation} & \textbf{Size} & \textbf{Description}\\
 \hline
-$dimrange$ & $d_p$ & $\mathbb{N}$ & User defined field\\
+\verb|dimrange| & $d_p$ & $\mathbb{N}$ & User defined field\\
 \hline
-$pdeg$ & $D-1$ & $\mathbb{N}$ & Calculated as taylor hood element\\
+\verb|pdeg| & $D-1$ & $\mathbb{N}$ & Calculated as taylor hood element\\
 \hline
-$ndofs\_per\_element$ & $p_{npe}$ & $\mathbb{N}$ & Calculated as per equation \ref{pnpe}\\
+\verb|ndofs_per_element| & $p_{npe}$ & $\mathbb{N}$ & Calculated as per equation \ref{pnpe}\\
 \hline
-$ndofs$ & $p_{ndofs}$ & $\mathbb{N}$ & Calculated as per equation \ref{pndofs}\\
+\verb|ndofs| & $p_{ndofs}$ & $\mathbb{N}$ & Calculated as per equation \ref{pndofs}\\
 \hline
-$dofs$ & $P$ & $\mathbb{R}^{p_{ndofs}}$ & Calculated after solving \ref{navier_stokes_weak_ch3} and \ref{stokes_weak_ch3}\\
+\verb|dofs| & $P$ & $\mathbb{R}^{p_{ndofs}}$ & Calculated after solving \ref{navier_stokes_weak_ch3} and \ref{stokes_weak_ch3}\\
 \hline
-$show\_sparsity$ & - & Bool variable & User defined switch to plot sparsity pattern\\
+\verb|show_sparsity| & - & Bool variable & User defined switch to plot sparsity pattern\\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 
 \begin{table}[H]
-\caption{Fields of $grid$}
+\cprotect\caption{Fields of \verb|grid|}
 \label{table_grid}
 \begin{center}
 \begin{tabular}{| p{.25\textwidth}| p{.25\textwidth} |  p{.25\textwidth} | p{.25\textwidth}|}
 \hline
 \textbf{Fieldname} & \textbf{Representation} & \textbf{Size} & \textbf{Description}\\
 \hline
-$nelement$ & $nel$ & $\mathbb{N}$ & User defined or generated field\\
+\verb|nelement| & $nel$ & $\mathbb{N}$ & User defined or generated field\\
 \hline
-$NBI$ & $-$ & $\mathbb{R}^{nel \times n_0}$ & $NBI(i,j)$ is the $j^{\textrm{th}}$ neighbour of element $i$\\
+\verb|NBI| & $-$ & $\mathbb{R}^{nel \times n_0}$ & $NBI(i,j)$ is the $j^{\textrm{th}}$ neighbour of element $i$\\
 \hline
-$NX$ & $n_x$ & $\mathbb{R}^{nel \times d}$ & $x-$component of unit normal vector\\
+\verb|NX| & $n_x$ & $\mathbb{R}^{nel \times d}$ & $x-$component of unit normal vector\\
 \hline
-$NY$ & $n_y$ & $\mathbb{R}^{nel \times d}$ & $y-$component of unit normal vector\\
+\verb|NY| & $n_y$ & $\mathbb{R}^{nel \times d}$ & $y-$component of unit normal vector\\
 \hline
-$A$ & $Ar$ & $\mathbb{R}^{nel}$ & Area of element\\
+\verb|A| & $Ar$ & $\mathbb{R}^{nel}$ & Area of element\\
 \hline
-$EL$ & $l$ & $\mathbb{R}^{nel \times n_0}$ & edge length\\
+\verb|EL| & $l$ & $\mathbb{R}^{nel \times n_0}$ & edge length\\
 \hline
-$JIT$ & $JIT$ & $\mathbb{R}^{nel \times n_0 \times d}$ & Jacobian inverse transpose\\
+\verb|JIT| & $JIT$ & $\mathbb{R}^{nel \times n_0 \times d}$ & Jacobian inverse transpose\\
 \hline
 \end{tabular}
 \end{center}
@@ -1507,9 +1508,9 @@ $JIT$ & $JIT$ & $\mathbb{R}^{nel \times n_0 \times d}$ & Jacobian inverse transp
 \hline
 \textbf{Name} & \textbf{Representation} & \textbf{Size} & \textbf{Description}\\
 \hline
-$k$ & $k$ & $\mathbb{N}$ & element number, $1 \leq k \leq nel$\\
+\verb|k| & $k$ & $\mathbb{N}$ & element number, $1 \leq k \leq nel$\\
 \hline
-$ids$ & $-$ & $\mathbb{R}^{npe}$ & indices of degrees of freedom in global vector\\
+\verb|ids| & $-$ & $\mathbb{R}^{npe}$ & indices of degrees of freedom in global vector\\
 \hline
 \end{tabular}
 \end{center}
@@ -1517,7 +1518,7 @@ $ids$ & $-$ & $\mathbb{R}^{npe}$ & indices of degrees of freedom in global vecto
 
 \section{Basis Function in RBmatlab}
 
-The Basis functions in RBmatlab can be point evaluated by a routine called $\mathit{ldg\_evaluate\_basis.m}$.\\
+The Basis functions in RBmatlab can be point evaluated by a routine called \verb|ldg_evaluate_basis|.\\
 
 We approximatete the solution at any point from solution of degrees of freedom in orthonormal basis. In matrix formulation this means basis function is matrix of the size,
 
@@ -1531,7 +1532,7 @@ We approximatete the solution at any point from solution of degrees of freedom i
 
 This representation creates many zeros in matrix, however, it does not require new evaluation for each component of vector quantity. Due to the zeros in the basis function, derivative of basis functions also has many zeros.
 
-The derivative of the basis functions is provided by a routine \linebreak $\mathit{ldg\_evaluate\_basis\_derivative}$. The derivative of basis function $(\phi)_{i}$, where $1 \leq i \leq u_{npe}$ is a cell containing matrix $\nabla (\phi)_{i}$ of size,
+The derivative of the basis functions is provided by a routine \linebreak \verb|ldg_evaluate_basis_derivative|. The derivative of basis function $(\phi)_{i}$, where $1 \leq i \leq u_{npe}$ is a cell containing matrix $\nabla (\phi)_{i}$ of size,
 \begin{equation}\label{basis_func_derivative_velocity_rbmatlab}
 \nabla (\phi)_{i} \in \mathbb{R}^{{d_u} \times d}
 \end{equation}
@@ -1577,15 +1578,15 @@ and for Dirichlet edges $\Gamma_D$
 \end{equation}
 
 
-\section{Matrix assemblies}
+\section{Matrix assemblies} \label{matrix_assembly_ch4}
 
 It is to be noted that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with equation \ref{func_transformation}.
 
 The matrices from weak form of Navier Stokes equation have been assembled in 3 steps,
 
 1. Evaluating function at vertex of local element and transform to global geometry.\\
-2. Performing integral of function over local element and transform to global geometry (if not done in step 1).\\
-3. Performing a loop over all elements and allocate integral at position in global matrix(for bilinear terms)/global vector(for linear terms) according to index of element degree of freedom in global degree of freedom vector.\\
+2. Transform function evaluation from step 1 to global geometry (if not done in step 1) and performing integral of function over local element.\\
+3. Performing a loop over all elements and allocate integral at position in global matrix (for bilinear terms)/global vector (for linear terms) according to index of element degree of freedom in global degree of freedom vector.\\
 
 We also perform numerical integration over domain $\Omega$ as,
 
@@ -1613,7 +1614,7 @@ With this preliminary informations we discuss now the assembly of matrices.
 
 Step 1: Evaluation of $(\nabla \phi , \nabla \phi)$,
 
-We first evaluate the derivative of $\hat{\phi}$ and $JIT(k,:,:)$ at point $x_i$ through $\mathit{ldg\_evaluate\_basis\_derivative}$ and grid structure. We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the equation \ref{derivative_transformation}.
+We first evaluate the derivative of $\hat{\phi}$ and $JIT(k,:,:)$ at point $x_i$ through \verb|ldg_evaluate_basis_derivative| and \verb|grid| structure. We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the equation \ref{derivative_transformation}.
 
 We than assemble matrix $res_1[i,j]=\phi_i \phi_j^T$ for $1 \leq i,j \leq u_{npe}$\\
 
@@ -1630,10 +1631,10 @@ Step 3: Looping over each element and performing following operation in each loo
 
 Step 1: On local element following matrices are evaluated,\\
 \\
-$res_1^{++} = [n \otimes \hat{\phi]}^+ [n \otimes \hat{\phi}]^+$\\
-$res_1^{+-} = [n \otimes \hat{\phi}]^+ [n \otimes \hat{\phi}]^-$\\
-$res_1^{-+} = [n \otimes \hat{\phi}]^- [n \otimes \hat{\phi}]^+$\\
-$res_1^{--} = [n \otimes \hat{\phi}]^- [n \otimes \hat{\phi}]^-$\\
+$res_1^{++} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^+$\\
+$res_1^{+-} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^-$\\
+$res_1^{-+} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^+$\\
+$res_1^{--} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^-$\\
 
 Please note that $\hat{\phi_h}$ is evaluated at local coordinate corressponding to global coordinate.
 
@@ -1662,10 +1663,10 @@ It is to be noted that on dirichlet boundary only $res_1^{++}, res_2^{++}, res_3
 
 Step 1: On local element following matrices are evaluated,\\
 \\
-$res_1^{++} = {\lbrace \nabla \phi \rbrace}^+ [n \otimes \hat{\phi}]^+$\\
-$res_1^{+-} = {\lbrace \nabla \phi \rbrace}^+ [n \otimes \hat{\phi}]^-$\\
-$res_1^{-+} = {\lbrace \nabla \phi \rbrace}^- [n \otimes \hat{\phi}]^+$\\
-$res_1^{--} = {\lbrace \nabla \phi \rbrace}^- [n \otimes \hat{\phi}]^-$\\
+$res_1^{++} = (\nabla \phi)^+ (n \otimes \hat{\phi})^+$\\
+$res_1^{+-} = (\nabla \phi)^+ (n \otimes \hat{\phi})^-$\\
+$res_1^{-+} = (\nabla \phi)^- (n \otimes \hat{\phi})^+$\\
+$res_1^{--} = (\nabla \phi)^- (n \otimes \hat{\phi})^-$\\
 
 Step 2: In step 2 we perform following integration, 
 We perform the numerical integration as per equation \ref{integral_local_global_boundary}
@@ -1694,10 +1695,10 @@ The same routine is also used in case of $([n \otimes \phi],\lbrace \nabla u \rb
 
 Step 1: On local element following matrices are evaluated,\\
 \\
-$res_1^{++} = {\lbrace \psi \rbrace}^+ [n \cdot \hat{\phi}]^+$\\
-$res_1^{+-} = {\lbrace \psi \rbrace}^+ [n \cdot \hat{\phi}]^-$\\
-$res_1^{-+} = {\lbrace \psi \rbrace}^- [n \cdot \hat{\phi}]^+$\\
-$res_1^{--} = {\lbrace \psi \rbrace}^- [n \cdot \hat{\phi}]^-$\\
+$res_1^{++} = (\psi)^+ (n \cdot \hat{\phi})^+$\\
+$res_1^{+-} = (\psi)^+ (n \cdot \hat{\phi})^-$\\
+$res_1^{-+} = (\psi)^- (n \cdot \hat{\phi})^+$\\
+$res_1^{--} = (\psi)^- (n \cdot \hat{\phi})^-$\\
 
 Please note that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with \ref{func_transformation}.
 
@@ -1782,8 +1783,8 @@ Step 1: On local element following function is evaluated $res_1 = (u_k \cdot \na
 Step 2: An integral is performed over an element $res_2= - \int_{\hat{T}} (res_1) (2Ar(k))$\\
 Step 3: Loop over all elements and perform following operation in each loop $res_3[ids,ids]=res_2$\\
 
-12. $((u_k \cdot n)\phi , \phi)$:\\
-Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j} $ in accordance with equation \ref{func_transformation}\\
+12. $((u_k \cdot n)\phi , \phi)_{\Gamma_N}$:\\
+Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}$ in accordance with equation \ref{func_transformation}\\
 Step 2: An integral is performed over an element $res_2 = \frac{1}{2}  \int_{\Gamma_N} res_1 EL(i,j) $\\
 Step 3: Loop over all Neumann edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
 
@@ -1809,49 +1810,52 @@ Step 3: Loop over all internal edge and Dirichlet edge and perform following ope
 
 \section{Setting boundary conditions}
 
-We extract the Dirichlet boundary edges and Neumann boundary edges by routine $\mathit{tria\_edge\_index\_Dirichlet}$ and $\mathit{tria\_edge\_index\_Neumann}$ respectively.
+We extract the Dirichlet boundary edges and Neumann boundary edges by routine \verb|tria_edge_index_Dirichlet| and \verb|tria_edge_index_Neumann| respectively.
 
-We set the Dirichlet and Neumann boundary values in routine $\mathit{Dirichlet\_values}$ and $\mathit{Neumann\_values}$ respectively as column vectors. 
+We set the Dirichlet and Neumann boundary values in routine \verb|Dirichlet_values| and \verb|Neumann_values| respectively as column vectors. 
 
 \section{Setting source term}
 
-We set the source term values in routine $\mathit{func\_rhs}$ as column vectors. 
+We set the source term values in routine \verb|func_rhs| as column vectors. This si called during the process of assembling vector term $(f,\phi)$ of right hand side of equation \ref{navier_stokes_weak_ch3} and equation \ref{stokes_weak_ch3}.
 
 \section{Program flow}
 
+The main script of the program is \verb|mymodel|. This script is equivalent to \verb|main.cc| file in C++.
+
 \subsection{Grid Preparation}
 
-We use $\mathit{pdegrid}$ tool to generate grid. We generate mesh and export parameters $\mathit{point(p)}$, $\mathit{edge(e)}$ and $\mathit{triangle(t)}$. $\mathit{params.bnd\_rect\_corner1}$ marks the lower corner of to be marked boundary and $\mathit{params.bnd\_rect\_corner2}$ marks the upper corner of to be marked boundary. $\mathit{params.bnd\_rect\_index}$ marks the type of boundary. $-1$ represents Dirichlet boundary and $-2$ represents Neumann boundary. $\mathit{params.gridtype}$ defines the type of grid. $\mathit{construct\_grid(params)}$ constructs the grid as struct containing necessary fields for grid. 
+We use \verb|pdegrid| tool to generate grid. We generate mesh and export parameters \verb|point(p)|, \verb|edge(e)| and \verb|triangle(t)|. \verb|params.bnd_rect_corner1| marks the lower corner of to be marked boundary and \verb|params.bnd_rect_corner2| marks the upper corner of to be marked boundary. \verb|params.bnd_rect_index| marks the type of boundary. (-1) represents Dirichlet boundary and (-2) represents Neumann boundary. \verb|params.gridtype| defines the type of grid. \verb|construct\_grid(params)| constructs the grid as struct containing necessary fields for grid. 
 
-In case of creating rectangular grid without using $pdegrid$, we define fields $\mathit{xrange}$, $\mathit{yrange}$, $\mathit{xnumintervals}$ and $\mathit{ynumintervals}$ defining range of x co-ordinates of domain, range of y co-ordinates of domain, number of intervals for x division and number of intervals for y division respectively and call routine $\mathit{construct\_grid}$.
+In case of creating rectangular grid without using \verb|pdegrid|, we define fields \verb|xrange|, \verb|yrange|, \verb|xnumintervals| and \verb|ynumintervals| defining range of x co-ordinates of domain, range of y co-ordinates of domain, number of intervals for x division and number of intervals for y division respectively and call routine \verb|construct_grid|.
 
 \subsection{Function space formulation}
 
-We now define fields for constructing function spaces for pressure and velocity. We now use two structures $\mathit{params}$ for velocity and $\mathit{paramsP}$ for pressure as explained previously. These structures contain fields (as relevant to function space formulation) $\mathit{pdeg}$ and $\mathit{dimrange}$. $\mathit{pdeg}$ represents polynomial degree of Ansatz function and $\mathit{dimrange}$ represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field $\mathit{paramsP.pdeg}$ is calculated as $\mathit{paramsP.pdeg = params.pdeg - 1}$ in accordance with Taylor hood element. Based on these fields $\mathit{ndofs\_per\_element}$, $ndofs$ are calculated. Number of elements in grid can be read from $\mathit{grid.nelements}$. We also define degree for integration $\mathit{qdeg}$ and kinematic viscocity in $\mathit{params.kinematic\_viscosity}$. Variable $\mathit{mu}$ also holds the value of kinematic viscocity. we define penalty parameter in variable $\mathit{C11}$. Bool variable $\mathit{show\_sparsity}$ plots sparsity pattern of each matrix if set to true.\\
+We now define fields for constructing function spaces for pressure and velocity. We now use two structures \verb|params| for velocity and \verb|paramsP| for pressure as explained previously (\ref{table_params} and \ref{table_paramsP}). These structures contain fields (as relevant to function space formulation) \verb|pdeg| and \verb|dimrange|. \verb|pdeg| represents polynomial degree of Ansatz function and \verb|dimrange| represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field \verb|paramsP.pdeg| is calculated as \verb|paramsP.pdeg = params.pdeg - 1| in accordance with Taylor hood element. Based on these fields \verb|ndofs_per_element|, \verb|ndofs| are calculated. Number of elements in grid can be read from \verb|grid.nelements|. We also define degree for integration \verb|qdeg| and kinematic viscocity in \linebreak \verb|params.kinematic_viscosity|. Variable \verb|mu| also holds the value of kinematic viscocity. We define penalty parameter in variable $C_{11}$. Bool variable \verb|show_sparsity| plots sparsity pattern of each matrix if set to true.\\
 
 \subsection{Matrix assembly}
 
-We now assemble all the matrices as explained. \\$\mathit{params.bilinear\_side}$ contains $A$ or assembly of $a(u,\phi)$\\$\mathit{params.bilinear\_side\_pressure\_terms}$ contains assembly of $B$ or assembly of $\mathit{b(\phi,\psi)}$\\ $\mathit{params.lhs\_continuity}$ contains assembly of $B^T$\\ $rhs$ is the right hand side matrix $\mathit{[F_1;F_2]}$ as\\ $\mathit{[params.linear\_side;params.rhs\_continuity]}$. \\
+We now assemble all the matrices as explained during matrix assembly (routine \verb|assemble_stifness_matrix|). The individual matrices are assembled and stored in struct \verb|params|. \verb|params.bilinear_side| contains $A$ or assembly of $a(u,\phi)$. \verb|params.bilinear_side_pressure_terms| contains assembly of $B$ or assembly of \verb|b(\phi,\psi)|.\verb|params.lhs_continuity| contains assembly of $B^T$. \verb|rhs| is the right hand side matrix \verb|[F_1;F_2]| as \linebreak \verb|[params.linear_side;params.rhs_continuity]|. \\
 
 \subsection{Solving assembled form}
 
-We now define the solver specific variables. $\mathit{required\_residual\_tol}$ specifies the required accuracy from solver in solution and $\mathit{max\_iter}$ specifies the maximum number of iterations that is used to stop the solver in case the solver does not converge. We call the routine $\mathit{solve\_plot\_solution}$ for $bicgstab$,$minres$ (The solver is specified in $\mathit{solve\_plot\_solution}$). In case of Schur complement method, routine $\mathit{solve\_plot\_solution\_schur}$ is used. The output variable $\mathit{achieved\_residual\_tol}$ contains residual value, $params$ and $paramsP$ are given new values $dofs$ which contain degree of freedom. $\mathit{actual\_iter}$ is the value of number of iterations at the end of iterations process. $flag$ specifies the criteria for end of iteration process.\\
+We now define the solver specific variables. \verb|required_residual_tol| specifies the required accuracy from solver in solution and \verb|max_iter| specifies the maximum number of iterations that is used to stop the solver in case the solver does not converge. We call the routine \verb|solve_plot_solution| for $bicgstab$,$minres$ (The solver is specified in \verb|solve_plot_solution|). In case of Schur complement method, routine \verb|solve_plot_solution_schur| is used. The output variable \verb|achieved_residual_tol| contains residual value, \verb|params| and \verb|paramsP| are given new values \verb|dofs| which contain degree of freedom. \verb|actual_iter| is the value of number of iterations at the end of iterations process. \verb|flag| specifies the criteria for end of iteration process.\\
 
 \subsection{Post processing}
 
-We now enter into $\mathit{stifness\_matrix\_test}$, explained in section \ref{Stokes_flow}. Then we enter into error measurement which measures the error in $L^2$ or $H_0$ norm. $\mathit{params.dof\_analytical}$, $\mathit{paramsP.dof\_analytical}$ contain analytical expression against which numerical solution is to be compared. $\mathit{params.dof\_derivative\_analytical}$ and  $\mathit{paramsP.dof\_derivative\_analytical}$ contain anlytical expression for derivative to be used for $H_0$ norm.\\
+We now enter into \verb|stifness_matrix_test|, to check properties of assembled stiffness matrix as explained in section \ref{property_stif_mat_stokes}. Then we enter into error measurement (\verb|error_l2_norm_assembly| and \verb|error_h0_norm_assembly|) which measures the error in $L^2$ or $H_0$ norm. \verb|params.dof_analytical|, \linebreak \verb|paramsP.dof_analytical| contain analytical expression against which numerical solution is to be compared. \verb|params.dof_derivative_analytical| and \verb|paramsP.dof_derivative_analytical| contain anlytical expression for derivative to be used for $H_0$ norm.\\
 
 \subsection{Newton method}
 
-We now enter into newton method $\mathit{newton\_script}$. We define again solver specific variables $\mathit{tol\_newton}$, $\mathit{max\_iter\_newton}$, $\mathit{tol_solver}$, $\mathit{max\_iter\_solver}$. $\mathit{tol\_newton}$, $\mathit{max\_iter\_newton}$ are variables for ending newton method and $\mathit{tol_solver}$, $\mathit{max\_iter\_solver}$ are variables for solver to solve $h^k$ in each newton loop. We again measure the error in $L^2$ and $H_0$ norm.\\
+We now enter into newton method (Section \ref{newton_method}). This is implemented in script \verb|newton_script|. We define again solver specific variables \verb|tol_newton|, \verb|max_iter_newton|, \verb|tol_solver|, \verb|max_iter_solver|. \verb|tol_newton|, \linebreak \verb|max_iter_newton| are variables for ending newton method and \verb|tol_solver|, \verb|max_iter_solver| are variables for solver to solve $h^{iter}$ in each newton loop. We again measure the error in $L^2$ and $H_0$ norm.\\
 
 \subsection{Additional remarks}
 
-We plot the solution using  $\mathit{ldg\_plot}$ written for plotting discontinuous functions. The Dirichlet values are defined in $\mathit{dirichlet\_values}$, the Neumann values are defined in $\mathit{neumann\_values}$ and source function is defined in $\mathit{func\_rhs}$. 
+We plot the solution using  \verb|ldg_plot| written for plotting discontinuous functions. The Dirichlet values are defined in \verb|dirichlet_values|, the Neumann values are defined in \verb|neumann_values| and source function is defined in \verb|func_rhs|. 
 
 \section{Sparsity pattern}
 
-It is the connectivity of a node with neighbouring nodes that gives rise to different discontinuous Galerkin formulations. In general the flux terms are responsible for connecting to other nodes. This is also demonstrated in assembly process in chapter \ref{implementation_aspects}. 
+It is the connectivity of a node with neighbouring nodes that gives rise to different discontinuous Galerkin formulations and generates different sparsity patterns. In general the flux terms are responsible for connecting to other nodes. This is also demonstrated in assembly process in section \ref{matrix_assembly_ch4}. 
+
 \begin{table}[H]
 \caption{Size and sparsity patterns of different terms}
 \begin{center}

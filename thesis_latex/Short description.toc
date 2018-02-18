@@ -57,7 +57,7 @@
 \contentsline {subsection}{\numberline {4.8.3}Matrix assembly}{60}
 \contentsline {subsection}{\numberline {4.8.4}Solving assembled form}{60}
 \contentsline {subsection}{\numberline {4.8.5}Post processing}{60}
-\contentsline {subsection}{\numberline {4.8.6}Newton method}{60}
+\contentsline {subsection}{\numberline {4.8.6}Newton method}{61}
 \contentsline {subsection}{\numberline {4.8.7}Additional remarks}{61}
 \contentsline {section}{\numberline {4.9}Sparsity pattern}{61}
 \contentsline {chapter}{\numberline {5}Numerical experiments}{69}
