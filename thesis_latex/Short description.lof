@@ -2,7 +2,8 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Element self (+) and neighbouring element (-)\relax }}{30}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Finite Element nodes on triangle for polynomials of different degrees http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html\relax }}{34}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Continuous domain (left) and discretised domain or grid (right)\relax }}{31}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Finite Element nodes on triangle for polynomials of different degrees\relax }}{33}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Sparsity patterns of constituents of $([n \otimes \phi ],[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{62}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Sparsity patterns of constituents of $(\delimiter "4266308 \nabla \phi \delimiter "5267309 ,[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{63}

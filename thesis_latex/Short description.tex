@@ -62,37 +62,15 @@ Signature/Unterschrift\\
 
 Place,Date/Ort, Datum
 
-\tableofcontents
-
 \newenvironment{spmatrix}[1]
  {\def\mysubscript{#1}\mathop\bgroup\begin{pmatrix}}
  {\end{pmatrix}\egroup_{\textstyle\mathstrut\mysubscript}}
 
-\chapter{Introduction}
-
-\section{Overview}
-
-The thesis deals with the numerical simulation of the Navier Stokes equation [White F.M. \cite{white}] which is the core of Computational Fluid Dynamics or $CFD$. The thesis performs numerical simulation of the Navier Stokes equation through the Discontinuous Galerkin method.
-
-The goal of the thesis is to derive, discretise and implement the Discontinuous Galerkin [Riviere B. \cite{riviere}] weak form of Navier Stokes equation and perform numerical simulation of the Navier Stokes equation. In the course of the numerical solution we measure the simulation efforts.
-
-In chapter 2, the Navier Stokes equation is introduced. We first derive the Navier Stokes equation from the conservation equation or the Reynolds transport theoreom. We discuss the flow classification and important issues related to numerical simulation of the Navier Stokes equation. 
-
-In Chapter 3, we bring the infinite dimensional problem to a finite dimensional problem by introducing discretisation. We first introduce grid, constituents of elements and transformation between local and global geometry. Further the function spaces over the grid are discussed in which, the basis function or Ansatz function, function spaces for pressure and velocity are introdued. We further introduce and discuss the weak form of the Navier Stokes equation, discrete form of the Navier Stokes equation with boundary condition and properties of weak form.
-
-In Chapter 4, we discuss the implementation of the discrete form of the Navier Stokes equation in RBmatlab, an open source software developed at the University of Stuttgart and the University of M\"unster, for numerical simulation. During the chapter we discuss basis function evaluation in RBmatlab, matrix assembly, dimension of assembled matrices and boundary condition implementation. We further discuss Schur complement method and Newton method for non-linearity.
-
-In Chapter 5, we present results from numerical experiments, analyze results from benchmark problems, evaluate solver performance and draw related conclusions.
-
-As future development, the equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. This allows the approximation of the numerical solution with respect to parameter space. The solution of the parametrized form can be stored for reduced basis evaluations.
-
-Model order reduction with a method such as proper orthogonal decompositon or greedy algorithm can be performed. As an example, proper orthogonal decomposition sorts and segregates the stored solution based on the eigenvalues. This sorted and segregated snapshots with parametrised form can be used for the prediction of the full numerical solution. In this process the evaluations are made faster but with increase in approximation error. Hence, time saving vs. induced error can be compared.
-
 \section{List of symbols} \label{symbol_list}
 
-Following is the list of symbols used throughtout the Thesis and their respective meaning.\\
+Following is the list of symbols used throughtout the thesis with their respective meaning.\\
 ${}$\\
-\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |}
+\begin{longtable}{| p{.35\textwidth} | p{.65\textwidth} |}
 \hline
 \textbf{Symbol/Abbreviation} & \textbf{Description}\\
 \hline
@@ -160,9 +138,11 @@ $n^+$ & Unit normal vector pointing from element itself to neighbouring element\
 \hline
 $n^-$ & Unit normal vector pointing from neighbouring element to element itself \\
 \hline
-$h_{\tau_k}$ & Diameter of element $k$\\
+$\tau_k$ & $k^{th}$ Triangular element, $\tau_k \in \mathcal{T}$\\
 \hline
-$\theta$ & Smallest angle of triangle among all triangles on $\mathcal{T}$\\ 
+$h_{\tau_k}$ & Diameter of $\tau_k$\\
+\hline
+$\theta_k$ & Smallest angle of $\tau_k$\\ 
 \hline
 $r$ & Coordinates of point in Barycentric coordinate system\\
 \hline
@@ -192,13 +172,11 @@ $F_k$ & Mapping from local coordinate system to global coordinate system (Equati
 \hline
 $\hat{T}$ & Reference triangle\\
 \hline
-$\tau_k$ & Triangular element $k$\\
+$J_k$ & Jacobian of $\tau_k$ (Equation \ref{local global mapping equation})\\
 \hline
-$J_k$ & Jacobian (Equation \ref{local global mapping equation})\\
+$\hat{X}$ & Coordinates of point in local coordinate system, $\hat{X} \in \mathbb{R}^d$\\
 \hline
-$\hat{X}$ & Coordinates of point in local coordinate system $\hat{X} \in \mathbb{R}^d$\\
-\hline
-$X$ & Coordinates of point in glocal coordinate system $X \in \mathbb{R}^d$\\
+$X$ & Coordinates of point in global coordinate system, $X \in \mathbb{R}^d$\\
 \hline
 $C$ & Translational vector for local to global mapping (Equation \ref{local global mapping equation})\\
 \hline
@@ -212,7 +190,7 @@ $det$ & Determinant of matrix \\
 \hline
 $\hat{\Gamma}$ & An edge of reference Triangle $\hat{T}$\\
 \hline
-$JIT$ & Jacobian inverse transpose\\
+$JIT_k$ & Jacobian inverse transpose corresponding to $\tau_k$, $J_k^{-1}$\\
 \hline
 $C_{11}$ & Penalty parameter \\
 \hline
@@ -222,11 +200,11 @@ $b$ & Term representing gradient operator in weak formulation of the Navier Stok
 \hline
 $c$ & Term representing non linear terms in weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})\\
 \hline
-$A$ & Matrix terms corressponding to $a_{IP}$\\
+$A$ & Matrix terms corresponding to $a_{IP}$\\
 \hline
-$B$ & Matrix terms in corressponding to $b$\\
+$B$ & Matrix terms in corresponding to $b$\\
 \hline
-$C$ & Matrix terms in corressponding to $c$\\
+$C$ & Matrix terms in corresponding to $c$\\
 \hline
 $l_{IP}$ & Term representing right hand side of strong form in weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3}) \\
 \hline
@@ -274,11 +252,33 @@ $d$ & Dimension of problem\\
 \listoffigures
 \listoftables
 
+\tableofcontents
+
+\chapter{Introduction}
+
+\section{Overview}
+
+The thesis deals with the numerical simulation of the Navier Stokes equation [White F.M. \cite{white}] which is the core of Computational Fluid Dynamics or $CFD$. The thesis performs numerical simulation of the Navier Stokes equation through the discontinuous Galerkin method.
+
+The goal of the thesis is to derive, discretise and implement the discontinuous Galerkin [Riviere B. \cite{riviere}] weak form of the Navier Stokes equation and perform numerical simulation of the Navier Stokes equation. In the course of the numerical solution we measure the simulation efforts. Familiarity with concepts presented under this section is very helpful for understanding of the thesis. Readers familiar with the topics can skip this section.
+
+In chapter 2, the Navier Stokes equation is introduced. We first derive the Navier Stokes equation from the conservation equation or the Reynolds transport theoreom. We discuss the flow classification and important issues related to numerical simulation of the Navier Stokes equation. 
+
+In Chapter 3, we bring the infinite dimensional problem to a finite dimensional problem by introducing discretisation. We first introduce grid, constituents of elements and transformation between local and global geometry. Further the function spaces over the grid are discussed in which, the basis function or the Ansatz function, function spaces for pressure and velocity are introdued. We further introduce and discuss the weak form of the Navier Stokes equation, discrete form of the Navier Stokes equation with boundary conditions and properties of weak form.
+
+In Chapter 4, we discuss the implementation of the discrete form of the Navier Stokes equation in RBmatlab, an opensource software developed at the University of Stuttgart and the University of M\"unster, for numerical simulation. During the chapter we discuss basis function evaluation in RBmatlab, matrix assembly, dimension of assembled matrices and boundary condition implementation. We further discuss Schur complement method and Newton method for nonlinearity.
+
+In Chapter 5, we present results from numerical experiments, analyse results from benchmark problems, evaluate solver performance and draw related conclusions.
+
+As future development, the equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. This allows the approximation of the numerical solution with respect to parameter space. The solution of the parametrized form can be stored for reduced basis evaluations.
+
+Model order reduction with a method such as proper orthogonal decompositon or greedy algorithm can be performed. As an example, proper orthogonal decomposition sorts and segregates the stored solution based on the eigenvalues. This sorted and segregated snapshots with parametrised form can be used for the prediction of the full numerical solution. In this process the evaluations are made faster but with increase in approximation error. Hence, time saving vs. induced error can be compared.
+
 \newpage
 
 \section{Mathematical preliminaries}
 
-We present now mathematical preliminaries from refererences relevant to the thesis. Familiarity with concepts presented under this section is very helpful for understanding of subsequent chapters.
+We present now mathematical preliminaries from references relevant to the thesis. 
 
 \subsection{Cholesky decomposition} \label{chol}
 
@@ -430,11 +430,11 @@ We consider following important factorisations :\\
 \end{spmatrix}
 \end{equation}
 
-Here, $S$ is the Schur complement and $\mathcal{S} = \mathcal{C} - \mathcal{B}_2 \mathcal{A}^{-1} \mathcal{B}_1$ with size $\mathcal{S} \in \mathbb{R}^{m \times m}$ and $I$ is the Identity matrix of size $I \in \mathbb{R}^{n \times n}$  \\
+Here, $S$ is the Schur complement and $\mathcal{S} = \mathcal{C} - \mathcal{B}_2 \mathcal{A}^{-1} \mathcal{B}_1$ with size $\mathcal{S} \in \mathbb{R}^{m \times m}$. $I$ is the Identity matrix of size $I \in \mathbb{R}^{n \times n}$  \\
 
-It can be seen if $\mathcal{C}$ is positive semi definite and $\mathcal{A}$ is positive definite, $\mathcal{S}$ is negative definite. For more details on the saddle point problems we refer to literature such as \cite{saddle}. We make some important observations related to Saddle point problems as follow :\\
+It can be seen if $\mathcal{C}$ is negativesemi definite, $B_1 = B_2^T$ and $\mathcal{A}$ is positive definite, $\mathcal{S}$ is negative definite. For more details on the saddle point problems we refer to literature such as \cite{saddle}. We make some important observations related to Saddle point problems as follow :\\
 
-1. In case $\mathcal{A}$ is symmetric positive definite the Schur complement is very useful as matrix $A$ can be inverted efficiently with Cholesky decomposition (Section \ref{chol}).\\
+1. In case $\mathcal{A}$ is symmetric positive definite the Schur complement is very useful as matrix $\mathcal{A}$ can be inverted efficiently with Cholesky decomposition (Section \ref{chol}).\\
 
 2. Saddle point systems obtained in practical problems can be poorly conditioned.\\
 
@@ -446,11 +446,11 @@ We now introduce Sobolev spaces and related basic definitions, Linear forms and 
 
 \subsection{Sobolev spaces} 
 
-Let $\Omega$ be an open subset of $\mathbb{R}^d$ and $k$ a positive integer. Let $L^2(\Omega)$ denote the space of square integrable functions on $\Omega$. 
+Let $\Omega$ be an open subset of $\mathbb{R}^d$ and $k'$ a positive integer. Let $L^2(\Omega)$ denote the space of square integrable functions on $\Omega$. 
 
-1. The \textit{Sobolev space of order k} on $\Omega$ is defined by\\
+1. The Sobolev space of order $k'$ on $\Omega$ is defined by\\
 \begin{equation}
-H^k (\Omega) = \lbrace f \in L^2 (\Omega) | D^\alpha f \in L^2 (\Omega), |\alpha| \leq k \rbrace ,
+H^{k'} (\Omega) = \lbrace f \in L^2 (\Omega) | D^\alpha f \in L^2 (\Omega), |\alpha| \leq k' \rbrace ,
 \end{equation} 
 
 where $D^\alpha$ is the partial derivative
@@ -460,21 +460,21 @@ D^\alpha = \frac{\partial^{|\alpha|}}{\partial x_d^{\alpha_1} ..... \partial x_d
 
 in the sense of distributions for the multi-index $\alpha = (\alpha_1,.....,\alpha_d) \epsilon \mathbb{N}^d$ using the notation $|\alpha| = \alpha_1 + ..... + \alpha_d $.
 
-It holds by construction that $H^{k+1}(\Omega) \subset H^k (\Omega)$ and that $H^0 (\Omega) = L^2 (\Omega)$. $H^k(\Omega)$ is a Hilbert space with the inner product
+It holds by construction that $H^{k'+1}(\Omega) \subset H^{k'} (\Omega)$ and that $H^0 (\Omega) = L^2 (\Omega)$. $H^{k'}(\Omega)$ is a Hilbert space with the inner product
 \begin{equation}
-(f,g)_{H^k(\Omega)} = \Sigma_{\alpha \epsilon \mathbb{N}^d, |\alpha| \leq k} \int_\Omega (D^\alpha f) (D^\alpha g)
+(f,g)_{H^{k'}(\Omega)} = \Sigma_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega (D^\alpha f) (D^\alpha g)
 \end{equation}
 
 and the induced norm 
 
 \begin{equation}
-||f||_{H^k (\Omega)} = \sqrt{(f,f)_{H^k(\Omega)}} = \sqrt{\Sigma_{\alpha \epsilon \mathbb{N}^d, |\alpha| \leq k} \int_\Omega |D^\alpha f|^2}
+||f||_{H^{k'} (\Omega)} = \sqrt{(f,f)_{H^{k'}(\Omega)}} = \sqrt{\Sigma_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega |D^\alpha f|^2}
 \end{equation}
 
 and the semi norm 
 
 \begin{equation}
-||f||_{H^k (\Omega)} = \sqrt{\Sigma_{\alpha \epsilon \mathbb{N}^d, |\alpha| = k} \int_\Omega |D^\alpha f|^2} \quad \textrm{.}
+|f|_{H^{k'} (\Omega)} = \sqrt{\Sigma_{\alpha \in \mathbb{N}^d, |\alpha| = k'} \int_\Omega |D^\alpha f|^2} \quad \textrm{.}
 \end{equation}
 
 In case of the discontinuous Galerkin space we use the broken Sobolev norm (for symmetric interior penalty Galerkin), \cite{Montlaur2}
@@ -531,12 +531,12 @@ F(u+v) = F(u) + F(v) \forall u,v \in \mathbb{V}
 F(\alpha u) = \alpha F(u) \forall \alpha \in \mathbb{R}, u \in \mathbb{V}
 \end{equation}
 
-2. F is $bounded$ if there exists a constant $\gamma > 0$ such that
+2. F is bounded if there exists a constant $\gamma > 0$ such that
 \begin{equation} 
 |F(v)| \leq \gamma ||v||_\mathbb{V} \forall v \in \mathbb{V}
 \end{equation}
 
-3. F is $continuous$ if for all $\epsilon > 0$ there exists a $\delta_\epsilon > 0$ such that \\
+3. F is continuous if for all $\epsilon > 0$ there exists a $\delta_\epsilon > 0$ such that \\
 \begin{equation}
 ||u - v||_\mathbb{V} \leq \delta_\epsilon \Rightarrow  |F(u) - F(v)| < \epsilon
 \end{equation}
@@ -558,10 +558,10 @@ and is linear with respect to each of its arguments.\\
 
 2. Let $\mathbb{V}$ and $\mathbb{W}$ be endowed with the norms $||\cdot||_\mathbb{V}$ and $||\cdot||_\mathbb{W}$. A bilinear form $a(\cdot,\cdot)$ is continuous if there exists a constant $\gamma > 0$ such that,
 \begin{equation}
-|a(\cdot,\cdot)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \quad \forall \quad u,v \in \mathbb{V}
+|a(u,v)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \quad \forall \quad u,v \in \mathbb{V}
 \end{equation}
 
-3. If $\mathbb{V} = \mathbb{W}$, a bilinear form $a(\cdot,\cdot)$ is $coercive$ if there exists a constant $\alpha > 0$ such that,
+3. If $\mathbb{V} = \mathbb{W}$, a bilinear form $a(\cdot,\cdot)$ is coercive if there exists a constant $\alpha > 0$ such that,
 \begin{equation}
 a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V}
 \end{equation}
@@ -571,7 +571,7 @@ a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V}
 A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $c_{11} > 0$ such that
 
 \begin{equation}\label{Coercivity}
-a(v,v) > c_{11} ||v||^2   \quad \exists \quad  c_{11} > 0
+a(v,v) > c_{11} ||v||^2   \quad \forall \quad v \in  \mathbb{V}
 \end{equation}
 
 \subsubsection{Continuity of bilinear form}
@@ -579,14 +579,14 @@ a(v,v) > c_{11} ||v||^2   \quad \exists \quad  c_{11} > 0
 A bilinear form $a(u,v)$ is said to be continuous if there exists a constant $\gamma > 0$ such that
 
 \begin{equation}\label{Continuity_constant}
-a_{IP}(u,v) \leq \gamma ||u||||v|| \quad  \exists \quad  \gamma > 0
+a(u,v) \leq \gamma ||u||||v|| \quad  \forall \quad u,v \in  \mathbb{V}
 \end{equation}
 
 \section{Important inequalities}
 
 \subsection{Trace theorem} 
 
-We now refer to trace inequalities presented in \cite{riviere}. The trace inequalities are used to define restrictions of Sobolev function along the boundary of domain and used for proper treatment of boundary conditions. 
+We now refer to trace inequalities presented by Rivi\`ere B.\cite{riviere}. The trace inequalities are used to define restrictions of Sobolev function along the boundary of domain and used for proper treatment of boundary conditions. 
 
 If $l$ is the length of $\Gamma$ and $Ar$ is the area of $\tau$,  $\forall \phi \in P^D (\tau)$, $\forall \Gamma \subset \partial \Omega$
 
@@ -654,10 +654,10 @@ This sum of forces arises from stresses $\sigma$ (shear stresses and normal stre
 F = \int_{cs} \sigma \cdot dA + \int_{cv} \rho f dV
 \end{equation}
 \\
-$\sigma =$ Stress\\
+$\sigma =$ Viscous stress\\
 $f =$ External force per unit volume\\
 
-Equating external force with change in momentum i.e. equating \eqref{External force lhs} and \eqref{External force rhs}, considering steady conditions only and with the application of the Gauss divergence theorem we arrive at the Navier Stokes equation,
+Equating external forces with change in momentum i.e. equating \eqref{External force lhs} and \eqref{External force rhs}, considering steady conditions only, using definition of viscous stress tensor and with the application of the Gauss divergence theorem we arrive at the Navier Stokes equation,
 
 \begin{equation} \label{navier_stokes}
 -2\nabla \cdot (\nu \nabla^s u) + (1/\rho) \nabla p + (u \cdot \nabla)u = f \quad   \textnormal{in}  \quad \Omega \quad \textrm{.}
@@ -707,7 +707,8 @@ Where, $L$ is the Characteristic geometrical dimension, for example the diameter
 \subsection[DNS]{Direct numerical simulation} 
 
 We now differentiate between the type of flows, laminar and turbulent.\\
-A Laminar flow is characterised by well defined velocity and pressure field and low Reynolds number. This flow has very low velocity fluctuations and pressure fluctuations. The viscous force is balanced by the pressure force and the flow has negligible inertial force. Mathematically, the non linear term in \eqref{navier_stokes} is no longer present. This equation is known as Stokes equation [White F.M.\cite{white}]\\
+
+Laminar flow is characterised by well defined velocity and pressure field and low Reynolds number. This flow has very low velocity fluctuations and pressure fluctuations. The viscous force is balanced by the pressure force and the flow has negligible inertial force. Mathematically, the non linear term in \eqref{navier_stokes} is no longer present. This equation is known as Stokes equation [White F.M.\cite{white}]\\
 
 The strong form of Stokes equation is as follow,
 
@@ -723,7 +724,8 @@ u = u_D \quad \textrm{on} \quad \Gamma_D
 -pn + \nu n \cdot \nabla u = t \quad \textrm{on} \quad \Gamma_N
 \end{equation}
 \\
-In contrast, the Turbulent flow is characterised by fluctuations in velocity and pressure field and a high Reynolds number. The flow has high velocity and an inertial force is present in addition to a viscous and a pressure force. This inertial force makes the Equation \eqref{navier_stokes} non linear. The fluctuations of velocity and pressure are of the order of the Kolmogrov scale.\\
+
+Turbulent flow, in contrast, is characterised by fluctuations in velocity and pressure field and a high Reynolds number. The flow has high velocity and an inertial force is present in addition to a viscous and a pressure force. This inertial force makes the Equation \eqref{navier_stokes} non linear. The fluctuations of velocity and pressure are of the order of the Kolmogrov scale.\\
 
 The method used for solving Equation \eqref{navier_stokes} numerically is known as Direct Numerical Simulation, abbreviated as DNS. The direct numerical simulation could be computationally very expensive especially in applications such as turbulent flows as the time and space grid size is of the order of the Kolmogrov scale but the time period or space dimension over which the simulation is carried out are very large. In order to avoid such computational expenses alternate models are used replacing the original model. However, the alternate model can not explain the flow physics completely. The prediction of accurate flow physics description requires economical numerical solution of \eqref{navier_stokes}. It is to be noted that simulation of turbulent flow is always a compromise between required flow physics and computational efforts.
 
@@ -731,26 +733,26 @@ The method used for solving Equation \eqref{navier_stokes} numerically is known 
 
 \section{Grid geometry}
 
-In numerical analysis a continuous problem is posed over finite number of degrees of freedom. This domain is constructed by dividing the original domain. This divided domain is called grid. If the original domain is denoted by $\Omega$, we denote the grid by $\mathcal{T}$. In the present case we use triangular grid and denote each triangle as $\tau_k$ with $k$ as element index. If $nel$ is the total number of elements in the grid, $1\leq k \leq nel$. We note that $\mathcal{T} = \cup_{k=1}^{nel} \tau_k$. Each triangle is an 'Element' of the grid. The boundary betwen elements i.e. interelement boundary is denoted by $\Gamma$. In case of a grid, the boundary $\partial \mathcal{T}$ comprises of domain boundaries and interelement boundaries i.e. $\partial \mathcal{T} = \Gamma_D \cup \Gamma_N \cup \Gamma$. During discussion on jump operator and average operator we denote the element under consideration as $\tau_{h}^+$ and neighbouring element as $\tau_{h}^-$. 
+In numerical analysis a continuous problem is posed over finite number of degrees of freedom. This domain is constructed by dividing the original domain. This divided domain is called grid. If the original domain is denoted by $\Omega$, we denote the grid by $\mathcal{T}$. In the present case we use triangular grid and denote each triangle as $\tau_k$ with $k$ as element index. If $nel$ is the total number of elements in the grid, $1\leq k \leq nel$. We note that $\mathcal{T} = \cup_{k=1}^{nel} \tau_k$. Each triangle is an 'Element' of the grid. The boundary betwen elements i.e. interelement boundary is denoted by $\Gamma$. In case of a grid, the boundary $\partial \mathcal{T}$ comprises of domain boundaries and interelement boundaries i.e. $\partial \mathcal{T} = \Gamma_D \cup \Gamma_N \cup \Gamma$. During discussion on jump operator and average operator we denote the element under consideration as $\tau_{h}^+$ and neighbouring element as $\tau_{h}^-$. (Figure \ref{fig:Self_neighbour})
 
-\begin{figure}[H]
+\begin{figure}
 \centering
   \includegraphics[width=\linewidth]{ch_3_fig_1.jpg}
   \caption{Element self (+) and neighbouring element (-)}
   \label{fig:Self_neighbour}
 \end{figure}
 
-We also denote the normal pointing from element itself towards neighbouring element as $n^+$ and the normal pointing from neighbouring element towards element itself as $n^-$. Correspondingly every quantity on element itself is denoted by superscript $+$ and on neighbouring element is denoted by $-$.  We denote by $h_{\tau_k}$ the diameter of element $\tau_k$ such that $h_{\tau_k} = \sup ||x-y||$ where, $(x,y) \in \tau_k$. We also denote by $\theta$ the smallest angle of element $\tau$ in the grid $\mathcal{T}$.
+We also denote the normal pointing from element itself towards neighbouring element as $n^+$ and the normal pointing from neighbouring element towards element itself as $n^-$. Correspondingly every quantity on element itself is denoted by superscript $+$ and on neighbouring element is denoted by $-$.  We denote by $h_{\tau_k}$ the diameter of element $\tau_k$ such that $h_{\tau_k} = \sup ||x-y||$ where, $(x,y) \in \tau_k$. We also denote by $\theta_k$ the smallest angle of the element $\tau_k$, $\tau_k \in \mathcal{T}$.
 
 In case of a 2-dimensional domain the grid could be a triangular grid or a rectangular grid. The triangular grids are useful for irregular geometry and also on regular geometry if the solution is expected to be irregular due to complex flow physics. This flexibility requires additional efforts to define the grid accurately. That is, unlike a structured grid, an unstructured grid needs to define connectivity of vertices, which form edges, which in turn form a face. In case of a 2-dimensional grid we have faces which are 2-dimensional entities, edges which are 1-dimensional entities and points or vertices which are 0-dimensional entities. In case of 3-dimensional grid, these faces constitute tetrahedral elements. 
 
-For triangular grids we also consider a barycentric coordinate system. In barycentric coordinate system any point $r$ within a triangle is expressed in terms of vertices $r_1,r_2,r_3$ forming the triangle. This is represented as,
-
-\begin{equation}\label{barycentric point}
-r = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3
+For triangular grids we also consider a barycentric coordinate system. In barycentric coordinate system any point $r$ within a triangle is expressed in terms of vertices $r_1,r_2,r_3$ forming the triangle. This is represented as, \begin{equation}\label{barycentric point}
+r = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3 \quad \textrm{.}
 \end{equation}
 
-where, $\lambda_1, \lambda_2, \lambda_3$ are weights. The weights satisfy the criterion, \begin{equation}\label{lambda constraint} \lambda_1 + \lambda_2 + \lambda_3 = 1 \quad \textrm{.}
+where, $\lambda_1, \lambda_2, \lambda_3$ are weights. The weights satisfy the criterion, 
+\begin{equation}\label{lambda constraint} 
+\lambda_1 + \lambda_2 + \lambda_3 = 1 \quad \textrm{.}
 \end{equation}
 Hence, we only need to specify 2 values in 2-dimensional plane in order to fully define the position of point.
 
@@ -758,21 +760,21 @@ For example, the centroid of triangle will have $\lambda_1 = 1/3, \lambda_2 = 1/
 
 \section{Grid parameters}
 
-We refer to 'Grid parameters' as the geometrical parameters which are dependent on the geometry of the problem or the grid or both. These parameters do not depend upon the mathematical formulation but are supplementary to the mathematical formulation. On the triangular grid we have 3 entities: faces, edges, vertices as explained above. From faces we have the area (equivalent to volume of element in case of a 3-dimensional grid) and the Jacobian. As explained later in the weak form of the Navier Stokes Discontinuous Galerkin and transformation between local and global geometry the area of element is useful for volume integral terms and the Jacobian is useful for transformation between local and global geometry. From edges we derive the edge length $l$ which is useful for boundary integral terms and normal vector $n$ which is useful for flux calculation. The normal vector is the unit vector normal to the edge pointing outward from the element. Every element has 3 neighbouring elements and the element shares each of his edge with one of its neighbour. From vertices we derive the vertex index which helps to define the connectivity of the vertices which is useful especially in case of unstructured grid. In order to give clear visualization of domain or precisely, we refer to Figure \ref{fig:Domain} for the continuous domain and to Figure \ref{fig:Mesh} for the grid.
+We refer to 'Grid parameters' as the geometrical parameters which are dependent on the geometry of the problem or the grid or both. These parameters do not depend upon the mathematical formulation but are supplementary to the mathematical formulation. On the triangular grid we have 3 entities: faces, edges, vertices as explained above. From faces we have the area (equivalent to volume of element in case of a 3-dimensional grid) and the Jacobian. As explained later in the weak form of the Navier Stokes Discontinuous Galerkin and transformation between local and global geometry the area of element is useful for volume integral terms and the Jacobian is useful for transformation between local and global geometry. From edges we derive the edge length $l$ which is useful for boundary integral terms and normal vector $n$ which is useful for flux calculation. The normal vector is the unit vector normal to the edge pointing outward from the element. Every element has 3 neighbouring elements and the element shares each of his edge with one of its neighbour. From vertices we derive the vertex index which helps to define the connectivity of the vertices which is useful especially in case of unstructured grid. In order to give clear visualization of domain or precisely, we refer to Figure \ref{fig:continuous_grid_figure}.
 
 \begin{figure}[H]
 \begin{subfigure}{.5\textwidth}
 \centering
   \includegraphics[width=\linewidth]{domain.jpg}
-  \caption{Continuous domain}
   \label{fig:Domain}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}	
 \centering
   \includegraphics[width=\linewidth]{grid.jpg}
-  \caption{Discretised domain or grid}
   \label{fig:Mesh}
 \end{subfigure}
+\caption{Continuous domain (left) and discretised domain or grid (right)}
+\label{fig:continuous_grid_figure}
 \end{figure}
 
 \section{Discontinuous Galerkin method}
@@ -780,26 +782,35 @@ We refer to 'Grid parameters' as the geometrical parameters which are dependent 
 In the context of the discontinuous Galerkin method we introduce the function spaces $V$($\mathcal{T}$) and $Q$($\mathcal{T}$) for analytical solution of velocity and analytical solution of pressure respectively. The space containing high fidelity solution (in this case Discontinuous Galerkin) is called truth space denoted by $\mathbb{V}$ for velocity and $\mathbb{Q}$ for pressure. The dimension of truth space is denoted as $N$. 
 
 \begin{equation} \label{velocity_test}
-V = \lbrace \phi \in (L^2(\mathcal{T}))^{d_u}| \quad \phi \in (P^D(\tau_k))^{d_u} \quad \forall \quad {\tau_k} \in \mathcal{T} \rbrace
+\mathbb{V} = \lbrace \phi \in (L^2(\mathcal{T}))^{d_u}| \quad \phi \in (P^D(\tau_k))^{d_u} \quad \forall \quad {\tau_k} \in \mathcal{T} \rbrace
 \end{equation}
 
 \begin{equation} \label{pressure_test}
-Q = \lbrace \psi \in (L^2(\mathcal{T}))^{d_p}| \quad \psi \in (P^{D-1}(\tau_k))^{d_p} \quad \forall \quad {\tau_k} \in \mathcal{T} \rbrace
+\mathbb{Q} = \lbrace \psi \in (L^2(\mathcal{T}))^{d_p}| \quad \psi \in (P^{D-1}(\tau_k))^{d_p} \quad \forall \quad {\tau_k} \in \mathcal{T} \rbrace
 \end{equation}
 
 Here, $P^D(\tau_k)$ denotes space of polynomials of degree at most $D$ over $\tau_k$.\\
 
-We apply a similar procedure as in the finite element method i.e. multiplying the partial differential equation by a test function and integration by parts. However, we note that our test function is not continuous on the interface. Hence, we require flux approximations and jumps at the interface. These requirements have given rise to different discontinuous Galerkin methods. For explanation of each method we refer to literatures such as \cite{persson} for local discontinuous Galerkin and \cite{Montlaur} for the Compact discontinuous Galerkin and the Interior penalty method. \\
+We apply a similar procedure as in the finite element method i.e. multiplying the partial differential equation by a test function and integration by parts. However, we note that our test function is not continuous on the interface. Hence, we require flux approximations and jumps at the interface. These requirements have given rise to different discontinuous Galerkin methods. For explanation of each method we refer to literatures such as by Persson et al. \cite{persson} for local discontinuous Galerkin and by Montlaur et al. \cite{Montlaur} for the Compact discontinuous Galerkin and the Interior penalty method. \\
 
-Discontinuous Galerkin methods for the Navier Stokes equation were compared by \cite{Montlaur}. The local discontinuous Galerkin (LDG) method extends the computational stencil beyond immediate neighbours whereas compact discontinuous Galerkin (CDG) and interior penalty method (IPM) only connect to neighbouring elements. The CDG method provides more flexibility with respect to the stabilisation constant \cite{Montlaur} at the cost of additional simulation effort related to computation of the lifting operator, while the IPM method requires restrictions on penalty parameter in order to maintain coercivity of bilinear form. However, implemenetation of IPM simpler as compared to CDG. Both methods, CDG and IPM, have almost similar convergence rates. 
+Discontinuous Galerkin methods for the Navier Stokes equation were compared by Motlaur et al. \cite{Montlaur}. The local discontinuous Galerkin (LDG) method extends the computational stencil beyond immediate neighbours whereas compact discontinuous Galerkin (CDG) and interior penalty method (IPM) only connect to neighbouring elements. The CDG method provides more flexibility with respect to the stabilisation constant at the cost of additional simulation effort related to computation of the lifting operator, while the IPM method requires restrictions on penalty parameter in order to maintain coercivity of bilinear form. However, implemenetation of IPM is simpler as compared to implementation of CDG. Both methods, CDG and IPM, have almost similar convergence rates. 
 
 \section[Basis function]{Nodal basis function and Orthonormal basis function}
 
-The "Basis functions" are also known as "Ansatz function". There are two kinds of basis function which are used in the application of Finite element or Discontinuous Galerkin Method. \\
+The "Basis functions" are also known as "Ansatz functions". There are two kinds of basis function which are used in the application of continuous Galerkin method or discontinuous Galerkin method. \\
 In order to define a polynomial of given degree completely, we need to calculate its co-efficients. A polynomial of degree $D$ in a 1-dimensional domain has $D+1$ coefficients. In case of a 2-dimensional domain the number of coefficients become $(D+1)(D+2)/2$. To define these coefficients the known values of function at a number of points equal to the number of coefficients is required. These points are known as nodes. In case of triangular element, the nodes are located as,\\
 1. For polynomials of degree 1 i.e. $D=1$, the nodes are located at vertices of an element.\\
 2. For polynomials of degree 2 i.e. $D=2$, the nodes are located at the vertices of an element and mid points of edges.\\
-Similarly for higher order polynomials the nodes are located as shown in Figure \ref{fig:Nodes on Triangular Element}. 
+Similarly for higher order polynomials the nodes are located as shown in Figure \ref{fig:Nodes on Triangular Element} . 
+
+\begin{figure} [H]
+  \includegraphics[width=\linewidth]{fem_triangle_2.png}
+  \caption{Finite Element nodes on triangle for polynomials of different degrees}
+  \label{fig:Nodes on Triangular Element}
+\end{figure}
+
+Source : http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html 
+\newpage
 
 The number of degrees of freedom per element $npe$ can be calculated as,
 
@@ -811,11 +822,6 @@ u_{npe} = d_u \frac{(D+1)(D+2)}{2} \quad \textrm{for velocity}
 p_{npe} = d_p \frac{(D)(D+1)}{2} \quad \textrm{for pressure}
 \end{equation} 
 
-\begin{figure} [H]
-  \includegraphics[width=\linewidth]{fem_triangle_2.png}
-  \caption{Finite Element nodes on triangle for polynomials of different degrees \\ http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html}
-  \label{fig:Nodes on Triangular Element}
-\end{figure}
 
 \subsection{Nodal Basis Functions}
 
@@ -851,24 +857,23 @@ In the present analysis, $(\cdot,\cdot)$ represents $L^2$ scalar product and $\h
 
 \section{Global and local co-ordinate system} \label{section_glob_loc}
 
-Integral terms are evaluated on a reference triangle instead of the element itself. Accordingly, a coordinate transformation is performed for every element from a reference triangle for evaluating integrals. The coordinate system in which the reference triangle lies is called reference or local coordinate system and the coordinate system in which element itself lies is called global coordinate system. The reference triangle has vertices $(0,0),(1,0),(0,1) \in \mathbb{R}^2$ in order. The element is defined by vertex indices in order forming triangle. The mapping from reference triangle $\hat{T}$ to each element $\tau_k$ is defined by the mapping,
-
+Integral terms are evaluated on a reference triangle instead of the element itself. Accordingly, a coordinate transformation between reference triangle and element is performed for evaluating integrals. The coordinate system in which the reference triangle lies is called reference or local coordinate system and the coordinate system in which element itself lies is called global coordinate system. The reference triangle has vertices $(0,0),(1,0),(0,1) \in \mathbb{R}^2$ in order. The element is defined by vertex indices in order forming triangle. The transformation from local coordinate $\hat{X}$ to global coordinate $X$ is defined by the mapping,
 \begin{equation}\label{local global mapping}
-F_k:\hat{T} \mapsto \tau_k
+F_k:\hat{X} \mapsto X \quad \forall \quad \hat{X} \in \hat{T} \quad \textrm{and} \quad X \in \mathcal{T}
 \end{equation}
 
 This mapping function is defined as,
 
 \begin{equation}\label{local global mapping equation}
-F_k: X = J_k \hat{X} + C
+F_k(\hat{X}): X = J_k \hat{X} + C
 \end{equation}
 
 Here,
 \\
 $J_k$ = Jacobian matrix of element $\tau_k$ for transformation from local coordinate system to global coordinate system, $J_k \in \mathbb{R}^{d \times d}$\\
 $C$ = Translational vector for transformation from local coordinate system to global coordinate system, $C \in \mathbb{R}^d$\\
-$X$ = Coordinates of points of element in Global coordinate system, $X \in \tau_k$ \\
-$\hat{X}$ = Coordinates of points of reference triangle in local coordinate system, $\hat{X} \in \hat{T}$\\
+$X$ = Coordinates of a point in Global coordinate system, $X \in \mathcal{T}$ \\
+$\hat{X}$ = Coordinates of a point in local coordinate system, $\hat{X} \in \hat{T}$\\
 
 We represent the image of a global function space or grid constituent on reference triangle by superscript $\hat{•}$ . This function space is known as local basis function space. 
 
@@ -938,12 +943,12 @@ where $p$ is scalar.
 
 2. \\
 \begin{center}
-$[n \otimes v] = n^+ \otimes v^+ + n^- \otimes v^-$ on $\Gamma$\\
-$[n \otimes v] = n \otimes v$ on $\Gamma_D$\\
+$[n \otimes u] = n^+ \otimes u^+ + n^- \otimes u^-$ on $\Gamma$\\
+$[n \otimes u] = n \otimes u$ on $\Gamma_D$\\
  or \\
-$[n \cdot v] = n^+ \cdot v^+ + n^- \cdot v^-$ on $\Gamma$\\
-$[n \cdot v] = n \cdot v$ on $\Gamma_D$\\
-where $v$ is vector and $n \otimes v = v_i n_j$\\ 
+$[n \cdot u] = n^+ \cdot u^+ + n^- \cdot u^-$ on $\Gamma$\\
+$[n \cdot u] = n \cdot u$ on $\Gamma_D$\\
+where $u$ is vector and $n \otimes u = u_i n_j$\\ 
 \end{center}
 
 As can be seen the quantity and its jump are now in same space i.e. jump of vector is vector and jump of scalar is scalar.
@@ -961,7 +966,7 @@ Also, $u$ and $\lbrace u \rbrace$ are in same function space i.e. average of a v
 
 \section{$L^2$ scalar product}
 
-We denote the scalar product by $(p,q)$ which refers to,
+We denote the scalar product of $p$ and $q$ by $(p,q)$ which refers to,
 
 If $p$ and $q$ are scalars,
 \begin{equation}\label{inner product scalars}
@@ -1002,14 +1007,14 @@ The weak form of Stokes equation is as follow,
 
 \begin{equation}\label{stokes_weak_ch3}
 \begin{split}
-a_{IP}(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) 
+a_{IP}(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) \quad \textrm{.}
 \end{split}
 \end{equation}
 
 \begin{equation}
 \begin{split}
 a_{IP}(u,\phi) = (\nabla u, \nabla \phi) + C_{11} ([n \otimes u],[n \otimes \phi])_{\Gamma \cup \Gamma_D} \\
-- \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D}
+- \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D} \quad \textrm{.}
 \end{split}
 \end{equation}
 
@@ -1028,7 +1033,7 @@ l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (
 The discrete form of Stokes equation is written as,
 
 \begin{equation} \label{stokes discrete_ch3}
-AU + BP = F_1 \textrm{.}
+AU + BP = F_1 \quad \textrm{.}
 \end{equation}
 
 Matrix $A$ and matrix $B$ are calculated as per equation \ref{matrix A} and equation \ref{matrix B} respectively. \\
@@ -1036,21 +1041,21 @@ Matrix $A$ and matrix $B$ are calculated as per equation \ref{matrix A} and equa
 The strong form of continuity equation is as follow,
 
 \begin{equation}
-\nabla \cdot u = 0 \quad \textrm{in} \quad \Omega \textrm{.}
+\nabla \cdot u = 0 \quad \textrm{in} \quad \Omega \quad \textrm{.}
 \end{equation}
 
 and the weak for of continuity equation is as follow,
 
 \begin{equation}\label{contiuity_weak_ch3}
 \begin{split}
-b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamma_D} \textrm{.}
+b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamma_D} \quad \textrm{.}
 \end{split}
 \end{equation}
 
 The discrete form of continuity equation is written as,
 
 \begin{equation} \label{continuity discrete_ch3}
-B^T U  = F_2 \textrm{.}
+B^T U  = F_2 \quad \textrm{.}
 \end{equation}
 
 Discrete form of equations can be written in Matrix form as, 
@@ -1114,7 +1119,7 @@ With above considerations we arrive at following conclusions, \\
 \\
 1. Stiffness matrix is symmertic. \\
 2. Stiffness matrix $ \in \mathbb{R}^{(u_{ndofs} + p_{ndofs}) \times (u_{ndofs} + p_{ndofs})}$\\
-3. The number of positive eigen values of stiffness matrix is equal to number of velocity degrees of freedom and number of negative eigen values of stiffness matrix is equal to number of pressure degrees of freedom.\\
+3. The number of positive eigenvalues of stiffness matrix is equal to number of velocity degrees of freedom and number of negative eigenvalues of stiffness matrix is equal to number of pressure degrees of freedom.\\
 \textbf{Proof}:\\
 From equation \eqref{factorisation1} we see that the congruent matrix of stiffness matrix for Stokes equation is,
 \begin{equation}
@@ -1305,7 +1310,7 @@ S'(u) = b(u,\psi) + (\{\psi\},[n \cdot u])_{\Gamma \cup \Gamma_D} - (\psi,n \cdo
 S'(u+\delta h) = b(u + \delta h,\psi) + (\{\psi\},[n \cdot u + \delta h])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D}
 \end{flalign}
 \begin{flalign}
-DS'(u) = b(h,\psi) + (\{\psi\},[n \cdot \delta h])_{\Gamma \cup \Gamma_D} 
+DS'(u) = b(\delta h,\psi) + (\{\psi\},[n \cdot \delta h])_{\Gamma \cup \Gamma_D} 
 \end{flalign}
 
 Algotrithm for the Newton method is as follow:\\
@@ -1409,14 +1414,20 @@ In the present analysis, we find that Schur complement is much faster and in fac
 
 \chapter{Implementation aspects} \label{implementation_aspects}
 
-We discuss now the implementation of the discrete formulation of the Navier Stokes discontinuous Galerkin weak formulation in RBmatlab, A MATLAB library containing all our numerical simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. We refer to literatures of B. Haasdonk \cite{Haasdonk_book} and RBmatlab website: \linebreak http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.16.09/\linebreak index.html.  
+We discuss now the implementation of the discrete formulation of the Navier Stokes discontinuous Galerkin weak formulation in RBmatlab, A MATLAB library containing all our numerical simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. We refer to the literature of Haasdonk B.\cite{Haasdonk_book} and RBmatlab website: \linebreak http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.16.09/\linebreak index.html.  
 
 Before we discuss details of the implementation it is important to understand some frequently used terminologies and the data type of Basis Function and derivative of basis function in RBmatlab.
 \section{Terminology}
 
-A. $params$ and $paramsP$ : These are structures corresponding to velocity and pressure respectively and primarily containing following fields.\\
+A. $params$ and $paramsP$ : These are structures corresponding to velocity and pressure respectively and primarily containing following fields. (Table \ref{table_params} and Table \ref{table_paramsP})\\
+
+B. $grid$ : $grid$ is the structure containing fields relevant to information stored in grid. Below are the fields of grid. (Table \ref{table_grid})\\
+
+C. We also some other variables. (Table \ref{table_variable})\\
+\newpage
 \begin{table}[H]
 \caption{Fields of $params$}
+\label{table_params}
 \begin{center}
 \begin{tabular}{| p{.25\textwidth}| p{.25\textwidth} |  p{.25\textwidth} | p{.25\textwidth}|} 
 \hline
@@ -1440,6 +1451,7 @@ $show\_sparsity$ & - & Bool variable & User defined switch to plot sparsity patt
 
 \begin{table}[H]
 \caption{Fields of $paramsP$}
+\label{table_paramsP}
 \begin{center}
 \begin{tabular}{| p{.25\textwidth}| p{.25\textwidth} |  p{.25\textwidth} | p{.25\textwidth}|}
 \hline
@@ -1461,9 +1473,9 @@ $show\_sparsity$ & - & Bool variable & User defined switch to plot sparsity patt
 \end{center}
 \end{table}
 
-B. $grid$ : $grid$ is the structure containing fields relevant to information stored in grid. Below are the fields of grid.
 \begin{table}[H]
 \caption{Fields of $grid$}
+\label{table_grid}
 \begin{center}
 \begin{tabular}{| p{.25\textwidth}| p{.25\textwidth} |  p{.25\textwidth} | p{.25\textwidth}|}
 \hline
@@ -1487,9 +1499,9 @@ $JIT$ & $JIT$ & $\mathbb{R}^{nel \times n_0 \times d}$ & Jacobian inverse transp
 \end{center}
 \end{table}
 
-C. Some other variables
 \begin{table}[H]
 \caption{Some other variables}
+\label{table_variable}
 \begin{center}
 \begin{tabular}{| p{.25\textwidth}| p{.25\textwidth} |  p{.25\textwidth} | p{.25\textwidth}|}
 \hline
@@ -2323,43 +2335,203 @@ We recall that we use initial guess from Stokes equation and the Newton method p
 \subsection{Analytical example}
 
 We now present analytical example from \cite{Montlaur}. The domain considered for this example is Unit square $[0,1] \times [0,1]$ in $x-y$ plane. 
-The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (0, 0)$. The boundaries ${x = 1}$,${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 0}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = ADDSOURCETERM$. The analytical solution for pressure and velocity reads as,
+The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (0, 0)$. The boundaries ${x = 1}$,${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 0}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is,
 
 \begin{center}
+\begin{equation}
+\begin{split}
+f = (-4 \nu (1+2y) (y^2 - 6xy^2 + 6x^2 y^2 - \\ y + 6xy - 6x^2 y + 3x^2 - 6x^3 + \\ 3x^4)+ 1 - 2x + 4x^3 y^2 (2y^2 - 2y + 1)\\(y - 1)^2 (-1 + 2x)(x - 1)^3,\\ 4 \nu (-1 + 2x)(x^2 - 6x^2 y + 6x^2 y^2 \\ - x + 6xy - 6xy^2 + 3y^2 - 6y^3 + \\ 3y^4)+4x^2y^3 (-1+2y)(y-1)^3 \\ (2x^2-2x+1)(x-1)^2)
+\end{split}
+\end{equation}
+\end{center}
+ 
+The analytical solution for pressure and velocity reads as,
 
+\begin{center}
 \begin{equation}
 p = x(1 - x)
 \end{equation}
-
 \begin{equation} 
-u = (x^2(1-y)^2(2y-6y^2+4y^3),-y^2(1-y)^2(2x-6x^2+4x^3))
+\begin{split}
+u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3))
+\end{split}
 \end{equation}
-
 \end{center}
+
+\begin{figure}[H]
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{L2_convergence_velocity_n_s.jpg}
+  \caption{$h-$ convergence test for velocity $L^2$ error}
+  \label{fig:vel_navier_stoke_conv}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{L2_convergence_pressure_n_s.jpg}
+  \caption{$h-$ convergence test for pressure in $L^2$ error}
+  \label{fig:pre_navier_stoke_conv}
+\end{subfigure}
+\end{figure}
+\begin{figure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{L2_convergence_velocity_n_s_log.jpg}
+  \caption{$h-$ convergence test for velocity $L^2$ error (logarithmic scale)}
+  \label{fig:vel_naviers_stoke_conv_log}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{L2_convergence_pressure_n_s_log.jpg}
+  \caption{$h-$ convergence test for pressure in $L^2$ error (logarithmic scale)}
+  \label{fig:pre_navier_stoke_conv_log}
+\end{subfigure}
+\label{fig:l2_navier_stokes}
+\end{figure}
+
+\begin{figure}[H]
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s.jpg}
+  \caption{$h-$ convergence test for velocity $H^0$ error}
+  \label{fig:vel_navier_stoke_conv_h0}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{H0_convergence_pressure_n_s.jpg}
+  \caption{$h-$ convergence test for pressure in $H^0$ error}
+  \label{fig:pre_navier_stoke_conv_h0}
+\end{subfigure}
+\end{figure}
+\begin{figure}[H]
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s_log.jpg}
+  \caption{$h-$ convergence test for velocity $H^0$ error (logarithmic scale)}
+  \label{fig:vel_navier_stoke_conv_log_h0}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{H0_convergence_pressure_n_s_log.jpg}
+  \caption{$h-$ convergence test for pressure in $H^0$ error (logarithmic scale)}
+  \label{fig:pre_navier_stoke_conv_log_h0}
+\end{subfigure}
+\label{fig:h0_navier_stokes}
+\end{figure}
 
 The grid is equally divided in both directions with number of divisions in each direction as $10,15,17,20$ giving step size of each element in each of $x-y$ direction as $0.1,0.0667,0.0558,0.05$.\\
 
 The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{fig:l2_navier_stokes} in $H^0$ norm is presented in figure \ref{fig:h0_navier_stokes}. \\
 
-\begin{Huge}
-add figure here and cite above and add source term in text 
-\end{Huge}
-
 \subsection{Lid-driven cavity problem} \label{lid_driven_cavity_navier_stokes}
 
-We again consider example presented in section \ref{lid_driven_cavity_stokes} i.e. Benchmark $CFD$ problem. The results are presented in figure $ADD figure NAME$. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers.
-
-\begin{Huge}
-add figure here and cite above and add source term in text 
-\end{Huge}
+We again consider example presented in section \ref{lid_driven_cavity_stokes} i.e. Benchmark $CFD$ problem. The results are presented in figure \ref{lid_driven_cavity_n_s_bicgstab}, \ref{lid_driven_cavity_n_s_minres} and \ref{lid_driven_cavity_n_s_schur}. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers.
 
 \subsection{Flow over cylinder} \label{flow_over_cylinder_navier_stokes}
 
-We again consider example presented in section \ref{flow_over_cylinder_stokes} . However, we multiply the inlet velocity on left boundary with certain factor to regulate Reynolds number. The results are presented in figure $ADD figure NAME$. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers.
+We again consider example presented in section \ref{flow_over_cylinder_stokes} . However, we multiply the inlet velocity on left boundary with certain factor to regulate Reynolds number. The results are presented in figures \ref{flow_over_cylinder_bicgstab_n_s}, \ref{flow_over_cylinder_minres_n_s} and \ref{flow_over_cylinder_schur_n_s}. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers. 
 
-\begin{Huge}
-add figure here and cite above and add source term in text 
-\end{Huge}
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{lid_newton_vx_bicgstab.jpg}
+  \caption{$x-$ velocity (Initial guess by bicgstab solver)}
+  \label{x_vel_navier_stoke_bicgstab_lid}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{lid_newton_vy_bicgstab.jpg}
+  \caption{$y-$ velocity (Initial guess by bicgstab solver)}
+  \label{y_vel_navier_stoke_bicgstab_lid}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{lid_newton_pressure_bicgstab.jpg}
+  \caption{Pressure (Initial guess by bicgstab solver)}
+  \label{pressure_navier_stoke_bicgstab_lid}
+\end{subfigure}
+\label{lid_driven_cavity_n_s_bicgstab}
+\end{figure}
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{lid_newton_vx_minres.jpg}
+  \caption{$x-$ velocity (Initial guess by minres solver)}
+  \label{x_vel_navier_stoke_minres_lid}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{lid_newton_vy_minres.jpg}
+  \caption{$y-$ velocity (Initial guess by minres solver)}
+  \label{y_vel_navier_stoke_minres_lid}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{lid_newton_pressure_minres.jpg}
+  \caption{Pressure (Initial guess by minres solver)}
+  \label{pressure_navier_stoke_minres_lid}
+\end{subfigure}
+\label{lid_driven_cavity_n_s_minres}
+\end{figure}
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{lid_newton_vx_schur.jpg}
+  \caption{$x-$velocity (Initial guess by schur complement method)}
+  \label{x_vel_navier_stoke_schur_lid}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{lid_newton_vy_schur.jpg}
+  \caption{$y-$velocity (Initial guess by schur complement method)}
+  \label{y_vel_navier_stoke_schur_lid}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{lid_newton_pressure_schur.jpg}
+  \caption{Pressure (Initial guess by schur complement method)}
+  \label{pressure_navier_stoke_schur_lid}
+\end{subfigure}
+\label{lid_driven_cavity_n_s_schur}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_newton_vx_bicgstab.jpg}
+  \caption{$x-$ velocity (Initial guess by bicgstab solver)}
+  \label{x_vel_navier_stoke_bicgstab}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_newton_vy_bicgstab.jpg}
+  \caption{$y-$ velocity (Initial guess by bicgstab solver)}
+  \label{y_vel_navier_stoke_bicgstab}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_newton_pressure_bicgstab.jpg}
+  \caption{Pressure (Initial guess by bicgstab solver)}
+  \label{pressure_navier_stoke_bicgstab}
+\end{subfigure}
+\label{flow_over_cylinder_bicgstab_n_s}
+\end{figure}
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_newton_vx_minres.jpg}
+  \caption{$x-$ velocity (Initial guess by minres solver)}
+  \label{x_vel_navier_stoke_minres}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_newton_vy_minres.jpg}
+  \caption{$y-$ velocity (Initial guess by minres solver)}
+  \label{y_vel_navier_stoke_minres}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_newton_pressure_minres.jpg}
+  \caption{Pressure (Initial guess by minres solver)}
+  \label{pressure_navier_stoke_minres}
+\end{subfigure}
+\label{flow_over_cylinder_minres_n_s}
+\end{figure}
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_newton_vx_schur.jpg}
+  \caption{$x-$velocity (Initial guess by Schur complement method)}
+  \label{x_vel_navier_stoke_schur}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_newton_vy_schur.jpg}
+  \caption{$y-$velocity (Initial guess by Schur complement method)}
+  \label{y_vel_navier_stoke_schur}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\linewidth]{cylinder_newton_pressure_schur.jpg}
+  \caption{Pressure (Initial guess by Schur complement method)}
+  \label{pressure_navier_stoke_schur}
+\end{subfigure}
+\label{flow_over_cylinder_schur_n_s}
+\end{figure}
 
 \section{Solver selection}
 
