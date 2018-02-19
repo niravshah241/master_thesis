@@ -17,7 +17,8 @@
 \usepackage{cprotect}
 \usepackage{cleveref}
 \usepackage[document]{ragged2e}
-
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\spn}{span}
 \begin{document}
 \begin{center}
 
@@ -667,7 +668,7 @@ If $p$ and $q$ are vectors,
 
 If $p$ and $q$ are tensors,
 \begin{equation}\label{Inner product tensors}
-(p,q)=\int_{\Omega} p:q d\Omega \quad \textrm{where} \quad p:q = trace(pq^T)
+(p,q)=\int_{\Omega} p:q d\Omega \quad \textrm{where} \quad p:q = Tr(pq^T)
 \end{equation}
 
 \section{Problem statement}
@@ -2553,19 +2554,19 @@ in the sense of distributions for the multi-index $\alpha = (\alpha_1,.....,\alp
 
 It holds by construction that $H^{k'+1}(\Omega) \subset H^{k'} (\Omega)$ and that $H^0 (\Omega) = L^2 (\Omega)$. $H^{k'}(\Omega)$ is a Hilbert space with the inner product
 \begin{equation}
-(f,g)_{H^{k'}(\Omega)} = \Sigma_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega (D^\alpha f) (D^\alpha g)
+(f,g)_{H^{k'}(\Omega)} = \sum_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega (D^\alpha f) (D^\alpha g)
 \end{equation}
 
 and the induced norm 
 
 \begin{equation}
-||f||_{H^{k'} (\Omega)} = \sqrt{(f,f)_{H^{k'}(\Omega)}} = \sqrt{\Sigma_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega |D^\alpha f|^2}
+||f||_{H^{k'} (\Omega)} = \sqrt{(f,f)_{H^{k'}(\Omega)}} = \sqrt{\sum_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega |D^\alpha f|^2}
 \end{equation}
 
 and the semi norm 
 
 \begin{equation}
-|f|_{H^{k'} (\Omega)} = \sqrt{\Sigma_{\alpha \in \mathbb{N}^d, |\alpha| = k'} \int_\Omega |D^\alpha f|^2} \quad \textrm{.}
+|f|_{H^{k'} (\Omega)} = \sqrt{\sum_{\alpha \in \mathbb{N}^d, |\alpha| = k'} \int_\Omega |D^\alpha f|^2} \quad \textrm{.}
 \end{equation}
 
 In case of the discontinuous Galerkin space we use the broken Sobolev norm (for symmetric interior penalty Galerkin), \cite{Montlaur2}
@@ -2586,7 +2587,7 @@ We consider here vector space $\mathbb{V}$ over $\mathbb{R}$\\
 
 1. For a set $\lbrace w_1,....,w_N \rbrace \subset \mathbb{V}$ we denote by \\
 \begin{equation} \label{vector space}
-\mathrm{span} \lbrace w_1,....,w_n \rbrace = \lbrace v \in \mathbb{V} | v = \Sigma_{n=1}^N \alpha_n w_n, \alpha_n \in \mathbb{R} \rbrace
+span \lbrace w_1,....,w_n \rbrace = \lbrace v \in \mathbb{V} | v = \sum_{n=1}^N \alpha_n w_n, \alpha_n \in \mathbb{R} \rbrace
 \end{equation} 
 
 the linear subspace spanned by the elements $w_1,....,w_N$.\\
@@ -2711,14 +2712,9 @@ $\forall \epsilon > 0$, $\forall a,b \in \mathbb{R}$, $ab \leq \frac{\epsilon}{2
 
 \chapter{References}
 
-\section{Published literatures}
-
-\bibliographystyle{plain}
-\bibliography{ref1}
-
 \section{Online resources}
 
-We would also like to mention below online resources which have frequently served as valuable source of information.\\
+I would also like to mention below online resources which have frequently served as valuable source of information.\\
 
 \begin{flushleft}
 1. http://mathworld.wolfram.com/\\
@@ -2729,6 +2725,16 @@ We would also like to mention below online resources which have frequently serve
 \section{Code access}
 
 The codes used for the present thesis is uploaded under: \\
-https://github.com/niravshah241/master\_thesis.git
+https://github.com/niravshah241/master\_thesis.git .\\
+
+
+It is also recommended to use \verb|help <filename>| command for getting more information about the function definition and input/output data.
+
+\bibliographystyle{plain}
+\bibliography{ref1}
+
+
+
+
 
 \end{document}

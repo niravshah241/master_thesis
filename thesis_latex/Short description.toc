@@ -77,6 +77,5 @@
 \contentsline {subsection}{\numberline {7.7.2}Cauchy-Schwarz inequality}{86}
 \contentsline {subsection}{\numberline {7.7.3}Young's inequality}{86}
 \contentsline {chapter}{\numberline {8}References}{87}
-\contentsline {section}{\numberline {8.1}Published literatures}{87}
-\contentsline {section}{\numberline {8.2}Online resources}{90}
-\contentsline {section}{\numberline {8.3}Code access}{90}
+\contentsline {section}{\numberline {8.1}Online resources}{87}
+\contentsline {section}{\numberline {8.2}Code access}{87}
