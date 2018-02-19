@@ -1,4 +1,7 @@
-\documentclass[a4paper,12pt]{book}
+\documentclass[a4paper]{book}
+\usepackage[paperwidth=18cm]{geometry}
+\usepackage{layouts}
+\printinunitsof{cm}
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{amsmath}
@@ -12,6 +15,7 @@
 \usepackage{makecell}
 \usepackage{longtable}
 \usepackage{cprotect}
+\usepackage{cleveref}
 
 \begin{document}
 \begin{center}
@@ -237,8 +241,6 @@ $[\cdot]$ & Jump operator\\
 \hline
 $(\cdot,\cdot)$ & $L^2$ scalar product\\
 \hline
-$c'$ & Coercivity constant\\
-\hline
 $S$ & Schur complement\\
 \hline
 $I$ & Identity matrix\\
@@ -248,6 +250,14 @@ $u_{npe}$ & Number of degrees of freedom per element for Velocity\\
 $p_{npe}$ & Number of degrees of freedom per element for Pressure\\
 \hline
 $d$ & Dimension of problem\\
+\hline
+$\kappa_e$ & Coercivity constant\\
+\hline
+$k'$ & Sobolev space order\\
+\hline
+$w_i$ & Weight in Gaussian quadrature rule\\
+\hline
+$nop$ & Number of points\\
 \hline
 \end{longtable}
 \listoffigures
@@ -261,7 +271,7 @@ $d$ & Dimension of problem\\
 
 The thesis deals with the numerical simulation of the Navier Stokes equation [White F.M. \cite{white}] which is the core of Computational Fluid Dynamics or $CFD$. The thesis performs numerical simulation of the Navier Stokes equation through the discontinuous Galerkin method.
 
-The goal of the thesis is to derive, discretise and implement the discontinuous Galerkin [Riviere B. \cite{riviere}] weak form of the Navier Stokes equation and perform numerical simulation of the Navier Stokes equation. In the course of the numerical solution we measure the simulation efforts. Familiarity with concepts presented under this section is very helpful for understanding of the thesis. Readers familiar with the topics can skip this section.
+The goal of the thesis is to derive, discretise and implement the discontinuous Galerkin [Riviere B. \cite{riviere}] weak form of the Navier Stokes equation and perform numerical simulation of the Navier Stokes equation. In the course of the numerical solution we measure the simulation efforts. 
 
 In chapter 2, the Navier Stokes equation is introduced. We first derive the Navier Stokes equation from the conservation equation or the Reynolds transport theoreom. We discuss the flow classification and important issues related to numerical simulation of the Navier Stokes equation. 
 
@@ -271,353 +281,13 @@ In Chapter 4, we discuss the implementation of the discrete form of the Navier S
 
 In Chapter 5, we present results from numerical experiments, analyse results from benchmark problems, evaluate solver performance and draw related conclusions.
 
+In chapter 6, we present mathematical preliminaries. Familiarity with concepts presented under this chapter is very helpful for understanding of the thesis. Readers familiar with the topics can skip this section.
+
 As future development, the equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. This allows the approximation of the numerical solution with respect to parameter space. The solution of the parametrized form can be stored for reduced basis evaluations.
 
 Model order reduction with a method such as proper orthogonal decompositon or greedy algorithm can be performed. As an example, proper orthogonal decomposition sorts and segregates the stored solution based on the eigenvalues. This sorted and segregated snapshots with parametrised form can be used for the prediction of the full numerical solution. In this process the evaluations are made faster but with increase in approximation error. Hence, time saving vs. induced error can be compared.
 
 \newpage
-
-\section{Mathematical preliminaries}
-
-We present now mathematical preliminaries from references relevant to the thesis. 
-
-\subsection{Cholesky decomposition} \label{chol}
-
-Every symmetric positive definite matrix can be expressed as product of lower triangular matrix and transpose of that lower triangular matrix. That is, if $\mathcal{U}$ is symmetric positive definite matrix then,
-
-\begin{equation}
-\mathcal{U}  = \mathcal{L} \mathcal{L}^T
-\end{equation}
-
-where, $\mathcal{L}$ is lower triangular matrix. It is to be noted that $\mathcal{L}^T$ is an upper triangular matrix. \\
-
-Cholesky decomposition is useful especially when inverting an Matrix in MATLAB. Since the back division operator ($\setminus$) recognises the lower triangular structure of matrix, the division process is faster.\\
-
-We now explain the algorithm for Cholesky decomposition. \\
-
-\begin{equation} \label{Stokes_matrix}
-\begin{spmatrix}{\mathcal{U}}
-    a_{11} & a_{12} & a_{13}\\
-    a_{21} & a_{22} & a_{23}\\
-    a_{31} & a_{32} & a_{33}\\
-\end{spmatrix}
-=
-\begin{spmatrix}{\mathcal{L}}
-    l_{11} & 0 & 0\\
-    l_{21} & l_{22} & 0\\
-    l_{31} & l_{32} & l_{33}
-\end{spmatrix}
-\begin{spmatrix}{\mathcal{L}^T}
-    l_{11} & l_{21} & l_{31}\\
-    0 & l_{22} & l_{32}\\
-    0 & 0 & l_{33}
-\end{spmatrix}
-\end{equation}
-
-We see that,\\
-\begin{equation}
-a_{11} = l_{11}^2, \quad a_{22} = l_{21}^2 + l_{22}^2, \quad a_{33} = l_{31}^2 + l_{32}^2 + l_{33}^2
-\end{equation}
-
-and 
-\begin{equation}
-a_{12} = a_{21} = l_{11}l_{21}, \quad a_{13} = a_{31} = l_{11}l_{31}, \quad a_{23} = a_{32} = l_{31}l_{21} + l_{32}l_{22}
-\end{equation}
-
-We now see that for diagonal elements,\\
-
-\begin{equation}
-l_{kk} = \sqrt{a_{kk} - \sum_{k=1}^{j-1} l_{kj}^2}
-\end{equation}
-
-and for elements below diagonal,\\
-
-\begin{equation}
-l_{ik} = \frac{1}{l_{kk}}(a_{ik}-\sum_{j=1}^{k-1} l_{ij}l_{kj})
-\end{equation}
-\\
-It is to be noted that similar theory is also applicable for Cholesky decomposition with upper triangular matrix instead of lower triangular matrix. Also, this algorithm can be extended to Matrix of any size. \\
-
-In MATLAB the cholesky decomposition is performed by $chol$. The choice of upper triangular or lower triangular matrix can be adjusted by providing additional input argument $'lower'$ or $'upper'$. More information can be found by $help$ in MATLAB and MATLAB documentation.
- 
-\subsection{Saddle point formulation} \label{saddle_point} 
-
-The saddle point problem has following form,
-
-\begin{equation} 
-\begin{spmatrix}{}
-    \mathcal{A} & \mathcal{B}_1\\
-    \mathcal{B}_2 & \mathcal{C}
-\end{spmatrix}
-\begin{spmatrix}{}
-   \mathcal{X}\\
-   \mathcal{Y}
-\end{spmatrix}
-=
-\begin{spmatrix}{}
-    \mathit{f}\\
-   	\mathit{g}
-\end{spmatrix}
-\end{equation}
-
-\begin{equation}
-\mathcal{A} \in \mathbb{R}^{n \times n}; \mathcal{B}_1, \mathcal{B}_2 \in \mathbb{R}^{m \times n}; \mathcal{C} \in \mathbb{R}^{m \times m} 
-\end{equation}
-
-with $n \geq m$.\\
-
-We assume here that $\mathcal{A}, \mathcal{B}_1, \mathcal{B}_2$ are non zeros. Usually constituents $\mathcal{A}, \mathcal{B}_1, \mathcal{B}_2, \mathcal{C}$ satisfy one or more of following properties.
-\\
-\\
-1. $\mathcal{A} = \mathcal{A}^T$ (Symmetric)\\
-2. Symmetric part of $\mathcal{A}$ is positive semi definite\\
-3. $\mathcal{B}_1 = \mathcal{B}_2 = \mathcal{B}$\\
-4. $\mathcal{C}$ is symmetric and positive semidefinite\\
-5. $\mathcal{C} = 0$ (Zero matrix)\\
-
-Incompressible Stokes equation is an example of saddle point problem with $\mathcal{A}$ being symmetric positive definite matrix, $\mathcal{B}_2 = \mathcal{B}_1^T$ and $\mathcal{C} = 0$. \\
-
-We consider following important factorisations :\\
-
-\begin{equation} \label{factorisation1}
-\begin{spmatrix}{}
-    \mathcal{A} & \mathcal{B}_1 \\
-    \mathcal{B}_2 & \mathcal{C}
-\end{spmatrix}
-=
-\begin{spmatrix}{}
-    I & 0 \\
-    \mathcal{B}_2 \mathcal{A}^{-1} & I
-\end{spmatrix}
-\begin{spmatrix}{}
-    \mathcal{A} & 0 \\
-    0 & \mathcal{S}
-\end{spmatrix}
-\begin{spmatrix}{}
-    I & \mathcal{A}^{-1} \mathcal{B}_1 \\
-    0 & I
-\end{spmatrix}
-\end{equation}
-
-\begin{equation} \label{factorisation2}
-\begin{spmatrix}{}
-    \mathcal{A} & \mathcal{B}_1 \\
-    \mathcal{B}_2 & \mathcal{C}
-\end{spmatrix}
-=
-\begin{spmatrix}{}
-    \mathcal{A} & 0 \\
-    \mathcal{B}_2 & \mathcal{S}
-\end{spmatrix}
-\begin{spmatrix}{}
-    I & \mathcal{A}^{-1}\mathcal{B}_1 \\
-    0 & I
-\end{spmatrix}
-\end{equation}
-
-\begin{equation} \label{factorisation3}
-\begin{spmatrix}{}
-    \mathcal{A} & \mathcal{B}_1 \\
-    \mathcal{B}_2 & \mathcal{C}
-\end{spmatrix}
-=
-\begin{spmatrix}{}
-    I & 0 \\
-    \mathcal{B}_2 \mathcal{A}^{-1} & I
-\end{spmatrix}
-\begin{spmatrix}{}
-    \mathcal{A} & \mathcal{B}_1 \\
-    0 & \mathcal{S}
-\end{spmatrix}
-\end{equation}
-
-Here, $S$ is the Schur complement and $\mathcal{S} = \mathcal{C} - \mathcal{B}_2 \mathcal{A}^{-1} \mathcal{B}_1$ with size $\mathcal{S} \in \mathbb{R}^{m \times m}$. $I$ is the Identity matrix of size $I \in \mathbb{R}^{n \times n}$  \\
-
-It can be seen if $\mathcal{C}$ is negativesemi definite, $B_1 = B_2^T$ and $\mathcal{A}$ is positive definite, $\mathcal{S}$ is negative definite. For more details on the saddle point problems we refer to literature such as \cite{saddle}. We make some important observations related to Saddle point problems as follow :\\
-
-1. In case $\mathcal{A}$ is symmetric positive definite the Schur complement is very useful as matrix $\mathcal{A}$ can be inverted efficiently with Cholesky decomposition (Section \ref{chol}).\\
-
-2. Saddle point systems obtained in practical problems can be poorly conditioned.\\
-
-3. Also number of methods such as Krylov subspace methods, Multilevel methods have been developed for saddle point problems.\\
-
-4. The saddle point problem has positive as well as non positive eigenvalues. If $\mathcal{A}$ is positive definite and $\mathcal{C}$ is negative definite or zero matrix, number of positive eigenvalues is $n$ and number of negative eigenvalues is $m$. \\
-
-We now introduce Sobolev spaces and related basic definitions, Linear forms and bilinear forms. Readers are advised to refer to \cite{crbm} for further understanding.
-
-\subsection{Sobolev spaces} 
-
-Let $\Omega$ be an open subset of $\mathbb{R}^d$ and $k'$ a positive integer. Let $L^2(\Omega)$ denote the space of square integrable functions on $\Omega$. 
-
-1. The Sobolev space of order $k'$ on $\Omega$ is defined by\\
-\begin{equation}
-H^{k'} (\Omega) = \lbrace f \in L^2 (\Omega) | D^\alpha f \in L^2 (\Omega), |\alpha| \leq k' \rbrace ,
-\end{equation} 
-
-where $D^\alpha$ is the partial derivative
-\begin{equation}
-D^\alpha = \frac{\partial^{|\alpha|}}{\partial x_d^{\alpha_1} ..... \partial x_d^{\alpha_d}}
-\end{equation}
-
-in the sense of distributions for the multi-index $\alpha = (\alpha_1,.....,\alpha_d) \epsilon \mathbb{N}^d$ using the notation $|\alpha| = \alpha_1 + ..... + \alpha_d $.
-
-It holds by construction that $H^{k'+1}(\Omega) \subset H^{k'} (\Omega)$ and that $H^0 (\Omega) = L^2 (\Omega)$. $H^{k'}(\Omega)$ is a Hilbert space with the inner product
-\begin{equation}
-(f,g)_{H^{k'}(\Omega)} = \Sigma_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega (D^\alpha f) (D^\alpha g)
-\end{equation}
-
-and the induced norm 
-
-\begin{equation}
-||f||_{H^{k'} (\Omega)} = \sqrt{(f,f)_{H^{k'}(\Omega)}} = \sqrt{\Sigma_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega |D^\alpha f|^2}
-\end{equation}
-
-and the semi norm 
-
-\begin{equation}
-|f|_{H^{k'} (\Omega)} = \sqrt{\Sigma_{\alpha \in \mathbb{N}^d, |\alpha| = k'} \int_\Omega |D^\alpha f|^2} \quad \textrm{.}
-\end{equation}
-
-In case of the discontinuous Galerkin space we use the broken Sobolev norm (for symmetric interior penalty Galerkin), \cite{Montlaur2}
-
-\begin{equation}
-||f||_{1,h}^2 = \sum_{\tau_k \in \mathcal{T}} ||\nabla f||_{L^2(\tau_k)}^2 + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ||[[u]]||_{L^2 (\tau_k)}^2
-\end{equation}
-
-and inner product
-
-\begin{equation}
-(f,g) = \sum_{\tau_k \in \mathcal{T}} (f,g)_{L^2(\tau_k)} + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ([u],[v])_{L^2 (\tau_k)} \quad \textrm{.}
-\end{equation}
-
-\subsection{Basic definitions}
-
-We consider here vector space $\mathbb{V}$ over $\mathbb{R}$\\
-
-1. For a set $\lbrace w_1,....,w_N \rbrace \subset \mathbb{V}$ we denote by \\
-\begin{equation} \label{vector space}
-\mathrm{span} \lbrace w_1,....,w_n \rbrace = \lbrace v \in \mathbb{V} | v = \Sigma_{n=1}^N \alpha_n w_n, \alpha_n \in \mathbb{R} \rbrace
-\end{equation} 
-
-the linear subspace spanned by the elements $w_1,....,w_N$.\\
-
-2. The space $\mathbb{V}$ is of finite dimension if there exists a maximal a set of linearly independent elements $v_1,....,v_N$, otherwise $\mathbb{V}$ is of infinite dimension.\\
-
-3. A norm $||.||_\mathbb{V}$ on $\mathbb{V}$ is a function $||.||_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that\\ 
-\\
-A. $||v||_\mathbb{V} \geq 0 \forall v \in \mathbb{V}$ and $||v||_\mathbb{V} = 0$ iff $v=0$\\
-B. $||\alpha v||_\mathbb{V} = |\alpha| ||v||_\mathbb{V}$  $\forall \alpha \in \mathbb{R}, v \in \mathbb{V}$\\
-C. $||u+v|| \leq ||u||_\mathbb{V} + ||v||_\mathbb{V}$ $u,v \in \mathbb{V}$.\\
-
-4. The pair $(\mathbb{V},||.||_\mathbb{V})$ is a normed space and we can define a distance function $d(u,v) = ||u-v||_\mathbb{V}$ to measure the distance between two elements $u,v \in \mathbb{V}$.\\
-
-5. A semi-norm on $\mathbb{V}$ is a function $|.|_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that $|v|_\mathbb{V} \geq 0$ for all $v \in \mathbb{V}$ and B. and C. above are satisfied. In consequence a semi-norm is a norm if and only if $|v|_\mathbb{V} = 0$ implies  $v = 0$.\\
-
-6. Two norms $||.||_1$ and $||.||_2$ are equivalent if there exists two constants $C_1,C_2 > 0$ such that \\
-
-\begin{equation} \label{norm_equivalent}
-C_1||.||_1 \leq ||.||_2 \leq C_2 ||.||_1 \forall v \in V
-\end{equation}
-
-\subsection{Linear forms}
-
-Let $(\mathbb{V,||.||_\mathbb{V}})$ be a normed space. Then, we define the following notions.\\
-
-1. A function $F : \mathbb{V} \rightarrow \mathbb{R}$ is said to be linear
-\begin{equation} 
-F(u+v) = F(u) + F(v) \forall u,v \in \mathbb{V} 
-\end{equation}
-
-\begin{equation} 
-F(\alpha u) = \alpha F(u) \forall \alpha \in \mathbb{R}, u \in \mathbb{V}
-\end{equation}
-
-2. F is bounded if there exists a constant $\gamma > 0$ such that
-\begin{equation} 
-|F(v)| \leq \gamma ||v||_\mathbb{V} \forall v \in \mathbb{V}
-\end{equation}
-
-3. F is continuous if for all $\epsilon > 0$ there exists a $\delta_\epsilon > 0$ such that \\
-\begin{equation}
-||u - v||_\mathbb{V} \leq \delta_\epsilon \Rightarrow  |F(u) - F(v)| < \epsilon
-\end{equation}
-
-The notion of continuity and boundedness is equivalent for linear forms.
-
-\subsection{Bilinear forms}
-
-1. A bilinear form $a(\cdot,\cdot)$ acting on the vector spaces $\mathbb{V}$ and $\mathbb{W}$ is given as
-\begin{equation}
-a : \mathbb{V} \times \mathbb{W} \Rightarrow \mathbb{R}
-\end{equation}
-
-\begin{equation}
-(u,v) \mapsto a(u,v)
-\end{equation}
-
-and is linear with respect to each of its arguments.\\
-
-2. Let $\mathbb{V}$ and $\mathbb{W}$ be endowed with the norms $||\cdot||_\mathbb{V}$ and $||\cdot||_\mathbb{W}$. A bilinear form $a(\cdot,\cdot)$ is continuous if there exists a constant $\gamma > 0$ such that,
-\begin{equation}
-|a(u,v)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \quad \forall \quad u,v \in \mathbb{V}
-\end{equation}
-
-3. If $\mathbb{V} = \mathbb{W}$, a bilinear form $a(\cdot,\cdot)$ is coercive if there exists a constant $\alpha > 0$ such that,
-\begin{equation}
-a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V}
-\end{equation}
-
-\subsubsection{Coercivity of bilinear form} \label{Coercivity_constant}
-
-A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $c_{11} > 0$ such that
-
-\begin{equation}\label{Coercivity}
-a(v,v) > c_{11} ||v||^2   \quad \forall \quad v \in  \mathbb{V}
-\end{equation}
-
-\subsubsection{Continuity of bilinear form}
-
-A bilinear form $a(u,v)$ is said to be continuous if there exists a constant $\gamma > 0$ such that
-
-\begin{equation}\label{Continuity_constant}
-a(u,v) \leq \gamma ||u||||v|| \quad  \forall \quad u,v \in  \mathbb{V}
-\end{equation}
-
-\section{Important inequalities}
-
-\subsection{Trace theorem} 
-
-We now refer to trace inequalities presented by Rivi\`ere B.\cite{riviere}. The trace inequalities are used to define restrictions of Sobolev function along the boundary of domain and used for proper treatment of boundary conditions. 
-
-If $l$ is the length of $\Gamma$ and $Ar$ is the area of $\tau$,  $\forall \phi \in P^D (\tau)$, $\forall \Gamma \subset \partial \Omega$
-
-\begin{equation}
-||\phi||_{L^2(\Gamma)} \leq \hat{C}_t l^{\frac{1}{2}} Ar^{\frac{-1}{2}} ||\phi||_{L^2(\tau)}
-\end{equation}
-
-\begin{equation}
-||\phi||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\phi||_{L^2(\tau)}
-\end{equation}
-
-\begin{equation}
-||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq \hat{C}_t |l|^{\frac{1}{2}} |Ar|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)}
-\end{equation}
-
-\begin{equation}
-||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)}
-\end{equation}
-
-Here, $\hat{C}_t$ and ${C}_t$ are constants independent of $h_\tau$ and $\phi$ but dependent on polynomial degree $D$. The exact expressions for $C_t$ are given by \cite{warburton}.
-
-\subsection{Cauchy-Schwarz inequality} 
-\begin{center}
-$\forall f,g \in L^2(\Omega)$, $|(f,g)_{\Omega}| \leq ||f||_{L^2(\Omega)} ||g||_{L^2(\Omega)}$ \\
-\end{center}
-
-\subsection{Young's inequality} 
-\begin{center}
-$\forall \epsilon > 0$, $\forall a,b \in \mathbb{R}$, $ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2$\\
-\end{center}
 
 \chapter[Perspective and Formulation]{Engineering perspective and mathematical formulation} 
 
@@ -1135,41 +805,47 @@ For any non zero vector $z$, $z^T S z < 0$ i.e. $S$ is symmetric negative defini
 
 \subsubsection{Coercivity constant for equation for Stokes flow} \label{basics}
 
-We define a lower and upper bound for the viscosity such that \\
+We define a lower and upper bound for the kinematic viscosity such that \\
 \begin{equation}
 \nu_0 \leq \nu \leq \nu_1
 \end{equation}
 
-Using Cauchy Schwarz inequality
+Using Cauchy Schwarz inequality, 
 
-$\Sigma_{e \epsilon \Gamma \cup \Gamma_D} \int_e {\nu}[n\otimes \phi] \leq \Sigma_{e \epsilon \Gamma \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} ||[\phi]||_{L^2(e)} \leq \Sigma_{e \epsilon \Gamma \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} (\frac{1}{l})^{(1/2-1/2)} ||[\phi]||_{L^2(e)}$
-
-Based on the Trace inequatlity and the lower and upper bound for viscocity, for neighbouring elements $\tau_{k_1}$ and $\tau_{k_2}$ sharing the edge $e$ 
 \begin{equation}
-||{\nu \nabla \phi \cdot n}||_{L^2(e)} \leq \frac{C_t \nu_1}{2} {h_{\tau_{k_1}}}^{-1/2} ||\nabla \phi||_{L^2({\tau_{k_1}})} + \frac{C_t \nu_1}{2} {h_{{\tau_{k_2}}}}^{-1/2} ||\nabla \phi||_{L^2({\tau_{k_2}})}
+\begin{split}
+\sum_{e \in \Gamma \cup \Gamma_D} \int_e {\nu}[n \otimes \phi] \leq \sum_{e \in \Gamma \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} \quad ||[\phi]||_{L^2(e)} \\ \leq \sum_{e \in \Gamma \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} (\frac{1}{l})^{(1/2-1/2)} \quad ||[\phi]||_{L^2(e)} \quad \textrm{.}
+\end{split}
+\end{equation}
+
+Based on the Trace inequatlity and the lower and upper bound for viscocity, for neighbouring elements $\tau_{k_1}$ and $\tau_{k_2}$ sharing the edge $e$, 
+
+\begin{equation}
+\begin{split}
+||\lbrace \nu \nabla \phi \cdot n \rbrace||_{L^2(e)} \leq \frac{C_t \nu_1}{2} {h_{\tau_{k_1}}^{-1/2}} ||\nabla \phi||_{L^2({\tau_{k_1}})} \\ + \frac{C_t \nu_1}{2} {h_{{\tau_{k_2}}}^{-1/2}} ||\nabla \phi||_{L^2({\tau_{k_2}})} \quad \textrm{.}
+\end{split}
 \end{equation}
 
 Again based on the trace inequality, for $e \in \Gamma \cup \Gamma_D$
 
 \begin{equation}
 \begin{split}
-\int_e \lbrace \nu \nabla \phi \rbrace[n \otimes \phi] \leq \frac{C_t \nu_1}{2} {h_{{\tau_{k_1}}}}^{-1/2} ||\nabla \phi||_{L^2_{(\tau_{k_1})}} + \frac{C_t \nu_1}{2} {h_{{\tau_{k_2}}}}^{-1/2} ||\nabla \phi||_{L^2_{(\tau_{k_2})}} \\  
-l^{\beta_0/2} {1/l}^{\beta_0/2} ||[\phi]||_{L^2(e)}
+\int_e \lbrace \nu \nabla \phi \rbrace [n \otimes \phi] \leq \frac{C_t \nu_1}{2}  \left( h_{(\tau_{k_1})}^{\frac{-1}{2}} ||\nabla \phi||_{L^2{(\tau_{k_1})}} + {h_{(\tau_{k_2})}^{\frac{-1}{2}}} ||\nabla \phi||_{L^2{(\tau_{k_2})}} \right) \\ l^{\frac{\beta_0}{2}} \left({\frac{1}{l}}\right)^{\frac{\beta_0}{2}} ||[\phi]||_{L^2(e)} \quad \textrm{.}
 \end{split}
 \end{equation}
 
 For $h_{\tau_k} \leq 1$ and the $\beta_0 (d-1) \geq 1$ we obtain a similar bound for the boundary edges.
 
-If $n_0$ denotes maximum number of neighbours $n_0 = 3$ for triangles,
+If $n_0$ denotes maximum number of neighbours ($n_0 = 3$ for triangles),
 \begin{equation}
 \begin{split}
-\int_e \lbrace \nu \nabla \phi \rbrace[n \otimes \phi] \leq C_t \nu_1 \left( \Sigma_{e \in \Gamma_h \cup \Gamma_D} \frac{1}{l^\beta_0} ||[\phi]||^2_{L^2(e)} \right)^{1/2} \\ \times \left( \Sigma_{e \epsilon \Gamma_h} ||\nabla \phi||^2_{L^2(\tau_{k_1})} + ||\nabla \phi||^2_{L^2(\tau_{k_2})} + \Sigma_{e \epsilon \Gamma_D} ||\nabla \phi||^2_{0,\tau_{k_1}} \right)
+\int_e \lbrace \nu \nabla \phi \rbrace[n \otimes \phi] \leq C_t \nu_1 \left( \sum_{e \in \Gamma_h \cup \Gamma_D} \frac{1}{l^\beta_0} ||[\phi]||^2_{L^2(e)} \right)^{1/2} \\ \times \left( \sum_{e \epsilon \Gamma_h} ||\nabla \phi||^2_{L^2(\tau_{k_1})} + ||\nabla \phi||^2_{L^2(\tau_{k_2})} + \sum_{e \epsilon \Gamma_D} ||\nabla \phi||^2_{0,\tau_{k_1}} \right)
 \end{split}
 \end{equation}
 
 \begin{equation}
 \begin{split}
-\int_e \lbrace \nu \nabla \phi \rbrace[n \otimes \phi] \leq C_t \nu_1 \sqrt{n_0} \left( \Sigma_{e \in \Gamma_h \cup \Gamma_D} \frac{1}{l^\beta_0} ||[\phi]||^2_{L^2(e)} \right)^{1/2} \\ \left( \Sigma_{e \in \Gamma_h \cup \Gamma_D} ||\nabla \phi||^2_{L^2(\tau)} \right)
+\int_e \lbrace \nu \nabla \phi \rbrace[n \otimes \phi] \leq C_t \nu_1 \sqrt{n_0} \left( \sum_{e \in \Gamma_h \cup \Gamma_D} \frac{1}{l^\beta_0} ||[\phi]||^2_{L^2(e)} \right)^{1/2} \\ \left( \sum_{e \in \Gamma_h \cup \Gamma_D} ||\nabla \phi||^2_{L^2(\tau)} \right) \quad \textrm{.}
 \end{split}
 \end{equation}
 
@@ -1184,12 +860,17 @@ Using Young's inequality for $\delta > 0$
 a_\epsilon (\phi , \phi) \geq \left( 1-\frac{\delta}{2} |1-\epsilon| \right) \sum_{\tau \epsilon \mathcal{T}} ||\nu^{1/2} \nabla v ||^2_{L^2(\tau)} + \sum_{e \epsilon \Gamma_h \cup \Gamma_D} \frac{\sigma_e^0 - \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0}|1-\epsilon|}{l^{\beta_0}} ||[v]||^2_{L^2(e)}
 \end{equation}
 
-where, we have Penalty parameter $C_{11} = \frac{\sigma^0_e}{l}$
+where, we have Penalty parameter,
+\begin{equation}
+C_{11} = \frac{\kappa_e}{l}
+\end{equation} 
 
-We can obtain exact expression for $\sigma^0_e$ for triangular mesh and Symmetric Interior Penalty Galerkin formulation $\epsilon = -1$ as,\\
+where, $\kappa_e$ is coercivity constant.
+
+We can obtain exact expression for $\kappa_e$ for triangular mesh and Symmetric Interior Penalty Galerkin formulation $\epsilon = -1$ as,\\
 \begin{equation}
 \begin{split}
-\sigma_0 = \frac{3 ( {\nu_1}^{\tau_{k_1}})^2}{2 {\nu_0}^{\tau_{k_1}}} D (D+1) l^{\beta_0 - 1} cot {\theta^{\tau_{k_1}}}  \\ + \frac{3 ( {\nu_1}^{\tau_{k_2}})^2}{2 {\nu_0}^{\tau_{k_2}}} D (D+1) l^{\beta_0 - 1} cot {\theta^{\tau_{k_2}}}
+\kappa_e = \frac{3 ( {\nu_1}^{\tau_{k_1}})^2}{2 {\nu_0}^{\tau_{k_1}}} D (D+1) l^{\beta_0 - 1} cot {\theta^{\tau_{k_1}}}  \\ + \frac{3 ( {\nu_1}^{\tau_{k_2}})^2}{2 {\nu_0}^{\tau_{k_2}}} D (D+1) l^{\beta_0 - 1} cot {\theta^{\tau_{k_2}}}
 \end{split}
 \end{equation} 
 
@@ -2066,7 +1747,7 @@ The chapter discusses results obtained by performing numerical experiments on di
 
 \section{Error definitions}
 
-Error is the difference, measured in suitable norm, between true solution and approximated or computed solution. It is also a measure of how closely the used scheme simulates the physical nature of problem. A correct numerical scheme should converge to actual solution when number of degrees of freedom are increased. The degrees of freedom can be increased by discretizing the domain further ($h-$convergence) or by increasing degree of Ansatz function ($p-$convergence). If $P_h$ is the computed solution and $P$ is the true solution, error in $W$-norm is defined as,
+Error is the difference, measured in suitable norm, between true solution and approximated or computed solution. It is also a measure of how closely the used scheme simulates the physical nature of problem. A correct numerical scheme should converge to actual solution when number of degrees of freedom are increased. The degrees of freedom can be increased by discretizing the domain further ($h-$convergence) or by increasing degree of the basis function ($p-$convergence). If $P_h$ is the computed solution and $P$ is the true solution, error in $W$-norm is defined as,
 
 \begin{equation} \label{error_definition}
 P_{error} = ||P - P_h||_{W}
@@ -2093,15 +1774,15 @@ We use notations from section \ref{navier_stokes_weak_ch3} and \ref{stokes_weak_
 
 \subsection{Properties of Stiffness matrix}
 
-We recall now some conclusions from section \ref{property_stif_mat_stokes} and section \ref{property_stif_mat_navier}. The present code provides routine $stifness\_matrix\_test$ which, \\
+We recall now some conclusions from section \ref{property_stif_mat_stokes} and section \ref{property_stif_mat_navier}. The present code provides routine \verb|stifness_matrix_test| which, \\
 
-1. checks whether co-efficient matrix $K$ is symmetric and number of non positive eigen values. The number of non positive eigen values should be same number of pressure degree of freedom. It also provides eigen values and eigen vectors as output.\\
+1. checks whether coefficient matrix $K$ is symmetric and number of non positive eigenvalues. The number of non positive eigenvalues should be same number of pressure degree of freedom. It also provides eigenvalues and eigenvectors as output,\\
 
-2. calculates condition number of co-efficient matrix $K$. \\
+2. calculates condition number of coefficient matrix $K$, \\
 
-3. rank of co-efficient matrix $K$.\\
+3. rank of coefficient matrix $K$.\\
 
-The same routine can also be used for matrix $A$ by giving matrix $A$ as input. In this case the matrix should be symmetric and all eigen values should be positive.\\
+\verb|stifness_matrix_test| can also be used for matrix $A$ by giving matrix $A$ as input. In this case the matrix should be symmetric and all eigen values should be positive.\\
 
 Please note that matrix with very small non symmetricity (for example, error in symmetricity of order of $2.2204e-16$) should be considered symmetric due to round-off errors.
 
@@ -2124,9 +1805,9 @@ p = (1 - x)
 
 The grid is equally divided in both directions with number of divisions in each direction as $5,10,15,20$ giving step size of each element in each of $x-y$ direction as $0.2,0.1,0.067,0.05$.\\
 
-The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{fig:l2_stokes} in $H^0$ norm is presented in figure \ref{fig:h0_stokes}. \\
+The results of $h-$ convergence test in $L^2$ norm is presented in figures \ref{fig:vel_stoke_conv},\ref{fig:vel_stoke_conv_log}, \ref{fig:pre_stoke_conv} and \ref{fig:pre_stoke_conv_log} and in $H^0$ norm is presented in figures \ref{fig:vel_stoke_conv_h0},\ref{fig:vel_stoke_conv_log_h0}, \ref{fig:pre_stoke_conv_h0} and \ref{fig:pre_stoke_conv_log_h0}. \\
 
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{l2_velocity_stokes.jpg}
   \caption{$h-$ convergence test for velocity $L^2$ error}
@@ -2152,7 +1833,7 @@ The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{f
 \label{fig:l2_stokes}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_velocity_stokes.jpg}
   \caption{$h-$ convergence test for velocity $h^0$ error}
@@ -2177,8 +1858,6 @@ The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{f
 \end{subfigure}
 \label{fig:h0_stokes}
 \end{figure}
-
-\newpage
 
 We now present additional examples and check whether the implementation of Stokes flow is capable of reproducing physics of the problem.
 
@@ -2239,6 +1918,7 @@ The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x
   \caption{Pressure (minres solver)}
   \label{pressure_stoke_minres_lid}
 \end{subfigure}
+
 \end{figure}
 \begin{figure}[H]
 \begin{subfigure}{0.5\textwidth}	
@@ -2317,9 +1997,9 @@ The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x
 \section{Penalty parameter}
 
 We now measure the effect of Penalty parameter on condition number of matrix. While coercivity provides lower limit for penalty parameter, the upper limit is based on affordable condition number of stiffness matrix. As shown in figure \ref{penalty_condition_number}, the condition number of stiffness matrix increases with increasing penalty parameter.
-The condition number is measured on Unit square [0,1] $\times$ [0,1] in $x-y$ plane on with number of intervals $8 \times 8$. The penalty parameter ranged from $1e-2$ to $1e4$. The corresponding condition number ranged from $3.750e5$ to $1.445e10$. We see a linear increase in condition number of stiffness matrix with respect to Penalty parameter.
+The condition number is measured on Unit square [0,1] $\times$ [0,1] in $x-y$ plane on with number of intervals $8 \times 8$. The penalty parameter ranged from $1e-2$ to $1e4$. The corresponding condition number ranged from $3.750e5$ to $1.445e10$. We see a linear increase in condition number of stiffness matrix with respect to Penalty parameter. (Figure \ref{effect_penalty_parameter})
 
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{grid_penalty_parameter.jpg}
   \caption{Unit square with $8 \times 8$ discretisation}
@@ -2330,7 +2010,10 @@ The condition number is measured on Unit square [0,1] $\times$ [0,1] in $x-y$ pl
 	\caption{Penalty parameter vs Condition number}
 	\label{penalty_condition_number}
 \end{subfigure}
+\caption{\label{effect_penalty_parameter}}
 \end{figure}
+
+\newpage
 
 \section{Navier Stokes flow}\label{N-S-ch5}
 
@@ -2341,13 +2024,11 @@ We recall that we use initial guess from Stokes equation and the Newton method p
 We now present analytical example from \cite{Montlaur}. The domain considered for this example is Unit square $[0,1] \times [0,1]$ in $x-y$ plane. 
 The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (0, 0)$. The boundaries ${x = 1}$,${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 0}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is,
 
-\begin{center}
 \begin{equation}
 \begin{split}
-f = (-4 \nu (1+2y) (y^2 - 6xy^2 + 6x^2 y^2 - \\ y + 6xy - 6x^2 y + 3x^2 - 6x^3 + \\ 3x^4)+ 1 - 2x + 4x^3 y^2 (2y^2 - 2y + 1)\\(y - 1)^2 (-1 + 2x)(x - 1)^3,\\ 4 \nu (-1 + 2x)(x^2 - 6x^2 y + 6x^2 y^2 \\ - x + 6xy - 6xy^2 + 3y^2 - 6y^3 + \\ 3y^4)+4x^2y^3 (-1+2y)(y-1)^3 \\ (2x^2-2x+1)(x-1)^2)
+f = (-4 \nu (1+2y) (y^2 - 6xy^2 + 6x^2 y^2 - y + 6xy \\ - 6x^2 y + 3x^2 - 6x^3 + 3x^4)+ 1 - 2x \\+ 4x^3 y^2 (2y^2 - 2y + 1)(y - 1)^2 (-1 + 2x)(x - 1)^3,\\ 4 \nu (-1 + 2x)(x^2 - 6x^2 y + 6x^2 y^2 - x + 6xy \\ - 6xy^2 + 3y^2 - 6y^3 + 3y^4) + \\ 4x^2y^3 (-1+2y)(y-1)^3 (2x^2-2x+1)(x-1)^2)
 \end{split}
 \end{equation}
-\end{center}
  
 The analytical solution for pressure and velocity reads as,
 
@@ -2362,7 +2043,7 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3))
 \end{equation}
 \end{center}
 
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{L2_convergence_velocity_n_s.jpg}
   \caption{$h-$ convergence test for velocity $L^2$ error}
@@ -2373,6 +2054,7 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3))
   \caption{$h-$ convergence test for pressure in $L^2$ error}
   \label{fig:pre_navier_stoke_conv}
 \end{subfigure}
+\caption{\label{navier_stoke_conv_l2}}
 \end{figure}
 \begin{figure}
 \begin{subfigure}{\textwidth}	
@@ -2385,10 +2067,10 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3))
   \caption{$h-$ convergence test for pressure in $L^2$ error (logarithmic scale)}
   \label{fig:pre_navier_stoke_conv_log}
 \end{subfigure}
-\label{fig:l2_navier_stokes}
+\caption{\label{navier_stoke_conv_l2_log}}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s.jpg}
   \caption{$h-$ convergence test for velocity $H^0$ error}
@@ -2399,8 +2081,9 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3))
   \caption{$h-$ convergence test for pressure in $H^0$ error}
   \label{fig:pre_navier_stoke_conv_h0}
 \end{subfigure}
+\caption{\label{navier_stoke_conv_h0}}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s_log.jpg}
   \caption{$h-$ convergence test for velocity $H^0$ error (logarithmic scale)}
@@ -2411,12 +2094,12 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3))
   \caption{$h-$ convergence test for pressure in $H^0$ error (logarithmic scale)}
   \label{fig:pre_navier_stoke_conv_log_h0}
 \end{subfigure}
-\label{fig:h0_navier_stokes}
+\caption{\label{navier_stoke_conv_h0_log}}
 \end{figure}
 
 The grid is equally divided in both directions with number of divisions in each direction as $10,15,17,20$ giving step size of each element in each of $x-y$ direction as $0.1,0.0667,0.0558,0.05$.\\
 
-The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{fig:l2_navier_stokes} in $H^0$ norm is presented in figure \ref{fig:h0_navier_stokes}. \\
+The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{navier_stoke_conv_l2}, \ref{navier_stoke_conv_l2_log} and in $H^0$ norm is presented in figure \ref{navier_stoke_conv_h0}, \ref{navier_stoke_conv_h0_log}. \\
 
 \subsection{Lid-driven cavity problem} \label{lid_driven_cavity_navier_stokes}
 
@@ -2426,7 +2109,7 @@ We again consider example presented in section \ref{lid_driven_cavity_stokes} i.
 
 We again consider example presented in section \ref{flow_over_cylinder_stokes} . However, we multiply the inlet velocity on left boundary with certain factor to regulate Reynolds number. The results are presented in figures \ref{flow_over_cylinder_bicgstab_n_s}, \ref{flow_over_cylinder_minres_n_s} and \ref{flow_over_cylinder_schur_n_s}. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers. 
 
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{0.5\textwidth}	
   \includegraphics[width=\linewidth]{lid_newton_vx_bicgstab.jpg}
   \caption{$x-$ velocity (Initial guess by bicgstab solver)}
@@ -2442,9 +2125,9 @@ We again consider example presented in section \ref{flow_over_cylinder_stokes} .
   \caption{Pressure (Initial guess by bicgstab solver)}
   \label{pressure_navier_stoke_bicgstab_lid}
 \end{subfigure}
-\label{lid_driven_cavity_n_s_bicgstab}
+\caption{\label{lid_driven_cavity_n_s_bicgstab}}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{0.5\textwidth}	
   \includegraphics[width=\linewidth]{lid_newton_vx_minres.jpg}
   \caption{$x-$ velocity (Initial guess by minres solver)}
@@ -2460,9 +2143,9 @@ We again consider example presented in section \ref{flow_over_cylinder_stokes} .
   \caption{Pressure (Initial guess by minres solver)}
   \label{pressure_navier_stoke_minres_lid}
 \end{subfigure}
-\label{lid_driven_cavity_n_s_minres}
+\caption{\label{lid_driven_cavity_n_s_minres}}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{0.5\textwidth}	
   \includegraphics[width=\linewidth]{lid_newton_vx_schur.jpg}
   \caption{$x-$velocity (Initial guess by schur complement method)}
@@ -2478,11 +2161,11 @@ We again consider example presented in section \ref{flow_over_cylinder_stokes} .
   \caption{Pressure (Initial guess by schur complement method)}
   \label{pressure_navier_stoke_schur_lid}
 \end{subfigure}
-\label{lid_driven_cavity_n_s_schur}
+\caption{\label{lid_driven_cavity_n_s_schur}}
 \end{figure}
 
 
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{0.5\textwidth}	
   \includegraphics[width=\linewidth]{cylinder_newton_vx_bicgstab.jpg}
   \caption{$x-$ velocity (Initial guess by bicgstab solver)}
@@ -2498,9 +2181,9 @@ We again consider example presented in section \ref{flow_over_cylinder_stokes} .
   \caption{Pressure (Initial guess by bicgstab solver)}
   \label{pressure_navier_stoke_bicgstab}
 \end{subfigure}
-\label{flow_over_cylinder_bicgstab_n_s}
+\caption{\label{flow_over_cylinder_bicgstab_n_s}}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{0.5\textwidth}	
   \includegraphics[width=\linewidth]{cylinder_newton_vx_minres.jpg}
   \caption{$x-$ velocity (Initial guess by minres solver)}
@@ -2516,9 +2199,9 @@ We again consider example presented in section \ref{flow_over_cylinder_stokes} .
   \caption{Pressure (Initial guess by minres solver)}
   \label{pressure_navier_stoke_minres}
 \end{subfigure}
-\label{flow_over_cylinder_minres_n_s}
+\caption{\label{flow_over_cylinder_minres_n_s}}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}
 \begin{subfigure}{0.5\textwidth}	
   \includegraphics[width=\linewidth]{cylinder_newton_vx_schur.jpg}
   \caption{$x-$velocity (Initial guess by Schur complement method)}
@@ -2534,7 +2217,7 @@ We again consider example presented in section \ref{flow_over_cylinder_stokes} .
   \caption{Pressure (Initial guess by Schur complement method)}
   \label{pressure_navier_stoke_schur}
 \end{subfigure}
-\label{flow_over_cylinder_schur_n_s}
+\caption{\label{flow_over_cylinder_schur_n_s}}
 \end{figure}
 
 \section{Solver selection}
@@ -2557,18 +2240,382 @@ $bicgstab$ & 9.0071e-05 & 58.3472 Seconds\\
 
 It is to be noted that $bicgstab$ stops before convergence and without reaching to maximum number of iterations.
 
-\chapter{Summary and Conclusion}
+\chapter{Summary, conclusion and outlook}
+
+After implementation of theoretical concepts and achieving experimental outcomes we arrive at following conclusion: \\
+
+1. The Stiffness matrix of Stokes equation is symmetric and has positive definite part. Also the number of positive eigenvalues of stiffness matrix of Stokes equation is total number of velocity degrees of freedom and number of positive eigenvalues of stiffness matrix of Stokes equation is total number of pressure degrees of freedom.\\
+
+2. The Schur complement method is very useful for Stokes flow due to efficient computation and good accuracy. \\
+
+3. $minres$ solver able to solve linear system of equation of stokes equation without unexpected termination of solver, i.e. the solver stops either after reaching maximum number iteration or specified tolerance level.\\
+
+4. In contrast, $bicgstab$ can stop without reaching specified tolerance level or maximum nu,ber of iterations.\\
+
+5. The condition number of Stiffness matrix of Stokes equation increases with increase in penalty parameter. Therefore, the penalty parameter has to be small enough to limit the cndition number. However, the penalty parameter has to be large enough to maintain coercivity of bilinear form. \\
+
+6. The stiffness matrix of Navier stokes equation is non symmetric. Therefore, the solvers such as $minres$, which are aplicable only for symmetric stiffness matrices are not useful. Therefore, solvers such as $bicgstab$, which are applicable for nonsymmetric stiffness matrices, are useful.\\
+
+7. The newton methods requires solution of large system fo equation in each newton loop adding to heavy computational cost.\\
+
+8. The solution of Stokes equation is dependent also on solver used.
+
+9. The initial guess, in our case solution obtained from Stokes equation, is crucial for success of newton method.\\
+
+\chapter{Mathematical preliminaries}
+
+We present now mathematical preliminaries from references relevant to the thesis. 
+
+\section{Cholesky decomposition} \label{chol}
+
+Every symmetric positive definite matrix can be expressed as product of lower triangular matrix and transpose of that lower triangular matrix. That is, if $\mathcal{U}$ is symmetric positive definite matrix then,
+
+\begin{equation}
+\mathcal{U}  = \mathcal{L} \mathcal{L}^T
+\end{equation}
+
+where, $\mathcal{L}$ is lower triangular matrix. It is to be noted that $\mathcal{L}^T$ is an upper triangular matrix. \\
+
+Cholesky decomposition is useful especially when inverting an Matrix in MATLAB. Since the back division operator ($\setminus$) recognises the lower triangular structure of matrix, the division process is faster.\\
+
+We now explain the algorithm for Cholesky decomposition. \\
+
+\begin{equation} \label{Stokes_matrix}
+\begin{spmatrix}{\mathcal{U}}
+    a_{11} & a_{12} & a_{13}\\
+    a_{21} & a_{22} & a_{23}\\
+    a_{31} & a_{32} & a_{33}\\
+\end{spmatrix}
+=
+\begin{spmatrix}{\mathcal{L}}
+    l_{11} & 0 & 0\\
+    l_{21} & l_{22} & 0\\
+    l_{31} & l_{32} & l_{33}
+\end{spmatrix}
+\begin{spmatrix}{\mathcal{L}^T}
+    l_{11} & l_{21} & l_{31}\\
+    0 & l_{22} & l_{32}\\
+    0 & 0 & l_{33}
+\end{spmatrix}
+\end{equation}
+
+We see that,\\
+\begin{equation}
+a_{11} = l_{11}^2, \quad a_{22} = l_{21}^2 + l_{22}^2, \quad a_{33} = l_{31}^2 + l_{32}^2 + l_{33}^2
+\end{equation}
+
+and 
+\begin{equation}
+a_{12} = a_{21} = l_{11}l_{21}, \quad a_{13} = a_{31} = l_{11}l_{31}, \quad a_{23} = a_{32} = l_{31}l_{21} + l_{32}l_{22}
+\end{equation}
+
+We now see that for diagonal elements,\\
+
+\begin{equation}
+l_{kk} = \sqrt{a_{kk} - \sum_{k=1}^{j-1} l_{kj}^2}
+\end{equation}
+
+and for elements below diagonal,\\
+
+\begin{equation}
+l_{ik} = \frac{1}{l_{kk}}(a_{ik}-\sum_{j=1}^{k-1} l_{ij}l_{kj})
+\end{equation}
+\\
+It is to be noted that similar theory is also applicable for Cholesky decomposition with upper triangular matrix instead of lower triangular matrix. Also, this algorithm can be extended to Matrix of any size. \\
+
+In MATLAB the cholesky decomposition is performed by $chol$. The choice of upper triangular or lower triangular matrix can be adjusted by providing additional input argument $'lower'$ or $'upper'$. More information can be found by $help$ in MATLAB and MATLAB documentation.
+ 
+\section{Saddle point formulation} \label{saddle_point} 
+
+The saddle point problem has following form,
+
+\begin{equation} 
+\begin{spmatrix}{}
+    \mathcal{A} & \mathcal{B}_1\\
+    \mathcal{B}_2 & \mathcal{C}
+\end{spmatrix}
+\begin{spmatrix}{}
+   \mathcal{X}\\
+   \mathcal{Y}
+\end{spmatrix}
+=
+\begin{spmatrix}{}
+    \mathit{f}\\
+   	\mathit{g}
+\end{spmatrix}
+\end{equation}
+
+\begin{equation}
+\mathcal{A} \in \mathbb{R}^{n \times n}; \mathcal{B}_1, \mathcal{B}_2 \in \mathbb{R}^{m \times n}; \mathcal{C} \in \mathbb{R}^{m \times m} 
+\end{equation}
+
+with $n \geq m$.\\
+
+We assume here that $\mathcal{A}, \mathcal{B}_1, \mathcal{B}_2$ are non zeros. Usually constituents $\mathcal{A}, \mathcal{B}_1, \mathcal{B}_2, \mathcal{C}$ satisfy one or more of following properties.
+\\
+\\
+1. $\mathcal{A} = \mathcal{A}^T$ (Symmetric)\\
+2. Symmetric part of $\mathcal{A}$ is positive semi definite\\
+3. $\mathcal{B}_1 = \mathcal{B}_2 = \mathcal{B}$\\
+4. $\mathcal{C}$ is symmetric and positive semidefinite\\
+5. $\mathcal{C} = 0$ (Zero matrix)\\
+
+Incompressible Stokes equation is an example of saddle point problem with $\mathcal{A}$ being symmetric positive definite matrix, $\mathcal{B}_2 = \mathcal{B}_1^T$ and $\mathcal{C} = 0$. \\
+
+We consider following important factorisations :\\
+
+\begin{equation} \label{factorisation1}
+\begin{spmatrix}{}
+    \mathcal{A} & \mathcal{B}_1 \\
+    \mathcal{B}_2 & \mathcal{C}
+\end{spmatrix}
+=
+\begin{spmatrix}{}
+    I & 0 \\
+    \mathcal{B}_2 \mathcal{A}^{-1} & I
+\end{spmatrix}
+\begin{spmatrix}{}
+    \mathcal{A} & 0 \\
+    0 & \mathcal{S}
+\end{spmatrix}
+\begin{spmatrix}{}
+    I & \mathcal{A}^{-1} \mathcal{B}_1 \\
+    0 & I
+\end{spmatrix}
+\end{equation}
+
+\begin{equation} \label{factorisation2}
+\begin{spmatrix}{}
+    \mathcal{A} & \mathcal{B}_1 \\
+    \mathcal{B}_2 & \mathcal{C}
+\end{spmatrix}
+=
+\begin{spmatrix}{}
+    \mathcal{A} & 0 \\
+    \mathcal{B}_2 & \mathcal{S}
+\end{spmatrix}
+\begin{spmatrix}{}
+    I & \mathcal{A}^{-1}\mathcal{B}_1 \\
+    0 & I
+\end{spmatrix}
+\end{equation}
+
+\begin{equation} \label{factorisation3}
+\begin{spmatrix}{}
+    \mathcal{A} & \mathcal{B}_1 \\
+    \mathcal{B}_2 & \mathcal{C}
+\end{spmatrix}
+=
+\begin{spmatrix}{}
+    I & 0 \\
+    \mathcal{B}_2 \mathcal{A}^{-1} & I
+\end{spmatrix}
+\begin{spmatrix}{}
+    \mathcal{A} & \mathcal{B}_1 \\
+    0 & \mathcal{S}
+\end{spmatrix}
+\end{equation}
+
+Here, $S$ is the Schur complement and $\mathcal{S} = \mathcal{C} - \mathcal{B}_2 \mathcal{A}^{-1} \mathcal{B}_1$ with size $\mathcal{S} \in \mathbb{R}^{m \times m}$. $I$ is the Identity matrix of size $I \in \mathbb{R}^{n \times n}$  \\
+
+It can be seen if $\mathcal{C}$ is negativesemi definite, $B_1 = B_2^T$ and $\mathcal{A}$ is positive definite, $\mathcal{S}$ is negative definite. For more details on the saddle point problems we refer to literature such as \cite{saddle}. We make some important observations related to Saddle point problems as follow :\\
+
+1. In case $\mathcal{A}$ is symmetric positive definite the Schur complement is very useful as matrix $\mathcal{A}$ can be inverted efficiently with Cholesky decomposition (Section \ref{chol}).\\
+
+2. Saddle point systems obtained in practical problems can be poorly conditioned.\\
+
+3. Also number of methods such as Krylov subspace methods, Multilevel methods have been developed for saddle point problems.\\
+
+4. The saddle point problem has positive as well as non positive eigenvalues. If $\mathcal{A}$ is positive definite and $\mathcal{C}$ is negative definite or zero matrix, number of positive eigenvalues is $n$ and number of negative eigenvalues is $m$. \\
+
+We now introduce Sobolev spaces and related basic definitions, Linear forms and bilinear forms. Readers are advised to refer to \cite{crbm} for further understanding.
+
+\section{Sobolev spaces} 
+
+Let $\Omega$ be an open subset of $\mathbb{R}^d$ and $k'$ a positive integer. Let $L^2(\Omega)$ denote the space of square integrable functions on $\Omega$. 
+
+1. The Sobolev space of order $k'$ on $\Omega$ is defined by\\
+\begin{equation}
+H^{k'} (\Omega) = \lbrace f \in L^2 (\Omega) | D^\alpha f \in L^2 (\Omega), |\alpha| \leq k' \rbrace ,
+\end{equation} 
+
+where $D^\alpha$ is the partial derivative
+\begin{equation}
+D^\alpha = \frac{\partial^{|\alpha|}}{\partial x_d^{\alpha_1} ..... \partial x_d^{\alpha_d}}
+\end{equation}
+
+in the sense of distributions for the multi-index $\alpha = (\alpha_1,.....,\alpha_d) \epsilon \mathbb{N}^d$ using the notation $|\alpha| = \alpha_1 + ..... + \alpha_d $.
+
+It holds by construction that $H^{k'+1}(\Omega) \subset H^{k'} (\Omega)$ and that $H^0 (\Omega) = L^2 (\Omega)$. $H^{k'}(\Omega)$ is a Hilbert space with the inner product
+\begin{equation}
+(f,g)_{H^{k'}(\Omega)} = \Sigma_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega (D^\alpha f) (D^\alpha g)
+\end{equation}
+
+and the induced norm 
+
+\begin{equation}
+||f||_{H^{k'} (\Omega)} = \sqrt{(f,f)_{H^{k'}(\Omega)}} = \sqrt{\Sigma_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega |D^\alpha f|^2}
+\end{equation}
+
+and the semi norm 
+
+\begin{equation}
+|f|_{H^{k'} (\Omega)} = \sqrt{\Sigma_{\alpha \in \mathbb{N}^d, |\alpha| = k'} \int_\Omega |D^\alpha f|^2} \quad \textrm{.}
+\end{equation}
+
+In case of the discontinuous Galerkin space we use the broken Sobolev norm (for symmetric interior penalty Galerkin), \cite{Montlaur2}
+
+\begin{equation}
+||f||_{1,h}^2 = \sum_{\tau_k \in \mathcal{T}} ||\nabla f||_{L^2(\tau_k)}^2 + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ||[[u]]||_{L^2 (\tau_k)}^2
+\end{equation}
+
+and inner product
+
+\begin{equation}
+(f,g) = \sum_{\tau_k \in \mathcal{T}} (f,g)_{L^2(\tau_k)} + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ([u],[v])_{L^2 (\tau_k)} \quad \textrm{.}
+\end{equation}
+
+\section{Basic definitions}
+
+We consider here vector space $\mathbb{V}$ over $\mathbb{R}$\\
+
+1. For a set $\lbrace w_1,....,w_N \rbrace \subset \mathbb{V}$ we denote by \\
+\begin{equation} \label{vector space}
+\mathrm{span} \lbrace w_1,....,w_n \rbrace = \lbrace v \in \mathbb{V} | v = \Sigma_{n=1}^N \alpha_n w_n, \alpha_n \in \mathbb{R} \rbrace
+\end{equation} 
+
+the linear subspace spanned by the elements $w_1,....,w_N$.\\
+
+2. The space $\mathbb{V}$ is of finite dimension if there exists a maximal a set of linearly independent elements $v_1,....,v_N$, otherwise $\mathbb{V}$ is of infinite dimension.\\
+
+3. A norm $||.||_\mathbb{V}$ on $\mathbb{V}$ is a function $||.||_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that\\ 
+\\
+A. $||v||_\mathbb{V} \geq 0 \forall v \in \mathbb{V}$ and $||v||_\mathbb{V} = 0$ iff $v=0$\\
+B. $||\alpha v||_\mathbb{V} = |\alpha| ||v||_\mathbb{V}$  $\forall \alpha \in \mathbb{R}, v \in \mathbb{V}$\\
+C. $||u+v|| \leq ||u||_\mathbb{V} + ||v||_\mathbb{V}$ $u,v \in \mathbb{V}$.\\
+
+4. The pair $(\mathbb{V},||.||_\mathbb{V})$ is a normed space and we can define a distance function $d(u,v) = ||u-v||_\mathbb{V}$ to measure the distance between two elements $u,v \in \mathbb{V}$.\\
+
+5. A semi-norm on $\mathbb{V}$ is a function $|.|_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that $|v|_\mathbb{V} \geq 0$ for all $v \in \mathbb{V}$ and B. and C. above are satisfied. In consequence a semi-norm is a norm if and only if $|v|_\mathbb{V} = 0$ implies  $v = 0$.\\
+
+6. Two norms $||.||_1$ and $||.||_2$ are equivalent if there exists two constants $C_1,C_2 > 0$ such that \\
+
+\begin{equation} \label{norm_equivalent}
+C_1||.||_1 \leq ||.||_2 \leq C_2 ||.||_1 \forall v \in V
+\end{equation}
+
+\section{Linear forms}
+
+Let $(\mathbb{V,||.||_\mathbb{V}})$ be a normed space. Then, we define the following notions.\\
+
+1. A function $F : \mathbb{V} \rightarrow \mathbb{R}$ is said to be linear
+\begin{equation} 
+F(u+v) = F(u) + F(v) \forall u,v \in \mathbb{V} 
+\end{equation}
+
+\begin{equation} 
+F(\alpha u) = \alpha F(u) \forall \alpha \in \mathbb{R}, u \in \mathbb{V}
+\end{equation}
+
+2. F is bounded if there exists a constant $\gamma > 0$ such that
+\begin{equation} 
+|F(v)| \leq \gamma ||v||_\mathbb{V} \forall v \in \mathbb{V}
+\end{equation}
+
+3. F is continuous if for all $\epsilon > 0$ there exists a $\delta_\epsilon > 0$ such that \\
+\begin{equation}
+||u - v||_\mathbb{V} \leq \delta_\epsilon \Rightarrow  |F(u) - F(v)| < \epsilon
+\end{equation}
+
+The notion of continuity and boundedness is equivalent for linear forms.
+
+\section{Bilinear forms}
+
+1. A bilinear form $a(\cdot,\cdot)$ acting on the vector spaces $\mathbb{V}$ and $\mathbb{W}$ is given as
+\begin{equation}
+a : \mathbb{V} \times \mathbb{W} \Rightarrow \mathbb{R}
+\end{equation}
+
+\begin{equation}
+(u,v) \mapsto a(u,v)
+\end{equation}
+
+and is linear with respect to each of its arguments.\\
+
+2. Let $\mathbb{V}$ and $\mathbb{W}$ be endowed with the norms $||\cdot||_\mathbb{V}$ and $||\cdot||_\mathbb{W}$. A bilinear form $a(\cdot,\cdot)$ is continuous if there exists a constant $\gamma > 0$ such that,
+\begin{equation}
+|a(u,v)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \quad \forall \quad u,v \in \mathbb{V}
+\end{equation}
+
+3. If $\mathbb{V} = \mathbb{W}$, a bilinear form $a(\cdot,\cdot)$ is coercive if there exists a constant $\alpha > 0$ such that,
+\begin{equation}
+a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V}
+\end{equation}
+
+\subsection{Coercivity of bilinear form} \label{Coercivity_constant}
+
+A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $\kappa_e > 0$ such that
+
+\begin{equation}\label{Coercivity}
+a(v,v) > \kappa_e ||v||^2   \quad \forall \quad v \in  \mathbb{V}
+\end{equation}
+
+\subsection{Continuity of bilinear form}
+
+A bilinear form $a(u,v)$ is said to be continuous if there exists a constant $\gamma > 0$ such that
+
+\begin{equation}\label{Continuity_constant}
+a(u,v) \leq \gamma ||u||||v|| \quad  \forall \quad u,v \in  \mathbb{V}
+\end{equation}
+
+\section{Important inequalities}
+
+\subsection{Trace theorem} 
+
+We now refer to trace inequalities presented by Rivi\`ere B.\cite{riviere}. The trace inequalities are used to define restrictions of Sobolev function along the boundary of domain and used for proper treatment of boundary conditions. 
+
+If $l$ is the length of $\Gamma$ and $Ar$ is the area of $\tau$,  $\forall \phi \in P^D (\tau)$, $\forall \Gamma \subset \partial \Omega$
+
+\begin{equation}
+||\phi||_{L^2(\Gamma)} \leq \hat{C}_t l^{\frac{1}{2}} Ar^{\frac{-1}{2}} ||\phi||_{L^2(\tau)}
+\end{equation}
+
+\begin{equation}
+||\phi||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\phi||_{L^2(\tau)}
+\end{equation}
+
+\begin{equation}
+||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq \hat{C}_t |l|^{\frac{1}{2}} |Ar|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)}
+\end{equation}
+
+\begin{equation}
+||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)}
+\end{equation}
+
+Here, $\hat{C}_t$ and ${C}_t$ are constants independent of $h_\tau$ and $\phi$ but dependent on polynomial degree $D$. The exact expressions for $C_t$ are given by \cite{warburton}.
+
+\subsection{Cauchy-Schwarz inequality} 
+\begin{center}
+$\forall f,g \in L^2(\Omega)$, $|(f,g)_{\Omega}| \leq ||f||_{L^2(\Omega)} ||g||_{L^2(\Omega)}$ \\
+\end{center}
+
+\subsection{Young's inequality} 
+\begin{center}
+$\forall \epsilon > 0$, $\forall a,b \in \mathbb{R}$, $ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2$\\
+\end{center}
 
 \bibliographystyle{plain}
 \bibliography{ref1}
 
-\section{Online resources}
+\chapter{Online resources}
 
 We would also like to mention below online resources which have frequently served as valuable source of information.\\
 
+\begin{flushleft}
 1. http://mathworld.wolfram.com/\\
 2. https://de.mathworks.com/products/matlab.html\\
 3. http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.13.10/doc/index.html \\
+\end{flushleft}
 
 \section{Code access}
 
