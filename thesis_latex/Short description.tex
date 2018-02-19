@@ -16,6 +16,7 @@
 \usepackage{longtable}
 \usepackage{cprotect}
 \usepackage{cleveref}
+\usepackage[document]{ragged2e}
 
 \begin{document}
 \begin{center}
@@ -51,21 +52,40 @@ To my parents:  Last but most importantly, I would like to thank my parents for 
 
 \newpage
 
-\section{Declaration/Selbst\"andigerkl\"arung}
+\section{Declaration/Eigenst\"andigkeitserkl\"arung}
 
 I hereby certify that I have prepared this master‘s thesis independently, and that only those sources, aids and advisors that are duly noted herein have been used and / or consulted.\\
-
-Ich  versichere  durch  eigenhändige  Unterschrift,  dass  ich  die  Arbeit  selbstst\"andig  und  ohne  
-Benutzung  anderer  als  der  angegebenen  Hilfsmittel  angefertigt  habe.  Alle  Stellen,  die  
-w\"ortlich  oder  sinngem\"a\ss  aus  Ver\"offentlichungen  (auch  aus  dem  Internet)  entnommen  sind,  
-habe   ich   als   solche   kenntlich   gemacht.   Ich   wei\ss,   dass   bei   Abgabe   einer   falschen   
-Versicherung  die  Arbeit  als  mit  'nicht  ausreichend'  (1  Bewertungspunkt  gem\"a\ss  §  16  Abs.  2  
-Allgemeine Bestimmungen, Note 5, ECTS-Grade F) bewertet gilt.\\
-
-
-Signature/Unterschrift\\
-
+${}$\\
+${}$\\
+Hiermit versichere ich, dass ich die vorliegende Seminararbeit selbständig und
+nur mit den angegebenen Hilfsmitteln verfasst habe. Alle Passagen, die ich
+wörtlich aus der Literatur oder aus anderen Quellen wie z. B. Internetseiten
+übernommen habe, habe ich deutlich als Zitat mit Angabe der Quelle kenntlich
+gemacht.\\
+${}$\\
+${}$\\
+${}$\\
+${}$\\
+${}$\\
+Signature/Unterschrift
+${}$\\
+${}$\\
+${}$\\
+${}$\\
+${}$\\
 Place,Date/Ort, Datum
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 
 \newenvironment{spmatrix}[1]
  {\def\mysubscript{#1}\mathop\bgroup\begin{pmatrix}}
@@ -283,10 +303,6 @@ In Chapter 5, we present results from numerical experiments, analyse results fro
 
 In chapter 6, we present mathematical preliminaries. Familiarity with concepts presented under this chapter is very helpful for understanding of the thesis. Readers familiar with the topics can skip this section.
 
-As future development, the equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. This allows the approximation of the numerical solution with respect to parameter space. The solution of the parametrized form can be stored for reduced basis evaluations.
-
-Model order reduction with a method such as proper orthogonal decompositon or greedy algorithm can be performed. As an example, proper orthogonal decomposition sorts and segregates the stored solution based on the eigenvalues. This sorted and segregated snapshots with parametrised form can be used for the prediction of the full numerical solution. In this process the evaluations are made faster but with increase in approximation error. Hence, time saving vs. induced error can be compared.
-
 \newpage
 
 \chapter[Perspective and Formulation]{Engineering perspective and mathematical formulation} 
@@ -396,7 +412,7 @@ u = u_D \quad \textrm{on} \quad \Gamma_D
 \end{equation}
 \\
 
-Turbulent flow, in contrast, is characterised by fluctuations in velocity and pressure field and a high Reynolds number. The flow has high velocity and an inertial force is present in addition to a viscous and a pressure force. This inertial force makes the Equation \eqref{navier_stokes} non linear. The fluctuations of velocity and pressure are of the order of the Kolmogrov scale.\\
+Turbulent flow, in contrast, is characterised by fluctuations in velocity and pressure field and a high Reynolds number. The flow has high velocity and an inertial force is present in addition to a viscous and a pressure force. This inertial force makes the Equation \eqref{navier_stokes} non linear. The fluctuations of velocity and pressure are of the order of the Kolmogrov scale.[Kundu et al. \cite{Kundu}]\\
 
 The method used for solving Equation \eqref{navier_stokes} numerically is known as Direct Numerical Simulation, abbreviated as DNS. The direct numerical simulation could be computationally very expensive especially in applications such as turbulent flows as the time and space grid size is of the order of the Kolmogrov scale but the time period or space dimension over which the simulation is carried out are very large. In order to avoid such computational expenses alternate models are used replacing the original model. However, the alternate model can not explain the flow physics completely. The prediction of accurate flow physics description requires economical numerical solution of \eqref{navier_stokes}. It is to be noted that simulation of turbulent flow is always a compromise between required flow physics and computational efforts.
 
@@ -787,7 +803,7 @@ p_{ndofs} = \left(\frac{D(D+1)}{2}\right) \quad nel
 \end{equation}
 
 With above considerations we arrive at following conclusions, \\
-\\
+
 1. Stiffness matrix is symmertic. \\
 2. Stiffness matrix $ \in \mathbb{R}^{(u_{ndofs} + p_{ndofs}) \times (u_{ndofs} + p_{ndofs})}$\\
 3. The number of positive eigenvalues of stiffness matrix is equal to number of velocity degrees of freedom and number of negative eigenvalues of stiffness matrix is equal to number of pressure degrees of freedom.\\
@@ -961,39 +977,61 @@ Our problem statement now reduces to, find $(u,p) \in (\mathbb{V},\mathbb{Q})$ s
 \subsection{Newton method} \label{newton_method}
 
 We derive newton method as per method presented by Haasdonk B. \cite{Haasdonk} for solving nonlinear system of equation arising out of discrete form of Navier Stokes equation. For $u, \phi , h \in \mathbb{V}$ and $p, \psi , h' \in \mathbb{Q}$ \\
-\begin{flalign}
+\begin{flushleft}
+\begin{equation}
 S(u) = a(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi)
-\end{flalign}
+\end{equation}
+\end{flushleft}
 
-\begin{flalign}
+\begin{flushleft}
+\begin{equation}
 \begin{split}
 S(u+h) - S(u) = (a(u+\delta h,\phi) + c(u + \delta h;u + \delta h,\phi)\\ + b(\phi,p+\delta h') + (\{p+\delta h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi)) - (a(u,\phi)\\ + c(u,u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi))
 \end{split}
-\end{flalign}
-\begin{flalign}
+\end{equation}
+\end{flushleft}
+
+\begin{flushleft}
+\begin{equation}
 \begin{split}
 S(u+h) - S(u) = 2\delta c(u,h,\cdot) + \delta^2 c(h,h,\cdot) + \delta a(h,\cdot)\\ + \delta b(h',\cdot) + \delta (\{h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D}
 \end{split}
-\end{flalign}
-\begin{flalign}
+\end{equation}
+\end{flushleft}
+
+\begin{flushleft}
+\begin{equation}
 DS(u) = \lim_{\delta \to 0} \frac{S(u+h)-S(u)}{\delta}
-\end{flalign}
-\begin{flalign}
+\end{equation}
+\end{flushleft}
+
+\begin{flushleft}
+\begin{equation}
 \begin{split}
 DS(u) = 2 c(u,h,\cdot) + a(h,\cdot) + b(h',\cdot) + (\{h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D}
 \end{split}
-\end{flalign}\\
+\end{equation}
+\end{flushleft}
 
 Following similar procedure we write for continuity equation:\\
-\begin{flalign}
+\begin{flushleft}
+\begin{equation}
 S'(u) = b(u,\psi) + (\{\psi\},[n \cdot u])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D}
-\end{flalign}
-\begin{flalign}
+\end{equation}
+\end{flushleft}
+
+\begin{flushleft}
+\begin{equation}
 S'(u+\delta h) = b(u + \delta h,\psi) + (\{\psi\},[n \cdot u + \delta h])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D}
-\end{flalign}
-\begin{flalign}
+\end{equation}
+\end{flushleft}
+
+\begin{flushleft}
+\begin{equation}
 DS'(u) = b(\delta h,\psi) + (\{\psi\},[n \cdot \delta h])_{\Gamma \cup \Gamma_D} 
-\end{flalign}
+\end{equation}
+\end{flushleft}
+
 
 Algotrithm for the Newton method is as follow:\\
 
@@ -1005,7 +1043,8 @@ Algotrithm for the Newton method is as follow:\\
 
 In discrete form Newton method means, solving the equation
 
-\begin{flalign} 
+\begin{flushleft}
+\begin{equation}
 \begin{spmatrix}{\textrm{Stiffness matrix}^{iter}}
     A+C(U^{iter}) & B \\
     B^T & 0
@@ -1019,7 +1058,8 @@ In discrete form Newton method means, solving the equation
     F_1  \\
     F_2
 \end{spmatrix}
-\end{flalign}
+\end{equation}
+\end{flushleft}
 
 to reach convergence i.e. $||U^{iter+1} - U^{iter}|| < tol$\\
 
@@ -1030,11 +1070,13 @@ For success of Newton method it is important to have good initial guess. For Nav
 Each element of $C$ can be represented as,\\
 
 at newton iteration $iter + 1$,
+\begin{flushleft}
 \begin{equation} \label{matric C}
 \begin{split}
 C_{IJ} = \sum_{i=1}^{nel} \int_{\partial \mathcal{T}_i \setminus \Gamma_N} \frac{1}{2} [[(U^{iter} \cdot n_i)({\phi^{ext}}_J + {\phi}_J ) - |U^{iter} \cdot n_i|({{\phi}^{ext}}_J - {\phi}_J)]] \cdot \phi_I \\ + \int_{\Gamma_N} (U^{iter} \cdot n) \phi_J \cdot \phi_I -((U^{iter} \cdot \nabla)\phi_J,\phi_I)
 \end{split}
 \end{equation}
+\end{flushleft}
 
 Size of matrix : $C \in \mathbb{R}^{u_{ndofs} \times u_{ndofs}}$. \\
 
@@ -1311,7 +1353,7 @@ Step 3: Looping over each element and performing following operation in each loo
 2. $([n \otimes \phi], [n \otimes \phi])_{\Gamma \cup \Gamma_D}$ :
 
 Step 1: On local element following matrices are evaluated,\\
-\\
+
 $res_1^{++} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^+$\\
 $res_1^{+-} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^-$\\
 $res_1^{-+} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^+$\\
@@ -1343,7 +1385,7 @@ It is to be noted that on dirichlet boundary only $res_1^{++}, res_2^{++}, res_3
 3. $(\lbrace \nabla \phi \rbrace, [n \otimes \phi])_{\Gamma \cup \Gamma_D}$ :
 
 Step 1: On local element following matrices are evaluated,\\
-\\
+
 $res_1^{++} = (\nabla \phi)^+ (n \otimes \hat{\phi})^+$\\
 $res_1^{+-} = (\nabla \phi)^+ (n \otimes \hat{\phi})^-$\\
 $res_1^{-+} = (\nabla \phi)^- (n \otimes \hat{\phi})^+$\\
@@ -1375,7 +1417,7 @@ The same routine is also used in case of $([n \otimes \phi],\lbrace \nabla u \rb
 4. $(\lbrace \psi \rbrace, [n \cdot \phi])_{\Gamma \cup \Gamma_D}$ :
 
 Step 1: On local element following matrices are evaluated,\\
-\\
+
 $res_1^{++} = (\psi)^+ (n \cdot \hat{\phi})^+$\\
 $res_1^{+-} = (\psi)^+ (n \cdot \hat{\phi})^-$\\
 $res_1^{-+} = (\psi)^- (n \cdot \hat{\phi})^+$\\
@@ -1755,15 +1797,11 @@ P_{error} = ||P - P_h||_{W}
 
 In present analysis, we measure error in $L^2$ norm and present results of $h-$convergence test.
 
-The $L^2$ norm of error is measured as,
-
-\begin{equation}
+The $L^2$ norm of error is measured as,\begin{equation}
 P_{error} = \int_{\Omega} |P - P_h|^2
 \end{equation}
 
-the $H_0$ norm of error is defined as,
-
-\begin{equation}
+the $H_0$ norm of error is defined as,\begin{equation}
 P_{error} = \sum_{k=1}^{nel} \int_{\tau_k} |\nabla P - \nabla P_h|^2
 \end{equation}
 
@@ -1806,6 +1844,29 @@ p = (1 - x)
 The grid is equally divided in both directions with number of divisions in each direction as $5,10,15,20$ giving step size of each element in each of $x-y$ direction as $0.2,0.1,0.067,0.05$.\\
 
 The results of $h-$ convergence test in $L^2$ norm is presented in figures \ref{fig:vel_stoke_conv},\ref{fig:vel_stoke_conv_log}, \ref{fig:pre_stoke_conv} and \ref{fig:pre_stoke_conv_log} and in $H^0$ norm is presented in figures \ref{fig:vel_stoke_conv_h0},\ref{fig:vel_stoke_conv_log_h0}, \ref{fig:pre_stoke_conv_h0} and \ref{fig:pre_stoke_conv_log_h0}. \\
+
+
+We now present additional examples and check whether the implementation of Stokes flow is capable of reproducing physics of the problem.
+
+\subsection{Lid-driven cavity problem} \label{lid_driven_cavity_stokes}
+
+We next present benchmark $CFD$ problem, Lid-driven cavity flow \cite{Montlaur2}. We solve the Stokes flow on Unit square [0,1] $\times$ [0,1] in $x-y$ plane. On boundaries ${x = 0}, {x = 1}$ and ${y = 0}$, we impose no slip or zero velocity dirichlet condition. On ${y = 1}$, we impose Dirichlet condition with Dirichlet velocity,
+\begin{equation}
+u = (10x,0)^T \quad \textrm{for} \quad 0 \leq x \leq 0.1
+\end{equation}
+\begin{equation}
+u = (1,0)^T \quad \textrm{for} \quad 0.1 \leq x \leq 0.9
+\end{equation}
+\begin{equation}
+u = (10 - 10x,0)^T \quad \textrm{for} \quad 0.9 \leq x \leq 1
+\end{equation}
+
+The results are shown in figures \ref{stoke_bicgstab_lid}, \ref{stoke_minres_lid} and \ref{stoke_schur_lid}.
+
+\subsection{Flow over cylinder} \label{flow_over_cylinder_stokes}
+
+The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x-y$ plane with cylinder of diameter 0.2 centered at $(0.5,0.5)$ i.e. the center of cylinder coincides with center of square. The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (0, 0)$. The results give physically relevant result for example, low pressure zone after cylinder, high pressure zone before cylinder and wake zone after cylinder for velocity.
+(Figures \ref{flow_over_cylinder_bicgstab}, \ref{flow_over_cylinder_minres} and \ref{flow_over_cylinder_schur}).
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
@@ -1859,140 +1920,148 @@ The results of $h-$ convergence test in $L^2$ norm is presented in figures \ref{
 \label{fig:h0_stokes}
 \end{figure}
 
-We now present additional examples and check whether the implementation of Stokes flow is capable of reproducing physics of the problem.
-
-\subsection{Lid-driven cavity problem} \label{lid_driven_cavity_stokes}
-
-We next present benchmark $CFD$ problem, Lid-driven cavity flow \cite{Montlaur2}. We solve the Stokes flow on Unit square [0,1] $\times$ [0,1] in $x-y$ plane. On boundaries ${x = 0}, {x = 1}$ and ${y = 0}$, we impose no slip or zero velocity dirichlet condition. On ${y = 1}$, we impose Dirichlet condition with Dirichlet velocity,
-
-\begin{center}
-
-\begin{equation}
-u = (10x,0)^T \quad \textrm{for} \quad 0 \leq x \leq 0.1
-\end{equation}
-
-\begin{equation}
-u = (1,0)^T \quad \textrm{for} \quad 0.1 \leq x \leq 0.9
-\end{equation}
-
-\begin{equation}
-u = (10 - 10x,0)^T \quad \textrm{for} \quad 0.9 \leq x \leq 1
-\end{equation}
-
-\end{center}
-
-\subsection{Flow over cylinder} \label{flow_over_cylinder_stokes}
-
-The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x-y$ plane with cylinder of diameter 0.2 centered at $(0.5,0.5)$ i.e. the center of cylinder coincides with center of square. The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (0, 0)$. The results give physically relevant result for example, low pressure zone after cylinder, high pressure zone before cylinder and wake zone after cylinder for velocity.
-
-\begin{figure}[H]
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_bicgstab_vx.jpg}
-  \caption{$x-$ velocity (bicgstab solver)}
-  \label{x_vel_stoke_bicgstab_lid}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_bicgstab_vy.jpg}
-  \caption{$y-$ velocity (bicgstab solver)}
-  \label{y_vel_stoke_bicgstab_lid}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{lid_bicgstab_pressure.jpg}
-  \caption{Pressure (bicgstab solver)}
-  \label{pressure_stoke_bicgstab_lid}
-\end{subfigure}
-\end{figure}
-\begin{figure}[H]
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_minres_vx.jpg}
-  \caption{$x-$ velocity (minres solver)}
-  \label{x_vel_stoke_minres_lid}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_minres_vy.jpg}
-  \caption{$y-$ velocity (minres solver)}
-  \label{y_vel_stoke_minres_lid}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{lid_minres_pressure.jpg}
-  \caption{Pressure (minres solver)}
-  \label{pressure_stoke_minres_lid}
-\end{subfigure}
-
-\end{figure}
-\begin{figure}[H]
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_schur_vx.jpg}
-  \caption{$x-$velocity (schur complement method)}
-  \label{x_vel_stoke_schur_lid}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_schur_vy.jpg}
-  \caption{$y-$velocity (schur complement method)}
-  \label{y_vel_stoke_schur_lid}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{lid_schur_pressure.jpg}
-  \caption{Pressure (schur complement method)}
-  \label{pressure_stoke_schur_lid}
-\end{subfigure}
-\label{lid_driven_cavity}
+\begin{figure}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_bicgstab_vx.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (bicgstab solver)} \label{x_vel_stoke_bicgstab_lid}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_bicgstab_vy.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (bicgstab solver)} \label{y_vel_stoke_bicgstab_lid}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_bicgstab_pressure.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (bicgstab solver)} \label{pressure_stoke_bicgstab_lid}
+  \end{minipage}
+\caption{\label{stoke_bicgstab_lid}}
 \end{figure}
 
-\begin{figure}[H]
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_bicgstab_vx.jpg}
-  \caption{$x-$ velocity (bicgstab solver)}
-  \label{x_vel_stoke_bicgstab}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_bicgstab_vy.jpg}
-  \caption{$y-$ velocity (bicgstab solver)}
-  \label{y_vel_stoke_bicgstab}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_bicgstab_pressure.jpg}
-  \caption{Pressure (bicgstab solver)}
-  \label{pressure_stoke_bicgstab}
-\end{subfigure}
-\label{flow_over_cylinder_bicgstab}
+\begin{figure}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_minres_vx.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (minres solver)} \label{x_vel_stoke_minres_lid}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_minres_vy.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (minres solver)} \label{y_vel_stoke_minres_lid}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_minres_pressure.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (minres solver)} \label{pressure_stoke_minres_lid}
+  \end{minipage}
+\caption{\label{stoke_minres_lid}}
 \end{figure}
-\begin{figure}[H]
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_minres_vx.jpg}
-  \caption{$x-$ velocity (minres solver)}
-  \label{x_vel_stoke_minres}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_minres_vy.jpg}
-  \caption{$y-$ velocity (minres solver)}
-  \label{y_vel_stoke_minres}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_minres_pressure.jpg}
-  \caption{Pressure (minres solver)}
-  \label{pressure_stoke_minres}
-\end{subfigure}
-\label{flow_over_cylinder_minres}
+
+\begin{figure}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_schur_vx.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (Schur complement method)} \label{x_vel_stoke_schur_lid}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_schur_vy.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (Schur complement method)} \label{y_vel_stoke_schur_lid}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_schur_pressure.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (Schur complement method)} \label{pressure_stoke_schur_lid}
+  \end{minipage}
+\caption{\label{stoke_schur_lid}}
 \end{figure}
-\begin{figure}[H]
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_schur_vx.jpg}
-  \caption{$x-$velocity (schur complement method)}
-  \label{x_vel_stoke_schur}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_schur_vy.jpg}
-  \caption{$y-$velocity (schur complement method)}
-  \label{y_vel_stoke_schur}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_schur_pressure.jpg}
-  \caption{Pressure (schur complement method)}
-  \label{pressure_stoke_schur}
-\end{subfigure}
-\label{flow_over_cylinder_schur}
+
+\begin{figure}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_bicgstab_vx.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (bicgstab solver)}
+    \label{x_vel_stoke_bicgstab}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_bicgstab_vy.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (bicgstab solver)}
+     \label{y_vel_stoke_bicgstab}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_bicgstab_pressure.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (bicgstab solver)}
+      \label{pressure_stoke_bicgstab}
+  \end{minipage}
+\caption{\label{flow_over_cylinder_bicgstab}}
 \end{figure}
+
+\begin{figure}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_minres_vx.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (minres solver)}
+    \label{x_vel_stoke_minres}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_minres_vy.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (minres solver)}
+     \label{y_vel_stoke_minres}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_minres_pressure.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (minres solver)}
+      \label{pressure_stoke_minres}
+  \end{minipage}
+\caption{\label{flow_over_cylinder_minres}}
+\end{figure}
+
+\begin{figure}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_schur_vx.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (Schur complement method)}
+    \label{x_vel_stoke_schur}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_schur_vy.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (Schur complement method)}
+     \label{y_vel_stoke_schur}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_schur_pressure.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (Schur complement method)}
+      \label{pressure_stoke_schur}
+  \end{minipage}
+\caption{\label{flow_over_cylinder_schur}}
+\end{figure}
+
+\newpage
 
 \section{Penalty parameter}
 
@@ -2012,8 +2081,6 @@ The condition number is measured on Unit square [0,1] $\times$ [0,1] in $x-y$ pl
 \end{subfigure}
 \caption{\label{effect_penalty_parameter}}
 \end{figure}
-
-\newpage
 
 \section{Navier Stokes flow}\label{N-S-ch5}
 
@@ -2042,6 +2109,18 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3))
 \end{split}
 \end{equation}
 \end{center}
+
+The grid is equally divided in both directions with number of divisions in each direction as $10,15,17,20$ giving step size of each element in each of $x-y$ direction as $0.1,0.0667,0.0558,0.05$.\\
+
+The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{navier_stoke_conv_l2}, \ref{navier_stoke_conv_l2_log} and in $H^0$ norm is presented in figure \ref{navier_stoke_conv_h0}, \ref{navier_stoke_conv_h0_log}. \\
+
+\subsection{Lid-driven cavity problem} \label{lid_driven_cavity_navier_stokes}
+
+We again consider example presented in section \ref{lid_driven_cavity_stokes} i.e. Benchmark $CFD$ problem. The results are presented in figure \ref{lid_driven_cavity_n_s_bicgstab}, \ref{lid_driven_cavity_n_s_minres} and \ref{lid_driven_cavity_n_s_schur}. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers.
+
+\subsection{Flow over cylinder} \label{flow_over_cylinder_navier_stokes}
+
+We again consider example presented in section \ref{flow_over_cylinder_stokes} . However, we multiply the inlet velocity on left boundary with certain factor to regulate Reynolds number. The results are presented in figures \ref{flow_over_cylinder_bicgstab_n_s}, \ref{flow_over_cylinder_minres_n_s} and \ref{flow_over_cylinder_schur_n_s}. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers. 
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
@@ -2097,126 +2176,153 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3))
 \caption{\label{navier_stoke_conv_h0_log}}
 \end{figure}
 
-The grid is equally divided in both directions with number of divisions in each direction as $10,15,17,20$ giving step size of each element in each of $x-y$ direction as $0.1,0.0667,0.0558,0.05$.\\
-
-The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{navier_stoke_conv_l2}, \ref{navier_stoke_conv_l2_log} and in $H^0$ norm is presented in figure \ref{navier_stoke_conv_h0}, \ref{navier_stoke_conv_h0_log}. \\
-
-\subsection{Lid-driven cavity problem} \label{lid_driven_cavity_navier_stokes}
-
-We again consider example presented in section \ref{lid_driven_cavity_stokes} i.e. Benchmark $CFD$ problem. The results are presented in figure \ref{lid_driven_cavity_n_s_bicgstab}, \ref{lid_driven_cavity_n_s_minres} and \ref{lid_driven_cavity_n_s_schur}. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers.
-
-\subsection{Flow over cylinder} \label{flow_over_cylinder_navier_stokes}
-
-We again consider example presented in section \ref{flow_over_cylinder_stokes} . However, we multiply the inlet velocity on left boundary with certain factor to regulate Reynolds number. The results are presented in figures \ref{flow_over_cylinder_bicgstab_n_s}, \ref{flow_over_cylinder_minres_n_s} and \ref{flow_over_cylinder_schur_n_s}. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers. 
-
 \begin{figure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_newton_vx_bicgstab.jpg}
-  \caption{$x-$ velocity (Initial guess by bicgstab solver)}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_newton_vx_bicgstab.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (Initial guess by bicgstab solver)}
   \label{x_vel_navier_stoke_bicgstab_lid}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_newton_vy_bicgstab.jpg}
-  \caption{$y-$ velocity (Initial guess by bicgstab solver)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_newton_vy_bicgstab.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (Initial guess by bicgstab solver)}
   \label{y_vel_navier_stoke_bicgstab_lid}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{lid_newton_pressure_bicgstab.jpg}
-  \caption{Pressure (Initial guess by bicgstab solver)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_newton_pressure_bicgstab.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (Initial guess by bicgstab solver)}
   \label{pressure_navier_stoke_bicgstab_lid}
-\end{subfigure}
+  \end{minipage}
 \caption{\label{lid_driven_cavity_n_s_bicgstab}}
 \end{figure}
+
 \begin{figure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_newton_vx_minres.jpg}
-  \caption{$x-$ velocity (Initial guess by minres solver)}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_newton_vx_minres.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (Initial guess by minres solver)}
   \label{x_vel_navier_stoke_minres_lid}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_newton_vy_minres.jpg}
-  \caption{$y-$ velocity (Initial guess by minres solver)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_newton_vy_minres.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (Initial guess by minres solver)}
   \label{y_vel_navier_stoke_minres_lid}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{lid_newton_pressure_minres.jpg}
-  \caption{Pressure (Initial guess by minres solver)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_newton_pressure_minres.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (Initial guess by minres solver)}
   \label{pressure_navier_stoke_minres_lid}
-\end{subfigure}
+  \end{minipage}
 \caption{\label{lid_driven_cavity_n_s_minres}}
 \end{figure}
+
 \begin{figure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_newton_vx_schur.jpg}
-  \caption{$x-$velocity (Initial guess by schur complement method)}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_newton_vx_schur.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (Initial guess by Schur complement method)}
   \label{x_vel_navier_stoke_schur_lid}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{lid_newton_vy_schur.jpg}
-  \caption{$y-$velocity (Initial guess by schur complement method)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_newton_vy_schur.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (Initial guess by Schur complement method)}
   \label{y_vel_navier_stoke_schur_lid}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{lid_newton_pressure_schur.jpg}
-  \caption{Pressure (Initial guess by schur complement method)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{lid_newton_pressure_schur.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (Initial guess by Schur complement method)}
   \label{pressure_navier_stoke_schur_lid}
-\end{subfigure}
+  \end{minipage}
 \caption{\label{lid_driven_cavity_n_s_schur}}
 \end{figure}
 
-
 \begin{figure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_newton_vx_bicgstab.jpg}
-  \caption{$x-$ velocity (Initial guess by bicgstab solver)}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_newton_vx_bicgstab.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (Initial guess by bicgstab solver)}
   \label{x_vel_navier_stoke_bicgstab}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_newton_vy_bicgstab.jpg}
-  \caption{$y-$ velocity (Initial guess by bicgstab solver)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_newton_vy_bicgstab.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (Initial guess by bicgstab solver)}
   \label{y_vel_navier_stoke_bicgstab}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_newton_pressure_bicgstab.jpg}
-  \caption{Pressure (Initial guess by bicgstab solver)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_newton_pressure_bicgstab.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (Initial guess by bicgstab solver)}
   \label{pressure_navier_stoke_bicgstab}
-\end{subfigure}
+  \end{minipage}
 \caption{\label{flow_over_cylinder_bicgstab_n_s}}
 \end{figure}
+
 \begin{figure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_newton_vx_minres.jpg}
-  \caption{$x-$ velocity (Initial guess by minres solver)}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_newton_vx_minres.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (Initial guess by minres solver)}
   \label{x_vel_navier_stoke_minres}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_newton_vy_minres.jpg}
-  \caption{$y-$ velocity (Initial guess by minres solver)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_newton_vy_minres.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (Initial guess by minres solver)}
   \label{y_vel_navier_stoke_minres}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_newton_pressure_minres.jpg}
-  \caption{Pressure (Initial guess by minres solver)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_newton_pressure_minres.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (Initial guess by minres solver)}
   \label{pressure_navier_stoke_minres}
-\end{subfigure}
+  \end{minipage}
 \caption{\label{flow_over_cylinder_minres_n_s}}
 \end{figure}
+
 \begin{figure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_newton_vx_schur.jpg}
-  \caption{$x-$velocity (Initial guess by Schur complement method)}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_newton_vx_schur.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$x-$ velocity (Initial guess by Schur complement method)}
   \label{x_vel_navier_stoke_schur}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_newton_vy_schur.jpg}
-  \caption{$y-$velocity (Initial guess by Schur complement method)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_newton_vy_schur.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{$y-$ velocity (Initial guess by Schur complement method)}
   \label{y_vel_navier_stoke_schur}
-\end{subfigure}
-\begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{cylinder_newton_pressure_schur.jpg}
-  \caption{Pressure (Initial guess by Schur complement method)}
+  \end{minipage}
+  \begin{minipage}[c]{0.67\textwidth}
+    \includegraphics[width=\textwidth]{cylinder_newton_pressure_schur.jpg}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.3\textwidth}
+    \caption{Pressure (Initial guess by Schur complement method)}
   \label{pressure_navier_stoke_schur}
-\end{subfigure}
+  \end{minipage}
 \caption{\label{flow_over_cylinder_schur_n_s}}
 \end{figure}
 
@@ -2242,6 +2348,8 @@ It is to be noted that $bicgstab$ stops before convergence and without reaching 
 
 \chapter{Summary, conclusion and outlook}
 
+\section{Conclusions}
+
 After implementation of theoretical concepts and achieving experimental outcomes we arrive at following conclusion: \\
 
 1. The Stiffness matrix of Stokes equation is symmetric and has positive definite part. Also the number of positive eigenvalues of stiffness matrix of Stokes equation is total number of velocity degrees of freedom and number of positive eigenvalues of stiffness matrix of Stokes equation is total number of pressure degrees of freedom.\\
@@ -2261,6 +2369,12 @@ After implementation of theoretical concepts and achieving experimental outcomes
 8. The solution of Stokes equation is dependent also on solver used.
 
 9. The initial guess, in our case solution obtained from Stokes equation, is crucial for success of newton method.\\
+
+\section{Outlook}
+
+As future development, the Stokes equation and Navier Stokes equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. This allows the approximation of the numerical solution with respect to parameter space. Affine transformation for Stokes equation and Empirical interpolation method for Navier Stokes equation can be used to evaluate parametrised solutions. \\
+
+The solution of the parametrized form can be stored for reduced basis evaluations. Model order reduction with a method such as proper orthogonal decompositon or greedy algorithm can be performed. As an example, proper orthogonal decomposition sorts and segregates the stored solution based on the eigenvalues. This sorted and segregated snapshots with parametrised form can be used for the prediction of the full numerical solution. In this process the evaluations are made faster but with increase in approximation error. Hence, time saving vs. induced error can be compared.
 
 \chapter{Mathematical preliminaries}
 
@@ -2351,9 +2465,8 @@ The saddle point problem has following form,
 
 with $n \geq m$.\\
 
-We assume here that $\mathcal{A}, \mathcal{B}_1, \mathcal{B}_2$ are non zeros. Usually constituents $\mathcal{A}, \mathcal{B}_1, \mathcal{B}_2, \mathcal{C}$ satisfy one or more of following properties.
-\\
-\\
+We assume here that $\mathcal{A}, \mathcal{B}_1, \mathcal{B}_2$ are non zeros. Usually constituents $\mathcal{A}, \mathcal{B}_1, \mathcal{B}_2, \mathcal{C}$ satisfy one or more of following properties.\\
+
 1. $\mathcal{A} = \mathcal{A}^T$ (Symmetric)\\
 2. Symmetric part of $\mathcal{A}$ is positive semi definite\\
 3. $\mathcal{B}_1 = \mathcal{B}_2 = \mathcal{B}$\\
@@ -2489,7 +2602,7 @@ the linear subspace spanned by the elements $w_1,....,w_N$.\\
 2. The space $\mathbb{V}$ is of finite dimension if there exists a maximal a set of linearly independent elements $v_1,....,v_N$, otherwise $\mathbb{V}$ is of infinite dimension.\\
 
 3. A norm $||.||_\mathbb{V}$ on $\mathbb{V}$ is a function $||.||_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that\\ 
-\\
+
 A. $||v||_\mathbb{V} \geq 0 \forall v \in \mathbb{V}$ and $||v||_\mathbb{V} = 0$ iff $v=0$\\
 B. $||\alpha v||_\mathbb{V} = |\alpha| ||v||_\mathbb{V}$  $\forall \alpha \in \mathbb{R}, v \in \mathbb{V}$\\
 C. $||u+v|| \leq ||u||_\mathbb{V} + ||v||_\mathbb{V}$ $u,v \in \mathbb{V}$.\\
@@ -2604,10 +2717,14 @@ $\forall f,g \in L^2(\Omega)$, $|(f,g)_{\Omega}| \leq ||f||_{L^2(\Omega)} ||g||_
 $\forall \epsilon > 0$, $\forall a,b \in \mathbb{R}$, $ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2$\\
 \end{center}
 
+\chapter{References}
+
+\section{Published literatures}
+
 \bibliographystyle{plain}
 \bibliography{ref1}
 
-\chapter{Online resources}
+\section{Online resources}
 
 We would also like to mention below online resources which have frequently served as valuable source of information.\\
 

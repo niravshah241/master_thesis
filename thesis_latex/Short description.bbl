@@ -57,6 +57,11 @@ Benzi M., Golub G.~H., and Liesen J.
 \newblock Numerical solution of saddle point problems.
 \newblock {\em Acta Numerica}, 14:1–137, 2005.
 
+\bibitem{Kundu}
+Kundu P.~K. and Cohen I.~M.
+\newblock {\em Fluid Mechanics}.
+\newblock Academic Press, 2002.
+
 \bibitem{persson}
 Persson P.-O., Bonet J., and Peraire J.
 \newblock Discontinuous {G}alerkin solution of the {N}avier {S}tokes equations

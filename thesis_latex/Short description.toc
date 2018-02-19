@@ -1,6 +1,6 @@
 \contentsline {section}{\numberline {0.1}Acknowledgement}{2}
-\contentsline {section}{\numberline {0.2}Declaration/Selbst\"andigerkl\"arung}{3}
-\contentsline {section}{\numberline {0.3}List of symbols}{3}
+\contentsline {section}{\numberline {0.2}Declaration/Eigenst\"andigkeitserkl\"arung}{3}
+\contentsline {section}{\numberline {0.3}List of symbols}{4}
 \contentsline {chapter}{\numberline {1}Introduction}{13}
 \contentsline {section}{\numberline {1.1}Overview}{13}
 \contentsline {chapter}{\numberline {2}Perspective and Formulation}{15}
@@ -16,63 +16,67 @@
 \contentsline {section}{\numberline {3.5}Global and local co-ordinate system}{24}
 \contentsline {section}{\numberline {3.6}Jump operator}{26}
 \contentsline {section}{\numberline {3.7}Average operator}{26}
-\contentsline {section}{\numberline {3.8}$L^2$ scalar product}{27}
+\contentsline {section}{\numberline {3.8}$L^2$ scalar product}{26}
 \contentsline {section}{\numberline {3.9}Problem statement}{27}
 \contentsline {subsection}{\numberline {3.9.1}Stokes strong, weak and discrete form}{27}
 \contentsline {subsection}{\numberline {3.9.2}Properties of Stiffness matrix}{28}
 \contentsline {subsubsection}{Coercivity constant for equation for Stokes flow}{29}
-\contentsline {subsection}{\numberline {3.9.3}Upwinding}{31}
+\contentsline {subsection}{\numberline {3.9.3}Upwinding}{30}
 \contentsline {subsection}{\numberline {3.9.4}Navier Stokes strong, weak and discrete form}{31}
 \contentsline {subsection}{\numberline {3.9.5}Newton method}{32}
 \contentsline {subsection}{\numberline {3.9.6}Properties of the Stiffness matrix}{33}
 \contentsline {subsection}{\numberline {3.9.7}Boundary condition}{33}
 \contentsline {section}{\numberline {3.10}Selection of solver}{33}
-\contentsline {subsection}{\numberline {3.10.1}Biconjugate gradients stabilized method}{34}
-\contentsline {subsection}{\numberline {3.10.2}Minimum residual method}{34}
+\contentsline {subsection}{\numberline {3.10.1}Biconjugate gradients stabilized method}{33}
+\contentsline {subsection}{\numberline {3.10.2}Minimum residual method}{33}
 \contentsline {subsection}{\numberline {3.10.3}Schur complement method}{34}
-\contentsline {chapter}{\numberline {4}Implementation aspects}{37}
-\contentsline {section}{\numberline {4.1}Terminology}{37}
-\contentsline {section}{\numberline {4.2}Basis Function in RBmatlab}{39}
-\contentsline {section}{\numberline {4.3}Assembly of average operator}{40}
-\contentsline {section}{\numberline {4.4}Assembly of jump operator}{40}
-\contentsline {section}{\numberline {4.5}Matrix assemblies}{40}
-\contentsline {section}{\numberline {4.6}Setting boundary conditions}{45}
-\contentsline {section}{\numberline {4.7}Setting source term}{45}
-\contentsline {section}{\numberline {4.8}Program flow}{45}
-\contentsline {subsection}{\numberline {4.8.1}Grid Preparation}{46}
-\contentsline {subsection}{\numberline {4.8.2}Function space formulation}{46}
-\contentsline {subsection}{\numberline {4.8.3}Matrix assembly}{46}
-\contentsline {subsection}{\numberline {4.8.4}Solving assembled form}{46}
-\contentsline {subsection}{\numberline {4.8.5}Post processing}{47}
-\contentsline {subsection}{\numberline {4.8.6}Newton method}{47}
-\contentsline {subsection}{\numberline {4.8.7}Additional remarks}{47}
-\contentsline {section}{\numberline {4.9}Sparsity pattern}{47}
-\contentsline {chapter}{\numberline {5}Numerical experiments}{57}
-\contentsline {section}{\numberline {5.1}Error definitions}{57}
-\contentsline {section}{\numberline {5.2}Stokes flow}{57}
-\contentsline {subsection}{\numberline {5.2.1}Properties of Stiffness matrix}{57}
-\contentsline {subsection}{\numberline {5.2.2}Analytical example}{58}
-\contentsline {subsection}{\numberline {5.2.3}Lid-driven cavity problem}{58}
-\contentsline {subsection}{\numberline {5.2.4}Flow over cylinder}{63}
-\contentsline {section}{\numberline {5.3}Penalty parameter}{69}
-\contentsline {section}{\numberline {5.4}Navier Stokes flow}{71}
-\contentsline {subsection}{\numberline {5.4.1}Analytical example}{71}
-\contentsline {subsection}{\numberline {5.4.2}Lid-driven cavity problem}{71}
-\contentsline {subsection}{\numberline {5.4.3}Flow over cylinder}{76}
-\contentsline {section}{\numberline {5.5}Solver selection}{76}
-\contentsline {chapter}{\numberline {6}Summary, conclusion and outlook}{83}
-\contentsline {chapter}{\numberline {7}Mathematical preliminaries}{85}
-\contentsline {section}{\numberline {7.1}Cholesky decomposition}{85}
-\contentsline {section}{\numberline {7.2}Saddle point formulation}{86}
-\contentsline {section}{\numberline {7.3}Sobolev spaces}{87}
-\contentsline {section}{\numberline {7.4}Basic definitions}{88}
-\contentsline {section}{\numberline {7.5}Linear forms}{89}
-\contentsline {section}{\numberline {7.6}Bilinear forms}{89}
-\contentsline {subsection}{\numberline {7.6.1}Coercivity of bilinear form}{90}
-\contentsline {subsection}{\numberline {7.6.2}Continuity of bilinear form}{90}
-\contentsline {section}{\numberline {7.7}Important inequalities}{90}
-\contentsline {subsection}{\numberline {7.7.1}Trace theorem}{90}
-\contentsline {subsection}{\numberline {7.7.2}Cauchy-Schwarz inequality}{90}
-\contentsline {subsection}{\numberline {7.7.3}Young's inequality}{90}
-\contentsline {chapter}{\numberline {8}Online resources}{93}
-\contentsline {section}{\numberline {8.1}Code access}{93}
+\contentsline {chapter}{\numberline {4}Implementation aspects}{35}
+\contentsline {section}{\numberline {4.1}Terminology}{35}
+\contentsline {section}{\numberline {4.2}Basis Function in RBmatlab}{37}
+\contentsline {section}{\numberline {4.3}Assembly of average operator}{38}
+\contentsline {section}{\numberline {4.4}Assembly of jump operator}{38}
+\contentsline {section}{\numberline {4.5}Matrix assemblies}{38}
+\contentsline {section}{\numberline {4.6}Setting boundary conditions}{42}
+\contentsline {section}{\numberline {4.7}Setting source term}{42}
+\contentsline {section}{\numberline {4.8}Program flow}{43}
+\contentsline {subsection}{\numberline {4.8.1}Grid Preparation}{43}
+\contentsline {subsection}{\numberline {4.8.2}Function space formulation}{43}
+\contentsline {subsection}{\numberline {4.8.3}Matrix assembly}{43}
+\contentsline {subsection}{\numberline {4.8.4}Solving assembled form}{44}
+\contentsline {subsection}{\numberline {4.8.5}Post processing}{44}
+\contentsline {subsection}{\numberline {4.8.6}Newton method}{44}
+\contentsline {subsection}{\numberline {4.8.7}Additional remarks}{44}
+\contentsline {section}{\numberline {4.9}Sparsity pattern}{44}
+\contentsline {chapter}{\numberline {5}Numerical experiments}{53}
+\contentsline {section}{\numberline {5.1}Error definitions}{53}
+\contentsline {section}{\numberline {5.2}Stokes flow}{54}
+\contentsline {subsection}{\numberline {5.2.1}Properties of Stiffness matrix}{54}
+\contentsline {subsection}{\numberline {5.2.2}Analytical example}{54}
+\contentsline {subsection}{\numberline {5.2.3}Lid-driven cavity problem}{54}
+\contentsline {subsection}{\numberline {5.2.4}Flow over cylinder}{55}
+\contentsline {section}{\numberline {5.3}Penalty parameter}{66}
+\contentsline {section}{\numberline {5.4}Navier Stokes flow}{66}
+\contentsline {subsection}{\numberline {5.4.1}Analytical example}{66}
+\contentsline {subsection}{\numberline {5.4.2}Lid-driven cavity problem}{68}
+\contentsline {subsection}{\numberline {5.4.3}Flow over cylinder}{68}
+\contentsline {section}{\numberline {5.5}Solver selection}{68}
+\contentsline {chapter}{\numberline {6}Summary, conclusion and outlook}{79}
+\contentsline {section}{\numberline {6.1}Conclusions}{79}
+\contentsline {section}{\numberline {6.2}Outlook}{80}
+\contentsline {chapter}{\numberline {7}Mathematical preliminaries}{81}
+\contentsline {section}{\numberline {7.1}Cholesky decomposition}{81}
+\contentsline {section}{\numberline {7.2}Saddle point formulation}{82}
+\contentsline {section}{\numberline {7.3}Sobolev spaces}{83}
+\contentsline {section}{\numberline {7.4}Basic definitions}{84}
+\contentsline {section}{\numberline {7.5}Linear forms}{84}
+\contentsline {section}{\numberline {7.6}Bilinear forms}{85}
+\contentsline {subsection}{\numberline {7.6.1}Coercivity of bilinear form}{85}
+\contentsline {subsection}{\numberline {7.6.2}Continuity of bilinear form}{85}
+\contentsline {section}{\numberline {7.7}Important inequalities}{85}
+\contentsline {subsection}{\numberline {7.7.1}Trace theorem}{85}
+\contentsline {subsection}{\numberline {7.7.2}Cauchy-Schwarz inequality}{86}
+\contentsline {subsection}{\numberline {7.7.3}Young's inequality}{86}
+\contentsline {chapter}{\numberline {8}References}{87}
+\contentsline {section}{\numberline {8.1}Published literatures}{87}
+\contentsline {section}{\numberline {8.2}Online resources}{90}
+\contentsline {section}{\numberline {8.3}Code access}{90}
