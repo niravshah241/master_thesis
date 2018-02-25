@@ -8,7 +8,7 @@ function [res]=q_n_u_d(lcoord,params,paramsP,grid, tria_index, local_vertex_inde
 N=[grid.NX(tria_index,local_vertex_index) grid.NY(tria_index,local_vertex_index)];
 %lcoord = llocal2local(grid,local_vertex_index,llcoord);
 q=ldg_evaluate_basis(lcoord,paramsP);
-u_d=dirichlet_values(local2global(grid,tria_index,lcoord,paramsP));
+u_d=dirichlet_values(local2global(grid,tria_index,lcoord,paramsP),params);
 u_d = N*u_d;
 
 res = zeros(paramsP.ndofs_per_element,1);

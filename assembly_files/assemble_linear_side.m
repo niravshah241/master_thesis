@@ -2,8 +2,6 @@ function [ res ] = assemble_linear_side( grid,params,qdeg, mu, c11)
 %ASSEMBLE_LINEAR_SIDE Summary of this function goes here
 %   Detailed explanation goes here
 
-
-
 res1 = source_assembly(params, grid,qdeg );
 res1 = sparse(res1);
 res2 = t_v_assembly( params, grid, qdeg );

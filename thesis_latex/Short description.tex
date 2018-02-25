@@ -1778,49 +1778,48 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
 
 \chapter{Numerical experiments}
 
-The chapter discusses results obtained by performing numerical experiments on discontinuous Galerkin formulation of Stokes equation and Navier Stokes equation.
+This chapter discusses results obtained by performing the numerical experiments on the discontinuous Galerkin formulation of the Stokes equation and the Navier Stokes equation.
 
 \section{Error definitions}
 
-Error is the difference, measured in suitable norm, between true solution and approximated or computed solution. It is also a measure of how closely the used scheme simulates the physical nature of problem. A correct numerical scheme should converge to actual solution when number of degrees of freedom are increased. The degrees of freedom can be increased by discretizing the domain further ($h-$convergence) or by increasing degree of the basis function ($p-$convergence). If $P_h$ is the computed solution and $P$ is the true solution, error in $W$-norm is defined as,
+The error is the difference, measured in a suitable norm, between the true solution and an approximated or computed solution. It is also a measure of how closely the implemented scheme simulates the physical nature of the problem. A correct numerical scheme should converge to the actual solution when the number of degrees of freedom are increased. The degrees of freedom can be increased either by discretizing the domain further ($h-$convergence) or by increasing the degree of the basis functions ($p-$convergence). If $P_h$ is the computed solution and $P$ is the true solution, the error in the $W$-norm is defined as,
 
 \begin{equation} \label{error_definition}
-P_{error} = ||P - P_h||_{W}
+P_{error,W} = ||P - P_h||_{W} \quad \mathrm{.}
 \end{equation}
 
-In present analysis, we measure error in $L^2$ norm and present results of $h-$convergence test.
+In the present analysis, we measure the error in the $L^2$ norm and the $H_0$ semi norm and present results of an $h-$convergence test.
 
-The $L^2$ norm of error is measured as,\begin{equation}
-P_{error} = \int_{\Omega} |P - P_h|^2
+The $L^2$ norm of the error is measured as,\begin{equation}
+P_{error,L^2} = \int_{\Omega} |P - P_h|^2 \quad \mathrm{.}
 \end{equation}
 
-the $H_0$ norm of error is defined as,\begin{equation}
-P_{error} = \sum_{k=1}^{nel} \int_{\tau_k} |\nabla P - \nabla P_h|^2
+The $H_0$ semi norm of the error is defined as,\begin{equation}
+P_{error,H_0} = \sum_{k=1}^{nel} \int_{\tau_k} |\nabla P - \nabla P_h|^2 \quad \mathrm{.}
 \end{equation}
 
-
-We use notations from section \ref{navier_stokes_weak_ch3} and \ref{stokes_weak_ch3}.
+We use the notations from the Section \ref{n_s_ch3} and the Section \ref{Stokes_flow_ch3}.
 
 \section{Stokes flow}\label{Stokes-ch5}
 
 \subsection{Properties of Stiffness matrix}
 
-We recall now some conclusions from section \ref{property_stif_mat_stokes} and section \ref{property_stif_mat_navier}. The present code provides routine \verb|stifness_matrix_test| which, \\
+We recall now some conclusions from the Section \ref{property_stif_mat_stokes} and the Section \ref{property_stif_mat_navier}. The present code provides a routine \verb|stiffness_matrix_test| which, \\
 
-1. checks whether coefficient matrix $K$ is symmetric and number of non positive eigenvalues. The number of non positive eigenvalues should be same number of pressure degree of freedom. It also provides eigenvalues and eigenvectors as output,\\
+1. checks whether the coefficient matrix $K$ is symmetric and the number of non positive eigenvalues. The number of non positive eigenvalues should be same as the number of pressure degrees of freedom. It also provides eigenvalues and eigenvectors as output,\\
 
-2. calculates condition number of coefficient matrix $K$, \\
+2. calculates the condition number of the coefficient matrix $K$, \\
 
-3. rank of coefficient matrix $K$.\\
+3. determines the rank of coefficient matrix $K$.\\
 
-\verb|stifness_matrix_test| can also be used for matrix $A$ by giving matrix $A$ as input. In this case the matrix should be symmetric and all eigen values should be positive.\\
+\verb|stiffness_matrix_test| can also be used for the matrix $A$ by giving the matrix $A$ as input. In this case the matrix should be symmetric and all eigenvalues should be positive.\\
 
-Please note that matrix with very small non symmetricity (for example, error in symmetricity of order of $2.2204e-16$) should be considered symmetric due to round-off errors.
+We consider Stiffness matrix $K$ symmetric, if $||K-K^T||_2 \leq tol$, where $tol$ is some specified tolerance. Due to round off error, $tol > 0$.   
 
 \subsection{Analytical example}
 
-The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x-y$ plane. 
-The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (2 \nu - 1, 0)$. The analytical solution for pressure and velocity reads as,
+The domain considered for this example is the unit square [0,1] $\times$ [0,1] in the $x-y$ plane. 
+The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is a Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (2 \nu - 1, 0)$. The analytical solution for pressure and velocity reads as,
 
 \begin{center}
 
@@ -1829,21 +1828,21 @@ p = (1 - x)
 \end{equation}
 
 \begin{equation} 
- u = (y(1-y), 0)
+ u = (y(1-y), 0) \quad \textrm{.}
 \end{equation}
 
 \end{center}
 
-The grid is equally divided in both directions with number of divisions in each direction as $5,10,15,20$ giving step size of each element in each of $x-y$ direction as $0.2,0.1,0.067,0.05$.\\
+The grid is equally divided in both directions with number of divisions in each direction as $5,10,15,20$ giving step size of each element in each of the $x-y$ direction as $0.2,0.1,0.067,0.05$.\\
 
-The results of $h-$ convergence test in $L^2$ norm is presented in figures \ref{fig:vel_stoke_conv},\ref{fig:vel_stoke_conv_log}, \ref{fig:pre_stoke_conv} and \ref{fig:pre_stoke_conv_log} and in $H^0$ norm is presented in figures \ref{fig:vel_stoke_conv_h0},\ref{fig:vel_stoke_conv_log_h0}, \ref{fig:pre_stoke_conv_h0} and \ref{fig:pre_stoke_conv_log_h0}. \\
+The results of an $h-$convergence test in the $L^2$ norm is presented in Figures \ref{fig:vel_stoke_conv}, \ref{fig:vel_stoke_conv_log}, \ref{fig:pre_stoke_conv} and \ref{fig:pre_stoke_conv_log} and in the $H_0$ semi norm is presented in Figures \ref{fig:vel_stoke_conv_h0}, \ref{fig:vel_stoke_conv_log_h0}, \ref{fig:pre_stoke_conv_h0} and \ref{fig:pre_stoke_conv_log_h0}. \\
 
 
-We now present additional examples and check whether the implementation of Stokes flow is capable of reproducing physics of the problem.
+We now present additional examples and check whether the implementation of the Stokes flow is capable of reproducing the physics of the problem.
 
 \subsection{Lid-driven cavity problem} \label{lid_driven_cavity_stokes}
 
-We next present benchmark $CFD$ problem, Lid-driven cavity flow \cite{Montlaur2}. We solve the Stokes flow on Unit square [0,1] $\times$ [0,1] in $x-y$ plane. On boundaries ${x = 0}, {x = 1}$ and ${y = 0}$, we impose no slip or zero velocity dirichlet condition. On ${y = 1}$, we impose Dirichlet condition with Dirichlet velocity,
+We next present a benchmark $CFD$ problem, the Lid-driven cavity flow \cite{Montlaur2}. We solve the Stokes flow on the unit square [0,1] $\times$ [0,1] in the $x-y$ plane. On boundaries ${x = 0}, {x = 1}$ and ${y = 0}$, we impose no slip or zero velocity Dirichlet condition. On ${y = 1}$, we impose Dirichlet condition with Dirichlet velocity,
 \begin{equation}
 u = (10x,0)^T \quad \textrm{for} \quad 0 \leq x \leq 0.1
 \end{equation}
@@ -1851,15 +1850,14 @@ u = (10x,0)^T \quad \textrm{for} \quad 0 \leq x \leq 0.1
 u = (1,0)^T \quad \textrm{for} \quad 0.1 \leq x \leq 0.9
 \end{equation}
 \begin{equation}
-u = (10 - 10x,0)^T \quad \textrm{for} \quad 0.9 \leq x \leq 1
+u = (10 - 10x,0)^T \quad \textrm{for} \quad 0.9 \leq x \leq 1 \quad \textrm{.}
 \end{equation}
 
-The results are shown in figures \ref{stoke_bicgstab_lid}, \ref{stoke_minres_lid} and \ref{stoke_schur_lid}.
+The results are shown in Figures \ref{stoke_bicgstab_lid}, \ref{stoke_minres_lid} and \ref{stoke_schur_lid}.
 
 \subsection{Flow over cylinder} \label{flow_over_cylinder_stokes}
 
-The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x-y$ plane with cylinder of diameter 0.2 centered at $(0.5,0.5)$ i.e. the center of cylinder coincides with center of square. The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (0, 0)$. The results give physically relevant result for example, low pressure zone after cylinder, high pressure zone before cylinder and wake zone after cylinder for velocity.
-(Figures \ref{flow_over_cylinder_bicgstab}, \ref{flow_over_cylinder_minres} and \ref{flow_over_cylinder_schur}).
+The domain considered for this example is the unit square [0,1] $\times$ [0,1] with a cut out cylinder of diameter 0.2 centered at $(0.5,0.5)$ i.e. the center of cylinder coincides with the center of the square in the $x-y$ plane. The boundary ${x=0}$ is Dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (y(1-y), 0)$. The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is a Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is $f = (0, 0)$. Figures \ref{flow_over_cylinder_bicgstab}, \ref{flow_over_cylinder_minres} and \ref{flow_over_cylinder_schur} give physically relevant result for example, low pressure zone after cylinder, high pressure zone before cylinder and wake zone after cylinder for velocity.
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
@@ -2058,8 +2056,8 @@ The domain considered for this example is Unit square [0,1] $\times$ [0,1] in $x
 
 \section{Penalty parameter}
 
-We now measure the effect of Penalty parameter on condition number of matrix. While coercivity provides lower limit for penalty parameter, the upper limit is based on affordable condition number of stiffness matrix. As shown in figure \ref{penalty_condition_number}, the condition number of stiffness matrix increases with increasing penalty parameter.
-The condition number is measured on Unit square [0,1] $\times$ [0,1] in $x-y$ plane on with number of intervals $8 \times 8$. The penalty parameter ranged from $1e-2$ to $1e4$. The corresponding condition number ranged from $3.750e5$ to $1.445e10$. We see a linear increase in condition number of stiffness matrix with respect to Penalty parameter. (Figure \ref{effect_penalty_parameter})
+We now measure the effect of the penalty parameter on the condition number of the matrix. While coercivity provides a lower limit for the penalty parameter, the upper limit is based on an affordable condition number of the matrix $A$. As shown in Figure \ref{penalty_condition_number}, the condition number of the matrix $A$ increases with increasing penalty parameter.
+The condition number is measured on a unit square [0,1] $\times$ [0,1] in the $x-y$ plane with the number of intervals $10 \times 10$. The penalty parameter ranged from $1e-2$ to $1e4$. The corresponding condition number ranged from $3.750e5$ to $1.445e10$. We see a linear increase in the condition number of the stiffness matrix with respect to the penalty parameter. (Figure \ref{effect_penalty_parameter})
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
@@ -2077,16 +2075,16 @@ The condition number is measured on Unit square [0,1] $\times$ [0,1] in $x-y$ pl
 
 \section{Navier Stokes flow}\label{N-S-ch5}
 
-We recall that we use initial guess from Stokes equation and the Newton method presented in section  \ref{newton_method}. We also note that Stiffness matrix in case of Navier Stokes equation is non symmetric and therefore, solvers applicable only for symmetric matrix can not be used. 
+We recall that we use the initial guess from the Stokes equation and the Newton method presented in the Section  \ref{newton_method}. We also note that the stiffness matrix in case of the Navier Stokes equation is non symmetric and therefore, solvers applicable only for symmetric matrices can not be used. 
 
 \subsection{Analytical example}
 
-We now present analytical example from \cite{Montlaur}. The domain considered for this example is Unit square $[0,1] \times [0,1]$ in $x-y$ plane. 
-The boundary ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (0, 0)$. The boundaries ${x = 1}$,${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 0}$ is Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is,
+We now present an analytical example from \cite{Montlaur}. The domain considered for this example is the unit square $[0,1] \times [0,1]$ in the $x-y$ plane. 
+The boundary ${x=0}$ is Dirichlet boundary with inflow velocity at point $(0,y)$ as $u = (0, 0)$. The boundaries ${x = 1}$, ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 0}$ is a Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. The source term is,
 
 \begin{equation}
 \begin{split}
-f = (-4 \nu (1+2y) (y^2 - 6xy^2 + 6x^2 y^2 - y + 6xy \\ - 6x^2 y + 3x^2 - 6x^3 + 3x^4)+ 1 - 2x \\+ 4x^3 y^2 (2y^2 - 2y + 1)(y - 1)^2 (-1 + 2x)(x - 1)^3,\\ 4 \nu (-1 + 2x)(x^2 - 6x^2 y + 6x^2 y^2 - x + 6xy \\ - 6xy^2 + 3y^2 - 6y^3 + 3y^4) + \\ 4x^2y^3 (-1+2y)(y-1)^3 (2x^2-2x+1)(x-1)^2)
+f = (-4 \nu (1+2y) (y^2 - 6xy^2 + 6x^2 y^2 - y + 6xy \\ - 6x^2 y + 3x^2 - 6x^3 + 3x^4)+ 1 - 2x \\+ 4x^3 y^2 (2y^2 - 2y + 1)(y - 1)^2 (-1 + 2x)(x - 1)^3,\\ 4 \nu (-1 + 2x)(x^2 - 6x^2 y + 6x^2 y^2 - x + 6xy \\ - 6xy^2 + 3y^2 - 6y^3 + 3y^4) + \\ 4x^2y^3 (-1+2y)(y-1)^3 (2x^2-2x+1)(x-1)^2) \quad \textrm{.}
 \end{split}
 \end{equation}
  
@@ -2098,22 +2096,22 @@ p = x(1 - x)
 \end{equation}
 \begin{equation} 
 \begin{split}
-u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3))
+u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \quad \textrm{.}
 \end{split}
 \end{equation}
 \end{center}
 
 The grid is equally divided in both directions with number of divisions in each direction as $10,15,17,20$ giving step size of each element in each of $x-y$ direction as $0.1,0.0667,0.0558,0.05$.\\
 
-The results of $h-$ convergence test in $L^2$ norm is presented in figure \ref{navier_stoke_conv_l2}, \ref{navier_stoke_conv_l2_log} and in $H^0$ norm is presented in figure \ref{navier_stoke_conv_h0}, \ref{navier_stoke_conv_h0_log}. \\
+The results of an $h-$ convergence test in the $L^2$ norm is presented in Figures \ref{navier_stoke_conv_l2}, \ref{navier_stoke_conv_l2_log} and in the $H_0$ semi norm is presented in Figures \ref{navier_stoke_conv_h0}, \ref{navier_stoke_conv_h0_log}. \\
 
 \subsection{Lid-driven cavity problem} \label{lid_driven_cavity_navier_stokes}
 
-We again consider example presented in section \ref{lid_driven_cavity_stokes} i.e. Benchmark $CFD$ problem. The results are presented in figure \ref{lid_driven_cavity_n_s_bicgstab}, \ref{lid_driven_cavity_n_s_minres} and \ref{lid_driven_cavity_n_s_schur}. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers.
+We again consider the example presented in the Section \ref{lid_driven_cavity_stokes} i.e. Benchmark $CFD$ problem. The results are presented in Figures \ref{lid_driven_cavity_n_s_bicgstab}, \ref{lid_driven_cavity_n_s_minres} and \ref{lid_driven_cavity_n_s_schur}. We also see the effect of the initial guess, the solution for the Stokes flow, calculated by different solvers.
 
 \subsection{Flow over cylinder} \label{flow_over_cylinder_navier_stokes}
 
-We again consider example presented in section \ref{flow_over_cylinder_stokes} . However, we multiply the inlet velocity on left boundary with certain factor to regulate Reynolds number. The results are presented in figures \ref{flow_over_cylinder_bicgstab_n_s}, \ref{flow_over_cylinder_minres_n_s} and \ref{flow_over_cylinder_schur_n_s}. We also see the effect of initial guess, solution from Stokes flow calculated by different solvers. 
+We again consider the example presented in the Section \ref{flow_over_cylinder_stokes} . However, we multiply the inlet velocity on left boundary with certain factor to regulate the Reynolds number. The results are presented in Figures \ref{flow_over_cylinder_bicgstab_n_s}, \ref{flow_over_cylinder_minres_n_s} and \ref{flow_over_cylinder_schur_n_s}. We also see the effect of the initial guess, the solution for the Stokes flow, calculated by different solvers. 
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
@@ -2321,9 +2319,10 @@ We again consider example presented in section \ref{flow_over_cylinder_stokes} .
 
 \section{Solver selection}
 
-As demonstrated earlier in section \ref{Stokes-ch5} and \ref{N-S-ch5}, the use of different solvers leads to different solution. We also present now an example measuring residual vs. run time for different solver for same problem.
+As demonstrated earlier in the Sections \ref{Stokes-ch5} and \ref{N-S-ch5}, the use of different solvers leads to different solutions. We also present now an example measuring the residual vs. run time for different solvers for the same problem.
 
-We again consider the problem from section \ref{flow_over_cylinder_stokes}. The residual and the run time for the same is presented in table below.
+We again consider the problem from the Section \ref{flow_over_cylinder_stokes}. The residual and the run time for the same is presented in table below.
+Here Run time refers to time taken for solution of equation of form $AX = B$ and plotting.  The matrix $A$ and the vector $B$ are given in assembled form as input. Since the plotting process is exactly same, the run time compares the speed of solver or method. Residual is measured as $\frac{norm(B-AX,2)}{norm(B,2)}$ where $norm(\cdot,2)$ refers to $2-$norm of vector.
 
 \begin{longtable}{| p{.30\textwidth} | p{.30\textwidth} | p{.30\textwidth} |}
 \hline
