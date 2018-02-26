@@ -6,16 +6,16 @@ Database file #1: ref1.bib
 Warning--can't use both author and editor fields in Haasdonk_book
 You've used 13 entries,
             2118 wiz_defined-function locations,
-            587 strings with 6287 characters,
-and the built_in function-call counts, 3868 in all, are:
-= -- 378
+            588 strings with 6289 characters,
+and the built_in function-call counts, 3877 in all, are:
+= -- 380
 > -- 169
 < -- 0
 + -- 68
 - -- 54
 * -- 264
-:= -- 675
-add.period$ -- 42
+:= -- 677
+add.period$ -- 43
 call.type$ -- 13
 change.case$ -- 62
 chr.to.int$ -- 0
@@ -23,13 +23,13 @@ cite$ -- 14
 duplicate$ -- 146
 empty$ -- 316
 format.name$ -- 54
-if$ -- 797
+if$ -- 799
 int.to.chr$ -- 0
 int.to.str$ -- 13
 missing$ -- 18
-newline$ -- 68
+newline$ -- 69
 num.names$ -- 26
-pop$ -- 65
+pop$ -- 64
 preamble$ -- 1
 purify$ -- 53
 quote$ -- 0
@@ -44,5 +44,5 @@ type$ -- 42
 warning$ -- 1
 while$ -- 35
 width$ -- 15
-write$ -- 143
+write$ -- 145
 (There was 1 warning)

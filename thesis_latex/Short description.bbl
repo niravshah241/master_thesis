@@ -17,10 +17,11 @@ Montlaur A., Fernandez-Mendez S., Peraire J., and Huerta A.
 \bibitem{Haasdonk_book}
 Haasdonk B.
 \newblock {\em Reduced Basis Methods for Parametrized PDEs -- A Tutorial
-  Introduction for Stationary and Instationary Problems. Chapter to appear in
-  in P. Benner, A. Cohen, M. Ohlberger and K. Willcox (eds.): "Model Reduction
-  and Approximation: Theory and Algorithms",}.
-\newblock SIAM, Philadelphia, 2016.
+  Introduction for Stationary and Instationary Problems. Chapter in P. Benner,
+  A. Cohen, M. Ohlberger and K. Willcox (eds.): "Model Reduction and
+  Approximation: Theory and Algorithms",}.
+\newblock SIAM, Philadelphia, 2017.
+\newblock Pages 65-136.
 
 \bibitem{Haasdonk}
 Haasdonk B.
@@ -46,9 +47,9 @@ White F.M.
   McGraw-Hill Ryerson, Limited, 1986.
 
 \bibitem{peraire}
-Peraire J. and P.-O. Persson.
-\newblock The {C}ompact {D}iscontinuous {G}alerkin (cdg) method for {E}lliptic
-  problems.
+Peraire J. and Persson P.-O.
+\newblock The {C}ompact {D}iscontinuous {G}alerkin ({CDG}) method for
+  {E}lliptic problems.
 \newblock {\em SIAM Journal on Scientific Computing}, 30(4):1806--1824, 2008.
 
 \bibitem{crbm}

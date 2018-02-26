@@ -13,6 +13,7 @@
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{makecell}
+\usepackage[title]{appendix}
 \usepackage{longtable}
 \usepackage{cprotect}
 \usepackage{cleveref}
@@ -1174,6 +1175,7 @@ In the present analysis, we find that Schur complement is much faster and in fac
 We discuss now the implementation of the discrete formulation of the Navier Stokes discontinuous Galerkin weak formulation in RBmatlab, A MATLAB library containing all our numerical simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. We refer to the literature of Haasdonk B.\cite{Haasdonk_book} and RBmatlab website: \linebreak http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.16.09/\linebreak index.html.  
 
 Before we discuss details of the implementation it is important to understand some frequently used terminologies and the data type of Basis Function and derivative of basis function in RBmatlab.
+
 \section{Terminology}
 
 A. \verb|params| and \verb|paramsP| : These are structures corresponding to velocity and pressure respectively and primarily containing following fields. (Table \ref{table_params} and Table \ref{table_paramsP})\\
@@ -1181,8 +1183,8 @@ A. \verb|params| and \verb|paramsP| : These are structures corresponding to velo
 B. \verb|grid| : It is the structure containing fields relevant to information stored in grid. Below are the fields of grid. (Table \ref{table_grid})\\
 
 C. We also some other variables. (Table \ref{table_variable})\\
-\newpage
-\begin{table}[H]
+
+\begin{table}
 \cprotect\caption{Fields of \verb|params|}
 \label{table_params}
 \begin{center}
@@ -1206,7 +1208,7 @@ C. We also some other variables. (Table \ref{table_variable})\\
 \end{center}
 \end{table}
 
-\begin{table}[H]
+\begin{table}
 \cprotect\caption{Fields of \verb|paramsP|}
 \label{table_paramsP}
 \begin{center}
@@ -1230,7 +1232,7 @@ C. We also some other variables. (Table \ref{table_variable})\\
 \end{center}
 \end{table}
 
-\begin{table}[H]
+\begin{table}
 \cprotect\caption{Fields of \verb|grid|}
 \label{table_grid}
 \begin{center}
@@ -1256,7 +1258,7 @@ C. We also some other variables. (Table \ref{table_variable})\\
 \end{center}
 \end{table}
 
-\begin{table}[H]
+\begin{table}
 \caption{Some other variables}
 \label{table_variable}
 \begin{center}
@@ -1274,7 +1276,7 @@ C. We also some other variables. (Table \ref{table_variable})\\
 
 \section{Basis functions in RBmatlab}
 
-The Basis functions in RBmatlab can be point evaluated by a routine called \verb|ldg_evaluate_basis|.\\
+The basis functions in RBmatlab can be point evaluated by a routine called \verb|ldg_evaluate_basis|.\\
 
 We approximatete the solution at any point from solution of degrees of freedom in orthonormal basis. In matrix formulation this means basis function is matrix of the size,
 
@@ -1282,25 +1284,29 @@ We approximatete the solution at any point from solution of degrees of freedom i
 \phi \in \mathbb{R}^{u_{npe} \times d_u}
 \end{equation}
 
+and
+
 \begin{equation}\label{basis_func_pressure_rbmatlab}
-\psi \in \mathbb{R}^{p_{npe} \times d_p}
+\psi \in \mathbb{R}^{p_{npe} \times d_p} \quad \textrm{.}
 \end{equation}
 
-This representation creates many zeros in matrix, however, it does not require new evaluation for each component of vector quantity. Due to the zeros in the basis function, derivative of basis functions also has many zeros.
+This representation creates many zeros in matrix, however, it does not require new evaluation for each component of vector quantity. Due to the zeros in the basis function, derivative of basis functions also has many zeros.\\
 
-The derivative of the basis functions is provided by a routine \linebreak \verb|ldg_evaluate_basis_derivative|. The derivative of basis function $(\phi)_{i}$, where $1 \leq i \leq u_{npe}$ is a cell containing matrix $\nabla (\phi)_{i}$ of size,
+\verb|ldg_evaluate_basis_derivative| is the routine which evaluates the derivative of the basis functions. The derivative of basis function $(\phi)_{i}$, where $1 \leq i \leq u_{npe}$ is a cell containing matrix $\nabla (\phi)_{i}$ of size,
+
 \begin{equation}\label{basis_func_derivative_velocity_rbmatlab}
-\nabla (\phi)_{i} \in \mathbb{R}^{{d_u} \times d}
+\nabla (\phi)_{i} \in \mathbb{R}^{{d_u} \times d} \quad \textrm{.}
 \end{equation}
 
-where the columns of the matrix correspond to $\nabla_x (\phi)_{i}$ and $\nabla_y (\phi)_{i}$ .
+The columns of the matrix correspond to $\nabla_x (\phi)_{i}$ and $\nabla_y (\phi)_{i}$.
 
 The derivative of basis function $(\psi)_{i}$, where $1 \leq i \leq p_{npe}$ is a cell containing matrix $\nabla (\psi)_{i}$ of size,
+
 \begin{equation}\label{basis_func_derivative_pressure_rbmatlab}
-\nabla (\psi)_{i} \in \mathbb{R}^{{d_p} \times d}
+\nabla (\psi)_{i} \in \mathbb{R}^{{d_p} \times d} \quad \textrm{.}
 \end{equation}
 
-where the columns of the matrix correspond to $\nabla_x (\psi)_{i}$ and $\nabla_y (\psi)_{i}$ .
+The columns of the matrix correspond to $\nabla_x (\psi)_{i}$ and $\nabla_y (\psi)_{i}$.
 
 \section{Assembly of average operator}
 
@@ -1370,7 +1376,7 @@ With this preliminary informations we discuss now the assembly of matrices.
 
 Step 1: Evaluation of $(\nabla \phi , \nabla \phi)$,
 
-We first evaluate the derivative of $\hat{\phi}$ and $JIT(k,:,:)$ at point $x_i$ through \verb|ldg_evaluate_basis_derivative| and \verb|grid| structure. We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the equation \ref{derivative_transformation}.
+Through \verb|ldg_evaluate_basis_derivative| and \verb|grid| structure, we first evaluate the derivative of $\hat{\phi}$ and $JIT(k,:,:)$ at point $x_i$ . We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the equation \ref{derivative_transformation}.
 
 We than assemble matrix $res_1[i,j]=\phi_i \phi_j^T$ for $1 \leq i,j \leq u_{npe}$\\
 
@@ -1572,7 +1578,7 @@ We set the Dirichlet and Neumann boundary values in routine \verb|Dirichlet_valu
 
 \section{Setting source term}
 
-We set the source term values in routine \verb|func_rhs| as column vectors. This si called during the process of assembling vector term $(f,\phi)$ of right hand side of equation \ref{navier_stokes_weak_ch3} and equation \ref{stokes_weak_ch3}.
+We set the source term values in routine \verb|func_rhs| as column vectors. This is called during the process of assembling vector term $(f,\phi)$ of right hand side of equation \ref{navier_stokes_weak_ch3} and equation \ref{stokes_weak_ch3}.
 
 \section{Program flow}
 
@@ -1580,17 +1586,17 @@ The main script of the program is \verb|mymodel|. This script is equivalent to \
 
 \subsection{Grid preparation}
 
-We use \verb|pdegrid| tool to generate grid. We generate mesh and export parameters \verb|point(p)|, \verb|edge(e)| and \verb|triangle(t)|. \verb|params.bnd_rect_corner1| marks the lower corner of to be marked boundary and \verb|params.bnd_rect_corner2| marks the upper corner of to be marked boundary. \verb|params.bnd_rect_index| marks the type of boundary. (-1) represents Dirichlet boundary and (-2) represents Neumann boundary. \verb|params.gridtype| defines the type of grid. \verb|construct\_grid(params)| constructs the grid as struct containing necessary fields for grid. 
+We use \verb|pdegrid| tool to generate grid. We generate mesh and export parameters \verb|point(p)|, \verb|edge(e)| and \verb|triangle(t)|. \verb|params.bnd_rect_corner1| marks the lower corner of to be marked boundary and \verb|params.bnd_rect_corner2| marks the upper corner of to be marked boundary. \verb|params.bnd_rect_index| marks the type of boundary. (-1) represents Dirichlet boundary and (-2) represents Neumann boundary. \verb|params.gridtype| defines the type of grid. \\
 
-In case of creating rectangular grid without using \verb|pdegrid|, we define fields \verb|xrange|, \verb|yrange|, \verb|xnumintervals| and \verb|ynumintervals| defining range of x co-ordinates of domain, range of y co-ordinates of domain, number of intervals for x division and number of intervals for y division respectively and call routine \verb|construct_grid|.
+\verb|construct_grid(params)| constructs the grid as struct containing necessary fields for grid. In case of creating rectangular grid without using \verb|pdegrid|, we define fields \verb|xrange|, \verb|yrange|, \verb|xnumintervals| and \verb|ynumintervals| defining range of x co-ordinates of domain, range of y co-ordinates of domain, number of intervals for x division and number of intervals for y division respectively and call routine \verb|construct_grid|.
 
 \subsection{Function space formulation}
 
-We now define fields for constructing function spaces for pressure and velocity. We now use two structures \verb|params| for velocity and \verb|paramsP| for pressure as explained previously (\ref{table_params} and \ref{table_paramsP}). These structures contain fields (as relevant to function space formulation) \verb|pdeg| and \verb|dimrange|. \verb|pdeg| represents polynomial degree of Ansatz function and \verb|dimrange| represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field \verb|paramsP.pdeg| is calculated as \verb|paramsP.pdeg = params.pdeg - 1| in accordance with Taylor hood element. Based on these fields \verb|ndofs_per_element|, \verb|ndofs| are calculated. Number of elements in grid can be read from \verb|grid.nelements|. We also define degree for integration \verb|qdeg| and kinematic viscocity in \linebreak \verb|params.kinematic_viscosity|. Variable \verb|mu| also holds the value of kinematic viscocity. We define penalty parameter in variable $C_{11}$. Bool variable \verb|show_sparsity| plots sparsity pattern of each matrix if set to true.\\
+We now define fields for constructing function spaces for pressure and velocity. We now use two structures \verb|params| for velocity and \verb|paramsP| for pressure as explained previously (Table \ref{table_params} and Table \ref{table_paramsP}). These structures contain fields (as relevant to function space formulation) \verb|pdeg| and \verb|dimrange|. \verb|pdeg| represents polynomial degree of Ansatz function and \verb|dimrange| represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field \verb|paramsP.pdeg| is calculated as \verb|paramsP.pdeg = params.pdeg - 1| in accordance with Taylor hood element. Based on these fields \verb|ndofs_per_element|, \verb|ndofs| are calculated. Number of elements in grid can be read from \verb|grid.nelements|. We also define degree for integration \verb|qdeg| and kinematic viscocity in \linebreak \verb|params.kinematic_viscosity|. Variable \verb|mu| also holds the value of kinematic viscocity. We define penalty parameter in variable $C_{11}$. Bool variable \verb|show_sparsity| plots sparsity pattern of each matrix if set to true.\\
 
 \subsection{Matrix assembly}
 
-We now assemble all the matrices as explained during matrix assembly (routine \verb|assemble_stifness_matrix|). The individual matrices are assembled and stored in struct \verb|params|. \verb|params.bilinear_side| contains $A$ or assembly of $a(u,\phi)$. \verb|params.bilinear_side_pressure_terms| contains assembly of $B$ or assembly of \verb|b(\phi,\psi)|.\verb|params.lhs_continuity| contains assembly of $B^T$. \verb|rhs| is the right hand side matrix \verb|[F_1;F_2]| as \linebreak \verb|[params.linear_side;params.rhs_continuity]|. \\
+We now assemble all the matrices as explained during matrix assembly (routine \verb|assemble_stifness_matrix|). The individual matrices are assembled and stored in struct \verb|params|. \verb|params.bilinear_side| contains $A$ or assembly of $a(u,\phi)$. \verb|params.bilinear_side_pressure_terms| contains assembly of $B$ or assembly of \verb|b(|$\phi$,$\psi$\verb|)|.\verb|params.lhs_continuity| contains assembly of $B^T$. \verb|rhs| is the right hand side matrix \verb|[F_1;F_2]| as \linebreak \verb|[params.linear_side;params.rhs_continuity]|. \\
 
 \subsection{Solving assembled form}
 
@@ -2374,37 +2380,41 @@ It is to be noted that $bicgstab$ stops before convergence and without reaching 
 
 \section{Conclusions}
 
-After implementation of theoretical concepts and achieving experimental outcomes we arrive at following conclusion: \\
+After implementation of the theoretical concepts and achieving experimental outcomes we arrive at the following conclusion: \\
 
-1. The Stiffness matrix of Stokes equation is symmetric and has positive definite part. Also the number of positive eigenvalues of stiffness matrix of Stokes equation is total number of velocity degrees of freedom and number of positive eigenvalues of stiffness matrix of Stokes equation is total number of pressure degrees of freedom.\\
+1. The stiffness matrix of the Stokes equation is symmetric and has a positive definite part. Also the number of positive eigenvalues of the stiffness matrix of the Stokes equation equals the total number of velocity degrees of freedom and number of positive eigenvalues of the stiffness matrix of the Stokes equation coincides with the total number of pressure degrees of freedom.\\
 
-2. The Schur complement method is very useful for Stokes flow due to efficient computation and good accuracy. \\
+2. The Schur complement method is very useful for the Stokes equation due to efficient computation and good accuracy. \\
 
-3. $minres$ solver able to solve linear system of equation of stokes equation without unexpected termination of solver, i.e. the solver stops either after reaching maximum number iteration or specified tolerance level.\\
+3. $minres$ solver is able to solve the linear system of equations of the Stokes equation without unexpected termination of solver, i.e. the solver stops either after reaching the maximum number of iterations or specified tolerance level.\\
 
-4. In contrast, $bicgstab$ can stop without reaching specified tolerance level or maximum nu,ber of iterations.\\
+4. In contrast, $bicgstab$ can stop without reaching specified tolerance level or maximum number of iterations.\\
 
-5. The condition number of Stiffness matrix of Stokes equation increases with increase in penalty parameter. Therefore, the penalty parameter has to be small enough to limit the cndition number. However, the penalty parameter has to be large enough to maintain coercivity of bilinear form. \\
+5. The condition number of the stiffness matrix of the Stokes equation increases with increase in penalty parameter. Therefore, the penalty parameter has to be small enough to limit the condition number. However, the penalty parameter has to be large enough to maintain coercivity of the bilinear form. \\
 
-6. The stiffness matrix of Navier stokes equation is non symmetric. Therefore, the solvers such as $minres$, which are aplicable only for symmetric stiffness matrices are not useful. Therefore, solvers such as $bicgstab$, which are applicable for nonsymmetric stiffness matrices, are useful.\\
+6. The stiffness matrix of the Navier stokes equation is non symmetric. Therefore, the solvers such as $minres$, which are aplicable only for symmetric stiffness matrices are not useful. Therefore, solvers such as $bicgstab$, which are applicable for nonsymmetric stiffness matrices, are useful.\\
 
-7. The newton methods requires solution of large system fo equation in each newton loop adding to heavy computational cost.\\
+7. The Newton method requires solution of large system of equations in each Newton loop adding to heavy computational cost.\\
 
-8. The solution of Stokes equation is dependent also on solver used.
+8. The solution of the Stokes equation is dependent also on the solver used.
 
-9. The initial guess, in our case solution obtained from Stokes equation, is crucial for success of newton method.\\
+9. The initial guess, in our case the solution obtained from the Stokes equation, is crucial for success of the Newton method.\\
 
 \section{Outlook}
 
-As future development, the Stokes equation and Navier Stokes equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. This allows the approximation of the numerical solution with respect to parameter space. Affine transformation for Stokes equation and Empirical interpolation method for Navier Stokes equation can be used to evaluate parametrised solutions. \\
+As future development, the Stokes equation and the Navier Stokes equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. This allows the approximation of the numerical solution with respect to parameter space. Affine transformation for the Stokes equation and the Empirical interpolation method for the Navier Stokes equation can be used to evaluate parametrised solutions. \\
 
 The solution of the parametrized form can be stored for reduced basis evaluations. Model order reduction with a method such as proper orthogonal decompositon or greedy algorithm can be performed. As an example, proper orthogonal decomposition sorts and segregates the stored solution based on the eigenvalues. This sorted and segregated snapshots with parametrised form can be used for the prediction of the full numerical solution. In this process the evaluations are made faster but with increase in approximation error. Hence, time saving vs. induced error can be compared.
 
-\chapter{Mathematical preliminaries}
+\newpage
+
+\begin{appendices}
+
+\section{Mathematical preliminaries}
 
 We present now mathematical preliminaries from references relevant to the thesis. 
 
-\section{Cholesky decomposition} \label{chol}
+\subsection{Cholesky decomposition} \label{chol}
 
 Every symmetric positive definite matrix can be expressed as product of lower triangular matrix and transpose of that lower triangular matrix. That is, if $\mathcal{U}$ is symmetric positive definite matrix then,
 
@@ -2463,7 +2473,7 @@ It is to be noted that similar theory is also applicable for Cholesky decomposit
 
 In MATLAB the cholesky decomposition is performed by $chol$. The choice of upper triangular or lower triangular matrix can be adjusted by providing additional input argument $'lower'$ or $'upper'$. More information can be found by $help$ in MATLAB and MATLAB documentation.
  
-\section{Saddle point formulation} \label{saddle_point} 
+\subsection{Saddle point formulation} \label{saddle_point} 
 
 The saddle point problem has following form,
 
@@ -2567,7 +2577,7 @@ It can be seen if $\mathcal{C}$ is negativesemi definite, $B_1 = B_2^T$ and $\ma
 
 We now introduce Sobolev spaces and related basic definitions, Linear forms and bilinear forms. Readers are advised to refer to \cite{crbm} for further understanding.
 
-\section{Sobolev spaces} 
+\subsection{Sobolev spaces} 
 
 Let $\Omega$ be an open subset of $\mathbb{R}^d$ and $k'$ a positive integer. Let $L^2(\Omega)$ denote the space of square integrable functions on $\Omega$. 
 
@@ -2612,7 +2622,7 @@ and inner product
 (f,g) = \sum_{\tau_k \in \mathcal{T}} (f,g)_{L^2(\tau_k)} + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ([u],[v])_{L^2 (\tau_k)} \quad \textrm{.}
 \end{equation}
 
-\section{Basic definitions}
+\subsection{Basic definitions}
 
 We consider here vector space $\mathbb{V}$ over $\mathbb{R}$\\
 
@@ -2641,7 +2651,7 @@ C. $||u+v|| \leq ||u||_\mathbb{V} + ||v||_\mathbb{V}$ $u,v \in \mathbb{V}$.\\
 C_1||.||_1 \leq ||.||_2 \leq C_2 ||.||_1 \forall v \in V
 \end{equation}
 
-\section{Linear forms}
+\subsection{Linear forms}
 
 Let $(\mathbb{V,||.||_\mathbb{V}})$ be a normed space. Then, we define the following notions.\\
 
@@ -2666,7 +2676,7 @@ F(\alpha u) = \alpha F(u) \forall \alpha \in \mathbb{R}, u \in \mathbb{V}
 
 The notion of continuity and boundedness is equivalent for linear forms.
 
-\section{Bilinear forms}
+\subsection{Bilinear forms}
 
 1. A bilinear form $a(\cdot,\cdot)$ acting on the vector spaces $\mathbb{V}$ and $\mathbb{W}$ is given as
 \begin{equation}
@@ -2689,7 +2699,7 @@ and is linear with respect to each of its arguments.\\
 a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V}
 \end{equation}
 
-\subsection{Coercivity of bilinear form} \label{Coercivity_constant}
+\subsubsection{Coercivity of bilinear form} \label{Coercivity_constant}
 
 A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $\kappa_e > 0$ such that
 
@@ -2697,7 +2707,7 @@ A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $\kap
 a(v,v) > \kappa_e ||v||^2   \quad \forall \quad v \in  \mathbb{V}
 \end{equation}
 
-\subsection{Continuity of bilinear form}
+\subsubsection{Continuity of bilinear form}
 
 A bilinear form $a(u,v)$ is said to be continuous if there exists a constant $\gamma > 0$ such that
 
@@ -2705,9 +2715,9 @@ A bilinear form $a(u,v)$ is said to be continuous if there exists a constant $\g
 a(u,v) \leq \gamma ||u||||v|| \quad  \forall \quad u,v \in  \mathbb{V}
 \end{equation}
 
-\section{Important inequalities}
+\subsection{Important inequalities}
 
-\subsection{Trace theorem} 
+\subsubsection{Trace theorem} 
 
 We now refer to trace inequalities presented by Rivi\`ere B.\cite{riviere}. The trace inequalities are used to define restrictions of Sobolev function along the boundary of domain and used for proper treatment of boundary conditions. 
 
@@ -2731,17 +2741,21 @@ If $l$ is the length of $\Gamma$ and $Ar$ is the area of $\tau$,  $\forall \phi 
 
 Here, $\hat{C}_t$ and ${C}_t$ are constants independent of $h_\tau$ and $\phi$ but dependent on polynomial degree $D$. The exact expressions for $C_t$ are given by \cite{warburton}.
 
-\subsection{Cauchy-Schwarz inequality} 
+\subsubsection{Cauchy-Schwarz inequality} 
 \begin{center}
 $\forall f,g \in L^2(\Omega)$, $|(f,g)_{\Omega}| \leq ||f||_{L^2(\Omega)} ||g||_{L^2(\Omega)}$ \\
 \end{center}
 
-\subsection{Young's inequality} 
+\subsubsection{Young's inequality} 
 \begin{center}
 $\forall \epsilon > 0$, $\forall a,b \in \mathbb{R}$, $ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2$\\
 \end{center}
 
-\chapter{References}
+\end{appendices}
+
+\begin{appendices}
+
+\newpage
 
 \section{Online resources}
 
@@ -2761,11 +2775,11 @@ https://github.com/niravshah241/master\_thesis.git .\\
 
 It is also recommended to use \verb|help <filename>| command for getting more information about the function definition and input/output data.
 
+\end{appendices}
+
+
 \bibliographystyle{plain}
 \bibliography{ref1}
-
-
-
 
 
 \end{document}

@@ -34,12 +34,12 @@
 \contentsline {subsection}{\numberline {3.10.3}Schur complement method}{34}
 \contentsline {chapter}{\numberline {4}Implementation aspects}{37}
 \contentsline {section}{\numberline {4.1}Terminology}{37}
-\contentsline {section}{\numberline {4.2}Basis functions in RBmatlab}{39}
+\contentsline {section}{\numberline {4.2}Basis functions in RBmatlab}{37}
 \contentsline {section}{\numberline {4.3}Assembly of average operator}{40}
 \contentsline {section}{\numberline {4.4}Assembly of jump operator}{40}
 \contentsline {section}{\numberline {4.5}Matrix assemblies}{40}
 \contentsline {section}{\numberline {4.6}Setting boundary conditions}{44}
-\contentsline {section}{\numberline {4.7}Setting source term}{44}
+\contentsline {section}{\numberline {4.7}Setting source term}{45}
 \contentsline {section}{\numberline {4.8}Program flow}{45}
 \contentsline {subsection}{\numberline {4.8.1}Grid preparation}{45}
 \contentsline {subsection}{\numberline {4.8.2}Function space formulation}{45}
@@ -65,19 +65,18 @@
 \contentsline {chapter}{\numberline {6}Summary, conclusion and outlook}{81}
 \contentsline {section}{\numberline {6.1}Conclusions}{81}
 \contentsline {section}{\numberline {6.2}Outlook}{82}
-\contentsline {chapter}{\numberline {7}Mathematical preliminaries}{83}
-\contentsline {section}{\numberline {7.1}Cholesky decomposition}{83}
-\contentsline {section}{\numberline {7.2}Saddle point formulation}{84}
-\contentsline {section}{\numberline {7.3}Sobolev spaces}{85}
-\contentsline {section}{\numberline {7.4}Basic definitions}{86}
-\contentsline {section}{\numberline {7.5}Linear forms}{86}
-\contentsline {section}{\numberline {7.6}Bilinear forms}{87}
-\contentsline {subsection}{\numberline {7.6.1}Coercivity of bilinear form}{87}
-\contentsline {subsection}{\numberline {7.6.2}Continuity of bilinear form}{87}
-\contentsline {section}{\numberline {7.7}Important inequalities}{87}
-\contentsline {subsection}{\numberline {7.7.1}Trace theorem}{87}
-\contentsline {subsection}{\numberline {7.7.2}Cauchy-Schwarz inequality}{88}
-\contentsline {subsection}{\numberline {7.7.3}Young's inequality}{88}
-\contentsline {chapter}{\numberline {8}References}{89}
-\contentsline {section}{\numberline {8.1}Online resources}{89}
-\contentsline {section}{\numberline {8.2}Code access}{89}
+\contentsline {section}{\numberline {.1}Mathematical preliminaries}{83}
+\contentsline {subsection}{\numberline {.1.1}Cholesky decomposition}{83}
+\contentsline {subsection}{\numberline {.1.2}Saddle point formulation}{84}
+\contentsline {subsection}{\numberline {.1.3}Sobolev spaces}{85}
+\contentsline {subsection}{\numberline {.1.4}Basic definitions}{85}
+\contentsline {subsection}{\numberline {.1.5}Linear forms}{86}
+\contentsline {subsection}{\numberline {.1.6}Bilinear forms}{86}
+\contentsline {subsubsection}{Coercivity of bilinear form}{87}
+\contentsline {subsubsection}{Continuity of bilinear form}{87}
+\contentsline {subsection}{\numberline {.1.7}Important inequalities}{87}
+\contentsline {subsubsection}{Trace theorem}{87}
+\contentsline {subsubsection}{Cauchy-Schwarz inequality}{87}
+\contentsline {subsubsection}{Young's inequality}{87}
+\contentsline {section}{\numberline {.1}Online resources}{88}
+\contentsline {section}{\numberline {.2}Code access}{88}
