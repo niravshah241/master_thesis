@@ -1131,13 +1131,13 @@ The $bicgstab$ works to minimise residual of linear equation of the form:
 KX = B
 \end{equation}
 
-with $K$ = Coefficient matrix, $X$ = Vector of unknowns and $B$ = vector of value of known function. The coefficient matrix $A$ need not be symmetric. \\
+with $K$ = Coefficient matrix, $X$ = Vector of unknowns and $B$ = vector of value of known function. The coefficient matrix $A$ need not be symmetric. We refer to \cite{bicgstab} for details about the method.\\
 
 In the present analysis it was found that the $bicgstab$ stops before converging to specified tolerance level or reaching maximum number of iterations. 
 
 \subsection{Minimum residual method} 
 
-The $minres$ method is special kind of conjugate gradient method but does not require LU decomposition. It also solves the equations \ref{linear_matrix_equation}. However, the co-efficient matrix $K$ must be symmetric. \\
+The $minres$ method is special kind of conjugate gradient method but does not require LU decomposition. We refer to \cite{minres} for details about the method. It also solves the equations \ref{linear_matrix_equation}. However, the co-efficient matrix $K$ must be symmetric. \\
 
 As the co-efficient matrix in case discrete form of Stokes equation is symmetric, the minres is suitable solver. Moreover, it has shown to coverge to required convergence level, provided sufficient number of iterations, when $bicgstab$ is not able to reach required level of convergence.
 

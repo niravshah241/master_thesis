@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  26 FEB 2018 17:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  26 FEB 2018 18:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2509,10 +2509,10 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
  [93]) [94] (./Short description.aux) ) 
 Here is how much of TeX's memory you used:
- 17504 strings out of 493029
- 339796 string characters out of 6136233
+ 17510 strings out of 493029
+ 339886 string characters out of 6136233
  417939 words of memory out of 5000000
- 20608 multiletter control sequences out of 15000+600000
+ 20614 multiletter control sequences out of 15000+600000
  18781 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,54p,1386b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2542,7 +2542,7 @@ pe1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/symbols/msbm7.pfb>
-Output written on "Short description.pdf" (96 pages, 6703701 bytes).
+Output written on "Short description.pdf" (96 pages, 6704139 bytes).
 PDF statistics:
  510 PDF objects out of 1000 (max. 8388607)
  298 compressed objects within 3 object streams

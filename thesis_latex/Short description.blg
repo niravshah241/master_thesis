@@ -4,45 +4,45 @@ The top-level auxiliary file: Short description.aux
 The style file: plain.bst
 Database file #1: ref1.bib
 Warning--can't use both author and editor fields in Haasdonk_book
-You've used 13 entries,
+You've used 15 entries,
             2118 wiz_defined-function locations,
-            588 strings with 6289 characters,
-and the built_in function-call counts, 3877 in all, are:
-= -- 380
-> -- 169
+            602 strings with 6599 characters,
+and the built_in function-call counts, 4435 in all, are:
+= -- 436
+> -- 183
 < -- 0
-+ -- 68
-- -- 54
-* -- 264
-:= -- 677
-add.period$ -- 43
-call.type$ -- 13
-change.case$ -- 62
++ -- 75
+- -- 58
+* -- 304
+:= -- 771
+add.period$ -- 49
+call.type$ -- 15
+change.case$ -- 70
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 146
-empty$ -- 316
-format.name$ -- 54
-if$ -- 799
+cite$ -- 16
+duplicate$ -- 168
+empty$ -- 368
+format.name$ -- 58
+if$ -- 917
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 18
-newline$ -- 69
-num.names$ -- 26
-pop$ -- 64
+int.to.str$ -- 15
+missing$ -- 20
+newline$ -- 79
+num.names$ -- 30
+pop$ -- 68
 preamble$ -- 1
-purify$ -- 53
+purify$ -- 59
 quote$ -- 0
-skip$ -- 88
+skip$ -- 102
 stack$ -- 0
-substring$ -- 234
-swap$ -- 14
+substring$ -- 281
+swap$ -- 16
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 42
+type$ -- 50
 warning$ -- 1
-while$ -- 35
-width$ -- 15
-write$ -- 145
+while$ -- 41
+width$ -- 17
+write$ -- 167
 (There was 1 warning)

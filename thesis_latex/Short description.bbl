@@ -14,6 +14,11 @@ Montlaur A., Fernandez-Mendez S., Peraire J., and Huerta A.
 \newblock {\em International Journal for Numerical Methods in Fluids},
   64(5):549--564, 2010.
 
+\bibitem{minres}
+Comrey A.~L.
+\newblock The minimum residual method of factor analysis.
+\newblock {\em Psychological Reports}, 11(1):15--18, 1962.
+
 \bibitem{Haasdonk_book}
 Haasdonk B.
 \newblock {\em Reduced Basis Methods for Parametrized PDEs -- A Tutorial
@@ -45,6 +50,13 @@ White F.M.
 \newblock {\em Fluid mechanics}.
 \newblock McGraw-Hill international editions. Mechanical engineering series.
   McGraw-Hill Ryerson, Limited, 1986.
+
+\bibitem{bicgstab}
+van der~Vorst H.~A.
+\newblock Bi-cgstab: A fast and smoothly converging variant of {B}i-{CG} for
+  the solution of nonsymmetric linear systems.
+\newblock {\em {SIAM} {J}ournal on {S}cientific and {S}tatistical {C}omputing},
+  13(2):631--644, 1992.
 
 \bibitem{peraire}
 Peraire J. and Persson P.-O.
