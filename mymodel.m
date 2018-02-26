@@ -148,17 +148,17 @@ for i = 1:1:size(parameter_training_set,1)
     
     
     %% Navier Stokes
-    % tol_newton = 1e-12;
-    % max_iter_newton = 10;
-    % tol_solver = 1e-13;
-    % max_iter_solver = 100;
+    tol_newton = 1e-12;
+    max_iter_newton = 10;
+    tol_solver = 1e-13;
+    max_iter_solver = 100;
+    
+    [ params,paramsP,flag,relres_solver,iter_solver,...
+        relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
+        newton_script( params,paramsP,grid,qdeg,mu,c11,...
+        tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
     %
-    % [ params,paramsP,flag,relres_solver,iter_solver,...
-    %     relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
-    %     newton_script( params,paramsP,grid,qdeg,mu,c11,...
-    %     tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
-    % %
-    % % %% non linear Stiffness matrix tests
+    % %% non linear Stiffness matrix tests
     % %
     % % disp('Entering into stiffness matrix tests')
     % % [ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...

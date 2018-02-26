@@ -45,6 +45,12 @@ White F.M.
 \newblock McGraw-Hill international editions. Mechanical engineering series.
   McGraw-Hill Ryerson, Limited, 1986.
 
+\bibitem{peraire}
+Peraire J. and P.-O. Persson.
+\newblock The {C}ompact {D}iscontinuous {G}alerkin (cdg) method for {E}lliptic
+  problems.
+\newblock {\em SIAM Journal on Scientific Computing}, 30(4):1806--1824, 2008.
+
 \bibitem{crbm}
 Hesthaven J.~S., Rozza G., and Stamm B.
 \newblock {\em Certified Reduced Basis Methods for Parametrized Partial

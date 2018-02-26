@@ -61,7 +61,6 @@ close all
 
 for i=1:1:params.dimrange
     figure()
-    axis equal
     [scalar_dofs, scalar_df_info] = ldg_scalar_component(params,i);
     sdf = ldgdiscfunc(scalar_dofs,scalar_df_info);
     disp(['Plotting ',num2str(i),' degree of freedom'])
@@ -72,7 +71,8 @@ for i=1:1:params.dimrange
     else
         title('Velocity in y direction (Newton)')
     end
-    %axis equal
+    axis equal
+    axis tight
     ldg_plot(sdf,grid,params);
     plot(grid);
 end
@@ -85,7 +85,8 @@ for i=1:1:paramsP.dimrange
     disp(['Plotting ',num2str(i),' degree of freedom (for pressure) (Newton)'])
     subplot(paramsP.dimrange,1,i)
     title('Pressure')
-    %axis equal
+    axis equal
+    axis tight
     ldg_plot(sdf,grid,paramsP);
     plot(grid);
 end

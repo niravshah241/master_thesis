@@ -543,7 +543,7 @@ Orthonormal basis functions are the basis functions defined in such a way that a
 
 In the present analysis, $(\cdot,\cdot)$ represents $L^2$ scalar product and $\hat{T}$ is reference triangle (Section \ref{section_glob_loc}). 
 
-\section{Global and local co-ordinate system} \label{section_glob_loc}
+\section{Global and local coordinate system} \label{section_glob_loc}
 
 Integral terms are evaluated on a reference triangle instead of the element itself. Accordingly, a coordinate transformation between reference triangle and element is performed for evaluating integrals. The coordinate system in which the reference triangle lies is called reference or local coordinate system and the coordinate system in which element itself lies is called global coordinate system. The reference triangle has vertices $(0,0),(1,0),(0,1) \in \mathbb{R}^2$ in order. The element is defined by vertex indices in order forming triangle. The transformation from local coordinate $\hat{X}$ to global coordinate $X$ is defined by the mapping,
 \begin{equation}\label{local global mapping}
@@ -668,7 +668,7 @@ If $p$ and $q$ are vectors,
 
 If $p$ and $q$ are tensors,
 \begin{equation}\label{Inner product tensors}
-(p,q)=\int_{\Omega} p:q d\Omega \quad \textrm{where} \quad p:q = Tr(pq^T)
+(p,q)=\int_{\Omega} p \vdots q d\Omega \quad \textrm{where} \quad p:q = Tr(pq^T)
 \end{equation}
 
 \section{Problem statement}
@@ -691,7 +691,35 @@ u = u_D \quad \textrm{on} \quad \Gamma_D
 -pn + \nu n \cdot \nabla u = t \quad \textrm{on} \quad \Gamma_N
 \end{equation}
 
-The weak form of Stokes equation is as follow,
+
+\subsubsection{Derivation of the weak form of the Stokes equation} \label{derivation_weak_stokes}
+
+We multiply the Equation \ref{stokes_strong_form_ch3} by $\phi$ and integrate over $\mathcal{T}$,
+\begin{equation}
+\int_{\mathcal{T}} (- \phi \nu \Delta u + \phi \cdot \nabla p) = \int_{\mathcal{T}} \phi \cdot f 
+\end{equation}
+
+By applying Gauss divergence theoreom,
+\begin{equation}
+\int_{\mathcal{T}} (-\nabla (\phi \nu \nabla u) + (\nu \nabla \phi \vdots \nabla u) + \nabla \cdot (p \phi) - (p \nabla \cdot \phi)) = \int_{\mathcal{T}} \phi \cdot f 
+\end{equation}
+
+\begin{equation}
+\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} (- [(\phi \nu \nabla u)] + \int_{\mathcal{T}}  (\nu \nabla \phi \vdots \nabla u) + \int_{\Gamma \cup \Gamma_D \cup \Gamma_N}  [p \phi] - \int_{\mathcal{T}}  (p \nabla \cdot \phi)) = \int_{\mathcal{T}} \phi \cdot f 
+\end{equation}
+
+Following symmetric formulation for jump operator proposed by Peraire et al. \cite{peraire},
+\begin{equation}
+\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} [(\phi \nu \nabla u)] = \int_{\Gamma} (\lbrace \phi \rbrace \vdots [n \otimes \nabla u]) + \int_{\Gamma} (\lbrace \nabla u \rbrace \vdots [n \otimes \phi]) + \int_{\Gamma_D \cup \Gamma_N} (\phi \cdot u ) 
+\end{equation}
+
+and 
+
+\begin{equation}
+\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} [p \phi] = \int_{\Gamma} (\lbrace p \rbrace [ n \cdot \phi]) + \int_{\Gamma} (\lbrace \phi \rbrace \cdot [pn]) + \int_{\Gamma_D \cup \Gamma_N} (p (n \cdot \phi) ) \quad \textrm{.}
+\end{equation}
+
+Collecting all Neumann boundary integral terms, the weak form of Stokes equation is as follow,
 
 \begin{equation}\label{stokes_weak_ch3}
 \begin{split}
@@ -808,7 +836,9 @@ With above considerations we arrive at following conclusions, \\
 1. Stiffness matrix is symmertic. \\
 2. Stiffness matrix $ \in \mathbb{R}^{(u_{ndofs} + p_{ndofs}) \times (u_{ndofs} + p_{ndofs})}$\\
 3. The number of positive eigenvalues of stiffness matrix is equal to number of velocity degrees of freedom and number of negative eigenvalues of stiffness matrix is equal to number of pressure degrees of freedom.\\
-\textbf{Proof}:\\
+
+\subsubsection{Proof}
+
 From equation \eqref{factorisation1} we see that the congruent matrix of stiffness matrix for Stokes equation is,
 \begin{equation}
 \begin{spmatrix}{}
@@ -2143,12 +2173,12 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s.jpg}
-  \caption{$h-$ convergence test for velocity $H^0$ error}
+  \caption{$h-$ convergence test for velocity $H_0$ error}
   \label{fig:vel_navier_stoke_conv_h0}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_pressure_n_s.jpg}
-  \caption{$h-$ convergence test for pressure in $H^0$ error}
+  \caption{$h-$ convergence test for pressure in $H_0$ error}
   \label{fig:pre_navier_stoke_conv_h0}
 \end{subfigure}
 \caption{\label{navier_stoke_conv_h0}}
@@ -2156,12 +2186,12 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s_log.jpg}
-  \caption{$h-$ convergence test for velocity $H^0$ error (logarithmic scale)}
+  \caption{$h-$ convergence test for velocity $H_0$ error (logarithmic scale)}
   \label{fig:vel_navier_stoke_conv_log_h0}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_pressure_n_s_log.jpg}
-  \caption{$h-$ convergence test for pressure in $H^0$ error (logarithmic scale)}
+  \caption{$h-$ convergence test for pressure in $H_0$ error (logarithmic scale)}
   \label{fig:pre_navier_stoke_conv_log_h0}
 \end{subfigure}
 \caption{\label{navier_stoke_conv_h0_log}}
