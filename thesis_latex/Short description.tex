@@ -26,15 +26,17 @@
 
 
 \author{Nirav Vasant Shah, \\M.Sc. Candidate, Water Resources Engineering and Management, \\Universit\"at Stuttgart, \\Stuttgart, Deutschland (Germany)\\ 
-\and Supervisor: Prof. Dr. Bernard Haasdonk,\\ Institute of Applied Analysis and Numerical Simulation, \\Universit\"at of Stuttgart,\\ Stuttgart, Deutschland (Germany)\\ \and Co-advisor: Prof. Gianluigi Rozza,\\ Scuola Internazionale Superiore di Studi Avanzati, \\Trieste, Italy \\ \and Co-advisor: Dr. Martin Hess,\\ Scuola Internazionale Superiore di Studi Avanzati, \\Trieste, Italy }
+\and Supervisor: Prof. Dr. Bernard Haasdonk,\\ Institute of Applied Analysis and Numerical Simulation, \\Universit\"at Stuttgart,\\ Stuttgart, Deutschland (Germany)\\ \and Co-advisor: Prof. Dr. Gianluigi Rozza,\\ Scuola Internazionale Superiore di Studi Avanzati, \\Trieste, Italy \\ \and Co-advisor: Dr. Martin Hess,\\ Scuola Internazionale Superiore di Studi Avanzati, \\Trieste, Italy }
 \date{\today}
 \maketitle
 
 \end{center}
 
+\noindent
+
 \section{Acknowledgement}
 
-The  presented in this thesis is a result of the work carried out between Spetember 2017 - March 2018 at the Institute of Applied Analysis and Numerical Simulation, Universit\"at of Stuttgart and Scuola Internazionale Superiore di Studi Avanzati, Trieste. \\
+The  presented in this thesis is a result of the work carried out between September 2017 - March 2018 at the Institute of Applied Analysis and Numerical Simulation, Universit\"at of Stuttgart and Scuola Internazionale Superiore di Studi Avanzati, Trieste. \\
 
 Undoubtedly, this result could only be achieved by the support of a number of people to whom I would
 like to express my gratitude.\\
@@ -294,19 +296,19 @@ The thesis deals with the numerical simulation of the Navier Stokes equation [Wh
 
 The goal of the thesis is to derive, discretise and implement the discontinuous Galerkin [Riviere B. \cite{riviere}] weak form of the Navier Stokes equation and perform numerical simulation of the Navier Stokes equation. In the course of the numerical solution we measure the simulation efforts. 
 
-In chapter 2, the Navier Stokes equation is introduced. We first derive the Navier Stokes equation from the conservation equation or the Reynolds transport theoreom. We discuss the flow classification and important issues related to numerical simulation of the Navier Stokes equation. 
+In Chapter 2, the Navier Stokes equation is introduced. We first derive the Navier Stokes equation from the conservation equation or the Reynolds transport theoreom. We discuss the flow classification and important issues related to numerical simulation of the Navier Stokes equation. 
 
-In Chapter 3, we bring the infinite dimensional problem to a finite dimensional problem by introducing discretisation. We first introduce grid, constituents of elements and transformation between local and global geometry. Further the function spaces over the grid are discussed in which, the basis function or the Ansatz function, function spaces for pressure and velocity are introdued. We further introduce and discuss the weak form of the Navier Stokes equation, discrete form of the Navier Stokes equation with boundary conditions and properties of weak form.
+In Chapter 3, we bring the infinite dimensional problem to a finite dimensional problem by introducing discretisation. We first introduce grid, constituents of elements and transformation between local and global geometry. Further the function spaces over the grid are discussed in which, the basis functions or the Ansatz functions, function spaces for pressure and velocity are introdued. We further introduce and discuss the weak form of the Navier Stokes equation, discrete form of the Navier Stokes equation with boundary conditions and properties of the weak form.
 
-In Chapter 4, we discuss the implementation of the discrete form of the Navier Stokes equation in RBmatlab, an opensource software developed at the University of Stuttgart and the University of M\"unster, for numerical simulation. During the chapter we discuss basis function evaluation in RBmatlab, matrix assembly, dimension of assembled matrices and boundary condition implementation. We further discuss Schur complement method and Newton method for nonlinearity.
+In Chapter 4, we discuss the implementation of the discrete form of the Navier Stokes equation in RBmatlab, an opensource software developed at the University of Stuttgart and the University of M\"unster, for numerical simulation. During the chapter we discuss evaluation of basis functions in RBmatlab, matrix assembly, dimension of assembled matrices and boundary condition implementation. We further discuss the Schur complement method and the Newton method for nonlinearity.
 
 In Chapter 5, we present results from numerical experiments, analyse results from benchmark problems, evaluate solver performance and draw related conclusions.
 
-In chapter 6, we present mathematical preliminaries. Familiarity with concepts presented under this chapter is very helpful for understanding of the thesis. Readers familiar with the topics can skip this section.
+In Chapter 6, we present mathematical preliminaries. Familiarity with concepts presented under this chapter is very helpful for understanding of the thesis. Readers familiar with the topics can skip this section.
 
 \newpage
 
-\chapter[Perspective and Formulation]{Engineering perspective and mathematical formulation} 
+\chapter[Perspective and formulation]{Engineering perspective and mathematical formulation} 
 
 The subject of mathematical applications in fluid mechanics starts with  one of the variants of the Navier Stokes equation. Almost all processes of fluid mechanics require considerations related to the Navier Stokes equation. Hence the importance of the Navier Stokes equation is impossible to be ignored as far as mathematical approaches in fluid mechanics are concerned. The numerical method for the incompressible Navier Stokes equation is simpler as compared to the numerical method for the compressible Navier Stokes equation. As the incompressible condition is imposed the state variables are constant which in turn means, equation of state is no longer need to be solved. Throughout the thesis we discuss only incompressible Navier Stokes equation and hence, Navier Stokes equation refers always to incompressible Navier Stokes equation.
 
@@ -511,7 +513,7 @@ p_{npe} = d_p \frac{(D)(D+1)}{2} \quad \textrm{for pressure}
 \end{equation} 
 
 
-\subsection{Nodal Basis Functions}
+\subsection{Nodal basis functions}
 
 Nodal basis functions are also known as "Shape function". Such a basis function has value of 1 at its respective node and 0 at other nodes. At all other points it is approximated based on the degree of the basis function. 
 For example, Nodal basis of degree $D=1$ in 1 dimensional domain can be represented as (To higher dimension and higher polynomial degree, the definition can be extended similarly),
@@ -530,7 +532,7 @@ $\hat{\phi_i} = 0$ else
 
 We do not use Nodal basis function in our analysis, instead we use orthonormal basis function.
 
-\subsection{Orthonormal Basis Functions}
+\subsection{Orthonormal basis functions}
 
 Orthonormal basis functions are the basis functions defined in such a way that all basis functions are orthonormal to each other with respect to suitable inner product. The number of orthonormal basis functions for a given element is the same as the number of nodal basis functions. 
 
@@ -794,7 +796,7 @@ Discrete form of equations can be written in Matrix form as,
 
 Here, $(\cdot , \cdot)$ is $L^2$ inner product, $\{\cdot\}$ is average operator, $[\cdot]$ is jump operator. 
 
-\subsection{Properties of Stiffness matrix} \label{property_stif_mat_stokes}
+\subsection{Properties of the stiffness matrix} \label{property_stif_mat_stokes}
 
 We now write each element of matrix $A$. We represent components of Unit normal vector as $n = [n_1 \quad ... \quad n_d]$
 
@@ -907,7 +909,7 @@ Using Young's inequality for $\delta > 0$
 a_\epsilon (\phi , \phi) \geq \left( 1-\frac{\delta}{2} |1-\epsilon| \right) \sum_{\tau \epsilon \mathcal{T}} ||\nu^{1/2} \nabla v ||^2_{L^2(\tau)} + \sum_{e \epsilon \Gamma_h \cup \Gamma_D} \frac{\sigma_e^0 - \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0}|1-\epsilon|}{l^{\beta_0}} ||[v]||^2_{L^2(e)}
 \end{equation}
 
-where, we have Penalty parameter,
+where, we have penalty parameter,
 \begin{equation}
 C_{11} = \frac{\kappa_e}{l}
 \end{equation} 
@@ -1096,7 +1098,7 @@ to reach convergence i.e. $||U^{iter+1} - U^{iter}|| < tol$\\
 
 For success of Newton method it is important to have good initial guess. For Navier Stokes method we use solution of Stokes equation as initial guess.
 
-\subsection{Properties of the Stiffness matrix} \label{property_stif_mat_navier}
+\subsection{Properties of the stiffness matrix} \label{property_stif_mat_navier}
 
 Each element of $C$ can be represented as,\\
 
@@ -1270,7 +1272,7 @@ C. We also some other variables. (Table \ref{table_variable})\\
 \end{center}
 \end{table}
 
-\section{Basis Function in RBmatlab}
+\section{Basis functions in RBmatlab}
 
 The Basis functions in RBmatlab can be point evaluated by a routine called \verb|ldg_evaluate_basis|.\\
 
@@ -1576,7 +1578,7 @@ We set the source term values in routine \verb|func_rhs| as column vectors. This
 
 The main script of the program is \verb|mymodel|. This script is equivalent to \verb|main.cc| file in C++.
 
-\subsection{Grid Preparation}
+\subsection{Grid preparation}
 
 We use \verb|pdegrid| tool to generate grid. We generate mesh and export parameters \verb|point(p)|, \verb|edge(e)| and \verb|triangle(t)|. \verb|params.bnd_rect_corner1| marks the lower corner of to be marked boundary and \verb|params.bnd_rect_corner2| marks the upper corner of to be marked boundary. \verb|params.bnd_rect_index| marks the type of boundary. (-1) represents Dirichlet boundary and (-2) represents Neumann boundary. \verb|params.gridtype| defines the type of grid. \verb|construct\_grid(params)| constructs the grid as struct containing necessary fields for grid. 
 
@@ -2092,7 +2094,7 @@ The condition number is measured on a unit square [0,1] $\times$ [0,1] in the $x
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{grid_penalty_parameter.jpg}
-  \caption{Unit square with $8 \times 8$ discretisation}
+  \caption{Unit square with $10 \times 10$ discretisation}
   \label{grid_penalty_para}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	

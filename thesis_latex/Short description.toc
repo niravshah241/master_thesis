@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {0.3}List of symbols}{4}
 \contentsline {chapter}{\numberline {1}Introduction}{13}
 \contentsline {section}{\numberline {1.1}Overview}{13}
-\contentsline {chapter}{\numberline {2}Perspective and Formulation}{15}
+\contentsline {chapter}{\numberline {2}Perspective and formulation}{15}
 \contentsline {section}{\numberline {2.1}Derivation}{15}
 \contentsline {subsection}{\numberline {2.1.1}DNS}{17}
 \contentsline {chapter}{\numberline {3}Discretisation and function spaces}{19}
@@ -11,8 +11,8 @@
 \contentsline {section}{\numberline {3.2}Grid parameters}{20}
 \contentsline {section}{\numberline {3.3}Discontinuous Galerkin method}{21}
 \contentsline {section}{\numberline {3.4}Basis function}{22}
-\contentsline {subsection}{\numberline {3.4.1}Nodal Basis Functions}{24}
-\contentsline {subsection}{\numberline {3.4.2}Orthonormal Basis Functions}{24}
+\contentsline {subsection}{\numberline {3.4.1}Nodal basis functions}{24}
+\contentsline {subsection}{\numberline {3.4.2}Orthonormal basis functions}{24}
 \contentsline {section}{\numberline {3.5}Global and local coordinate system}{24}
 \contentsline {section}{\numberline {3.6}Jump operator}{26}
 \contentsline {section}{\numberline {3.7}Average operator}{26}
@@ -20,13 +20,13 @@
 \contentsline {section}{\numberline {3.9}Problem statement}{27}
 \contentsline {subsection}{\numberline {3.9.1}Stokes strong, weak and discrete form}{27}
 \contentsline {subsubsection}{Derivation of the weak form of the Stokes equation}{27}
-\contentsline {subsection}{\numberline {3.9.2}Properties of Stiffness matrix}{28}
+\contentsline {subsection}{\numberline {3.9.2}Properties of the stiffness matrix}{28}
 \contentsline {subsubsection}{Proof}{29}
 \contentsline {subsubsection}{Coercivity constant for equation for Stokes flow}{30}
 \contentsline {subsection}{\numberline {3.9.3}Upwinding}{31}
 \contentsline {subsection}{\numberline {3.9.4}Navier Stokes strong, weak and discrete form}{31}
 \contentsline {subsection}{\numberline {3.9.5}Newton method}{32}
-\contentsline {subsection}{\numberline {3.9.6}Properties of the Stiffness matrix}{33}
+\contentsline {subsection}{\numberline {3.9.6}Properties of the stiffness matrix}{33}
 \contentsline {subsection}{\numberline {3.9.7}Boundary condition}{34}
 \contentsline {section}{\numberline {3.10}Selection of solver}{34}
 \contentsline {subsection}{\numberline {3.10.1}Biconjugate gradients stabilized method}{34}
@@ -34,14 +34,14 @@
 \contentsline {subsection}{\numberline {3.10.3}Schur complement method}{34}
 \contentsline {chapter}{\numberline {4}Implementation aspects}{37}
 \contentsline {section}{\numberline {4.1}Terminology}{37}
-\contentsline {section}{\numberline {4.2}Basis Function in RBmatlab}{39}
+\contentsline {section}{\numberline {4.2}Basis functions in RBmatlab}{39}
 \contentsline {section}{\numberline {4.3}Assembly of average operator}{40}
 \contentsline {section}{\numberline {4.4}Assembly of jump operator}{40}
 \contentsline {section}{\numberline {4.5}Matrix assemblies}{40}
 \contentsline {section}{\numberline {4.6}Setting boundary conditions}{44}
 \contentsline {section}{\numberline {4.7}Setting source term}{44}
 \contentsline {section}{\numberline {4.8}Program flow}{45}
-\contentsline {subsection}{\numberline {4.8.1}Grid Preparation}{45}
+\contentsline {subsection}{\numberline {4.8.1}Grid preparation}{45}
 \contentsline {subsection}{\numberline {4.8.2}Function space formulation}{45}
 \contentsline {subsection}{\numberline {4.8.3}Matrix assembly}{45}
 \contentsline {subsection}{\numberline {4.8.4}Solving assembled form}{46}

@@ -3,34 +3,34 @@
 % save('mygrid','p','e','t')
 clc
 %% Parameter generation
-disp('Generating training and test parameter set')
-max_value_train1 = 10;
-min_value_train1 = 20;
-num_para_train1 = 10;
-max_value_test1 = 100;
-min_value_test1 = 90;
-num_para_test1 = 10;
-[ res1] = gen_parameters( max_value_train1, min_value_train1, ...
-    max_value_test1, min_value_test1, num_para_train1, num_para_test1 );
-max_value_train2 = 10;
-min_value_train2 = 20;
-num_para_train2 = 10;
-max_value_test2 = 100;
-min_value_test2 = 90;
-num_para_test2 = 10;
-[ res2] = gen_parameters( max_value_train2, min_value_train2, ...
-    max_value_test2, min_value_test2, num_para_train2, num_para_test2 );
-max_value_train3 = 10;
-min_value_train3 = 20;
-num_para_train3 = 10;
-max_value_test3 = 100;
-min_value_test3 = 90;
-num_para_test3 = 10;
-[ res3] = gen_parameters( max_value_train3, min_value_train3, ...
-    max_value_test3, min_value_test3, num_para_train3, num_para_test3 );
-parameter_training_set = [res1.train_para';res2.train_para';res3.train_para']';
-parameter_test_set = [res1.test_para';res2.test_para';res3.test_para']';
-disp('Parameter training and test set generation finished')
+% disp('Generating training and test parameter set')
+% max_value_train1 = 10;
+% min_value_train1 = 20;
+% num_para_train1 = 10;
+% max_value_test1 = 100;
+% min_value_test1 = 90;
+% num_para_test1 = 10;
+% [ res1] = gen_parameters( max_value_train1, min_value_train1, ...
+%     max_value_test1, min_value_test1, num_para_train1, num_para_test1 );
+% max_value_train2 = 10;
+% min_value_train2 = 20;
+% num_para_train2 = 10;
+% max_value_test2 = 100;
+% min_value_test2 = 90;
+% num_para_test2 = 10;
+% [ res2] = gen_parameters( max_value_train2, min_value_train2, ...
+%     max_value_test2, min_value_test2, num_para_train2, num_para_test2 );
+% max_value_train3 = 10;
+% min_value_train3 = 20;
+% num_para_train3 = 10;
+% max_value_test3 = 100;
+% min_value_test3 = 90;
+% num_para_test3 = 10;
+% [ res3] = gen_parameters( max_value_train3, min_value_train3, ...
+%     max_value_test3, min_value_test3, num_para_train3, num_para_test3 );
+% parameter_training_set = [res1.train_para';res2.train_para';res3.train_para']';
+% parameter_test_set = [res1.test_para';res2.test_para';res3.test_para']';
+% disp('Parameter training and test set generation finished')
 
 %% Actual grid
 % ACTUAL GRID DO NOT DELETE
@@ -82,7 +82,7 @@ plot(grid);
 title('Grid')
 % pause();
 % close all
-for i = 1:1:size(parameter_training_set,1)
+% for i = 1:1:size(parameter_training_set,1)
     %% Values setting
     params.parameter_training_set = parameter_training_set(i,:);
     params.pdeg = 2;
@@ -209,15 +209,15 @@ for i = 1:1:size(parameter_training_set,1)
     params.snapshots_matrix(:,i) = params.dofs;
     paramsP.snapshots_matrix(:,i) = paramsP.dofs;
     %% Proper Orthogonal Decomposition
-end
+% end
 
-n_s = size(params.snapshots_matrix,2); % number of snapshots
-% params.snapshots_matrix = rand(params.ndofs,n_s);
-disp('Check affine decomposition')
-red_dim = 8;
-min_eigen = 1e-10;
-params.qdeg = qdeg;
-paramsP.qdeg = qdeg;
-[ pod_res_params] = pod( params, grid, red_dim, min_eigen,stifness_matrix);
-[ pod_res_paramsP] = pod( paramsP, grid, red_dim, min_eigen,stifness_matrix);
-disp('Implement galerkin formulation')
+% n_s = size(params.snapshots_matrix,2); % number of snapshots
+% % params.snapshots_matrix = rand(params.ndofs,n_s);
+% disp('Check affine decomposition')
+% red_dim = 8;
+% min_eigen = 1e-10;
+% params.qdeg = qdeg;
+% paramsP.qdeg = qdeg;
+% [ pod_res_params] = pod( params, grid, red_dim, min_eigen,stifness_matrix);
+% [ pod_res_paramsP] = pod( paramsP, grid, red_dim, min_eigen,stifness_matrix);
+% disp('Implement galerkin formulation')
