@@ -1,4 +1,4 @@
-\documentclass[a4paper]{book}
+\documentclass[a4paper,openany]{book}
 \usepackage[paperwidth=18cm]{geometry}
 \usepackage{layouts}
 \printinunitsof{cm}
@@ -1382,14 +1382,15 @@ With this preliminary informations we discuss now the assembly of matrices.
 
 Through \verb|ldg_evaluate_basis_derivative| and \verb|grid| structure, we first evaluate the derivative of $\hat{\phi}$ and $JIT(k,:,:)$ at point $x_i$ . We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the equation \ref{derivative_transformation}.
 
-We than assemble the matrix, 
+We than assemble the matrix,
+ 
 \begin{equation}
-res_1[i,j]=\phi_i \phi_j^T \quad \textrm{for} \quad 1 \leq i,j \leq u_{npe} \quad \textrm{.}
+res_1[i,j]= {\nabla \phi_i} {\nabla \phi_j}^T \quad \textrm{for} \quad 1 \leq i,j \leq u_{npe} \quad \textrm{.}
 \end{equation}
 
 \subsubsection{Step 2: Performing integration in global coordinate system}
 
-We perform the numerical integration as per equation \ref{numerical integration} 
+We perform the numerical integration as per equation \eqref{numerical integration} 
 \begin{equation}
 res_2 = \int_{\hat{T}} (res_1) (2 Ar(k))
 \end{equation}
@@ -1595,13 +1596,13 @@ On local element following function is evaluated
 \begin{equation}
 res_1=\hat{\phi}_i u_D
 \end{equation} 
-in accordance with the equation \ref{func_transformation}.
+in accordance with the equation \eqref{func_transformation}.
 
 \subsubsection{Step 2: Integration of evaluated function}
 
 An integral is performed over an element 
 \begin{equation}
-res_2=\int_{\Gamma_D} res_1 grid.EL(i,j) \quad \textrm{.}
+res_2=\int_{\Gamma_D} res_1 EL(i,j) \quad \textrm{.}
 \end{equation}
 
 \subsubsection{Step 3: Allocation in global degrees of freedom vector}
@@ -1617,15 +1618,15 @@ res_3[ids]=res_2
 
 On local element following function is evaluated 
 \begin{equation}
-res_1 = hat{\psi} n\cdot u_D
+res_1 = \hat{\psi} n\cdot u_D
 \end{equation} 
-in accordance with equation \ref{func_transformation}.\\
+in accordance with equation \eqref{func_transformation}.\\
 
 \subsubsection{Step 2: Integration of evaluated function}
 
 An integral is performed over an element 
 \begin{equation}
-res_2 = \int_{\Gamma_D} res_1 grid.EL(i,j) \quad \textrm{.}
+res_2 = \int_{\Gamma_D} res_1 EL(i,j) \quad \textrm{.}
 \end{equation}
 
 \subsubsection{Step 3: Allocation in global degrees of freedom vector}

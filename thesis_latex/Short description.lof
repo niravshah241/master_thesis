@@ -1,84 +1,84 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Element self (+) and neighbouring element (-)\relax }}{22}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Continuous domain (left) and discretised domain or grid (right)\relax }}{23}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Finite Element nodes on triangle for polynomials of different degrees, Source:http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html\relax }}{25}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Element self (+) and neighbouring element (-)\relax }}{20}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Continuous domain (left) and discretised domain or grid (right)\relax }}{21}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Finite Element nodes on triangle for polynomials of different degrees, Source:http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html\relax }}{23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces $((n \otimes \phi )^+,(n \otimes \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{55}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces $((n \otimes \phi )^+,(n \otimes \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{55}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces $((n \otimes \phi )^-,(n \otimes \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{55}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces $((n \otimes \phi )^-,(n \otimes \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{55}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Sparsity patterns of constituents of $([n \otimes \phi ],[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{55}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces \relax }}{55}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces $( \nabla \phi ^+ ,(n \otimes \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{56}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces $( \nabla \phi ^+ ,(n \otimes \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{56}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces $( \nabla \phi ^- ,(n \otimes \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{56}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces $( \nabla \phi ^- ,(n \otimes \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{56}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Sparsity patterns of constituents of $(\delimiter "4266308 \nabla \phi \delimiter "5267309 ,[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{56}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces $( \psi ^+ ,(n \cdot \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{57}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces $( \psi ^+ ,(n \cdot \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{57}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces $( \psi ^- ,(n \cdot \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{57}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces $( \psi ^- ,(n \cdot \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{57}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Sparsity patterns of constituents of $(\delimiter "4266308 \psi \delimiter "5267309 ,[n \cdot \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{57}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Sparsity pattern of $(\psi ,\nabla \cdot \phi )$\relax }}{58}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Sparsity pattern of $((u_k \cdot \nabla )\phi ,\phi )$\relax }}{58}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Sparsity pattern of $((u_k \cdot n)\phi ,\phi )_{\Gamma _N}$\relax }}{59}
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Sparsity pattern of $(\nabla \phi ,\nabla \phi )$\relax }}{59}
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Sparsity patterns of constituents of $((u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N} + ((u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$\relax }}{60}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Sparsity patterns of constituents of $(abs(u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N} + (abs(u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$\relax }}{61}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces $((n \otimes \phi )^+,(n \otimes \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{52}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces $((n \otimes \phi )^+,(n \otimes \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{52}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces $((n \otimes \phi )^-,(n \otimes \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{52}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces $((n \otimes \phi )^-,(n \otimes \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{52}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Sparsity patterns of constituents of $([n \otimes \phi ],[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{52}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \relax }}{52}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces $( \nabla \phi ^+ ,(n \otimes \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{53}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces $( \nabla \phi ^+ ,(n \otimes \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{53}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces $( \nabla \phi ^- ,(n \otimes \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{53}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces $( \nabla \phi ^- ,(n \otimes \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{53}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Sparsity patterns of constituents of $(\delimiter "4266308 \nabla \phi \delimiter "5267309 ,[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{53}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces $( \psi ^+ ,(n \cdot \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{54}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces $( \psi ^+ ,(n \cdot \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{54}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces $( \psi ^- ,(n \cdot \phi )^+)_{\Gamma \cup \Gamma _D}$\relax }}{54}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces $( \psi ^- ,(n \cdot \phi )^-)_{\Gamma \cup \Gamma _D}$\relax }}{54}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Sparsity patterns of constituents of $(\delimiter "4266308 \psi \delimiter "5267309 ,[n \cdot \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{54}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Sparsity pattern of $(\psi ,\nabla \cdot \phi )$\relax }}{55}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Sparsity pattern of $((u_k \cdot \nabla )\phi ,\phi )$\relax }}{55}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Sparsity pattern of $((u_k \cdot n)\phi ,\phi )_{\Gamma _N}$\relax }}{56}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Sparsity pattern of $(\nabla \phi ,\nabla \phi )$\relax }}{56}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Sparsity patterns of constituents of $((u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N} + ((u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$\relax }}{57}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Sparsity patterns of constituents of $(abs(u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N} + (abs(u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$\relax }}{58}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.5}{\ignorespaces $x-$ velocity (bicgstab solver)\relax }}{70}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces $y-$ velocity (bicgstab solver)\relax }}{70}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Pressure (bicgstab solver)\relax }}{70}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces \relax }}{70}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces $x-$ velocity (minres solver)\relax }}{71}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces $y-$ velocity (minres solver)\relax }}{71}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Pressure (minres solver)\relax }}{71}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces \relax }}{71}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces $x-$ velocity (Schur complement method)\relax }}{72}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces $y-$ velocity (Schur complement method)\relax }}{72}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Pressure (Schur complement method)\relax }}{72}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces \relax }}{72}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces $x-$ velocity (bicgstab solver)\relax }}{73}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces $y-$ velocity (bicgstab solver)\relax }}{73}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Pressure (bicgstab solver)\relax }}{73}
-\contentsline {figure}{\numberline {5.20}{\ignorespaces \relax }}{73}
-\contentsline {figure}{\numberline {5.21}{\ignorespaces $x-$ velocity (minres solver)\relax }}{74}
-\contentsline {figure}{\numberline {5.22}{\ignorespaces $y-$ velocity (minres solver)\relax }}{74}
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Pressure (minres solver)\relax }}{74}
-\contentsline {figure}{\numberline {5.24}{\ignorespaces \relax }}{74}
-\contentsline {figure}{\numberline {5.25}{\ignorespaces $x-$ velocity (Schur complement method)\relax }}{75}
-\contentsline {figure}{\numberline {5.26}{\ignorespaces $y-$ velocity (Schur complement method)\relax }}{75}
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Pressure (Schur complement method)\relax }}{75}
-\contentsline {figure}{\numberline {5.28}{\ignorespaces \relax }}{75}
-\contentsline {figure}{\numberline {5.29}{\ignorespaces \relax }}{77}
-\contentsline {figure}{\numberline {5.30}{\ignorespaces \relax }}{79}
-\contentsline {figure}{\numberline {5.31}{\ignorespaces \relax }}{80}
-\contentsline {figure}{\numberline {5.32}{\ignorespaces \relax }}{81}
-\contentsline {figure}{\numberline {5.33}{\ignorespaces \relax }}{82}
-\contentsline {figure}{\numberline {5.34}{\ignorespaces $x-$ velocity (Initial guess by bicgstab solver)\relax }}{83}
-\contentsline {figure}{\numberline {5.35}{\ignorespaces $y-$ velocity (Initial guess by bicgstab solver)\relax }}{83}
-\contentsline {figure}{\numberline {5.36}{\ignorespaces Pressure (Initial guess by bicgstab solver)\relax }}{83}
-\contentsline {figure}{\numberline {5.37}{\ignorespaces \relax }}{83}
-\contentsline {figure}{\numberline {5.38}{\ignorespaces $x-$ velocity (Initial guess by minres solver)\relax }}{84}
-\contentsline {figure}{\numberline {5.39}{\ignorespaces $y-$ velocity (Initial guess by minres solver)\relax }}{84}
-\contentsline {figure}{\numberline {5.40}{\ignorespaces Pressure (Initial guess by minres solver)\relax }}{84}
-\contentsline {figure}{\numberline {5.41}{\ignorespaces \relax }}{84}
-\contentsline {figure}{\numberline {5.42}{\ignorespaces $x-$ velocity (Initial guess by Schur complement method)\relax }}{85}
-\contentsline {figure}{\numberline {5.43}{\ignorespaces $y-$ velocity (Initial guess by Schur complement method)\relax }}{85}
-\contentsline {figure}{\numberline {5.44}{\ignorespaces Pressure (Initial guess by Schur complement method)\relax }}{85}
-\contentsline {figure}{\numberline {5.45}{\ignorespaces \relax }}{85}
-\contentsline {figure}{\numberline {5.46}{\ignorespaces $x-$ velocity (Initial guess by bicgstab solver)\relax }}{86}
-\contentsline {figure}{\numberline {5.47}{\ignorespaces $y-$ velocity (Initial guess by bicgstab solver)\relax }}{86}
-\contentsline {figure}{\numberline {5.48}{\ignorespaces Pressure (Initial guess by bicgstab solver)\relax }}{86}
-\contentsline {figure}{\numberline {5.49}{\ignorespaces \relax }}{86}
-\contentsline {figure}{\numberline {5.50}{\ignorespaces $x-$ velocity (Initial guess by minres solver)\relax }}{87}
-\contentsline {figure}{\numberline {5.51}{\ignorespaces $y-$ velocity (Initial guess by minres solver)\relax }}{87}
-\contentsline {figure}{\numberline {5.52}{\ignorespaces Pressure (Initial guess by minres solver)\relax }}{87}
-\contentsline {figure}{\numberline {5.53}{\ignorespaces \relax }}{87}
-\contentsline {figure}{\numberline {5.54}{\ignorespaces $x-$ velocity (Initial guess by Schur complement method)\relax }}{88}
-\contentsline {figure}{\numberline {5.55}{\ignorespaces $y-$ velocity (Initial guess by Schur complement method)\relax }}{88}
-\contentsline {figure}{\numberline {5.56}{\ignorespaces Pressure (Initial guess by Schur complement method)\relax }}{88}
-\contentsline {figure}{\numberline {5.57}{\ignorespaces \relax }}{88}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces $x-$ velocity (bicgstab solver)\relax }}{66}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces $y-$ velocity (bicgstab solver)\relax }}{66}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Pressure (bicgstab solver)\relax }}{66}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces \relax }}{66}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces $x-$ velocity (minres solver)\relax }}{67}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces $y-$ velocity (minres solver)\relax }}{67}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Pressure (minres solver)\relax }}{67}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces \relax }}{67}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces $x-$ velocity (Schur complement method)\relax }}{68}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces $y-$ velocity (Schur complement method)\relax }}{68}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Pressure (Schur complement method)\relax }}{68}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces \relax }}{68}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces $x-$ velocity (bicgstab solver)\relax }}{69}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces $y-$ velocity (bicgstab solver)\relax }}{69}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Pressure (bicgstab solver)\relax }}{69}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces \relax }}{69}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces $x-$ velocity (minres solver)\relax }}{70}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces $y-$ velocity (minres solver)\relax }}{70}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Pressure (minres solver)\relax }}{70}
+\contentsline {figure}{\numberline {5.24}{\ignorespaces \relax }}{70}
+\contentsline {figure}{\numberline {5.25}{\ignorespaces $x-$ velocity (Schur complement method)\relax }}{71}
+\contentsline {figure}{\numberline {5.26}{\ignorespaces $y-$ velocity (Schur complement method)\relax }}{71}
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Pressure (Schur complement method)\relax }}{71}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces \relax }}{71}
+\contentsline {figure}{\numberline {5.29}{\ignorespaces \relax }}{73}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces \relax }}{75}
+\contentsline {figure}{\numberline {5.31}{\ignorespaces \relax }}{76}
+\contentsline {figure}{\numberline {5.32}{\ignorespaces \relax }}{77}
+\contentsline {figure}{\numberline {5.33}{\ignorespaces \relax }}{78}
+\contentsline {figure}{\numberline {5.34}{\ignorespaces $x-$ velocity (Initial guess by bicgstab solver)\relax }}{79}
+\contentsline {figure}{\numberline {5.35}{\ignorespaces $y-$ velocity (Initial guess by bicgstab solver)\relax }}{79}
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Pressure (Initial guess by bicgstab solver)\relax }}{79}
+\contentsline {figure}{\numberline {5.37}{\ignorespaces \relax }}{79}
+\contentsline {figure}{\numberline {5.38}{\ignorespaces $x-$ velocity (Initial guess by minres solver)\relax }}{80}
+\contentsline {figure}{\numberline {5.39}{\ignorespaces $y-$ velocity (Initial guess by minres solver)\relax }}{80}
+\contentsline {figure}{\numberline {5.40}{\ignorespaces Pressure (Initial guess by minres solver)\relax }}{80}
+\contentsline {figure}{\numberline {5.41}{\ignorespaces \relax }}{80}
+\contentsline {figure}{\numberline {5.42}{\ignorespaces $x-$ velocity (Initial guess by Schur complement method)\relax }}{81}
+\contentsline {figure}{\numberline {5.43}{\ignorespaces $y-$ velocity (Initial guess by Schur complement method)\relax }}{81}
+\contentsline {figure}{\numberline {5.44}{\ignorespaces Pressure (Initial guess by Schur complement method)\relax }}{81}
+\contentsline {figure}{\numberline {5.45}{\ignorespaces \relax }}{81}
+\contentsline {figure}{\numberline {5.46}{\ignorespaces $x-$ velocity (Initial guess by bicgstab solver)\relax }}{82}
+\contentsline {figure}{\numberline {5.47}{\ignorespaces $y-$ velocity (Initial guess by bicgstab solver)\relax }}{82}
+\contentsline {figure}{\numberline {5.48}{\ignorespaces Pressure (Initial guess by bicgstab solver)\relax }}{82}
+\contentsline {figure}{\numberline {5.49}{\ignorespaces \relax }}{82}
+\contentsline {figure}{\numberline {5.50}{\ignorespaces $x-$ velocity (Initial guess by minres solver)\relax }}{83}
+\contentsline {figure}{\numberline {5.51}{\ignorespaces $y-$ velocity (Initial guess by minres solver)\relax }}{83}
+\contentsline {figure}{\numberline {5.52}{\ignorespaces Pressure (Initial guess by minres solver)\relax }}{83}
+\contentsline {figure}{\numberline {5.53}{\ignorespaces \relax }}{83}
+\contentsline {figure}{\numberline {5.54}{\ignorespaces $x-$ velocity (Initial guess by Schur complement method)\relax }}{84}
+\contentsline {figure}{\numberline {5.55}{\ignorespaces $y-$ velocity (Initial guess by Schur complement method)\relax }}{84}
+\contentsline {figure}{\numberline {5.56}{\ignorespaces Pressure (Initial guess by Schur complement method)\relax }}{84}
+\contentsline {figure}{\numberline {5.57}{\ignorespaces \relax }}{84}
 \addvspace {10\p@ }

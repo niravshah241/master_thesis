@@ -1,146 +1,146 @@
 \contentsline {section}{\numberline {0.1}Acknowledgement}{2}
 \contentsline {section}{\numberline {0.2}Declaration/Eigenst\"andigkeitserkl\"arung}{3}
 \contentsline {section}{\numberline {0.3}List of symbols}{4}
-\contentsline {chapter}{\numberline {1}Introduction}{15}
-\contentsline {section}{\numberline {1.1}Overview}{15}
-\contentsline {chapter}{\numberline {2}Perspective and formulation}{17}
-\contentsline {section}{\numberline {2.1}Derivation}{17}
-\contentsline {subsection}{\numberline {2.1.1}DNS}{19}
-\contentsline {chapter}{\numberline {3}Discretisation and function spaces}{21}
-\contentsline {section}{\numberline {3.1}Grid geometry}{21}
-\contentsline {section}{\numberline {3.2}Grid parameters}{22}
-\contentsline {section}{\numberline {3.3}Discontinuous Galerkin method}{23}
-\contentsline {section}{\numberline {3.4}Basis function}{24}
-\contentsline {subsection}{\numberline {3.4.1}Nodal basis functions}{24}
-\contentsline {subsection}{\numberline {3.4.2}Orthonormal basis functions}{25}
-\contentsline {section}{\numberline {3.5}Global and local coordinate system}{25}
-\contentsline {section}{\numberline {3.6}Jump operator}{27}
-\contentsline {section}{\numberline {3.7}Average operator}{27}
-\contentsline {section}{\numberline {3.8}$L^2$ scalar product}{28}
-\contentsline {section}{\numberline {3.9}Problem statement}{28}
-\contentsline {subsection}{\numberline {3.9.1}Stokes strong, weak and discrete form}{28}
-\contentsline {subsubsection}{Derivation of the weak form of the Stokes equation}{29}
-\contentsline {subsection}{\numberline {3.9.2}Properties of the stiffness matrix}{30}
-\contentsline {subsubsection}{Proof}{31}
-\contentsline {subsubsection}{Coercivity constant for equation for Stokes flow}{31}
-\contentsline {subsection}{\numberline {3.9.3}Upwinding}{33}
-\contentsline {subsection}{\numberline {3.9.4}Navier Stokes strong, weak and discrete form}{33}
-\contentsline {subsection}{\numberline {3.9.5}Newton method}{34}
-\contentsline {subsection}{\numberline {3.9.6}Properties of the stiffness matrix}{35}
-\contentsline {subsection}{\numberline {3.9.7}Boundary conditions}{36}
-\contentsline {section}{\numberline {3.10}Selection of solver}{36}
-\contentsline {subsection}{\numberline {3.10.1}Biconjugate gradients stabilized method}{36}
-\contentsline {subsection}{\numberline {3.10.2}Minimum residual method}{36}
-\contentsline {subsection}{\numberline {3.10.3}Schur complement method}{36}
-\contentsline {chapter}{\numberline {4}Implementation aspects}{39}
-\contentsline {section}{\numberline {4.1}Terminology}{39}
-\contentsline {section}{\numberline {4.2}Basis functions in RBmatlab}{39}
-\contentsline {section}{\numberline {4.3}Assembly of average operator}{42}
-\contentsline {section}{\numberline {4.4}Assembly of jump operator}{42}
-\contentsline {section}{\numberline {4.5}Matrix assemblies}{43}
-\contentsline {subsection}{\numberline {4.5.1}$(\nabla \phi , \nabla \phi )$}{43}
-\contentsline {subsubsection}{Step 1: Evaluation of $(\nabla \phi , \nabla \phi )$}{43}
-\contentsline {subsubsection}{Step 2: Performing integration in global coordinate system}{43}
-\contentsline {subsubsection}{Step 3: Degrees of freedom allocation in global matrix}{44}
-\contentsline {subsection}{\numberline {4.5.2}$([n \otimes \phi ], [n \otimes \phi ])_{\Gamma \cup \Gamma _D}$}{44}
-\contentsline {subsubsection}{Step 1: On local element following matrices are evaluated}{44}
-\contentsline {subsubsection}{Step 2: In step 2 we perform following integration}{44}
-\contentsline {subsubsection}{Step 3: Degrees of freedom allocation in global matrix}{44}
-\contentsline {subsection}{\numberline {4.5.3}$(\delimiter "4266308 \nabla \phi \delimiter "5267309 , [n \otimes \phi ])_{\Gamma \cup \Gamma _D}$}{45}
-\contentsline {subsubsection}{Step 1: On the local element following matrices are evaluated,}{45}
+\contentsline {chapter}{\numberline {1}Introduction}{13}
+\contentsline {section}{\numberline {1.1}Overview}{13}
+\contentsline {chapter}{\numberline {2}Perspective and formulation}{15}
+\contentsline {section}{\numberline {2.1}Derivation}{15}
+\contentsline {subsection}{\numberline {2.1.1}DNS}{17}
+\contentsline {chapter}{\numberline {3}Discretisation and function spaces}{19}
+\contentsline {section}{\numberline {3.1}Grid geometry}{19}
+\contentsline {section}{\numberline {3.2}Grid parameters}{20}
+\contentsline {section}{\numberline {3.3}Discontinuous Galerkin method}{21}
+\contentsline {section}{\numberline {3.4}Basis function}{22}
+\contentsline {subsection}{\numberline {3.4.1}Nodal basis functions}{22}
+\contentsline {subsection}{\numberline {3.4.2}Orthonormal basis functions}{23}
+\contentsline {section}{\numberline {3.5}Global and local coordinate system}{23}
+\contentsline {section}{\numberline {3.6}Jump operator}{25}
+\contentsline {section}{\numberline {3.7}Average operator}{25}
+\contentsline {section}{\numberline {3.8}$L^2$ scalar product}{26}
+\contentsline {section}{\numberline {3.9}Problem statement}{26}
+\contentsline {subsection}{\numberline {3.9.1}Stokes strong, weak and discrete form}{26}
+\contentsline {subsubsection}{Derivation of the weak form of the Stokes equation}{27}
+\contentsline {subsection}{\numberline {3.9.2}Properties of the stiffness matrix}{28}
+\contentsline {subsubsection}{Proof}{29}
+\contentsline {subsubsection}{Coercivity constant for equation for Stokes flow}{29}
+\contentsline {subsection}{\numberline {3.9.3}Upwinding}{31}
+\contentsline {subsection}{\numberline {3.9.4}Navier Stokes strong, weak and discrete form}{31}
+\contentsline {subsection}{\numberline {3.9.5}Newton method}{32}
+\contentsline {subsection}{\numberline {3.9.6}Properties of the stiffness matrix}{33}
+\contentsline {subsection}{\numberline {3.9.7}Boundary conditions}{34}
+\contentsline {section}{\numberline {3.10}Selection of solver}{34}
+\contentsline {subsection}{\numberline {3.10.1}Biconjugate gradients stabilized method}{34}
+\contentsline {subsection}{\numberline {3.10.2}Minimum residual method}{34}
+\contentsline {subsection}{\numberline {3.10.3}Schur complement method}{34}
+\contentsline {chapter}{\numberline {4}Implementation aspects}{36}
+\contentsline {section}{\numberline {4.1}Terminology}{36}
+\contentsline {section}{\numberline {4.2}Basis functions in RBmatlab}{36}
+\contentsline {section}{\numberline {4.3}Assembly of average operator}{39}
+\contentsline {section}{\numberline {4.4}Assembly of jump operator}{39}
+\contentsline {section}{\numberline {4.5}Matrix assemblies}{40}
+\contentsline {subsection}{\numberline {4.5.1}$(\nabla \phi , \nabla \phi )$}{40}
+\contentsline {subsubsection}{Step 1: Evaluation of $(\nabla \phi , \nabla \phi )$}{40}
+\contentsline {subsubsection}{Step 2: Performing integration in global coordinate system}{40}
+\contentsline {subsubsection}{Step 3: Degrees of freedom allocation in global matrix}{41}
+\contentsline {subsection}{\numberline {4.5.2}$([n \otimes \phi ], [n \otimes \phi ])_{\Gamma \cup \Gamma _D}$}{41}
+\contentsline {subsubsection}{Step 1: On local element following matrices are evaluated}{41}
+\contentsline {subsubsection}{Step 2: In step 2 we perform following integration}{41}
+\contentsline {subsubsection}{Step 3: Degrees of freedom allocation in global matrix}{41}
+\contentsline {subsection}{\numberline {4.5.3}$(\delimiter "4266308 \nabla \phi \delimiter "5267309 , [n \otimes \phi ])_{\Gamma \cup \Gamma _D}$}{42}
+\contentsline {subsubsection}{Step 1: On the local element following matrices are evaluated,}{42}
+\contentsline {subsubsection}{Step 2: Integration of evaluated function}{42}
+\contentsline {subsubsection}{Step 3: Allocation in global degrees of freedom matrix}{42}
+\contentsline {subsection}{\numberline {4.5.4}$(\delimiter "4266308 \psi \delimiter "5267309 , [n \cdot \phi ])_{\Gamma \cup \Gamma _D}$}{42}
+\contentsline {subsubsection}{Step 1: On local element following matrices are evaluated,}{42}
+\contentsline {subsubsection}{Step 2: Integration of evaluated function}{43}
+\contentsline {subsubsection}{Step 3: Allocation of matrices in global degrees of freedom matrix}{43}
+\contentsline {subsection}{\numberline {4.5.5}$-\DOTSI \intop \ilimits@ _{\mathaccentV {hat}05E{T}} \psi \nabla \cdot \phi $}{43}
+\contentsline {subsubsection}{Step 1: Function evaluation}{43}
+\contentsline {subsubsection}{Step 2: Integration of evaluated function}{43}
+\contentsline {subsubsection}{Step 3: Allocation in global matrix}{44}
+\contentsline {subsection}{\numberline {4.5.6}$(t,\phi )_{\Gamma _N}$}{44}
+\contentsline {subsubsection}{Step 1: Function evaluation}{44}
+\contentsline {subsubsection}{Step 2: Integration of evaluated function}{44}
+\contentsline {subsubsection}{Step 3: Allocation in global dgrees of freedom vector}{44}
+\contentsline {subsection}{\numberline {4.5.7}$(u_D,\phi )_{\Gamma _D}$}{44}
+\contentsline {subsubsection}{Step 1: Function evaluation}{44}
+\contentsline {subsubsection}{Step 2: Integration of evaluated function}{44}
+\contentsline {subsubsection}{Step 3: Allocation in global degrees of freedom vector}{44}
+\contentsline {subsection}{\numberline {4.5.8}$(\psi , n \cdot u_D)_{\Gamma _D} $}{45}
+\contentsline {subsubsection}{Step 1: Function evaluation}{45}
 \contentsline {subsubsection}{Step 2: Integration of evaluated function}{45}
-\contentsline {subsubsection}{Step 3: Allocation in global degrees of freedom matrix}{45}
-\contentsline {subsection}{\numberline {4.5.4}$(\delimiter "4266308 \psi \delimiter "5267309 , [n \cdot \phi ])_{\Gamma \cup \Gamma _D}$}{45}
-\contentsline {subsubsection}{Step 1: On local element following matrices are evaluated,}{45}
+\contentsline {subsubsection}{Step 3: Allocation in global degrees of freedom vector}{45}
+\contentsline {subsection}{\numberline {4.5.9}$(f,\phi ) $}{45}
+\contentsline {subsubsection}{Step 1: Function evaluation}{45}
+\contentsline {subsubsection}{Step 2: Integration of evaluated function}{45}
+\contentsline {subsubsection}{Step 3: Allocation in global degrees of freedom vector}{45}
+\contentsline {subsection}{\numberline {4.5.10}$(n \otimes u_D,\nabla \phi )_{\Gamma _D} $}{45}
+\contentsline {subsubsection}{Step 1: Function evaluation}{45}
 \contentsline {subsubsection}{Step 2: Integration of evaluated function}{46}
-\contentsline {subsubsection}{Step 3: Allocation of matrices in global degrees of freedom matrix}{46}
-\contentsline {subsection}{\numberline {4.5.5}$-\DOTSI \intop \ilimits@ _{\mathaccentV {hat}05E{T}} \psi \nabla \cdot \phi $}{46}
+\contentsline {subsubsection}{Step 3: Allocation in global matrix}{46}
+\contentsline {subsection}{\numberline {4.5.11}$-((u_k \cdot \nabla )\phi , \phi )$}{46}
 \contentsline {subsubsection}{Step 1: Function evaluation}{46}
 \contentsline {subsubsection}{Step 2: Integration of evaluated function}{46}
+\contentsline {subsubsection}{Step 3: Allocation in global matrix}{46}
+\contentsline {subsection}{\numberline {4.5.12}$((u_k \cdot n)\phi , \phi )_{\Gamma _N}$}{46}
+\contentsline {subsubsection}{Step 1: Function evaluation}{46}
+\contentsline {subsubsection}{Step 2: Integration of evaluated function}{47}
 \contentsline {subsubsection}{Step 3: Allocation in global matrix}{47}
-\contentsline {subsection}{\numberline {4.5.6}$(t,\phi )_{\Gamma _N}$}{47}
+\contentsline {subsection}{\numberline {4.5.13}$((u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N}$}{47}
 \contentsline {subsubsection}{Step 1: Function evaluation}{47}
 \contentsline {subsubsection}{Step 2: Integration of evaluated function}{47}
-\contentsline {subsubsection}{Step 3: Allocation in global dgrees of freedom vector}{47}
-\contentsline {subsection}{\numberline {4.5.7}$(u_D,\phi )_{\Gamma _D}$}{47}
+\contentsline {subsubsection}{Step 3: Allocation in global matrix}{47}
+\contentsline {subsection}{\numberline {4.5.14}$(|u_k \cdot n| \phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N}$}{47}
 \contentsline {subsubsection}{Step 1: Function evaluation}{47}
 \contentsline {subsubsection}{Step 2: Integration of evaluated function}{47}
-\contentsline {subsubsection}{Step 3: Allocation in global degrees of freedom vector}{47}
-\contentsline {subsection}{\numberline {4.5.8}$(\psi , n \cdot u_D)_{\Gamma _D} $}{48}
+\contentsline {subsubsection}{Step 3: Allocation in global matrix}{48}
+\contentsline {subsection}{\numberline {4.5.15}$((u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$}{48}
 \contentsline {subsubsection}{Step 1: Function evaluation}{48}
 \contentsline {subsubsection}{Step 2: Integration of evaluated function}{48}
-\contentsline {subsubsection}{Step 3: Allocation in global degrees of freedom vector}{48}
-\contentsline {subsection}{\numberline {4.5.9}$(f,\phi ) $}{48}
+\contentsline {subsubsection}{Step 3: Allocation in global matrix}{48}
+\contentsline {subsection}{\numberline {4.5.16}$((|u_k \cdot n| \phi ,\phi )_{\partial T \setminus \Gamma _N}$}{48}
 \contentsline {subsubsection}{Step 1: Function evaluation}{48}
 \contentsline {subsubsection}{Step 2: Integration of evaluated function}{48}
-\contentsline {subsubsection}{Step 3: Allocation in global degrees of freedom vector}{48}
-\contentsline {subsection}{\numberline {4.5.10}$(n \otimes u_D,\nabla \phi )_{\Gamma _D} $}{48}
-\contentsline {subsubsection}{Step 1: Function evaluation}{48}
-\contentsline {subsubsection}{Step 2: Integration of evaluated function}{49}
-\contentsline {subsubsection}{Step 3: Allocation in global matrix}{49}
-\contentsline {subsection}{\numberline {4.5.11}$-((u_k \cdot \nabla )\phi , \phi )$}{49}
-\contentsline {subsubsection}{Step 1: Function evaluation}{49}
-\contentsline {subsubsection}{Step 2: Integration of evaluated function}{49}
-\contentsline {subsubsection}{Step 3: Allocation in global matrix}{49}
-\contentsline {subsection}{\numberline {4.5.12}$((u_k \cdot n)\phi , \phi )_{\Gamma _N}$}{49}
-\contentsline {subsubsection}{Step 1: Function evaluation}{49}
-\contentsline {subsubsection}{Step 2: Integration of evaluated function}{50}
-\contentsline {subsubsection}{Step 3: Allocation in global matrix}{50}
-\contentsline {subsection}{\numberline {4.5.13}$((u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N}$}{50}
-\contentsline {subsubsection}{Step 1: Function evaluation}{50}
-\contentsline {subsubsection}{Step 2: Integration of evaluated function}{50}
-\contentsline {subsubsection}{Step 3: Allocation in global matrix}{50}
-\contentsline {subsection}{\numberline {4.5.14}$(|u_k \cdot n| \phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N}$}{50}
-\contentsline {subsubsection}{Step 1: Function evaluation}{50}
-\contentsline {subsubsection}{Step 2: Integration of evaluated function}{50}
-\contentsline {subsubsection}{Step 3: Allocation in global matrix}{51}
-\contentsline {subsection}{\numberline {4.5.15}$((u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$}{51}
-\contentsline {subsubsection}{Step 1: Function evaluation}{51}
-\contentsline {subsubsection}{Step 2: Integration of evaluated function}{51}
-\contentsline {subsubsection}{Step 3: Allocation in global matrix}{51}
-\contentsline {subsection}{\numberline {4.5.16}$((|u_k \cdot n| \phi ,\phi )_{\partial T \setminus \Gamma _N}$}{51}
-\contentsline {subsubsection}{Step 1: Function evaluation}{51}
-\contentsline {subsubsection}{Step 2: Integration of evaluated function}{51}
-\contentsline {subsubsection}{Step 3: Allocation in global matrix}{51}
-\contentsline {section}{\numberline {4.6}Setting boundary conditions}{52}
-\contentsline {section}{\numberline {4.7}Setting source term}{52}
-\contentsline {section}{\numberline {4.8}Program flow}{52}
-\contentsline {subsection}{\numberline {4.8.1}Grid preparation}{52}
-\contentsline {subsection}{\numberline {4.8.2}Function space formulation}{52}
-\contentsline {subsection}{\numberline {4.8.3}Matrix assembly}{53}
-\contentsline {subsection}{\numberline {4.8.4}Solving assembled form}{53}
-\contentsline {subsection}{\numberline {4.8.5}Post processing}{53}
-\contentsline {subsection}{\numberline {4.8.6}Newton method}{53}
-\contentsline {subsection}{\numberline {4.8.7}Additional remarks}{53}
-\contentsline {section}{\numberline {4.9}Sparsity pattern}{54}
-\contentsline {chapter}{\numberline {5}Numerical experiments}{63}
-\contentsline {section}{\numberline {5.1}Error definitions}{63}
-\contentsline {section}{\numberline {5.2}Stokes flow}{64}
-\contentsline {subsection}{\numberline {5.2.1}Properties of the stiffness matrix}{64}
-\contentsline {subsection}{\numberline {5.2.2}Analytical example}{64}
-\contentsline {subsection}{\numberline {5.2.3}Lid-driven cavity problem}{65}
-\contentsline {subsection}{\numberline {5.2.4}Flow over cylinder}{65}
-\contentsline {section}{\numberline {5.3}Penalty parameter}{76}
-\contentsline {section}{\numberline {5.4}Navier Stokes flow}{76}
-\contentsline {subsection}{\numberline {5.4.1}Analytical example}{76}
-\contentsline {subsection}{\numberline {5.4.2}Lid-driven cavity problem}{78}
-\contentsline {subsection}{\numberline {5.4.3}Flow over cylinder}{78}
-\contentsline {section}{\numberline {5.5}Solver selection}{78}
-\contentsline {chapter}{\numberline {6}Summary, conclusion and outlook}{89}
-\contentsline {section}{\numberline {6.1}Conclusions}{89}
-\contentsline {section}{\numberline {6.2}Outlook}{90}
-\contentsline {section}{\numberline {.1}Mathematical preliminaries}{91}
-\contentsline {subsection}{\numberline {.1.1}Cholesky decomposition}{91}
-\contentsline {subsection}{\numberline {.1.2}Saddle point formulation}{92}
-\contentsline {subsection}{\numberline {.1.3}Sobolev spaces}{93}
-\contentsline {subsection}{\numberline {.1.4}Basic definitions}{94}
-\contentsline {subsection}{\numberline {.1.5}Linear forms}{94}
-\contentsline {subsection}{\numberline {.1.6}Bilinear forms}{95}
-\contentsline {subsubsection}{Coercivity of bilinear form}{95}
-\contentsline {subsubsection}{Continuity of bilinear form}{95}
-\contentsline {subsection}{\numberline {.1.7}Important inequalities}{96}
-\contentsline {subsubsection}{Trace theorem}{96}
-\contentsline {subsubsection}{Cauchy-Schwarz inequality}{96}
-\contentsline {subsubsection}{Young's inequality}{96}
-\contentsline {section}{\numberline {.1}Online resources}{97}
-\contentsline {section}{\numberline {.2}Code access}{97}
+\contentsline {subsubsection}{Step 3: Allocation in global matrix}{48}
+\contentsline {section}{\numberline {4.6}Setting boundary conditions}{49}
+\contentsline {section}{\numberline {4.7}Setting source term}{49}
+\contentsline {section}{\numberline {4.8}Program flow}{49}
+\contentsline {subsection}{\numberline {4.8.1}Grid preparation}{49}
+\contentsline {subsection}{\numberline {4.8.2}Function space formulation}{49}
+\contentsline {subsection}{\numberline {4.8.3}Matrix assembly}{50}
+\contentsline {subsection}{\numberline {4.8.4}Solving assembled form}{50}
+\contentsline {subsection}{\numberline {4.8.5}Post processing}{50}
+\contentsline {subsection}{\numberline {4.8.6}Newton method}{50}
+\contentsline {subsection}{\numberline {4.8.7}Additional remarks}{50}
+\contentsline {section}{\numberline {4.9}Sparsity pattern}{51}
+\contentsline {chapter}{\numberline {5}Numerical experiments}{59}
+\contentsline {section}{\numberline {5.1}Error definitions}{59}
+\contentsline {section}{\numberline {5.2}Stokes flow}{60}
+\contentsline {subsection}{\numberline {5.2.1}Properties of the stiffness matrix}{60}
+\contentsline {subsection}{\numberline {5.2.2}Analytical example}{60}
+\contentsline {subsection}{\numberline {5.2.3}Lid-driven cavity problem}{61}
+\contentsline {subsection}{\numberline {5.2.4}Flow over cylinder}{61}
+\contentsline {section}{\numberline {5.3}Penalty parameter}{72}
+\contentsline {section}{\numberline {5.4}Navier Stokes flow}{72}
+\contentsline {subsection}{\numberline {5.4.1}Analytical example}{72}
+\contentsline {subsection}{\numberline {5.4.2}Lid-driven cavity problem}{74}
+\contentsline {subsection}{\numberline {5.4.3}Flow over cylinder}{74}
+\contentsline {section}{\numberline {5.5}Solver selection}{74}
+\contentsline {chapter}{\numberline {6}Summary, conclusion and outlook}{85}
+\contentsline {section}{\numberline {6.1}Conclusions}{85}
+\contentsline {section}{\numberline {6.2}Outlook}{86}
+\contentsline {section}{\numberline {.1}Mathematical preliminaries}{87}
+\contentsline {subsection}{\numberline {.1.1}Cholesky decomposition}{87}
+\contentsline {subsection}{\numberline {.1.2}Saddle point formulation}{88}
+\contentsline {subsection}{\numberline {.1.3}Sobolev spaces}{89}
+\contentsline {subsection}{\numberline {.1.4}Basic definitions}{90}
+\contentsline {subsection}{\numberline {.1.5}Linear forms}{90}
+\contentsline {subsection}{\numberline {.1.6}Bilinear forms}{91}
+\contentsline {subsubsection}{Coercivity of bilinear form}{91}
+\contentsline {subsubsection}{Continuity of bilinear form}{91}
+\contentsline {subsection}{\numberline {.1.7}Important inequalities}{92}
+\contentsline {subsubsection}{Trace theorem}{92}
+\contentsline {subsubsection}{Cauchy-Schwarz inequality}{92}
+\contentsline {subsubsection}{Young's inequality}{92}
+\contentsline {section}{\numberline {.1}Online resources}{93}
+\contentsline {section}{\numberline {.2}Code access}{93}
