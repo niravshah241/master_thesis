@@ -1171,7 +1171,8 @@ In the present analysis, we find that Schur complement is much faster and in fac
 
 \chapter{Implementation aspects} \label{implementation_aspects}
 
-We discuss now the implementation of the discrete formulation of the Navier Stokes discontinuous Galerkin weak formulation in RBmatlab, A MATLAB library containing all our numerical simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. We refer to the literature of Haasdonk B.\cite{Haasdonk_book} and RBmatlab website: \linebreak http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.16.09/\linebreak index.html.  
+We discuss now the implementation of the discrete formulation of the Navier Stokes discontinuous Galerkin weak formulation in RBmatlab, A MATLAB library containing all our numerical simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. We refer to the literature of Haasdonk B.\cite{Haasdonk_book} and RBmatlab website: \\
+http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.16.09/\linebreak index.html.  
 
 Before we discuss details of the implementation it is important to understand some frequently used terminologies and the data type of Basis Function and derivative of basis function in RBmatlab.
 
@@ -1179,9 +1180,9 @@ Before we discuss details of the implementation it is important to understand so
 
 A. \verb|params| and \verb|paramsP| : These are structures corresponding to velocity and pressure respectively and primarily containing following fields. (Table \ref{table_params} and Table \ref{table_paramsP})\\
 
-B. \verb|grid| : It is the structure containing fields relevant to information stored in grid. Below are the fields of grid. (Table \ref{table_grid})\\
+B. \verb|grid| : It is the structure containing fields relevant to information stored in grid. (Table \ref{table_grid})\\
 
-C. We also some other variables. (Table \ref{table_variable})\\
+C. We also define some other variables. (Table \ref{table_variable})\\
 
 \begin{table}
 \cprotect\caption{Fields of \verb|params|}
@@ -1275,9 +1276,9 @@ C. We also some other variables. (Table \ref{table_variable})\\
 
 \section{Basis functions in RBmatlab}
 
-The basis functions in RBmatlab can be point evaluated by a routine called \verb|ldg_evaluate_basis|.\\
+\verb|ldg_evaluate_basis| routine of RBmatlab evaluates the basis functions at a given point.\\
 
-We approximatete the solution at any point from solution of degrees of freedom in orthonormal basis. In matrix formulation this means basis function is matrix of the size,
+We approximate the solution at any point from solution of degrees of freedom in orthonormal basis. In matrix formulation this means basis function is matrix of the size,
 
 \begin{equation}\label{basis_func_velocity_rbmatlab}
 \phi \in \mathbb{R}^{u_{npe} \times d_u}
@@ -1341,13 +1342,13 @@ and for Dirichlet edges $\Gamma_D$
 
 \section{Matrix assemblies} \label{matrix_assembly_ch4}
 
-It is to be noted that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with equation \ref{func_transformation}.
+It is to be noted that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with the equation \ref{func_transformation}.
 
 The matrices from weak form of Navier Stokes equation have been assembled in 3 steps,
 
-1. Evaluating function at vertex of local element and transform to global geometry.\\
-2. Transform function evaluation from step 1 to global geometry (if not done in step 1) and performing integral of function over local element.\\
-3. Performing a loop over all elements and allocate integral at position in global matrix (for bilinear terms)/global vector (for linear terms) according to index of element degree of freedom in global degree of freedom vector.\\
+1. Evaluating function at vertex of local element and transform to global geometry. (Equation \ref{func_transformation})\\
+2. Transform function evaluation from step 1 to global geometry (if not done in step 1) and performing integral of function over local element.(Equation \ref{integral_local_global_boundary} and \ref{derivative_transformation})\\
+3. Performing a loop over all elements and allocate integral at position in global matrix (for bilinear terms)/global vector (for linear terms) according to indices of element degrees of freedom in global degree of freedom vector.\\
 
 We also perform numerical integration over domain $\Omega$ as,
 
@@ -1358,7 +1359,7 @@ We also perform numerical integration over domain $\Omega$ as,
 Where, \\
 
 $x_i$ = Location of function evaluation\\
-$w_i$ = Weight at corressponding point\\
+$w_i$ = Weight at corresponding point\\
 $nop$ = Number of points\\
 
 The location of function evaluation, number of points and weights are based on Gaussian quadrature rule.
@@ -1371,65 +1372,91 @@ Also the determinant of the Jacobian is twice the area of triangle.
 
 With this preliminary informations we discuss now the assembly of matrices.
 
-1. $(\nabla \phi, \nabla \phi)$:\\
+\subsection{1. $(\nabla \phi, \nabla \phi)$}
 
-Step 1: Evaluation of $(\nabla \phi , \nabla \phi)$,
+\subsubsection{Step 1: Evaluation of $(\nabla \phi , \nabla \phi)$}
 
 Through \verb|ldg_evaluate_basis_derivative| and \verb|grid| structure, we first evaluate the derivative of $\hat{\phi}$ and $JIT(k,:,:)$ at point $x_i$ . We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the equation \ref{derivative_transformation}.
 
-We than assemble matrix $res_1[i,j]=\phi_i \phi_j^T$ for $1 \leq i,j \leq u_{npe}$\\
+We than assemble the matrix, 
+\begin{equation}
+res_1[i,j]=\phi_i \phi_j^T \quad \textrm{for} \quad 1 \leq i,j \leq u_{npe} \quad \textrm{.}
+\end{equation}
 
-Step 2: Performing integration in global co-ordinate system,
+\subsubsection{Step 2: Performing integration in global coordinate system}
 
-We perform the numerical integration as per \ref{numerical integration} 
+We perform the numerical integration as per equation \ref{numerical integration} 
+\begin{equation}
+res_2 = \int_{\hat{T}} (res_1) (2 Ar(k))
+\end{equation}
 
-$res_2 = \int_{\hat{T}} (res_1) (2 Ar(k))$\\
+\subsubsection{Step 3: Degrees of freedom allocation in global matrix}
+ 
+Looping over each element and performing following operation in each loop,
+\begin{equation}
+res_3[ids\_velocity,ids\_velocity]=res_2 \quad \textrm{.}
+\end{equation}
 
-Step 3: Looping over each element and performing following operation in each loop $res_3[ids\_velocity,ids\_velocity]=res_2$\\
 
+\subsection{2. $([n \otimes \phi], [n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
 
-2. $([n \otimes \phi], [n \otimes \phi])_{\Gamma \cup \Gamma_D}$ :
+\subsubsection{Step 1: On local element following matrices are evaluated} 
 
-Step 1: On local element following matrices are evaluated,\\
-
-$res_1^{++} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^+$\\
-$res_1^{+-} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^-$\\
-$res_1^{-+} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^+$\\
-$res_1^{--} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^-$\\
+\begin{equation}
+\begin{split}
+res_1^{++} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^+\\
+res_1^{+-} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^-\\
+res_1^{-+} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^+\\
+res_1^{--} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^-\\
+\end{split}
+\end{equation}
 
 Please note that $\hat{\phi_h}$ is evaluated at local coordinate corressponding to global coordinate.
 
-Step 2: In step 2 we perform following integration, 
-We perform the numerical integration as per equation \ref{integral_local_global_boundary}
-\\ 
-$res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)$\\
-$res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j)$\\
-$res_2^{-+} = \int_{\Gamma} res_1^{-+} EL(i,j)$\\
-$res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)$\\
+\subsubsection{Step 2: In step 2 we perform following integration}
+ 
+We perform the numerical integration as per equation \ref{integral_local_global_boundary}.
+\begin{equation}
+\begin{split}
+res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)\\
+res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j)\\
+res_2^{-+} = \int_{\Gamma} res_1^{-+} EL(i,j)\\
+res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)\\
+\end{split}
+\end{equation}
 
-Step 3: Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
-\\
-$res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++}$\\
-$res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-}$\\
-$res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+}$\\
-$res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--}$\\
+\subsubsection{Step 3: Degrees of freedom allocation in global matrix}
 
+Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop.
+\begin{equation}
+\begin{split}
+res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++}\\
+res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-}\\
+res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+}\\
+res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--}\\
+\end{split}
+\end{equation}
 Finally,
-
-$res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--}$\\
+\begin{equation}
+res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--} \quad \textrm{.}
+\end{equation}
 
 It is to be noted that on dirichlet boundary only $res_1^{++}, res_2^{++}, res_3^{++}$ is evaluated as all other terms are zero.
 
-3. $(\lbrace \nabla \phi \rbrace, [n \otimes \phi])_{\Gamma \cup \Gamma_D}$ :
+\subsection{3. $(\lbrace \nabla \phi \rbrace, [n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
 
-Step 1: On local element following matrices are evaluated,\\
+\subsubsection{Step 1: On the local element following matrices are evaluated,}
+\begin{equation}
+\begin{split}
+res_1^{++} = (\nabla \phi)^+ (n \otimes \hat{\phi})^+\\
+res_1^{+-} = (\nabla \phi)^+ (n \otimes \hat{\phi})^-\\
+res_1^{-+} = (\nabla \phi)^- (n \otimes \hat{\phi})^+\\
+res_1^{--} = (\nabla \phi)^- (n \otimes \hat{\phi})^-\\
+\end{split}
+\end{equation}
 
-$res_1^{++} = (\nabla \phi)^+ (n \otimes \hat{\phi})^+$\\
-$res_1^{+-} = (\nabla \phi)^+ (n \otimes \hat{\phi})^-$\\
-$res_1^{-+} = (\nabla \phi)^- (n \otimes \hat{\phi})^+$\\
-$res_1^{--} = (\nabla \phi)^- (n \otimes \hat{\phi})^-$\\
+\subsubsection{Step 2: Integration of evaluated function}
 
-Step 2: In step 2 we perform following integration, 
 We perform the numerical integration as per equation \ref{integral_local_global_boundary}
 \\ 
 $res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)$\\
@@ -1437,137 +1464,360 @@ $res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j)$\\
 $res_2^{-+} = \int_{\Gamma} res_1^{-+} EL(i,j)$\\
 $res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)$\\
 
-Step 3: Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
-\\
-$res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++}$\\
-$res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-}$\\
-$res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+}$\\
-$res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--}$\\
+\subsubsection{Step 3: Allocation in global degrees of freedom matrix}
+
+Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
+\begin{equation}
+\begin{split}
+res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++}\\
+res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-}\\
+res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+}\\
+res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--}\\
+\end{split}
+\end{equation}
 
 Finally,
-
-$res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--}$\\
+\begin{equation}
+res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--} \quad \textrm{.}
+\end{equation}
 
 It is to be noted that on Dirichlet boundary only $res_1^{++}, res_2^{++}, res_3^{++}$ is evaluated as all other terms are zero.
 
 The same routine is also used in case of $([n \otimes \phi],\lbrace \nabla u \rbrace )_{\Gamma \cup \Gamma_D}$
 
-4. $(\lbrace \psi \rbrace, [n \cdot \phi])_{\Gamma \cup \Gamma_D}$ :
+\subsection{4. $(\lbrace \psi \rbrace, [n \cdot \phi])_{\Gamma \cup \Gamma_D}$}
 
-Step 1: On local element following matrices are evaluated,\\
-
-$res_1^{++} = (\psi)^+ (n \cdot \hat{\phi})^+$\\
-$res_1^{+-} = (\psi)^+ (n \cdot \hat{\phi})^-$\\
-$res_1^{-+} = (\psi)^- (n \cdot \hat{\phi})^+$\\
-$res_1^{--} = (\psi)^- (n \cdot \hat{\phi})^-$\\
+\subsubsection{Step 1: On local element following matrices are evaluated,}
+\begin{equation}
+res_1^{++} = (\psi)^+ (n \cdot \hat{\phi})^+\\
+res_1^{+-} = (\psi)^+ (n \cdot \hat{\phi})^-\\
+res_1^{-+} = (\psi)^- (n \cdot \hat{\phi})^+\\
+res_1^{--} = (\psi)^- (n \cdot \hat{\phi})^-\\
+\end{equation}
 
 Please note that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with \ref{func_transformation}.
 
-Step 2: In step 2 we perform following integration, 
-We perform the numerical integration as per equation \ref{integral_local_global_boundary}
-\\ 
-$res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)$\\
-$res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j)$\\
-$res_2^{-+} = \int_{\Gamma} res_1^{-+} EL(i,j)$\\
-$res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)$\\
+\subsubsection{Step 2: Integration of evaluated function}
 
-Step 3: Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
-\\
-$res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++}$\\
-$res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-}$\\
-$res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+}$\\
-$res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--}$\\
+In step 2, we perform the numerical integration as per equation \ref{integral_local_global_boundary}
+\begin{equation}
+\begin{split}
+res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)\\
+res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j)\\
+res_2^{-+} = \int_{\Gamma} res_1^{-+} EL(i,j)\\
+res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)\\
+\end{split}
+\end{equation}
+
+\subsubsection{Step 3: Allocation of matrices in global degrees of freedom matrix} 
+
+Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
+\begin{equation}
+\begin{split}
+res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++}\\
+res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-}\\
+res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+}\\
+res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--}\\
+\end{split}
+\end{equation}
 
 Finally,
-
-$res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--}$\\
+\begin{equation}
+res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--} 
+\end{equation}
 
 It is to be noted that on Dirichlet boundary only $res_1^{++}, res_2^{++}, res_3^{++}$ is evaluated as all other terms are zero.
 
-5. $-\int_{\hat{T}} \psi \nabla \cdot \phi$
+\section{5. $-\int_{\hat{T}} \psi \nabla \cdot \phi$}
+
 We note that, In accordance with equation \ref{derivative_transformation}
 \begin{equation}
 \nabla \phi = JIT \hat{\nabla} \hat{\phi}
 \end{equation}
 and in accordance with equation \ref{func_transformation}
 \begin{equation}
-\psi(x) = \hat{\psi} (\hat{x})
+\psi(x) = \hat{\psi} (\hat{x}) \quad \textrm{.}
 \end{equation}
 
-Step 1 : We first evaluate $JIT$, $\hat{\nabla} \hat{\phi}$ and $\psi$ and assemble following local matrix\\
-$res_1 = \hat{\psi_i} \hat{\nabla} \cdot \hat{\phi_j}$\\
+\subsubsection{Step 1: Function evaluation}
+We first evaluate $JIT$, $\hat{\nabla} \hat{\phi}$ and $\psi$ and assemble following local matrix\\
+\begin{equation}
+res_1 = \hat{\psi_i} \hat{\nabla} \cdot \hat{\phi_j} \quad \textrm{.}
+\end{equation}
 
-Step 2 : We integrate the function over domain\\
-$res_2 = -\int_{\hat{T}} (res_1) (2 Ar(k))$\\
+\subsubsection{Step 2: Integration of evaluated function}
+We integrate the evaluated function over domain\\
+\begin{equation}
+res_2 = -\int_{\hat{T}} (res_1) (2 Ar(k)) \quad \textrm{.}
+\end{equation}
 
-Step 3: Assemble the global matrix\\
-$res_3[ids\_presure,ids\_velocity] = res_2$\\
+\subsubsection{Step 3: Allocation in global matrix}
+
+Assemble the global matrix\\
+\begin{equation}
+res_3[ids\_presure,ids\_velocity] = res_2 \quad \textrm{.}
+\end{equation}
 
 We use the same routine for $-\int_{\hat{T}} \nabla \cdot \phi_i \psi_j $
 
-6. $(t,\phi)_{\Gamma_N}$:
-\\
+\subsection{6. $(t,\phi)_{\Gamma_N}$}
 
-Step 1: On local element following function is evaluated $res_1=\hat{\phi}_i \cdot t$ in accordance with equation  \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2=\int_{\Gamma_N} res_1 EL(i,j) $\\
-Step 3: Loop over element having Neumann boundary and perform following operation in each loop $res_3[ids]=res_2$\\
+\subsubsection{Step 1: Function evaluation}
 
-7. $(u_D,\phi)_{\Gamma_D}$:
-\\
-Step 1: On local element following function is evaluated $res_1=\hat{\phi}_i u_D$ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2=\int_{\Gamma_D} res_1 grid.EL(i,j) $\\
-Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
+On local element following function is evaluated 
+\begin{equation}
+res_1=\hat{\phi}_i \cdot t
+\end{equation} in accordance with equation  \ref{func_transformation}.
 
-8. $(\psi, n \cdot u_D)_{\Gamma_D} $:
+\subsubsection{Step 2: Integration of evaluated function}
 
-Step 1: On local element following function is evaluated $res_1=\hat{\psi} n\cdot u_D$ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2=\int_{\Gamma_D} res_1 grid.EL(i,j) $\\
-Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
+An integral is performed over the Neumann edge 
+\begin{equation}
+res_2=\int_{\Gamma_N} res_1 EL(i,j)
+\end{equation}
 
-9. $(f,\phi) $:
+\subsubsection{Step 3: Allocation in global dgrees of freedom vector}
 
-Step 1: On local element following function is evaluated $res_1= \hat{\phi} f$ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2=\int_{\hat{\Omega}} res_1 2 Ar(k)$\\
-Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
+Loop over element having Neumann boundary and perform following operation in each loop.
+\begin{equation}
+res_3[ids]=res_2
+\end{equation}
+
+\subsection{7. $(u_D,\phi)_{\Gamma_D}$}
+
+\subsubsection{Step 1: Function evaluation}
+
+On local element following function is evaluated 
+\begin{equation}
+res_1=\hat{\phi}_i u_D
+\end{equation} 
+in accordance with the equation \ref{func_transformation}.
+
+\subsubsection{Step 2: Integration of evaluated function}
+
+An integral is performed over an element 
+\begin{equation}
+res_2=\int_{\Gamma_D} res_1 grid.EL(i,j) \quad \textrm{.}
+\end{equation}
+
+\subsubsection{Step 3: Allocation in global degrees of freedom vector}
+
+Loop over element having Dirichlet boundary and perform following operation in each loop. 
+\begin{equation}
+res_3[ids]=res_2
+\end{equation}
+
+\subsection{8. $(\psi, n \cdot u_D)_{\Gamma_D} $}
+
+\subsubsection{Step 1: Function evaluation}
+
+On local element following function is evaluated 
+\begin{equation}
+res_1 = hat{\psi} n\cdot u_D
+\end{equation} 
+in accordance with equation \ref{func_transformation}.\\
+
+\subsubsection{Step 2: Integration of evaluated function}
+
+An integral is performed over an element 
+\begin{equation}
+res_2 = \int_{\Gamma_D} res_1 grid.EL(i,j) \quad \textrm{.}
+\end{equation}
+
+\subsubsection{Step 3: Allocation in global degrees of freedom vector}
+
+Loop over element having Dirichlet boundary and perform following operation in each loop.
+\begin{equation}
+res_3[ids]=res_2.
+\end{equation}
+
+\subsection{9. $(f,\phi) $}
+
+\subsubsection{Step 1: Function evaluation}
+
+On local element following function is evaluated 
+\begin{equation}
+res_1 = \hat{\phi} f
+\end{equation} 
+in accordance with equation \ref{func_transformation}.\\
+
+\subsubsection{Step 2: Integration of evaluated function}
+An integral is performed over an element as below.
+\begin{equation}
+res_2 = \int_{\hat{\Omega}} res_1 2 Ar(k)
+\end{equation}
+
+\subsubsection{Step 3: Allocation in global degrees of freedom vector}
+
+Loop over element having Dirichlet boundary and perform following operation in each loop.
+\begin{equation}
+res_3[ids]=res_2
+\end{equation}
 
 
-10. $(n \otimes u_D,\nabla \phi)_{\Gamma_D} $:
+\subsection{10. $(n \otimes u_D,\nabla \phi)_{\Gamma_D} $}
 
-Step 1: On local element following function is evaluated $res_1= n \otimes u_D  \nabla \phi$ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2=\int_{\Gamma_D} res_1 EL(i,j)$\\
-Step 3: Loop over element having Dirichlet boundary and perform following operation in each loop $res_3[ids]=res_2$\\
+\subsubsection{Step 1: Function evaluation}
+
+On local element following function is evaluated 
+\begin{equation}
+res_1 =  n \otimes u_D  \nabla \phi
+\end{equation}
+
+in accordance with equation \ref{func_transformation}.\\
+
+\subsubsection{Step 2: Integration of evaluated function}
+
+An integral is performed over a Dirichlet edge 
+\begin{equation}
+res_2 = \int_{\Gamma_D} res_1 EL(i,j)
+\end{equation}
+
+\subsubsection{Step 3: Allocation in global matrix}
+
+Loop over element having Dirichlet boundary and perform following operation in each loop. 
+\begin{equation}
+res_3[ids] = res_2
+\end{equation}
 
 We discuss now assembly of non linear terms. We now introduce initial guess $u_k$ which will be iterated further.\\
 
-11. $-((u_k \cdot \nabla)\phi , \phi)$:\\
-Step 1: On local element following function is evaluated $res_1 = (u_k \cdot \nabla \hat{\phi_i} \hat{\phi_j}) $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2= - \int_{\hat{T}} (res_1) (2Ar(k))$\\
-Step 3: Loop over all elements and perform following operation in each loop $res_3[ids,ids]=res_2$\\
+\subsection{11. $-((u_k \cdot \nabla)\phi , \phi)$}
 
-12. $((u_k \cdot n)\phi , \phi)_{\Gamma_N}$:\\
-Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}$ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2}  \int_{\Gamma_N} res_1 EL(i,j) $\\
-Step 3: Loop over all Neumann edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
+\subsubsection{Step 1: Function evaluation}
 
-13. $((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$:\\
-Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}^{ext} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) $\\
-Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids^{ext}] = res_2$\\
+On local element following function is evaluated 
+\begin{equation}
+res_1 = (u_k \cdot \nabla \hat{\phi_i} \hat{\phi_j})
+\end{equation} 
+in accordance with equation \ref{func_transformation}.\\
 
-14. $(|u_k \cdot n| \phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$:\\
-Step 1: On local element following function is evaluated $res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j}^{ext} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) $\\
-Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids^{ext}] = res_2$\\
+\subsubsection{Step 2: Integration of evaluated function}
 
-15. $((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$:\\
-Step 1: On local element following function is evaluated $res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) $\\
-Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
+An integral is performed over an element 
+\begin{equation}
+res_2= - \int_{\hat{T}} (res_1) (2Ar(k))
+\end{equation}
 
-16. $((|u_k \cdot n| \phi,\phi)_{\partial T \setminus \Gamma_N}$:\\
-Step 1: On local element following function is evaluated $res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j} $ in accordance with equation \ref{func_transformation}\\
-Step 2: An integral is performed over an element $res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) $\\
-Step 3: Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
+\subsubsection{Step 3: Allocation in global matrix}
+
+Loop over all elements and perform following operation in each loop 
+\begin{equation}
+res_3[ids,ids]=res_2
+\end{equation}
+
+\subsection{12. $((u_k \cdot n)\phi , \phi)_{\Gamma_N}$} 
+
+\subsubsection{Step 1: Function evaluation}
+
+On local element following function is evaluated 
+\begin{equation}
+res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}
+\end{equation} 
+in accordance with equation \ref{func_transformation}.\\
+
+\subsubsection{Step 2: Integration of evaluated function}
+
+An integral is performed over a Neumann edge 
+\begin{equation}
+res_2 = \frac{1}{2}  \int_{\Gamma_N} res_1 EL(i,j)
+\end{equation}
+
+\subsubsection{Step 3: Allocation in global matrix}
+
+Loop over all Neumann edge and perform following operation in each loop.
+\begin{equation}
+res_3[ids,ids] = res_2
+\end{equation}
+
+\subsection{13. $((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$}
+
+\subsubsection{Step 1: Function evaluation}
+
+On local element following function is evaluated 
+\begin{equation}
+res_1  = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}^{ext} 
+\end{equation}
+in accordance with equation \ref{func_transformation}.
+
+\subsubsection{Step 2: Integration of evaluated function}
+
+An integral is performed over an edge
+\begin{equation}
+res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) \quad \textrm{.}
+\end{equation}
+
+\subsubsection{Step 3: Allocation in global matrix}
+
+Loop over all internal edge and Dirichlet edge and perform following operation in each loop.
+\begin{equation}
+res_3[ids,ids^{ext}] = res_2
+\end{equation}
+
+\subsection{14. $(|u_k \cdot n| \phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$} 
+
+\subsubsection{Step 1: Function evaluation}
+
+On local element following function is evaluated.
+\begin{equation}
+res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j}^{ext} 
+\end{equation}
+
+in accordance with equation \ref{func_transformation}.\\
+
+\subsubsection{Step 2: Integration of evaluated function}
+
+An integral is performed over an edge 
+\begin{equation}
+res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j)
+\end{equation}
+
+\subsubsection{Step 3: Allocation in global matrix}
+
+Loop over all internal edge and Dirichlet edge and perform following operation in each loop.
+\begin{equation}
+res_3[ids,ids^{ext}] = res_2
+\end{equation}
+
+\subsection{15. $((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
+
+\subsubsection{Step 1: Function evaluation}
+
+On local element following function is evaluated 
+\begin{equation}
+res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}
+\end{equation} 
+in accordance with equation \ref{func_transformation}.\\
+
+\subsubsection{Step 2: Integration of evaluated function}
+
+An integral is performed over an edge
+\begin{equation}
+res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j)  \quad \textrm{.}
+\end{equation}
+
+\subsubsection{Step 3: Allocation in global matrix}
+
+Loop over all internal edge and Dirichlet edge and perform following operation in each loop.
+\begin{equation}
+res_3[ids,ids] = res_2
+\end{equation}
+
+\subsection{16. $((|u_k \cdot n| \phi,\phi)_{\partial T \setminus \Gamma_N}$}
+
+\subsubsection{Step 1: Function evaluation}
+
+On local element following function is evaluated $res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j} $ in accordance with equation \ref{func_transformation}\\
+\subsubsection{Step 2: Integration of evaluated function}
+
+An integral is performed over an edge
+\begin{equation}
+res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) \quad \textrm{.}
+\end{equation}
+
+\subsubsection{Step 3: Allocation in global matrix}
+
+Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
 
 \section{Setting boundary conditions}
 
@@ -1577,7 +1827,7 @@ We set the Dirichlet and Neumann boundary values in routine \verb|Dirichlet_valu
 
 \section{Setting source term}
 
-We set the source term values in routine \verb|func_rhs| as column vectors. This is called during the process of assembling vector term $(f,\phi)$ of right hand side of equation \ref{navier_stokes_weak_ch3} and equation \ref{stokes_weak_ch3}.
+We set the source term values in routine \verb|func_rhs| as column vectors. This routine is called during the process of assembling vector term $(f,\phi)$ of right hand side of equation \ref{navier_stokes_weak_ch3} and equation \ref{stokes_weak_ch3}.
 
 \section{Program flow}
 
@@ -1591,11 +1841,11 @@ We use \verb|pdegrid| tool to generate grid. We generate mesh and export paramet
 
 \subsection{Function space formulation}
 
-We now define fields for constructing function spaces for pressure and velocity. We now use two structures \verb|params| for velocity and \verb|paramsP| for pressure as explained previously (Table \ref{table_params} and Table \ref{table_paramsP}). These structures contain fields (as relevant to function space formulation) \verb|pdeg| and \verb|dimrange|. \verb|pdeg| represents polynomial degree of Ansatz function and \verb|dimrange| represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field \verb|paramsP.pdeg| is calculated as \verb|paramsP.pdeg = params.pdeg - 1| in accordance with Taylor hood element. Based on these fields \verb|ndofs_per_element|, \verb|ndofs| are calculated. Number of elements in grid can be read from \verb|grid.nelements|. We also define degree for integration \verb|qdeg| and kinematic viscocity in \linebreak \verb|params.kinematic_viscosity|. Variable \verb|mu| also holds the value of kinematic viscocity. We define penalty parameter in variable $C_{11}$. Bool variable \verb|show_sparsity| plots sparsity pattern of each matrix if set to true.\\
+We now define fields for constructing function spaces for pressure and velocity. We now use two structures \verb|params| for velocity and \verb|paramsP| for pressure as explained previously (Table \ref{table_params} and Table \ref{table_paramsP}). These structures contain fields (as relevant to function space formulation) \verb|pdeg| and \verb|dimrange|. \verb|pdeg| represents polynomial degree of Ansatz function and \verb|dimrange| represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field \verb|paramsP.pdeg| is calculated as \verb|paramsP.pdeg = params.pdeg - 1| in accordance with Taylor hood element. Based on these fields \verb|ndofs_per_element|, \verb|ndofs| are calculated. Number of elements in grid can be read from \verb|grid.nelements|. We also define degree for integration \verb|qdeg| and kinematic viscocity in \verb|params.kinematic_viscosity|. Variable \verb|mu| also holds the value of kinematic viscocity. We define penalty parameter in variable $C_{11}$. Bool variable \verb|show_sparsity| plots sparsity pattern of each matrix if set to true.\\
 
 \subsection{Matrix assembly}
 
-We now assemble all the matrices as explained during matrix assembly (routine \verb|assemble_stifness_matrix|). The individual matrices are assembled and stored in struct \verb|params|. \verb|params.bilinear_side| contains $A$ or assembly of $a(u,\phi)$. \verb|params.bilinear_side_pressure_terms| contains assembly of $B$ or assembly of \verb|b(|$\phi$,$\psi$\verb|)|.\verb|params.lhs_continuity| contains assembly of $B^T$. \verb|rhs| is the right hand side matrix \verb|[F_1;F_2]| as \linebreak \verb|[params.linear_side;params.rhs_continuity]|. \\
+We now assemble all the matrices as explained during matrix assembly (routine \verb|assemble_stiffness_matrix|). The individual matrices are assembled and stored in struct \verb|params|. \verb|params.bilinear_side| contains $A$ or assembly of $a(u,\phi)$. \verb|params.bilinear_side_pressure_terms| contains assembly of $B$ or assembly of \verb|b(|$\phi$,$\psi$\verb|)|.\verb|params.lhs_continuity| contains assembly of $B^T$. \verb|rhs| is the right hand side matrix \verb|[F_1;F_2]| as \verb|[params.linear_side;params.rhs_continuity]|. \\
 
 \subsection{Solving assembled form}
 
@@ -1603,11 +1853,11 @@ We now define the solver specific variables. \verb|required_residual_tol| specif
 
 \subsection{Post processing}
 
-We now enter into \verb|stifness_matrix_test|, to check properties of assembled stiffness matrix as explained in section \ref{property_stif_mat_stokes}. Then we enter into error measurement (\verb|error_l2_norm_assembly| and \verb|error_h0_norm_assembly|) which measures the error in $L^2$ or $H_0$ norm. \verb|params.dof_analytical|, \linebreak \verb|paramsP.dof_analytical| contain analytical expression against which numerical solution is to be compared. \verb|params.dof_derivative_analytical| and \verb|paramsP.dof_derivative_analytical| contain anlytical expression for derivative to be used for $H_0$ norm.\\
+We now enter into \verb|stiffness_matrix_test|, to check properties of assembled stiffness matrix as explained in section \ref{property_stif_mat_stokes}. Then we enter into error measurement (\verb|error_l2_norm_assembly| and \verb|error_h0_norm_assembly|) which measures the error in $L^2$ or $H_0$ norm. \verb|params.dof_analytical|, \verb|paramsP.dof_analytical| contain analytical expression against which numerical solution is to be compared. \verb|params.dof_derivative_analytical| and \verb|paramsP.dof_derivative_analytical| contain anlytical expression for derivative to be used for $H_0$ norm.\\
 
 \subsection{Newton method}
 
-We now enter into newton method (Section \ref{newton_method}). This is implemented in script \verb|newton_script|. We define again solver specific variables \verb|tol_newton|, \verb|max_iter_newton|, \verb|tol_solver|, \verb|max_iter_solver|. \verb|tol_newton|, \linebreak \verb|max_iter_newton| are variables for ending newton method and \verb|tol_solver|, \verb|max_iter_solver| are variables for solver to solve $h^{iter}$ in each newton loop. We again measure the error in $L^2$ and $H_0$ norm.\\
+We now enter into Newton method (Section \ref{newton_method}) implemented in \verb|newton_script|. We define again solver specific variables \verb|tol_newton|, \verb|max_iter_newton|, \verb|tol_solver|, \verb|max_iter_solver|. \verb|tol_newton|, \verb|max_iter_newton| are variables for ending newton method and \verb|tol_solver|, \verb|max_iter_solver| are variables for solver to solve $h^{iter}$ in each newton loop. We again measure the error in $L^2$ and $H_0$ norm.\\
 
 \subsection{Additional remarks}
 
@@ -1615,7 +1865,7 @@ We plot the solution using  \verb|ldg_plot| written for plotting discontinuous f
 
 \section{Sparsity pattern}
 
-It is the connectivity of a node with neighbouring nodes that gives rise to different discontinuous Galerkin formulations and generates different sparsity patterns. In general the flux terms are responsible for connecting to other nodes. This is also demonstrated in assembly process in section \ref{matrix_assembly_ch4}. 
+It is the connectivity of a node with neighbouring nodes that gives rise to different discontinuous Galerkin formulations and generates different sparsity patterns. In general the flux terms are responsible for connecting to other nodes. This is also demonstrated in assembly process in section \ref{matrix_assembly_ch4}. \\
 
 \begin{table}[H]
 \caption{Size and sparsity patterns of different terms}
