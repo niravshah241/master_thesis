@@ -29,12 +29,12 @@ clc
 
 params.xrange = [0,1];
 params.yrange = [0,1];
-params.xnumintervals = 3;
-params.ynumintervals = 3;
-% params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
-% params.bnd_rect_corner2=[2,2;eps,1-0.06]';% for analytical ex.
-params.bnd_rect_corner1=[-1,-1;1-eps,1/params.xnumintervals/1.8]';
-params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
+params.xnumintervals = 22;
+params.ynumintervals = 22;
+params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
+params.bnd_rect_corner2=[2,2;eps,1-(1/params.xnumintervals/1.8)]';% for analytical ex.
+% params.bnd_rect_corner1=[-1,-1;1-eps,1/params.xnumintervals/1.8]';
+% params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
 params.bnd_rect_index=[-1,-2];
 params.gridtype = 'triagrid';
 grid = construct_grid(params);
@@ -90,7 +90,7 @@ c11 = 1e2;% penalty parameter, must be large enough for coercivity
 %     solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
 % time_schur = toc;
 
-required_residual_tol = 0;%achieved_residual_tol_schur; % allowable residual
+required_residual_tol = 1e-5;%achieved_residual_tol_schur; % allowable residual
 max_iter = 1e5; % maximum number of iterations
 
 tic;
@@ -115,43 +115,43 @@ times_solver = toc;
 
 
 %% Navier Stokes
-% tol_newton = 1e-12;
-% max_iter_newton = 10;
-% tol_solver = 1e-13;
-% max_iter_solver = 100;
-% 
-% [ params,paramsP,flag,relres_solver,iter_solver,...
-%     relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
-%     newton_script( params,paramsP,grid,qdeg,mu,c11,...
-%     tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
+tol_newton = 1e-12;
+max_iter_newton = 30;
+tol_solver = 1e-6;
+max_iter_solver = 100;
+
+[ params,paramsP,flag,relres_solver,iter_solver,...
+    relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
+    newton_script( params,paramsP,grid,qdeg,mu,c11,...
+    tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
+
+%% non linear Stiffness matrix tests
 %
-% %% non linear Stiffness matrix tests
-% %
-% % disp('Entering into stiffness matrix tests')
-% % [ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
-% % ( stifness_matrix_nonlinear, params, paramsP, grid, qdeg );
+% disp('Entering into stiffness matrix tests')
+% [ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
+% ( stifness_matrix_nonlinear, params, paramsP, grid, qdeg );
 
 %% ERROR FUNCTION CALL
 
 % Analytical from paper
 
-% params.dof_analytical = @(glob)...
-%     [glob(1)^2*(1-glob(1))^2*(2*glob(2)-6*glob(2)^2+4*glob(2)^3) ...
-%     -glob(2)^2*(1-glob(2))^2*(2*glob(1)-6*glob(1)^2+4*glob(1)^3)];
-% params.dof_derivative_analytical = @(glob)...
-%      [(2*glob(2)-6*(glob(2))^2+4*(glob(2))^3) ...
-%      glob(1)^2*(1-glob(1))^2*(2-12*glob(2)+12*glob(2)^2);...
-%     -glob(2)^2*(1-glob(2))^2*(2-12*glob(1)+12*glob(1)^2) ...
-%     -(2*glob(1)-6*glob(1)^2+4*glob(1)^3)*(glob(2)^2+glob(2)^4-2*glob(2)^3)];
-% paramsP.dof_analytical = @(glob) (glob(1)*(1-glob(1)));
-% paramsP.dof_derivative_analytical = @(glob) [(1-2*glob(1)) 0];
+params.dof_analytical = @(glob)...
+    [glob(1)^2*(1-glob(1))^2*(2*glob(2)-6*glob(2)^2+4*glob(2)^3) ...
+    -glob(2)^2*(1-glob(2))^2*(2*glob(1)-6*glob(1)^2+4*glob(1)^3)];
+params.dof_derivative_analytical = @(glob)...
+     [(2*glob(2)-6*(glob(2))^2+4*(glob(2))^3) ...
+     glob(1)^2*(1-glob(1))^2*(2-12*glob(2)+12*glob(2)^2);...
+    -glob(2)^2*(1-glob(2))^2*(2-12*glob(1)+12*glob(1)^2) ...
+    -(2*glob(1)-6*glob(1)^2+4*glob(1)^3)*(glob(2)^2+glob(2)^4-2*glob(2)^3)];
+paramsP.dof_analytical = @(glob) (glob(1)*(1-glob(1)));
+paramsP.dof_derivative_analytical = @(glob) [(1-2*glob(1)) 0];
 %
 % % Standard
 %
-params.dof_analytical = @(glob) [glob(2)*(1-glob(2)) 0];
-params.dof_derivative_analytical = @(glob) [0 1-2*glob(2);0 0];
-paramsP.dof_analytical = @(glob) (1-glob(1));
-paramsP.dof_derivative_analytical = @(glob) [-1 0];
+% params.dof_analytical = @(glob) [glob(2)*(1-glob(2)) 0];
+% params.dof_derivative_analytical = @(glob) [0 1-2*glob(2);0 0];
+% paramsP.dof_analytical = @(glob) (1-glob(1));
+% paramsP.dof_derivative_analytical = @(glob) [-1 0];
 
 %% L^2 norm
 [ error_l2_velocity ] = error_l2_norm_assembly( params, grid, qdeg );
