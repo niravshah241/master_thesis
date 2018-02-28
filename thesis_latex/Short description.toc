@@ -120,27 +120,27 @@
 \contentsline {subsection}{\numberline {5.2.2}Analytical example}{60}
 \contentsline {subsection}{\numberline {5.2.3}Lid-driven cavity problem}{62}
 \contentsline {subsection}{\numberline {5.2.4}Flow over cylinder}{62}
-\contentsline {section}{\numberline {5.3}Penalty parameter}{73}
-\contentsline {section}{\numberline {5.4}Navier Stokes flow}{73}
-\contentsline {subsection}{\numberline {5.4.1}Analytical example}{73}
+\contentsline {section}{\numberline {5.3}Penalty parameter}{62}
+\contentsline {section}{\numberline {5.4}Navier Stokes flow}{62}
+\contentsline {subsection}{\numberline {5.4.1}Analytical example}{75}
 \contentsline {subsection}{\numberline {5.4.2}Lid-driven cavity problem}{75}
 \contentsline {subsection}{\numberline {5.4.3}Flow over cylinder}{75}
-\contentsline {section}{\numberline {5.5}Solver selection}{75}
-\contentsline {chapter}{\numberline {6}Summary, conclusion and outlook}{86}
-\contentsline {section}{\numberline {6.1}Conclusions}{86}
-\contentsline {section}{\numberline {6.2}Outlook}{87}
-\contentsline {section}{\numberline {.1}Mathematical preliminaries}{88}
-\contentsline {subsection}{\numberline {.1.1}Cholesky decomposition}{88}
-\contentsline {subsection}{\numberline {.1.2}Saddle point formulation}{89}
-\contentsline {subsection}{\numberline {.1.3}Sobolev spaces}{90}
-\contentsline {subsection}{\numberline {.1.4}Basic definitions}{91}
-\contentsline {subsection}{\numberline {.1.5}Linear forms}{91}
-\contentsline {subsection}{\numberline {.1.6}Bilinear forms}{92}
-\contentsline {subsubsection}{Coercivity of bilinear form}{92}
-\contentsline {subsubsection}{Continuity of bilinear form}{92}
-\contentsline {subsection}{\numberline {.1.7}Important inequalities}{93}
-\contentsline {subsubsection}{Trace theorem}{93}
-\contentsline {subsubsection}{Cauchy-Schwarz inequality}{93}
-\contentsline {subsubsection}{Young's inequality}{93}
-\contentsline {section}{\numberline {.1}Online resources}{94}
-\contentsline {section}{\numberline {.2}Code access}{94}
+\contentsline {section}{\numberline {5.5}Solver selection}{86}
+\contentsline {chapter}{\numberline {6}Summary, conclusion and outlook}{87}
+\contentsline {section}{\numberline {6.1}Conclusions}{87}
+\contentsline {section}{\numberline {6.2}Outlook}{88}
+\contentsline {section}{\numberline {.1}Mathematical preliminaries}{89}
+\contentsline {subsection}{\numberline {.1.1}Cholesky decomposition}{89}
+\contentsline {subsection}{\numberline {.1.2}Saddle point formulation}{90}
+\contentsline {subsection}{\numberline {.1.3}Sobolev spaces}{91}
+\contentsline {subsection}{\numberline {.1.4}Basic definitions}{92}
+\contentsline {subsection}{\numberline {.1.5}Linear forms}{92}
+\contentsline {subsection}{\numberline {.1.6}Bilinear forms}{93}
+\contentsline {subsubsection}{Coercivity of bilinear form}{93}
+\contentsline {subsubsection}{Continuity of bilinear form}{93}
+\contentsline {subsection}{\numberline {.1.7}Important inequalities}{94}
+\contentsline {subsubsection}{Trace theorem}{94}
+\contentsline {subsubsection}{Cauchy-Schwarz inequality}{94}
+\contentsline {subsubsection}{Young's inequality}{94}
+\contentsline {section}{\numberline {.1}Online resources}{95}
+\contentsline {section}{\numberline {.2}Code access}{95}

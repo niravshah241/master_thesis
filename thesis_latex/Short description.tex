@@ -2345,12 +2345,12 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \caption{\label{flow_over_cylinder_schur}}
 \end{figure}
 
-\newpage
-
 \section{Penalty parameter}
 
 We now measure the effect of the penalty parameter on the condition number of the matrix $A$. While coercivity provides a lower limit for the penalty parameter, the upper limit is based on an affordable condition number of the matrix $A$. As shown in Figure \ref{penalty_condition_number}, the condition number of the matrix $A$ increases with increasing penalty parameter.
 The condition number is measured on a unit square [0,1] $\times$ [0,1] in the $x-y$ plane with the number of intervals $10 \times 10$. The penalty parameter ranged from $1e \minus 2$ to $1e4$. The corresponding condition number ranged from $3.750e5$ to $1.445e10$. We see a linear increase in the condition number of the stiffness matrix with respect to the penalty parameter. (Figure \ref{effect_penalty_parameter}) The linear increase is in agreement with results of Montlaur et al. \cite{Montlaur}.
+
+We also solve flow over cylinder problem from Section \ref{flow_over_cylinder_stokes} with penalty parameter smaller than required to maintain coercivity. The results as can be seen in Figure \ref{flow_over_cylinder_c11_low} is unable to produce physically relevant flow profile.
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
@@ -2364,6 +2364,25 @@ The condition number is measured on a unit square [0,1] $\times$ [0,1] in the $x
 	\label{penalty_condition_number}
 \end{subfigure}
 \caption{\label{effect_penalty_parameter}}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{\textwidth}	
+    \includegraphics[width=\textwidth]{c11_unphysical_vx.jpg}
+    \caption{$x-$ velocity with penalty parameter smaller than minimum required for coercivity}
+    \label{x_vel_stoke_c11_low}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+    \includegraphics[width=\textwidth]{c11_unphysical_vy.jpg}
+    \caption{$y-$ velocity with penalty parameter smaller than minimum required for coercivity}
+     \label{y_vel_stoke_c11_low}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+    \includegraphics[width=\textwidth]{c11_unphysical_pressure.jpg}
+    \caption{Pressure with penalty parameter smaller than minimum required for coercivity}
+      \label{pressure_stoke_c11_low}
+\end{subfigure}
+\caption{\label{flow_over_cylinder_c11_low}}
 \end{figure}
 
 \section{Navier Stokes flow}\label{N-S-ch5}

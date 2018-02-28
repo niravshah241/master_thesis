@@ -35,33 +35,34 @@
 \contentsline {figure}{\numberline {5.9}{\ignorespaces \relax }}{70}
 \contentsline {figure}{\numberline {5.10}{\ignorespaces \relax }}{71}
 \contentsline {figure}{\numberline {5.11}{\ignorespaces \relax }}{72}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces \relax }}{74}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces \relax }}{76}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces \relax }}{77}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces \relax }}{78}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces \relax }}{79}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces $x-$ velocity (Initial guess by bicgstab solver)\relax }}{80}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces $y-$ velocity (Initial guess by bicgstab solver)\relax }}{80}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Pressure (Initial guess by bicgstab solver)\relax }}{80}
-\contentsline {figure}{\numberline {5.20}{\ignorespaces \relax }}{80}
-\contentsline {figure}{\numberline {5.21}{\ignorespaces $x-$ velocity (Initial guess by minres solver)\relax }}{81}
-\contentsline {figure}{\numberline {5.22}{\ignorespaces $y-$ velocity (Initial guess by minres solver)\relax }}{81}
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Pressure (Initial guess by minres solver)\relax }}{81}
-\contentsline {figure}{\numberline {5.24}{\ignorespaces \relax }}{81}
-\contentsline {figure}{\numberline {5.25}{\ignorespaces $x-$ velocity (Initial guess by Schur complement method)\relax }}{82}
-\contentsline {figure}{\numberline {5.26}{\ignorespaces $y-$ velocity (Initial guess by Schur complement method)\relax }}{82}
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Pressure (Initial guess by Schur complement method)\relax }}{82}
-\contentsline {figure}{\numberline {5.28}{\ignorespaces \relax }}{82}
-\contentsline {figure}{\numberline {5.29}{\ignorespaces $x-$ velocity (Initial guess by bicgstab solver)\relax }}{83}
-\contentsline {figure}{\numberline {5.30}{\ignorespaces $y-$ velocity (Initial guess by bicgstab solver)\relax }}{83}
-\contentsline {figure}{\numberline {5.31}{\ignorespaces Pressure (Initial guess by bicgstab solver)\relax }}{83}
-\contentsline {figure}{\numberline {5.32}{\ignorespaces \relax }}{83}
-\contentsline {figure}{\numberline {5.33}{\ignorespaces $x-$ velocity (Initial guess by minres solver)\relax }}{84}
-\contentsline {figure}{\numberline {5.34}{\ignorespaces $y-$ velocity (Initial guess by minres solver)\relax }}{84}
-\contentsline {figure}{\numberline {5.35}{\ignorespaces Pressure (Initial guess by minres solver)\relax }}{84}
-\contentsline {figure}{\numberline {5.36}{\ignorespaces \relax }}{84}
-\contentsline {figure}{\numberline {5.37}{\ignorespaces $x-$ velocity (Initial guess by Schur complement method)\relax }}{85}
-\contentsline {figure}{\numberline {5.38}{\ignorespaces $y-$ velocity (Initial guess by Schur complement method)\relax }}{85}
-\contentsline {figure}{\numberline {5.39}{\ignorespaces Pressure (Initial guess by Schur complement method)\relax }}{85}
-\contentsline {figure}{\numberline {5.40}{\ignorespaces \relax }}{85}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces \relax }}{73}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces \relax }}{74}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces \relax }}{76}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces \relax }}{77}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces \relax }}{78}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces \relax }}{79}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces $x-$ velocity (Initial guess by bicgstab solver)\relax }}{80}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces $y-$ velocity (Initial guess by bicgstab solver)\relax }}{80}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Pressure (Initial guess by bicgstab solver)\relax }}{80}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces \relax }}{80}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces $x-$ velocity (Initial guess by minres solver)\relax }}{81}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces $y-$ velocity (Initial guess by minres solver)\relax }}{81}
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Pressure (Initial guess by minres solver)\relax }}{81}
+\contentsline {figure}{\numberline {5.25}{\ignorespaces \relax }}{81}
+\contentsline {figure}{\numberline {5.26}{\ignorespaces $x-$ velocity (Initial guess by Schur complement method)\relax }}{82}
+\contentsline {figure}{\numberline {5.27}{\ignorespaces $y-$ velocity (Initial guess by Schur complement method)\relax }}{82}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Pressure (Initial guess by Schur complement method)\relax }}{82}
+\contentsline {figure}{\numberline {5.29}{\ignorespaces \relax }}{82}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces $x-$ velocity (Initial guess by bicgstab solver)\relax }}{83}
+\contentsline {figure}{\numberline {5.31}{\ignorespaces $y-$ velocity (Initial guess by bicgstab solver)\relax }}{83}
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Pressure (Initial guess by bicgstab solver)\relax }}{83}
+\contentsline {figure}{\numberline {5.33}{\ignorespaces \relax }}{83}
+\contentsline {figure}{\numberline {5.34}{\ignorespaces $x-$ velocity (Initial guess by minres solver)\relax }}{84}
+\contentsline {figure}{\numberline {5.35}{\ignorespaces $y-$ velocity (Initial guess by minres solver)\relax }}{84}
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Pressure (Initial guess by minres solver)\relax }}{84}
+\contentsline {figure}{\numberline {5.37}{\ignorespaces \relax }}{84}
+\contentsline {figure}{\numberline {5.38}{\ignorespaces $x-$ velocity (Initial guess by Schur complement method)\relax }}{85}
+\contentsline {figure}{\numberline {5.39}{\ignorespaces $y-$ velocity (Initial guess by Schur complement method)\relax }}{85}
+\contentsline {figure}{\numberline {5.40}{\ignorespaces Pressure (Initial guess by Schur complement method)\relax }}{85}
+\contentsline {figure}{\numberline {5.41}{\ignorespaces \relax }}{85}
 \addvspace {10\p@ }
