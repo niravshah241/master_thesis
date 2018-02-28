@@ -118,10 +118,10 @@
 \contentsline {section}{\numberline {5.2}Stokes flow}{60}
 \contentsline {subsection}{\numberline {5.2.1}Properties of the stiffness matrix}{60}
 \contentsline {subsection}{\numberline {5.2.2}Analytical example}{60}
-\contentsline {subsection}{\numberline {5.2.3}Lid-driven cavity problem}{62}
-\contentsline {subsection}{\numberline {5.2.4}Flow over cylinder}{62}
-\contentsline {section}{\numberline {5.3}Penalty parameter}{62}
-\contentsline {section}{\numberline {5.4}Navier Stokes flow}{62}
+\contentsline {subsection}{\numberline {5.2.3}Lid-driven cavity problem}{61}
+\contentsline {subsection}{\numberline {5.2.4}Flow over cylinder}{61}
+\contentsline {section}{\numberline {5.3}Penalty parameter}{61}
+\contentsline {section}{\numberline {5.4}Navier Stokes flow}{61}
 \contentsline {subsection}{\numberline {5.4.1}Analytical example}{75}
 \contentsline {subsection}{\numberline {5.4.2}Lid-driven cavity problem}{75}
 \contentsline {subsection}{\numberline {5.4.3}Flow over cylinder}{75}

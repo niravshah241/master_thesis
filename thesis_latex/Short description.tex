@@ -2131,33 +2131,9 @@ p = (1 - x)
 
 \end{center}
 
-The results of an $h-$convergence test in the $L^2$ norm with velocity polynomial degree $D=2$ and pressure polynomial degree $D-1 = 2$ is presented in Figures \ref{fig:vel_stoke_conv}, \ref{fig:vel_stoke_conv_log}, \ref{fig:pre_stoke_conv} and \ref{fig:pre_stoke_conv_log} and in the $H_0$ semi norm is presented in Figures \ref{fig:vel_stoke_conv_h0}, \ref{fig:vel_stoke_conv_log_h0}, \ref{fig:pre_stoke_conv_h0} and \ref{fig:pre_stoke_conv_log_h0}. We see almost linear converegnce. \\
+The results of an $h-$convergence test in the $L^2$ norm with velocity polynomial degree $D=2$ and pressure polynomial degree $D-1 = 2$ is presented in Figures \ref{fig:vel_stoke_conv}, \ref{fig:vel_stoke_conv_log}, \ref{fig:pre_stoke_conv} and \ref{fig:pre_stoke_conv_log} and in the $H_0$ semi norm is presented in Figures \ref{fig:vel_stoke_conv_h0}, \ref{fig:vel_stoke_conv_log_h0}, \ref{fig:pre_stoke_conv_h0} and \ref{fig:pre_stoke_conv_log_h0}. We see almost linear convergence in $L^2$ norm. \\
 
-We also present results of $p-$convergence test in $L^2$ norm and $H_0$ semi norm for velocity and in $L^2$ norm for pressure (Figures \ref{p_convergence_velocity_l2}, \ref{p_convergence_velocity_h0}, \ref{p_convergence_pressure_l2}). As can be seen the higher polynomial degree does not necessarily mean more accurate solution. However, the convergence rate increases with polynomial degree and beyond certain step size, the higher polynomial provides more accurate solution.
-
-\begin{figure}
-\begin{subfigure}{\textwidth}
-\centering
-  \includegraphics[width=\linewidth]{p_conv_velocity_l2_stokes.jpg}
-  \caption{($p-$convergence for velocity in $L^2$ norm for Stokes flow)}
-  \label{p_convergence_velocity_l2}
-\end{subfigure}
-\begin{subfigure}{\textwidth}
-\centering
-  \includegraphics[width=\linewidth]{p_conv_velocity_h0_stokes.jpg}
-  \caption{($p-$convergence for velocity in $H_0$ semi norm for Stokes flow)}
-  \label{p_convergence_velocity_h0}
-\end{subfigure}
-\begin{subfigure}{\textwidth}
-\centering
-  \includegraphics[width=\linewidth]{p_conv_pressure_l2_stokes.jpg}
-  \caption{($p-$convergence for pressure in $L^2$ norm for Stokes flow)}
-  \label{p_convergence_pressure_l2}
-\end{subfigure}
-\caption{$p-$convergence for Stokes flow}
-\label{p_conv_stokes_flow}
-\end{figure}
-
+We also present results of $p-$convergence test in $L^2$ norm and $H_0$ semi norm for velocity and in $L^2$ norm for pressure (Figures \ref{p_convergence_velocity_l2}, \ref{p_convergence_velocity_h0}, \ref{p_convergence_pressure_l2}). As can be seen the higher polynomial degree does not necessarily mean more accurate solution. However, the convergence rate increases with polynomial degree and beyond certain step size, the higher polynomial provides more accurate solution.\\
 
 We now present additional examples and check whether the implementation of the Stokes flow is capable of reproducing the physics of the problem.
 
@@ -2183,166 +2159,198 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{l2_velocity_stokes.jpg}
-  \caption{$h-$ convergence test for velocity $L^2$ error}
+  \caption{$h-$convergence test for velocity $L^2$ error}
   \label{fig:vel_stoke_conv}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{l2_pressure_stokes.jpg}
-  \caption{$h-$ convergence test for pressure in $L^2$ error}
+  \caption{$h-$convergence test for pressure in $L^2$ error}
   \label{fig:pre_stoke_conv}
 \end{subfigure}
 \end{figure}
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{l2_velocity_log_stokes.jpg}
-  \caption{$h-$ convergence test for velocity $L^2$ error (logarithmic scale)}
+  \caption{$h-$convergence test for velocity $L^2$ error (logarithmic scale)}
   \label{fig:vel_stoke_conv_log}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{l2_pressure_log_stokes.jpg}
-  \caption{$h-$ convergence test for pressure in $L^2$ error (logarithmic scale)}
+  \caption{$h-$convergence test for pressure in $L^2$ error (logarithmic scale)}
   \label{fig:pre_stoke_conv_log}
 \end{subfigure}
+\caption{$h-$convergence in $L^2$ norm for Stokes flow}
 \label{fig:l2_stokes}
 \end{figure}
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_velocity_stokes.jpg}
-  \caption{$h-$ convergence test for velocity $H_0$ error}
+  \caption{$h-$convergence test for velocity $H_0$ error}
   \label{fig:vel_stoke_conv_h0}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_pressure_stokes.jpg}
-  \caption{$h-$ convergence test for pressure in $H_0$ error}
+  \caption{$h-$convergence test for pressure in $H_0$ error}
   \label{fig:pre_stoke_conv_h0}
 \end{subfigure}
 \end{figure}
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_velocity_log_stokes.jpg}
-  \caption{$h-$ convergence test for velocity $H_0$ error (logarithmic scale)}
+  \caption{$h-$convergence test for velocity $H_0$ error (logarithmic scale)}
   \label{fig:vel_stoke_conv_log_h0}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_pressure_log_stokes.jpg}
-  \caption{$h-$ convergence test for pressure in $H_0$ error (logarithmic scale)}
+  \caption{$h-$convergence test for pressure in $H_0$ error (logarithmic scale)}
   \label{fig:pre_stoke_conv_log_h0}
 \end{subfigure}
+\caption{$h-$convergence in $H_0$ norm for Stokes flow}
 \label{fig:h0_stokes}
 \end{figure}
 
 \begin{figure}
+\begin{subfigure}{\textwidth}
+\centering
+  \includegraphics[width=0.8\linewidth]{p_conv_velocity_l2_stokes.jpg}
+  \caption{($p-$convergence for velocity in $L^2$ norm for Stokes flow)}
+  \label{p_convergence_velocity_l2}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+\centering
+  \includegraphics[width=0.8\linewidth]{p_conv_velocity_h0_stokes.jpg}
+  \caption{($p-$convergence for velocity in $H_0$ semi norm for Stokes flow)}
+  \label{p_convergence_velocity_h0}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+\centering
+  \includegraphics[width=0.8\linewidth]{p_conv_pressure_l2_stokes.jpg}
+  \caption{($p-$convergence for pressure in $L^2$ norm for Stokes flow)}
+  \label{p_convergence_pressure_l2}
+\end{subfigure}
+\caption{$p-$convergence for Stokes flow}
+\label{p_conv_stokes_flow}
+\end{figure}
+
+\begin{figure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{lid_bicgstab_vx.jpg}
-  \caption{$x-$ velocity (bicgstab solver)} 
+  \includegraphics[width=0.8\linewidth]{lid_bicgstab_vx.jpg}
+  \caption{$x-$ velocity} 
   \label{x_vel_stoke_bicgstab_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{lid_bicgstab_vy.jpg}
-  \caption{$y-$ velocity (bicgstab solver)} 
+  \includegraphics[width=0.8\linewidth]{lid_bicgstab_vy.jpg}
+  \caption{$y-$ velocity} 
   \label{y_vel_stoke_bicgstab_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{lid_bicgstab_pressure.jpg}
-  \caption{Pressure (bicgstab solver)} 
+  \includegraphics[width=0.8\linewidth]{lid_bicgstab_pressure.jpg}
+  \caption{Pressure} 
   \label{pressure_stoke_bicgstab_lid}
 \end{subfigure}
-\caption{\label{stoke_bicgstab_lid}}
+\caption{Lid driven cavity problem ($bicgstab$ solver)}
+\label{stoke_bicgstab_lid}
 \end{figure}
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{lid_minres_vx.jpg}
-  \caption{$x-$ velocity (minres solver)} 
+  \includegraphics[width=0.8\linewidth]{lid_minres_vx.jpg}
+  \caption{$x-$ velocity} 
   \label{x_vel_stoke_minres_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{lid_minres_vy.jpg}
-  \caption{$y-$ velocity (minres solver)} 
+  \includegraphics[width=0.8\linewidth]{lid_minres_vy.jpg}
+  \caption{$y-$ velocity} 
   \label{y_vel_stoke_minres_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{lid_minres_pressure.jpg}
-  \caption{Pressure (minres solver)} 
+  \includegraphics[width=0.8\linewidth]{lid_minres_pressure.jpg}
+  \caption{Pressure} 
   \label{pressure_stoke_minres_lid}
 \end{subfigure}
-\caption{\label{stoke_minres_lid}}
+\caption{Lid driven cavity problem ($minres$ solver)}
+\label{stoke_minres_lid}
 \end{figure}
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{lid_schur_vx.jpg}
-  \caption{$x-$ velocity (Schur complement method)} 
+  \includegraphics[width=0.8\linewidth]{lid_schur_vx.jpg}
+  \caption{$x-$ velocity} 
   \label{x_vel_stoke_schur_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{lid_schur_vy.jpg}
-    \caption{$y-$ velocity (Schur complement method)} \label{y_vel_stoke_schur_lid}
+  \includegraphics[width=0.8\linewidth]{lid_schur_vy.jpg}
+    \caption{$y-$ velocity} 
+    \label{y_vel_stoke_schur_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{lid_schur_pressure.jpg}
-    \caption{Pressure (Schur complement method)} 
+  \includegraphics[width=0.8\linewidth]{lid_schur_pressure.jpg}
+    \caption{Pressure} 
     \label{pressure_stoke_schur_lid}
 \end{subfigure}
-\caption{\label{stoke_schur_lid}}
+\caption{Lid driven cavity problem (Schur complement method)}
+\label{stoke_schur_lid}
 \end{figure}
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{cylinder_bicgstab_vx.jpg}
-      \caption{$x-$ velocity (bicgstab solver)}
+  \includegraphics[width=0.8\linewidth]{cylinder_bicgstab_vx.jpg}
+      \caption{$x-$ velocity}
     \label{x_vel_stoke_bicgstab}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-      \includegraphics[width=\textwidth]{cylinder_bicgstab_vy.jpg}
-    \caption{$y-$ velocity (bicgstab solver)}
+      \includegraphics[width=0.8\linewidth]{cylinder_bicgstab_vy.jpg}
+    \caption{$y-$ velocity}
      \label{y_vel_stoke_bicgstab}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-    \includegraphics[width=\textwidth]{cylinder_bicgstab_pressure.jpg}
-    \caption{Pressure (bicgstab solver)}
+    \includegraphics[width=0.8\linewidth]{cylinder_bicgstab_pressure.jpg}
+    \caption{Pressure}
       \label{pressure_stoke_bicgstab}
 \end{subfigure}
-\caption{\label{flow_over_cylinder_bicgstab}}
+\caption{Flow over cylinder ($bicgstab$ solver)}
+\label{flow_over_cylinder_bicgstab}
 \end{figure}
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\textwidth]{cylinder_minres_vx.jpg}
-    \caption{$x-$ velocity (minres solver)}
+  \includegraphics[width=0.8\linewidth]{cylinder_minres_vx.jpg}
+    \caption{$x-$ velocity}
     \label{x_vel_stoke_minres}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-    \includegraphics[width=\textwidth]{cylinder_minres_vy.jpg}
-    \caption{$y-$ velocity (minres solver)}
+    \includegraphics[width=0.8\linewidth]{cylinder_minres_vy.jpg}
+    \caption{$y-$ velocity}
      \label{y_vel_stoke_minres}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-    \includegraphics[width=\textwidth]{cylinder_minres_pressure.jpg}
-    \caption{Pressure (minres solver)}
+    \includegraphics[width=0.8\linewidth]{cylinder_minres_pressure.jpg}
+    \caption{Pressure}
       \label{pressure_stoke_minres}
 \end{subfigure}
-\caption{\label{flow_over_cylinder_minres}}
+\caption{Flow over cylinder ($minres$ solver)}
+\label{flow_over_cylinder_minres}
 \end{figure}
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
-    \includegraphics[width=\textwidth]{cylinder_schur_vx.jpg}
-    \caption{$x-$ velocity (Schur complement method)}
+    \includegraphics[width=0.8\linewidth]{cylinder_schur_vx.jpg}
+    \caption{$x-$ velocity}
     \label{x_vel_stoke_schur}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-    \includegraphics[width=\textwidth]{cylinder_schur_vy.jpg}
-    \caption{$y-$ velocity (Schur complement method)}
+    \includegraphics[width=0.8\linewidth]{cylinder_schur_vy.jpg}
+    \caption{$y-$ velocity}
      \label{y_vel_stoke_schur}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-    \includegraphics[width=\textwidth]{cylinder_schur_pressure.jpg}
-    \caption{Pressure (Schur complement method)}
+    \includegraphics[width=0.8\linewidth]{cylinder_schur_pressure.jpg}
+    \caption{Pressure}
       \label{pressure_stoke_schur}
 \end{subfigure}
-\caption{\label{flow_over_cylinder_schur}}
+\caption{Flow over cylinder (Schur complement method)}
+\label{flow_over_cylinder_schur}
 \end{figure}
 
 \section{Penalty parameter}
@@ -2363,26 +2371,28 @@ We also solve flow over cylinder problem from Section \ref{flow_over_cylinder_st
 	\caption{Penalty parameter vs Condition number}
 	\label{penalty_condition_number}
 \end{subfigure}
-\caption{\label{effect_penalty_parameter}}
+\caption{Effect of penalty parameter on condition number of Stiffness matrix $A$}
+\label{effect_penalty_parameter}
 \end{figure}
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
-    \includegraphics[width=\textwidth]{c11_unphysical_vx.jpg}
+    \includegraphics[width=0.8\linewidth]{c11_unphysical_vx.jpg}
     \caption{$x-$ velocity with penalty parameter smaller than minimum required for coercivity}
     \label{x_vel_stoke_c11_low}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-    \includegraphics[width=\textwidth]{c11_unphysical_vy.jpg}
+    \includegraphics[width=0.8\linewidth]{c11_unphysical_vy.jpg}
     \caption{$y-$ velocity with penalty parameter smaller than minimum required for coercivity}
      \label{y_vel_stoke_c11_low}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-    \includegraphics[width=\textwidth]{c11_unphysical_pressure.jpg}
+    \includegraphics[width=0.8\linewidth]{c11_unphysical_pressure.jpg}
     \caption{Pressure with penalty parameter smaller than minimum required for coercivity}
       \label{pressure_stoke_c11_low}
 \end{subfigure}
-\caption{\label{flow_over_cylinder_c11_low}}
+\caption{Flow over cylinder for smaller than minimum allowable penalty parameter}
+\label{flow_over_cylinder_c11_low}
 \end{figure}
 
 \section{Navier Stokes flow}\label{N-S-ch5}
@@ -2425,206 +2435,181 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{L2_convergence_velocity_n_s.jpg}
-  \caption{$h-$ convergence test for velocity $L^2$ error}
-  \label{fig:vel_navier_stoke_conv}
+    \includegraphics[width=\linewidth]{L2_convergence_velocity_n_s.jpg}
+    \caption{$h-$convergence test for velocity $L^2$ error}
+    \label{fig:vel_navier_stoke_conv}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
-  \includegraphics[width=\linewidth]{L2_convergence_pressure_n_s.jpg}
-  \caption{$h-$ convergence test for pressure in $L^2$ error}
+    \includegraphics[width=\linewidth]{L2_convergence_pressure_n_s.jpg}
+  \caption{$h-$convergence test for pressure in $L^2$ error}
   \label{fig:pre_navier_stoke_conv}
 \end{subfigure}
-\caption{\label{navier_stoke_conv_l2}}
+\caption{$h-$convergence for Navier Stokes flow in $L^2$ error}
+\label{navier_stoke_conv_l2}
 \end{figure}
+
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{L2_convergence_velocity_n_s_log.jpg}
-  \caption{$h-$ convergence test for velocity $L^2$ error (logarithmic scale)}
+  \caption{$h-$convergence test for velocity $L^2$ error (logarithmic scale)}
   \label{fig:vel_naviers_stoke_conv_log}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{L2_convergence_pressure_n_s_log.jpg}
-  \caption{$h-$ convergence test for pressure in $L^2$ error (logarithmic scale)}
+  \caption{$h-$convergence test for pressure in $L^2$ error (logarithmic scale)}
   \label{fig:pre_navier_stoke_conv_log}
 \end{subfigure}
-\caption{\label{navier_stoke_conv_l2_log}}
+\caption{$h-$convergence for Navier Stokes flow in $L^2$ error (Logarithmic scale)}
+\label{navier_stoke_conv_l2_log}
 \end{figure}
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s.jpg}
-  \caption{$h-$ convergence test for velocity $H_0$ error}
+  \caption{$h-$convergence test for velocity $H_0$ error}
   \label{fig:vel_navier_stoke_conv_h0}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_pressure_n_s.jpg}
-  \caption{$h-$ convergence test for pressure in $H_0$ error}
+  \caption{$h-$convergence test for pressure in $H_0$ error}
   \label{fig:pre_navier_stoke_conv_h0}
 \end{subfigure}
-\caption{\label{navier_stoke_conv_h0}}
+\caption{$h-$convergence for Navier Stokes flow in $H_0$ error}
+\label{navier_stoke_conv_h0}
 \end{figure}
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s_log.jpg}
-  \caption{$h-$ convergence test for velocity $H_0$ error (logarithmic scale)}
+  \caption{$h-$convergence test for velocity $H_0$ error (logarithmic scale)}
   \label{fig:vel_navier_stoke_conv_log_h0}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_pressure_n_s_log.jpg}
-  \caption{$h-$ convergence test for pressure in $H_0$ error (logarithmic scale)}
+  \caption{$h-$convergence test for pressure in $H_0$ error (logarithmic scale)}
   \label{fig:pre_navier_stoke_conv_log_h0}
 \end{subfigure}
-\caption{\label{navier_stoke_conv_h0_log}}
+\caption{$h-$convergence for Navier Stokes flow in $H_0$ error (logarithmic scale)}
+\label{navier_stoke_conv_h0_log}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_newton_vx_bicgstab.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$x-$ velocity (Initial guess by bicgstab solver)}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{lid_newton_vx_bicgstab.jpg}
+    \caption{$x-$ velocity}
   \label{x_vel_navier_stoke_bicgstab_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_newton_vy_bicgstab.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$y-$ velocity (Initial guess by bicgstab solver)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{lid_newton_vy_bicgstab.jpg}
+    \caption{$y-$ velocity}
   \label{y_vel_navier_stoke_bicgstab_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_newton_pressure_bicgstab.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{Pressure (Initial guess by bicgstab solver)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{lid_newton_pressure_bicgstab.jpg}
+    \caption{Pressure}
   \label{pressure_navier_stoke_bicgstab_lid}
-  \end{minipage}
-\caption{\label{lid_driven_cavity_n_s_bicgstab}}
+  \end{subfigure}
+\caption{Lid driven cavity flow (Initial guess by $bicgstab$ solver)}
+\label{lid_driven_cavity_n_s_bicgstab}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_newton_vx_minres.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$x-$ velocity (Initial guess by minres solver)}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{lid_newton_vx_minres.jpg}
+    \caption{$x-$ velocity}
   \label{x_vel_navier_stoke_minres_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_newton_vy_minres.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$y-$ velocity (Initial guess by minres solver)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{lid_newton_vy_minres.jpg}
+    \caption{$y-$ velocity}
   \label{y_vel_navier_stoke_minres_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_newton_pressure_minres.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{Pressure (Initial guess by minres solver)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{lid_newton_pressure_minres.jpg}
+    \caption{Pressure}
   \label{pressure_navier_stoke_minres_lid}
-  \end{minipage}
-\caption{\label{lid_driven_cavity_n_s_minres}}
+  \end{subfigure}
+\caption{Lid driven cavity flow (Initial guess by $minres$ solver)}
+\label{lid_driven_cavity_n_s_minres}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_newton_vx_schur.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$x-$ velocity (Initial guess by Schur complement method)}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{lid_newton_vx_schur.jpg}
+    \caption{$x-$ velocity}
   \label{x_vel_navier_stoke_schur_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_newton_vy_schur.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$y-$ velocity (Initial guess by Schur complement method)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{lid_newton_vy_schur.jpg}
+    \caption{$y-$ velocity}
   \label{y_vel_navier_stoke_schur_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_newton_pressure_schur.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{Pressure (Initial guess by Schur complement method)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{lid_newton_pressure_schur.jpg}
+    \caption{Pressure}
   \label{pressure_navier_stoke_schur_lid}
-  \end{minipage}
-\caption{\label{lid_driven_cavity_n_s_schur}}
+  \end{subfigure}
+\caption{Lid driven cavity flow (Initial guess by Schur complement method)}
+\label{lid_driven_cavity_n_s_schur}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_newton_vx_bicgstab.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$x-$ velocity (Initial guess by bicgstab solver)}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{cylinder_newton_vx_bicgstab.jpg}
+    \caption{$x-$ velocity }
   \label{x_vel_navier_stoke_bicgstab}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_newton_vy_bicgstab.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$y-$ velocity (Initial guess by bicgstab solver)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{cylinder_newton_vy_bicgstab.jpg}
+    \caption{$y-$ velocity}
   \label{y_vel_navier_stoke_bicgstab}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_newton_pressure_bicgstab.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{Pressure (Initial guess by bicgstab solver)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{cylinder_newton_pressure_bicgstab.jpg}
+    \caption{Pressure}
   \label{pressure_navier_stoke_bicgstab}
-  \end{minipage}
-\caption{\label{flow_over_cylinder_bicgstab_n_s}}
+  \end{subfigure}
+\caption{Flow over cylinder (Initial guess by $bicgstab$ solver)}
+\label{flow_over_cylinder_bicgstab_n_s}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_newton_vx_minres.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$x-$ velocity (Initial guess by minres solver)}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{cylinder_newton_vx_minres.jpg}
+    \caption{$x-$ velocity}
   \label{x_vel_navier_stoke_minres}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_newton_vy_minres.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$y-$ velocity (Initial guess by minres solver)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{cylinder_newton_vy_minres.jpg}
+    \caption{$y-$ velocity}
   \label{y_vel_navier_stoke_minres}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_newton_pressure_minres.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{Pressure (Initial guess by minres solver)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{cylinder_newton_pressure_minres.jpg}
+    \caption{Pressure}
   \label{pressure_navier_stoke_minres}
-  \end{minipage}
-\caption{\label{flow_over_cylinder_minres_n_s}}
+  \end{subfigure}
+\caption{Flow over cylinder (Initial guess by minres solver)}
+\label{flow_over_cylinder_minres_n_s}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_newton_vx_schur.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$x-$ velocity (Initial guess by Schur complement method)}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{cylinder_newton_vx_schur.jpg}
+    \caption{$x-$ velocity}
   \label{x_vel_navier_stoke_schur}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_newton_vy_schur.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$y-$ velocity (Initial guess by Schur complement method)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{cylinder_newton_vy_schur.jpg}
+    \caption{$y-$ velocity}
   \label{y_vel_navier_stoke_schur}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_newton_pressure_schur.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{Pressure (Initial guess by Schur complement method)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\linewidth]{cylinder_newton_pressure_schur.jpg}
+    \caption{Pressure}
   \label{pressure_navier_stoke_schur}
-  \end{minipage}
-\caption{\label{flow_over_cylinder_schur_n_s}}
+  \end{subfigure}
+\caption{Flow over cylinder (Initial guess by Schur complement method)}
+\label{flow_over_cylinder_schur_n_s}
 \end{figure}
 
 \section{Solver selection}
@@ -2670,7 +2655,9 @@ After implementation of the theoretical concepts and achieving experimental outc
 
 8. The initial guess, in our case the solution obtained from the Stokes equation, is crucial for success of the Newton method.\\
 
-9. The solution of the Stokes equation and the Navier Stokes equation show close to linear convergence in $L^2$ norm.
+9. The solution of the Stokes equation and the Navier Stokes equation show close to linear convergence in $L^2$ norm.\\
+
+10. The higher polynomial degree does not always guarantee better accuracy. However, the convergence rate increases with increase in polynomial degree.
 
 \section{Outlook}
 
