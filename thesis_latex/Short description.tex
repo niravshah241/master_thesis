@@ -1378,7 +1378,7 @@ With this preliminary informations we discuss now the assembly of matrices.
 
 \subsection{$(\nabla \phi, \nabla \phi)$}
 
-\subsubsection{Step 1: Evaluation of $(\nabla \phi , \nabla \phi)$}
+\subsubsection{Step 1: Function evaluation}
 
 Through \verb|ldg_evaluate_basis_derivative| and \verb|grid| structure, we first evaluate the derivative of $\hat{\phi}$ and $JIT(k,:,:)$ at point $x_i$ . We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the equation \ref{derivative_transformation}.
 
@@ -1405,7 +1405,9 @@ res_3[ids\_velocity,ids\_velocity]=res_2 \quad \textrm{.}
 
 \subsection{$([n \otimes \phi], [n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
 
-\subsubsection{Step 1: On local element following matrices are evaluated} 
+\subsubsection{Step 1: Function evaluation} 
+
+Following matrices are evaluated in first step.
 
 \begin{equation}
 \begin{split}
@@ -1450,7 +1452,9 @@ It is to be noted that on dirichlet boundary only $res_1^{++}, res_2^{++}, res_3
 
 \subsection{$(\lbrace \nabla \phi \rbrace, [n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
 
-\subsubsection{Step 1: On the local element following matrices are evaluated,}
+We evaluate following matrices,
+
+\subsubsection{Step 1: Function evaluation}
 \begin{equation}
 \begin{split}
 res_1^{++} = (\nabla \phi)^+ (n \otimes \hat{\phi})^+\\
@@ -1492,7 +1496,9 @@ The same routine is also used in case of $([n \otimes \phi],\lbrace \nabla u \rb
 
 \subsection{$(\lbrace \psi \rbrace, [n \cdot \phi])_{\Gamma \cup \Gamma_D}$}
 
-\subsubsection{Step 1: On local element following matrices are evaluated,}
+We evaluate following matrices, 
+
+\subsubsection{Step 1: Function evaluation}
 \begin{equation}
 res_1^{++} = (\psi)^+ (n \cdot \hat{\phi})^+\\
 res_1^{+-} = (\psi)^+ (n \cdot \hat{\phi})^-\\
@@ -2125,9 +2131,32 @@ p = (1 - x)
 
 \end{center}
 
-The grid is equally divided in both directions with number of divisions in each direction as $5,10,15,20$ giving step size of each element in each of the $x-y$ direction as $0.2,0.1,0.067,0.05$.\\
+The results of an $h-$convergence test in the $L^2$ norm with velocity polynomial degree $D=2$ and pressure polynomial degree $D-1 = 2$ is presented in Figures \ref{fig:vel_stoke_conv}, \ref{fig:vel_stoke_conv_log}, \ref{fig:pre_stoke_conv} and \ref{fig:pre_stoke_conv_log} and in the $H_0$ semi norm is presented in Figures \ref{fig:vel_stoke_conv_h0}, \ref{fig:vel_stoke_conv_log_h0}, \ref{fig:pre_stoke_conv_h0} and \ref{fig:pre_stoke_conv_log_h0}. We see almost linear converegnce. \\
 
-The results of an $h-$convergence test in the $L^2$ norm is presented in Figures \ref{fig:vel_stoke_conv}, \ref{fig:vel_stoke_conv_log}, \ref{fig:pre_stoke_conv} and \ref{fig:pre_stoke_conv_log} and in the $H_0$ semi norm is presented in Figures \ref{fig:vel_stoke_conv_h0}, \ref{fig:vel_stoke_conv_log_h0}, \ref{fig:pre_stoke_conv_h0} and \ref{fig:pre_stoke_conv_log_h0}. \\
+We also present results of $p-$convergence test in $L^2$ norm and $H_0$ semi norm for velocity and in $L^2$ norm for pressure (Figures \ref{p_convergence_velocity_l2}, \ref{p_convergence_velocity_h0}, \ref{p_convergence_pressure_l2}). As can be seen the higher polynomial degree does not necessarily mean more accurate solution. However, the convergence rate increases with polynomial degree and beyond certain step size, the higher polynomial provides more accurate solution.
+
+\begin{figure}
+\begin{subfigure}{\textwidth}
+\centering
+  \includegraphics[width=\linewidth]{p_conv_velocity_l2_stokes.jpg}
+  \caption{($p-$convergence for velocity in $L^2$ norm for Stokes flow)}
+  \label{p_convergence_velocity_l2}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+\centering
+  \includegraphics[width=\linewidth]{p_conv_velocity_h0_stokes.jpg}
+  \caption{($p-$convergence for velocity in $H_0$ semi norm for Stokes flow)}
+  \label{p_convergence_velocity_h0}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+\centering
+  \includegraphics[width=\linewidth]{p_conv_pressure_l2_stokes.jpg}
+  \caption{($p-$convergence for pressure in $L^2$ norm for Stokes flow)}
+  \label{p_convergence_pressure_l2}
+\end{subfigure}
+\caption{$p-$convergence for Stokes flow}
+\label{p_conv_stokes_flow}
+\end{figure}
 
 
 We now present additional examples and check whether the implementation of the Stokes flow is capable of reproducing the physics of the problem.
@@ -2145,7 +2174,7 @@ u = (1,0)^T \quad \textrm{for} \quad 0.1 \leq x \leq 0.9
 u = (10 - 10x,0)^T \quad \textrm{for} \quad 0.9 \leq x \leq 1 \quad \textrm{.}
 \end{equation}
 
-The results are shown in Figures \ref{stoke_bicgstab_lid}, \ref{stoke_minres_lid} and \ref{stoke_schur_lid}.
+The results are shown in Figures \ref{stoke_bicgstab_lid}, \ref{stoke_minres_lid} and \ref{stoke_schur_lid}. The results are found to be in agreement with literature i.e. boundary layer formation at the no slip boundaries and shape of streamline. 
 
 \subsection{Flow over cylinder} \label{flow_over_cylinder_stokes}
 
@@ -2180,167 +2209,139 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_velocity_stokes.jpg}
-  \caption{$h-$ convergence test for velocity $h^0$ error}
+  \caption{$h-$ convergence test for velocity $H_0$ error}
   \label{fig:vel_stoke_conv_h0}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_pressure_stokes.jpg}
-  \caption{$h-$ convergence test for pressure in $h^0$ error}
+  \caption{$h-$ convergence test for pressure in $H_0$ error}
   \label{fig:pre_stoke_conv_h0}
 \end{subfigure}
 \end{figure}
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_velocity_log_stokes.jpg}
-  \caption{$h-$ convergence test for velocity $h^0$ error (logarithmic scale)}
+  \caption{$h-$ convergence test for velocity $H_0$ error (logarithmic scale)}
   \label{fig:vel_stoke_conv_log_h0}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_pressure_log_stokes.jpg}
-  \caption{$h-$ convergence test for pressure in $h^0$ error (logarithmic scale)}
+  \caption{$h-$ convergence test for pressure in $H_0$ error (logarithmic scale)}
   \label{fig:pre_stoke_conv_log_h0}
 \end{subfigure}
 \label{fig:h0_stokes}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_bicgstab_vx.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$x-$ velocity (bicgstab solver)} \label{x_vel_stoke_bicgstab_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_bicgstab_vy.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$y-$ velocity (bicgstab solver)} \label{y_vel_stoke_bicgstab_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_bicgstab_pressure.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{Pressure (bicgstab solver)} \label{pressure_stoke_bicgstab_lid}
-  \end{minipage}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{lid_bicgstab_vx.jpg}
+  \caption{$x-$ velocity (bicgstab solver)} 
+  \label{x_vel_stoke_bicgstab_lid}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{lid_bicgstab_vy.jpg}
+  \caption{$y-$ velocity (bicgstab solver)} 
+  \label{y_vel_stoke_bicgstab_lid}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{lid_bicgstab_pressure.jpg}
+  \caption{Pressure (bicgstab solver)} 
+  \label{pressure_stoke_bicgstab_lid}
+\end{subfigure}
 \caption{\label{stoke_bicgstab_lid}}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_minres_vx.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$x-$ velocity (minres solver)} \label{x_vel_stoke_minres_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_minres_vy.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$y-$ velocity (minres solver)} \label{y_vel_stoke_minres_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_minres_pressure.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{Pressure (minres solver)} \label{pressure_stoke_minres_lid}
-  \end{minipage}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{lid_minres_vx.jpg}
+  \caption{$x-$ velocity (minres solver)} 
+  \label{x_vel_stoke_minres_lid}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{lid_minres_vy.jpg}
+  \caption{$y-$ velocity (minres solver)} 
+  \label{y_vel_stoke_minres_lid}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{lid_minres_pressure.jpg}
+  \caption{Pressure (minres solver)} 
+  \label{pressure_stoke_minres_lid}
+\end{subfigure}
 \caption{\label{stoke_minres_lid}}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_schur_vx.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$x-$ velocity (Schur complement method)} \label{x_vel_stoke_schur_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_schur_vy.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{lid_schur_vx.jpg}
+  \caption{$x-$ velocity (Schur complement method)} 
+  \label{x_vel_stoke_schur_lid}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{lid_schur_vy.jpg}
     \caption{$y-$ velocity (Schur complement method)} \label{y_vel_stoke_schur_lid}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{lid_schur_pressure.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{Pressure (Schur complement method)} \label{pressure_stoke_schur_lid}
-  \end{minipage}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{lid_schur_pressure.jpg}
+    \caption{Pressure (Schur complement method)} 
+    \label{pressure_stoke_schur_lid}
+\end{subfigure}
 \caption{\label{stoke_schur_lid}}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_bicgstab_vx.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
-    \caption{$x-$ velocity (bicgstab solver)}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{cylinder_bicgstab_vx.jpg}
+      \caption{$x-$ velocity (bicgstab solver)}
     \label{x_vel_stoke_bicgstab}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_bicgstab_vy.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
+      \includegraphics[width=\textwidth]{cylinder_bicgstab_vy.jpg}
     \caption{$y-$ velocity (bicgstab solver)}
      \label{y_vel_stoke_bicgstab}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
     \includegraphics[width=\textwidth]{cylinder_bicgstab_pressure.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
     \caption{Pressure (bicgstab solver)}
       \label{pressure_stoke_bicgstab}
-  \end{minipage}
+\end{subfigure}
 \caption{\label{flow_over_cylinder_bicgstab}}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
-    \includegraphics[width=\textwidth]{cylinder_minres_vx.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
+\begin{subfigure}{\textwidth}	
+  \includegraphics[width=\textwidth]{cylinder_minres_vx.jpg}
     \caption{$x-$ velocity (minres solver)}
     \label{x_vel_stoke_minres}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
     \includegraphics[width=\textwidth]{cylinder_minres_vy.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
     \caption{$y-$ velocity (minres solver)}
      \label{y_vel_stoke_minres}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
     \includegraphics[width=\textwidth]{cylinder_minres_pressure.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
     \caption{Pressure (minres solver)}
       \label{pressure_stoke_minres}
-  \end{minipage}
+\end{subfigure}
 \caption{\label{flow_over_cylinder_minres}}
 \end{figure}
 
 \begin{figure}
-  \begin{minipage}[c]{0.67\textwidth}
+\begin{subfigure}{\textwidth}	
     \includegraphics[width=\textwidth]{cylinder_schur_vx.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
     \caption{$x-$ velocity (Schur complement method)}
     \label{x_vel_stoke_schur}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
     \includegraphics[width=\textwidth]{cylinder_schur_vy.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
     \caption{$y-$ velocity (Schur complement method)}
      \label{y_vel_stoke_schur}
-  \end{minipage}
-  \begin{minipage}[c]{0.67\textwidth}
+\end{subfigure}
+\begin{subfigure}{\textwidth}	
     \includegraphics[width=\textwidth]{cylinder_schur_pressure.jpg}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.3\textwidth}
     \caption{Pressure (Schur complement method)}
       \label{pressure_stoke_schur}
-  \end{minipage}
+\end{subfigure}
 \caption{\label{flow_over_cylinder_schur}}
 \end{figure}
 
@@ -2349,7 +2350,7 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \section{Penalty parameter}
 
 We now measure the effect of the penalty parameter on the condition number of the matrix $A$. While coercivity provides a lower limit for the penalty parameter, the upper limit is based on an affordable condition number of the matrix $A$. As shown in Figure \ref{penalty_condition_number}, the condition number of the matrix $A$ increases with increasing penalty parameter.
-The condition number is measured on a unit square [0,1] $\times$ [0,1] in the $x-y$ plane with the number of intervals $10 \times 10$. The penalty parameter ranged from $1e \minus 2$ to $1e4$. The corresponding condition number ranged from $3.750e5$ to $1.445e10$. We see a linear increase in the condition number of the stiffness matrix with respect to the penalty parameter. (Figure \ref{effect_penalty_parameter})
+The condition number is measured on a unit square [0,1] $\times$ [0,1] in the $x-y$ plane with the number of intervals $10 \times 10$. The penalty parameter ranged from $1e \minus 2$ to $1e4$. The corresponding condition number ranged from $3.750e5$ to $1.445e10$. We see a linear increase in the condition number of the stiffness matrix with respect to the penalty parameter. (Figure \ref{effect_penalty_parameter}) The linear increase is in agreement with results of Montlaur et al. \cite{Montlaur}.
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
@@ -2393,17 +2394,15 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \quad \textrm{.}
 \end{equation}
 \end{center}
 
-The grid is equally divided in both directions with number of divisions in each direction as $10,15,17,20$ giving step size of each element in each of $x-y$ direction as $0.1,0.0667,0.0558,0.05$.\\
-
-The results of an $h-$convergence test in the $L^2$ norm is presented in Figures \ref{navier_stoke_conv_l2}, \ref{navier_stoke_conv_l2_log} and in the $H_0$ semi norm is presented in Figures \ref{navier_stoke_conv_h0}, \ref{navier_stoke_conv_h0_log}. \\
+The results of an $h-$convergence test in the $L^2$ norm is presented in Figures \ref{navier_stoke_conv_l2}, \ref{navier_stoke_conv_l2_log} and in the $H_0$ semi norm is presented in Figures \ref{navier_stoke_conv_h0}, \ref{navier_stoke_conv_h0_log}. The $L^2$ error results are found to be in agreement with Montlaur et al. \cite{Montlaur} i.e. linear convergence.\\
 
 \subsection{Lid-driven cavity problem} \label{lid_driven_cavity_navier_stokes}
 
-We again consider the example presented in the Section \ref{lid_driven_cavity_stokes} i.e. Benchmark $CFD$ problem. The results are presented in Figures \ref{lid_driven_cavity_n_s_bicgstab}, \ref{lid_driven_cavity_n_s_minres} and \ref{lid_driven_cavity_n_s_schur}. We also see the effect of the initial guess, the solution for the Stokes flow, calculated by different solvers.
+We again consider the example presented in the Section \ref{lid_driven_cavity_stokes} i.e. Benchmark $CFD$ problem. The results are presented in Figures \ref{lid_driven_cavity_n_s_bicgstab}, \ref{lid_driven_cavity_n_s_minres} and \ref{lid_driven_cavity_n_s_schur}. We again observe the boundary layer formation and velocity profile in agreement with literature. We also see the effect of the initial guess, the solution for the Stokes flow, calculated by different solvers. 
 
 \subsection{Flow over cylinder} \label{flow_over_cylinder_navier_stokes}
 
-We again consider the example presented in the Section \ref{flow_over_cylinder_stokes} . However, we multiply the inlet velocity on left boundary with certain factor to regulate the Reynolds number. The results are presented in Figures \ref{flow_over_cylinder_bicgstab_n_s}, \ref{flow_over_cylinder_minres_n_s} and \ref{flow_over_cylinder_schur_n_s}. We also see the effect of the initial guess, the solution for the Stokes flow, calculated by different solvers. 
+We again consider the example presented in the Section \ref{flow_over_cylinder_stokes} . However, we multiply the inlet velocity on left boundary with certain factor to regulate the Reynolds number. The results are presented in Figures \ref{flow_over_cylinder_bicgstab_n_s}, \ref{flow_over_cylinder_minres_n_s} and \ref{flow_over_cylinder_schur_n_s}. We again see high pressure zone before cylinder and low presure pressure after cylinder. Also we see the wake zone in the flow. We also advice to compare the flow profile with that given by the Stokes flow to notice the effect of turbulence or specifically,velocity and pressure fluctuations. We also see the effect of the initial guess, the solution for the Stokes flow, calculated by different solvers. 
 
 \begin{figure}
 \begin{subfigure}{\textwidth}	
@@ -2614,11 +2613,11 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 As demonstrated earlier in the Sections \ref{Stokes-ch5} and \ref{N-S-ch5}, the use of different solvers leads to different solutions. We also present now an example measuring the residual vs. run time for different solvers for the same problem.
 
 We again consider the problem from the Section \ref{flow_over_cylinder_stokes}. The residual and the run time for the same is presented in table below.
-Here Run time refers to time taken for solution of equation of form $AX = B$ and plotting.  The matrix $A$ and the vector $B$ are given in assembled form as input. Since the plotting process is exactly same, the run time compares the speed of solver or method. Residual is measured as $\frac{||B-AX||_2}{||B||_2}$.
+Here Run time refers to time taken for solution of equation of form $AX = B$ and plotting.  The matrix $A$ and the vector $B$ are given in assembled form as input. Since the plotting process is exactly same, the run time compares the speed of solver or method. Relative residual is measured as $\frac{||B-AX||_2}{||B||_2}$.
 
 \begin{longtable}{| p{.30\textwidth} | p{.30\textwidth} | p{.30\textwidth} |}
 \hline
-\textbf{Solver/Method} & \textbf{Residual} & \textbf{Run time}\\
+\textbf{Solver/Method} & \textbf{Relative residual} & \textbf{Run time}\\
 \hline
 Schur complement method & 2.4436e-08 & 6.6253 Seconds\\
 \hline
@@ -2628,7 +2627,7 @@ $bicgstab$ & 9.0071e-05 & 58.3472 Seconds\\
 \hline
 \end{longtable}
 
-It is to be noted that $bicgstab$ stops before convergence and without reaching to maximum number of iterations.
+Throughout the analysis, we notice that that $bicgstab$ stops without converging where as minres shows convergence but is slower than the Schur complement method.
 
 \chapter{Summary, conclusion and outlook}
 
@@ -2642,27 +2641,27 @@ After implementation of the theoretical concepts and achieving experimental outc
 
 3. $minres$ solver is able to solve the linear system of equations of the Stokes equation without unexpected termination of solver, i.e. the solver stops either after reaching the maximum number of iterations or specified tolerance level.\\
 
-4. In contrast, $bicgstab$ can stop without reaching specified tolerance level or maximum number of iterations.\\
+4. In contrast, $bicgstab$ has shown failure to converge to desired tolerance level.\\
 
 5. The condition number of the stiffness matrix of the Stokes equation increases with increase in penalty parameter. Therefore, the penalty parameter has to be small enough to limit the condition number. However, the penalty parameter has to be large enough to maintain coercivity of the bilinear form. \\
 
-6. The stiffness matrix of the Navier stokes equation is non symmetric. Therefore, the solvers such as $minres$, which are aplicable only for symmetric stiffness matrices are not useful. Therefore, solvers such as $bicgstab$, which are applicable for nonsymmetric stiffness matrices, are useful.\\
+6. The Newton method requires solution of large system of equations in each Newton loop adding to heavy computational cost.\\
 
-7. The Newton method requires solution of large system of equations in each Newton loop adding to heavy computational cost.\\
+7. The solution of the Stokes equation is dependent also on the solver used. The solvers/methods which are applicable for Saddle point problems should be used for solving weak form.\\
 
-8. The solution of the Stokes equation is dependent also on the solver used.
+8. The initial guess, in our case the solution obtained from the Stokes equation, is crucial for success of the Newton method.\\
 
-9. The initial guess, in our case the solution obtained from the Stokes equation, is crucial for success of the Newton method.\\
+9. The solution of the Stokes equation and the Navier Stokes equation show close to linear convergence in $L^2$ norm.
 
 \section{Outlook}
 
-The current wprk opens new areas for future development in the fields of discontinuous Galerkin method as well as reduced order modelling as pertaining to the Navier Stokes equation. 
+The current work opens new areas for future development in the fields of discontinuous Galerkin method as well as reduced order modelling as pertaining to the Navier Stokes equation. 
 
-The present implementation can be tested for computational efforts  required for increasing Reynold's number. As the Reynold's number is increased the fluctuations in velocity and presure become more relevant and hence turbulence plays crucial role in numerical simulations. Computationally this also means more accurate solver and efficient computational methods.Additionally, the present implementation can also be extended to transient cases. One of the classical applications is to create vortex pattern for flow over cylinder.
+The present implementation can be tested for computational efforts  required for increasing Reynold's number. As the Reynold's number is increased the fluctuations in velocity and presure become more relevant and hence turbulence plays crucial role in numerical simulations. Computationally this also means need for more accurate solver and efficient computational methods. Additionally, the present implementation can also be extended to transient cases. One of the classical applications could be to create vortex pattern for flow over cylinder.
 
-Also as demonstrated, the Solvers play very important role in prediction and reproducibility of flow Physics. Also for Saddle point problems, solvers are of interest in computational science. The present analysis only test few solvers/methods, however, further solvers, methods should be tested and new methods should be investigated to increase enhance the computational performance.
+Also as demonstrated, the Solvers play very important role in prediction and reproducibility of flow Physics. Also for computational science solvers for Saddle point problems are of special interest. The present analysis only test few solvers/methods, however, further solvers, methods should be tested and new methods should be investigated to increase enhance the computational performance.
 
-As future development, additionally, the Stokes equation and the Navier Stokes equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. While the geometric parametrisation is of high importance in technical areas such as Fluid structure interaction occuring in Aerospace Engineering and Mechanical engineering applications, natural applications such as porous media flows are also potential application due to varying pore sizes. Such parametrisation allows the approximation of the numerical solution with respect to parameter space. Affine transformation for the Stokes equation and the Empirical interpolation method for the Navier Stokes equation can be used to evaluate parametrised solutions. \\
+As future development, additionally, the Stokes equation and the Navier Stokes equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. While the geometric parametrisation is of high importance in technical areas such as Fluid structure interaction occuring in Aerospace Engineering and Mechanical engineering applications, natural applications such as porous media flows are also potential application due to varying pore sizes. Such parametrisation allows the approximation of the numerical solution with respect to parameter space. Affine transformation for the Stokes equation and the Empirical interpolation method for the Navier Stokes equation can be used to evaluate parametrised solutions. Such parametric evaluations are very helpful in optimisation of components or deciding optimum operating condition of components. \\
 
 The solution of the parametrized form can be stored for reduced basis evaluations. Model order reduction with a method such as proper orthogonal decompositon or greedy algorithm can be performed. As an example, proper orthogonal decomposition sorts and segregates the stored solution based on the eigenvalues. This sorted and segregated snapshots with parametrised form can be used for the prediction of the full numerical solution. In this process the evaluations are made faster but with increase in approximation error. Hence, time saving vs. induced error can be compared.
 
