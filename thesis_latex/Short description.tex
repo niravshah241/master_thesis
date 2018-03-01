@@ -2451,12 +2451,12 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{L2_convergence_velocity_n_s_log.jpg}
-  \caption{$h-$convergence test for velocity $L^2$ error (logarithmic scale)}
+  \caption{$h-$convergence test for velocity $L^2$ error (Logarithmic scale)}
   \label{fig:vel_naviers_stoke_conv_log}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{L2_convergence_pressure_n_s_log.jpg}
-  \caption{$h-$convergence test for pressure in $L^2$ error (logarithmic scale)}
+  \caption{$h-$convergence test for pressure in $L^2$ error (Logarithmic scale)}
   \label{fig:pre_navier_stoke_conv_log}
 \end{subfigure}
 \caption{$h-$convergence for Navier Stokes flow in $L^2$ error (Logarithmic scale)}
@@ -2485,10 +2485,10 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_pressure_n_s_log.jpg}
-  \caption{$h-$convergence test for pressure in $H_0$ error (logarithmic scale)}
+  \caption{$h-$convergence test for pressure in $H_0$ error (Logarithmic scale)}
   \label{fig:pre_navier_stoke_conv_log_h0}
 \end{subfigure}
-\caption{$h-$convergence for Navier Stokes flow in $H_0$ error (logarithmic scale)}
+\caption{$h-$convergence for Navier Stokes flow in $H_0$ error (Logarithmic scale)}
 \label{navier_stoke_conv_h0_log}
 \end{figure}
 
@@ -2661,11 +2661,11 @@ After implementation of the theoretical concepts and achieving experimental outc
 
 \section{Outlook}
 
-The current work opens new areas for future development in the fields of discontinuous Galerkin method as well as reduced order modelling as pertaining to the Navier Stokes equation. 
+The current work opens new areas for future development in the fields of discontinuous Galerkin method as well as reduced order modelling as pertaining to the Navier Stokes equation. \\
 
-The present implementation can be tested for computational efforts  required for increasing Reynold's number. As the Reynold's number is increased the fluctuations in velocity and presure become more relevant and hence turbulence plays crucial role in numerical simulations. Computationally this also means need for more accurate solver and efficient computational methods. Additionally, the present implementation can also be extended to transient cases. One of the classical applications could be to create vortex pattern for flow over cylinder.
+The present implementation can be tested for computational efforts  required for increasing Reynold's number. As the Reynold's number is increased the fluctuations in velocity and presure become more relevant and hence turbulence plays crucial role in numerical simulations. Computationally this also means need for more accurate solver and efficient computational methods. Additionally, the present implementation can also be extended to transient cases. One of the classical applications could be to create vortex pattern for flow over cylinder.\\
 
-Also as demonstrated, the Solvers play very important role in prediction and reproducibility of flow Physics. Also for computational science solvers for Saddle point problems are of special interest. The present analysis only test few solvers/methods, however, further solvers, methods should be tested and new methods should be investigated to increase enhance the computational performance.
+Also as demonstrated, the Solvers play very important role in prediction and reproducibility of flow Physics. Also for computational science solvers for Saddle point problems are of special interest. The present analysis only test few solvers/methods, however, further solvers, methods should be tested and new methods should be investigated to increase enhance the computational performance.\\
 
 As future development, additionally, the Stokes equation and the Navier Stokes equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. While the geometric parametrisation is of high importance in technical areas such as Fluid structure interaction occuring in Aerospace Engineering and Mechanical engineering applications, natural applications such as porous media flows are also potential application due to varying pore sizes. Such parametrisation allows the approximation of the numerical solution with respect to parameter space. Affine transformation for the Stokes equation and the Empirical interpolation method for the Navier Stokes equation can be used to evaluate parametrised solutions. Such parametric evaluations are very helpful in optimisation of components or deciding optimum operating condition of components. \\
 

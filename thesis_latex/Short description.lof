@@ -29,7 +29,7 @@
 \contentsline {figure}{\numberline {5.14}{\ignorespaces $h-$convergence for Navier Stokes flow in $L^2$ error\relax }}{76}
 \contentsline {figure}{\numberline {5.15}{\ignorespaces $h-$convergence for Navier Stokes flow in $L^2$ error (Logarithmic scale)\relax }}{77}
 \contentsline {figure}{\numberline {5.16}{\ignorespaces $h-$convergence for Navier Stokes flow in $H_0$ error\relax }}{78}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces $h-$convergence for Navier Stokes flow in $H_0$ error (logarithmic scale)\relax }}{79}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces $h-$convergence for Navier Stokes flow in $H_0$ error (Logarithmic scale)\relax }}{79}
 \contentsline {figure}{\numberline {5.18}{\ignorespaces Lid driven cavity flow (Initial guess by $bicgstab$ solver)\relax }}{80}
 \contentsline {figure}{\numberline {5.19}{\ignorespaces Lid driven cavity flow (Initial guess by $minres$ solver)\relax }}{81}
 \contentsline {figure}{\numberline {5.20}{\ignorespaces Lid driven cavity flow (Initial guess by Schur complement method)\relax }}{82}

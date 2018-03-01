@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  1 MAR 2018 09:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  1 MAR 2018 10:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2244,11 +2244,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 2658--2659
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 2664--2665
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2666--2667
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2668--2669
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 2670--2671
 
  []
 
-[88]
+[88] [89]
 Underfull \hbox (badness 10000) in paragraph at lines 2690--2691
 
  []
@@ -2283,7 +2298,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2735--2738
 
  []
 
-[89]
+[90]
 Underfull \hbox (badness 10000) in paragraph at lines 2765--2766
 
  []
@@ -2323,7 +2338,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2835--2836
 
  []
 
-[90]
+[91]
 Underfull \hbox (badness 10000) in paragraph at lines 2837--2838
 
  []
@@ -2343,7 +2358,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2849--2850
 
  []
 
-[91]
+[92]
 Underfull \hbox (badness 10000) in paragraph at lines 2892--2893
 
  []
@@ -2393,7 +2408,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2921--2922
 
  []
 
-[92]
+[93]
 Underfull \hbox (badness 10000) in paragraph at lines 2937--2938
 
  []
@@ -2403,7 +2418,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2955--2956
 
  []
 
-[93] [94]
+[94] [95]
 Underfull \hbox (badness 10000) in paragraph at lines 3027--3028
 
  []
@@ -2413,13 +2428,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 3037--3039
 
  []
 
-(./Short description.bbl [95]
+(./Short description.bbl [96]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [96
+ [97
 
-]) [97] (./Short description.aux) ) 
+]) [98] (./Short description.aux) ) 
 Here is how much of TeX's memory you used:
  17666 strings out of 493029
  344492 string characters out of 6136233
@@ -2457,10 +2472,10 @@ t10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/lin
 e10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
 10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7
 .pfb>
-Output written on "Short description.pdf" (99 pages, 6593962 bytes).
+Output written on "Short description.pdf" (100 pages, 6594638 bytes).
 PDF statistics:
- 539 PDF objects out of 1000 (max. 8388607)
- 314 compressed objects within 4 object streams
+ 542 PDF objects out of 1000 (max. 8388607)
+ 316 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  458 words of extra memory for PDF output out of 10000 (max. 10000000)
 
