@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  1 MAR 2018 00:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  1 MAR 2018 09:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -822,26 +822,20 @@ Overfull \hbox (25.19997pt too wide) in alignment at lines 263--286
  []
 
 [5] [6] (./Short description.lof
-Overfull \hbox (52.97572pt too wide) in paragraph at lines 6--6
- \OT1/cmr/m/n/10 Source:http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.[]m
-ain[]fem009.html [][]  
- []
-
-
-Overfull \hbox (3.82947pt too wide) in paragraph at lines 29--29
+Overfull \hbox (3.82947pt too wide) in paragraph at lines 16--16
  [][] []\OT1/cmr/m/n/10 Sparsity pat-terns of con-stituents of $(\OML/cmm/m/it/
 10 abs\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u[] \OMS/cmsy/m/n/10 ^^A \OML/cmm/m/it/
 10 n\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ^^^; ^^^[]\OT1/cmr/m/n/10 )[] + (\OML/cmm
 /m/it/10 abs\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u[] \OMS/cmsy/m/n/10 ^^A 
  []
 
-[7
-
-])
+)
 \tf@lof=\write5
 \openout5 = `"Short description.lof"'.
 
- [8] (./Short description.lot (./Short description-1.cpt)
+ [7
+
+] [8] (./Short description.lot (./Short description-1.cpt)
 (./Short description-2.cpt) (./Short description-3.cpt))
 \tf@lot=\write6
 \openout6 = `"Short description.lot"'.
@@ -945,6 +939,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 488--489
 [21 <./domain.jpg> <./grid.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 494--495
 
+ []
+
+
+Overfull \hbox (82.61464pt too wide) in paragraph at lines 511--515
+\OT1/cmr/m/n/10 3.3[](Image source: Source:http://hplgit.github.io/INF5620/doc/
+pub/sphinx-fem/.[]main[]fem009.html)
  []
 
 <fem_triangle_2.png, id=96, 239.2137pt x 155.1396pt>
@@ -1455,99 +1455,123 @@ File: figure2.jpg Graphic file (type jpg)
 Package pdftex.def Info: figure2.jpg used on input line 1937.
 (pdftex.def)             Requested size: 358.50314pt x 268.87433pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 1915--1941
+[]$[]$ $[]$
+ []
 
- [51]
-Overfull \vbox (77.21846pt too high) has occurred while \output is active []
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 1915--1941
+[]$ $[]$
+ []
 
 
-[52 <./figure21.jpg> <./figure22.jpg> <./figure23.jpg> <./figure24.jpg> <./figu
-re2.jpg>] <figure31.jpg, id=216, 562.1pt x 421.575pt>
+LaTeX Warning: Float too large for page by 45.21846pt on input line 1943.
+
+<figure31.jpg, id=205, 562.1pt x 421.575pt>
 File: figure31.jpg Graphic file (type jpg)
  <use figure31.jpg>
 Package pdftex.def Info: figure31.jpg used on input line 1947.
 (pdftex.def)             Requested size: 179.25157pt x 134.43716pt.
 
-<figure32.jpg, id=217, 562.1pt x 421.575pt>
+<figure32.jpg, id=206, 562.1pt x 421.575pt>
 File: figure32.jpg Graphic file (type jpg)
  <use figure32.jpg>
 Package pdftex.def Info: figure32.jpg used on input line 1952.
 (pdftex.def)             Requested size: 179.25157pt x 134.43716pt.
 
-<figure33.jpg, id=218, 562.1pt x 421.575pt>
+<figure33.jpg, id=207, 562.1pt x 421.575pt>
 File: figure33.jpg Graphic file (type jpg)
  <use figure33.jpg>
 Package pdftex.def Info: figure33.jpg used on input line 1957.
 (pdftex.def)             Requested size: 179.25157pt x 134.43716pt.
 
-<figure34.jpg, id=219, 562.1pt x 421.575pt>
+<figure34.jpg, id=208, 562.1pt x 421.575pt>
 File: figure34.jpg Graphic file (type jpg)
  <use figure34.jpg>
 Package pdftex.def Info: figure34.jpg used on input line 1962.
 (pdftex.def)             Requested size: 179.25157pt x 134.43716pt.
 
-<figure3.jpg, id=220, 562.1pt x 421.575pt>
+<figure3.jpg, id=209, 562.1pt x 421.575pt>
 File: figure3.jpg Graphic file (type jpg)
  <use figure3.jpg>
 Package pdftex.def Info: figure3.jpg used on input line 1968.
 (pdftex.def)             Requested size: 358.50314pt x 268.87433pt.
 
-Overfull \vbox (31.21846pt too high) has occurred while \output is active []
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 1946--1972
+[]$[]$ $[]$
+ []
 
 
-[53 <./figure31.jpg> <./figure32.jpg> <./figure33.jpg> <./figure34.jpg> <./figu
-re3.jpg>] <figure41.jpg, id=225, 1540.75626pt x 824.07875pt>
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 1946--1972
+[]$ $[]$
+ []
+
+
+LaTeX Warning: Float too large for page by 21.21846pt on input line 1974.
+
+<figure41.jpg, id=210, 1540.75626pt x 824.07875pt>
 File: figure41.jpg Graphic file (type jpg)
-
-<use figure41.jpg>
+ <use figure41.jpg>
 Package pdftex.def Info: figure41.jpg used on input line 1978.
 (pdftex.def)             Requested size: 179.25157pt x 95.86732pt.
- <figure42.jpg, id=226, 1540.75626pt x 824.07875pt>
-File: figure42.jpg Graphic file (type jpg)
 
-<use figure42.jpg>
+<figure42.jpg, id=211, 1540.75626pt x 824.07875pt>
+File: figure42.jpg Graphic file (type jpg)
+ <use figure42.jpg>
 Package pdftex.def Info: figure42.jpg used on input line 1983.
 (pdftex.def)             Requested size: 179.25157pt x 95.86732pt.
- <figure43.jpg, id=227, 562.1pt x 421.575pt>
-File: figure43.jpg Graphic file (type jpg)
 
-<use figure43.jpg>
+<figure43.jpg, id=212, 562.1pt x 421.575pt>
+File: figure43.jpg Graphic file (type jpg)
+ <use figure43.jpg>
 Package pdftex.def Info: figure43.jpg used on input line 1988.
 (pdftex.def)             Requested size: 179.25157pt x 134.43716pt.
- <figure44.jpg, id=228, 1540.75626pt x 824.07875pt>
-File: figure44.jpg Graphic file (type jpg)
 
-<use figure44.jpg>
+<figure44.jpg, id=213, 1540.75626pt x 824.07875pt>
+File: figure44.jpg Graphic file (type jpg)
+ <use figure44.jpg>
 Package pdftex.def Info: figure44.jpg used on input line 1993.
 (pdftex.def)             Requested size: 179.25157pt x 95.86732pt.
- <figure4.jpg, id=229, 1540.75626pt x 824.07875pt>
-File: figure4.jpg Graphic file (type jpg)
 
-<use figure4.jpg>
+<figure4.jpg, id=214, 1540.75626pt x 824.07875pt>
+File: figure4.jpg Graphic file (type jpg)
+ <use figure4.jpg>
 Package pdftex.def Info: figure4.jpg used on input line 1999.
 (pdftex.def)             Requested size: 358.50314pt x 191.73465pt.
- <figure5.jpg, id=230, 1540.75626pt x 824.07875pt>
-File: figure5.jpg Graphic file (type jpg)
 
-<use figure5.jpg>
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 1977--2003
+[]$[]$ $[]$
+ []
+
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 1977--2003
+[]$ $[]$
+ []
+
+<figure5.jpg, id=215, 1540.75626pt x 824.07875pt>
+File: figure5.jpg Graphic file (type jpg)
+ <use figure5.jpg>
 Package pdftex.def Info: figure5.jpg used on input line 2009.
 (pdftex.def)             Requested size: 358.50314pt x 191.73465pt.
- <figure6.jpg, id=231, 562.1pt x 421.575pt>
+
+<figure6.jpg, id=216, 562.1pt x 421.575pt>
 File: figure6.jpg Graphic file (type jpg)
  <use figure6.jpg>
 Package pdftex.def Info: figure6.jpg used on input line 2015.
 (pdftex.def)             Requested size: 358.50314pt x 268.87433pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [54 <./figure41.jpg> <./figure42.jpg> <./figure43.jpg> <./figure44.jpg> <./fig
-ure4.jpg>]
-<figure7.jpg, id=235, 562.1pt x 421.575pt>
+<figure7.jpg, id=217, 562.1pt x 421.575pt>
 File: figure7.jpg Graphic file (type jpg)
  <use figure7.jpg>
 Package pdftex.def Info: figure7.jpg used on input line 2021.
 (pdftex.def)             Requested size: 358.50314pt x 268.87433pt.
 
+Underfull \vbox (badness 1817) has occurred while \output is active []
+
+ [51 <./figure5.jpg>] [52 <./figure21.jpg> <./figure22.jpg> <./figure23.jpg> <.
+/figure24.jpg> <./figure2.jpg>] [53 <./figure31.jpg> <./figure32.jpg> <./figure
+33.jpg> <./figure34.jpg> <./figure3.jpg>] [54 <./figure41.jpg> <./figure42.jpg>
+ <./figure43.jpg> <./figure44.jpg> <./figure4.jpg>]
 <figure1.jpg, id=236, 1540.75626pt x 824.07875pt>
 File: figure1.jpg Graphic file (type jpg)
  <use figure1.jpg>
@@ -1556,8 +1580,7 @@ Package pdftex.def Info: figure1.jpg used on input line 2027.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [55 <./figure5.jpg> <./figure6.jpg>] <figure81.jpg, id=240, 1540.75626pt x 824
-.07875pt>
+ [55 <./figure6.jpg>] <figure81.jpg, id=240, 1540.75626pt x 824.07875pt>
 File: figure81.jpg Graphic file (type jpg)
 
 <use figure81.jpg>
@@ -2398,13 +2421,13 @@ Missing character: There is no “ in font cmr10!
 
 ]) [97] (./Short description.aux) ) 
 Here is how much of TeX's memory you used:
- 17642 strings out of 493029
- 344000 string characters out of 6136233
- 417953 words of memory out of 5000000
- 20740 multiletter control sequences out of 15000+600000
+ 17666 strings out of 493029
+ 344492 string characters out of 6136233
+ 417955 words of memory out of 5000000
+ 20764 multiletter control sequences out of 15000+600000
  18781 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,18n,54p,1410b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,18n,54p,1410b,502s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
@@ -2434,7 +2457,7 @@ t10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/lin
 e10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
 10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7
 .pfb>
-Output written on "Short description.pdf" (99 pages, 6594340 bytes).
+Output written on "Short description.pdf" (99 pages, 6593962 bytes).
 PDF statistics:
  539 PDF objects out of 1000 (max. 8388607)
  314 compressed objects within 4 object streams

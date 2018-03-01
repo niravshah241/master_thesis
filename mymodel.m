@@ -26,8 +26,8 @@ paramsP.show_sparsity = show_sparsity;
 %% Test grid
 
 %ONLY FOR TEST GRID
-h = [10];[6 8 10 12 15];
-pde = [2];%[2 3 4];
+h = [6 8 10 12 14 16];
+pde = [2 3 4];
 error_l2_velocity = zeros(length(h),length(pde));
 error_l2_pressure = zeros(length(h),length(pde));
 error_h0_velocity = zeros(length(h),length(pde));

@@ -511,11 +511,11 @@ Nodal basis functions are also known as "Shape function". Such a basis function 
 In order to define a polynomial of given degree completely, we need to calculate its co-efficients. A polynomial of degree $D$ in a 1-dimensional domain has $D+1$ coefficients. In case of a 2-dimensional domain the number of coefficients become $(D+1)(D+2)/2$. To define these coefficients the known values of function at a number of points equal to the number of coefficients is required. These points are known as nodes. In case of triangular element, the nodes are located as,\\
 1. For polynomials of degree 1 i.e. $D=1$, the nodes are located at vertices of an element.\\
 2. For polynomials of degree 2 i.e. $D=2$, the nodes are located at the vertices of an element and mid points of edges.\\
-Similarly for higher order polynomials the nodes are located as shown in Figure \ref{fig:Nodes on Triangular Element} . 
+Similarly for higher order polynomials the nodes are located as shown in Figure \ref{fig:Nodes on Triangular Element}(Image source: Source:http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html)  . 
 
 \begin{figure}
   \includegraphics[width=\linewidth]{fem_triangle_2.png}
-  \caption{Finite Element nodes on triangle for polynomials of different degrees, Source:http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html}
+  \caption{Finite Element nodes on triangle for polynomials of different degrees}
   \label{fig:Nodes on Triangular Element}
 \end{figure}
 
@@ -1911,27 +1911,27 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
 \end{center}
 \end{table}
 
-\begin{figure}[H]
-  \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure21.jpg}
+\begin{figure}
+  \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure21.jpg}
     \label{fig:figure21}
 	\caption{$((n \otimes \phi)^+,(n \otimes \phi)^+)_{\Gamma \cup \Gamma_D}$}      
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure22.jpg}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure22.jpg}
     \label{fig:figure22}
 	\caption{$((n \otimes \phi)^+,(n \otimes \phi)^-)_{\Gamma \cup \Gamma_D}$}      
-  \end{minipage}\hfill
-    \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure23.jpg}
+  \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure23.jpg}
     \label{fig:figure23}
 	\caption{$((n \otimes \phi)^-,(n \otimes \phi)^+)_{\Gamma \cup \Gamma_D}$}      
-  \end{minipage}\hfill
-    \begin{minipage}[c]{0.5\textwidth}
+  \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
     \includegraphics[width=\textwidth]{figure24.jpg}
     \label{fig:figure24}
 	\caption{$((n \otimes \phi)^-,(n \otimes \phi)^-)_{\Gamma \cup \Gamma_D}$}      
-  \end{minipage}\hfill
+  \end{subfigure}
   \begin{subfigure}{\textwidth}	
 \centering
   \includegraphics[width=\textwidth]{figure2.jpg}
@@ -1939,30 +1939,30 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
   \label{fig:figure2}
 \end{subfigure}
 \caption{Sparsity patterns of constituents of $([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
-\caption{\label{figure_2_all}}
+\label{figure_2_all}
 \end{figure}
 
-\begin{figure}[H]
-  \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure31.jpg}
+\begin{figure}
+  \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure31.jpg}
 \caption{$( \nabla \phi^+ ,(n \otimes \phi)^+)_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure31}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure32.jpg}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure32.jpg}
   \caption{$( \nabla \phi^+ ,(n \otimes \phi)^-)_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure32}
-  \end{minipage}\hfill
-    \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure33.jpg}
+  \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure33.jpg}
   \caption{$( \nabla \phi^- ,(n \otimes \phi)^+)_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure33}
-  \end{minipage}\hfill
-    \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure34.jpg}
+  \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure34.jpg}
   \caption{$( \nabla \phi^- ,(n \otimes \phi)^-)_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure34}
-  \end{minipage}\hfill
+  \end{subfigure}
   \begin{subfigure}{\textwidth}	
 \centering
   \includegraphics[width=\textwidth]{figure3.jpg}
@@ -1973,30 +1973,30 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
 \label{figure_3_all}
 \end{figure}
 
-\begin{figure}[H]
-  \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure41.jpg}
+\begin{figure}
+  \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure41.jpg}
   \caption{$( \psi^+ ,(n \cdot \phi)^+)_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure41}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure42.jpg}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure42.jpg}
   \caption{$( \psi^+ ,(n \cdot \phi)^-)_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure42}
-  \end{minipage}\hfill
-    \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure43.jpg}
+  \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure43.jpg}
   \caption{$( \psi^- ,(n \cdot \phi)^+)_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure43}
-  \end{minipage}\hfill
-    \begin{minipage}[c]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figure44.jpg}
+  \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\linewidth]{figure44.jpg}
   \caption{$( \psi^- ,(n \cdot \phi)^-)_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure44}
-  \end{minipage}\hfill
+  \end{subfigure}
   \begin{subfigure}{\textwidth}	
 \centering
-  \includegraphics[width=\textwidth]{figure4.jpg}
+  \includegraphics[width=\linewidth]{figure4.jpg}
   \caption{$(\lbrace \psi \rbrace ,[n \cdot \phi])_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure4}
 \end{subfigure}
@@ -2371,7 +2371,7 @@ We also solve flow over cylinder problem from Section \ref{flow_over_cylinder_st
 	\caption{Penalty parameter vs Condition number}
 	\label{penalty_condition_number}
 \end{subfigure}
-\caption{Effect of penalty parameter on condition number of Stiffness matrix $A$}
+\caption{Effect of penalty parameter on condition number of the stiffness matrix}
 \label{effect_penalty_parameter}
 \end{figure}
 
