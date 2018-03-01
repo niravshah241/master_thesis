@@ -17,7 +17,7 @@ params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]'; % for standard
 params.bnd_rect_index=[-1,-2];
 grid=construct_grid(params);
 show_sparsity = false; % Bool variable which plots sparsity pattern of
-% % assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
+% assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
 params.show_sparsity = show_sparsity;
 paramsP.show_sparsity = show_sparsity;
 
@@ -26,7 +26,7 @@ paramsP.show_sparsity = show_sparsity;
 %% Test grid
 
 %ONLY FOR TEST GRID
-h = [6 8 10 12 14 16];
+h = [6 8 10 12];
 pde = [2 3 4];
 error_l2_velocity = zeros(length(h),length(pde));
 error_l2_pressure = zeros(length(h),length(pde));
@@ -36,21 +36,21 @@ for i = 1:1:length(h)
     for j = 1:1:length(pde)
         h(i)
         pde(j)
-%         params.xrange = [0,1];
-%         params.yrange = [0,1];
-%         params.xnumintervals = h(i);
-%         params.ynumintervals = h(i);
-% %         params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
-% %         params.bnd_rect_corner2=[2,2;eps,1-(1/params.xnumintervals/1.8)]';% for analytical ex.
-%         params.bnd_rect_corner1=[-1,-1;1-eps,1/params.xnumintervals/1.8]';
-%         params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
-%         params.bnd_rect_index=[-1,-2];
-%         params.gridtype = 'triagrid';
-%         grid = construct_grid(params);
-%         show_sparsity = false; % Bool variable which plots sparsity pattern of
-%         %assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
-%         params.show_sparsity = show_sparsity;
-%         paramsP.show_sparsity = show_sparsity;
+        params.xrange = [0,1];
+        params.yrange = [0,1];
+        params.xnumintervals = h(i);
+        params.ynumintervals = h(i);
+%         params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
+%         params.bnd_rect_corner2=[2,2;eps,1-(1/params.xnumintervals/1.8)]';% for analytical ex.
+        params.bnd_rect_corner1=[-1,-1;1-eps,1/params.xnumintervals/1.8]';
+        params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
+        params.bnd_rect_index=[-1,-2];
+        params.gridtype = 'triagrid';
+        grid = construct_grid(params);
+        show_sparsity = false; % Bool variable which plots sparsity pattern of
+        %assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
+        params.show_sparsity = show_sparsity;
+        paramsP.show_sparsity = show_sparsity;
         
         %TEST GRID OVER
         
@@ -85,7 +85,7 @@ for i = 1:1:length(h)
         params.mu=4;
         params.kinematic_viscosity = @(params) params.mu*1e-6;
         mu = params.kinematic_viscosity(params);
-        c11 = 1e-6;% penalty parameter, must be large enough for coercivity
+        c11 = 1e2;% penalty parameter, must be large enough for coercivity
         
         %% Assembly of stiffness matrix
         
@@ -171,3 +171,9 @@ for i = 1:1:length(h)
         [ error_h0_pressure(i,j)] = error_h0_norm_assembly( paramsP, grid, qdeg );
     end
 end
+save('ehvelocity.mat','error_h0_velocity');
+save('ehpressure.mat','error_h0_pressure');
+save('elpressure.mat','error_l2_pressure');
+save('elvelocity.mat','error_l2_velocity');
+save('pconvstepsize.mat','h');
+p_convergence_plotter

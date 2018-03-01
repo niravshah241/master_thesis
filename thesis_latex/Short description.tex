@@ -2133,7 +2133,7 @@ p = (1 - x)
 
 The results of an $h-$convergence test in the $L^2$ norm with velocity polynomial degree $D=2$ and pressure polynomial degree $D-1 = 2$ is presented in Figures \ref{fig:vel_stoke_conv}, \ref{fig:vel_stoke_conv_log}, \ref{fig:pre_stoke_conv} and \ref{fig:pre_stoke_conv_log} and in the $H_0$ semi norm is presented in Figures \ref{fig:vel_stoke_conv_h0}, \ref{fig:vel_stoke_conv_log_h0}, \ref{fig:pre_stoke_conv_h0} and \ref{fig:pre_stoke_conv_log_h0}. We see almost linear convergence in $L^2$ norm. \\
 
-We also present results of $p-$convergence test in $L^2$ norm and $H_0$ semi norm for velocity and in $L^2$ norm for pressure (Figures \ref{p_convergence_velocity_l2}, \ref{p_convergence_velocity_h0}, \ref{p_convergence_pressure_l2}). As can be seen the higher polynomial degree does not necessarily mean more accurate solution. However, the convergence rate increases with polynomial degree and beyond certain step size, the higher polynomial provides more accurate solution.\\
+We also present results of $p-$convergence test in $L^2$ norm and $H_0$ semi norm for velocity and in $L^2$ norm for pressure (Figures \ref{p_convergence_velocity_l2}, \ref{p_convergence_velocity_h0}, \ref{p_convergence_pressure_l2}). As can be seen the higher polynomial degree does not necessarily mean more accurate solution. However, the convergence rate increases with polynomial degree and beyond certain step size, the higher polynomial degree provides more accurate solution.\\
 
 We now present additional examples and check whether the implementation of the Stokes flow is capable of reproducing the physics of the problem.
 
@@ -2171,12 +2171,12 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{l2_velocity_log_stokes.jpg}
-  \caption{$h-$convergence test for velocity $L^2$ error (logarithmic scale)}
+  \caption{$h-$convergence test for velocity $L^2$ error (Logarithmic scale)}
   \label{fig:vel_stoke_conv_log}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{l2_pressure_log_stokes.jpg}
-  \caption{$h-$convergence test for pressure in $L^2$ error (logarithmic scale)}
+  \caption{$h-$convergence test for pressure in $L^2$ error (Logarithmic scale)}
   \label{fig:pre_stoke_conv_log}
 \end{subfigure}
 \caption{$h-$convergence in $L^2$ norm for Stokes flow}
@@ -2198,12 +2198,12 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_velocity_log_stokes.jpg}
-  \caption{$h-$convergence test for velocity $H_0$ error (logarithmic scale)}
+  \caption{$h-$convergence test for velocity $H_0$ error (Logarithmic scale)}
   \label{fig:vel_stoke_conv_log_h0}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_pressure_log_stokes.jpg}
-  \caption{$h-$convergence test for pressure in $H_0$ error (logarithmic scale)}
+  \caption{$h-$convergence test for pressure in $H_0$ error (Logarithmic scale)}
   \label{fig:pre_stoke_conv_log_h0}
 \end{subfigure}
 \caption{$h-$convergence in $H_0$ norm for Stokes flow}
