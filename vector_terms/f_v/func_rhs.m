@@ -1,11 +1,11 @@
 function [ res ] = func_rhs( glob,params )
 %FUNC_RHS is function for rhs. res column vector.
 %glob is global coordinate
+res = zeros(params.dimrange,1);
+
 
 x = glob(1);
 y = glob(2);
-
-res = zeros(params.dimrange,1);
 
 %% analytical example from paper
 

@@ -1,6 +1,8 @@
-function [ res ] = assemble_linear_side( grid,params,qdeg, mu, c11)
+function [ res, res1, res2, res3, res4 ] = assemble_linear_side...
+    ( grid,params,qdeg, mu, c11)
 %ASSEMBLE_LINEAR_SIDE Summary of this function goes here
 %   Detailed explanation goes here
+
 
 res1 = source_assembly(params, grid,qdeg );
 res1 = sparse(res1);
@@ -13,6 +15,7 @@ res4 = sparse(res4);
 
 rhs = res1 + res2 + c11*res3 - mu*res4;
 
-res=sparse(rhs);
+res = sparse(rhs);
+
 
 end

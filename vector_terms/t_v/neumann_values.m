@@ -23,5 +23,4 @@ else
     disp('Not on neumann boundary');
     %error('Not on neumann boundary');
 end
-
 end

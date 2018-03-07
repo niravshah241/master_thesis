@@ -1,7 +1,8 @@
-function [ res ] = assemble_bilinear_side( grid, params,...
+function [ res, res1, res2, res3 ] = assemble_bilinear_side( grid, params,...
     paramsP, qdeg, mu, c11)
 %ASSEMBLE_BILINEAR_SIDE Summary of this function goes here
 %   Detailed explanation goes here
+
 
 res1 = ldg_evaluate_basis_derivative_assembly(params, grid, qdeg );
 res1 = sparse(res1);
@@ -10,7 +11,6 @@ res2 = sparse(res2.res);
 res3 = del_u_average_n_v_tensor_jump_assembly(grid,params,qdeg);
 res3 = sparse(res3.res);
 
-res= mu*res1+c11*res2-mu*res3-mu*res3';
-
+res = mu * res1 + c11 * res2 - mu * res3 - mu * res3';
 
 end

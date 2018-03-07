@@ -110,22 +110,16 @@ for i = 1:1:size(parameter_training_set,1)
     mu = params.kinematic_viscosity(params);
     c11 = 1e1*mu*1e6;% penalty parameter, must be large enough for coercivity
     
-    %% AFFINE assembly of stiffness matrix
+    %% Assembly of affine stiffness matrix
     
-    %[ params, paramsP, rhs, stifness_matrix] = assemble_stifness_matrix...
-    %    ( params, paramsP, grid, qdeg, mu, c11 );
+%     [ params, paramsP, rhs, stifness_matrix] = assemble_stifness_matrix...
+%         ( params, paramsP, grid, qdeg, mu, c11 );
     
-    theta_1 = params.parameter_training_set(1) - params.reference_parameter(1); 
-    theta_2 = params.parameter_training_set(2) - params.reference_parameter(2);
-    
-    stifness_matrix(1:params.ndofs,1:params.ndofs) = ...
-        stifness_matrix(1:params.ndofs,1:params.ndofs) + theta_1 * ...
-        (params.bilinear_res1 - params.bilinear_res2 - params.bilinear_res2');
-    
-    params.linear_side(1:params.ndofs) = params.linear_side(1:params.ndofs) ...
-        - theta_1 * params.linear_res4;
-    
-    
+
+    affine_multiplier = [params.parameter_training_set(1)/params.reference_parameter(1) ...
+        ];
+    stifness_matrix = 
+
     %% Stokes problem
     
     tic;
