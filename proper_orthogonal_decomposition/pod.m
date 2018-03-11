@@ -1,7 +1,7 @@
 function [ pod_res_params, pod_res_paramsP, B, B_velocity, B_pressure, ...
     stifness_matrix_reduced, params_reduced, paramsP_reduced] = ...
     pod( params, paramsP, grid, red_dim_velocity, red_dim_pressure, ...
-    min_eigen, stifness_matrix, rhs, error_norm)
+    min_eigen, stifness_matrix, rhs)
 %POD Summary of this function goes here
 %   Detailed explanation goes here
 % snapshots \in \mathbb(R)^{ndofs \time n_s}
@@ -61,20 +61,20 @@ pod_res_paramsP.B = B_pressure;
 % Galerkin formulation
 B = zeros(params.ndofs+paramsP.ndofs,red_dim_velocity+red_dim_pressure);
 B(1:params.ndofs,1:red_dim_velocity) = B_velocity;
-B(params.ndofs+1:params.ndofs+paramsP.ndofs,...
-    red_dim_velocity+1:red_dim_velocity+red_dim_pressure) = B_pressure;
-B(red_dim_velocity+1:red_dim_velocity+red_dim_pressure,...
-    params.ndofs+1:params.ndofs+paramsP.ndofs) = B_pressure';
-stifness_matrix_reduced = B'*stifness_matrix*B;
+B(params.ndofs+1:params.ndofs+paramsP.ndofs,1:red_dim_pressure) = B_pressure;
 rhs_reduced = B' * rhs;
-if error_norm == 'L2'
-    params_reduced.dofs = B_velocity' * M_velocity * params.dofs;
-    paramsP_reduced.dofs = B_pressure' * M_pressure * paramsP.dofs;
-elseif error_norm == 'energy'
-    reduced_dofs = minres(stifness_matrix_reduced,rhs_reduced);
-    params_reduced.dofs = reduced_dofs(1:red_dim_velocity,1);
-    paramsP_reduced.dofs = reduced_dofs...
-        (red_dim_velocity+1:red_dim_velocity+red_dim_pressure,1);
-    params_reduced.dofs = reduced_dofs(1:red_dim_velocity,1);
-end
+stifness_matrix_reduced = zeros(red_dim_velocity+red_dim_pressure);
+stifness_matrix_reduced(1:red_dim_velocity,1:red_dim_velocity) = ...
+    B_velocity' * stifness_matrix(1:params.ndofs,1:params.ndofs) * B_velocity;
+stifness_matrix_reduced(1:red_dim_velocity, ...
+    red_dim_velocity + 1 : red_dim_velocity + red_dim_pressure) ...
+    = B_velocity' * stifness_matrix(1:params.ndofs,params.ndofs + 1 : ...
+    params.ndofs + paramsP.ndofs) * B_pressure;
+stifness_matrix_reduced(red_dim_velocity+1:red_dim_velocity + ...
+    red_dim_pressure, 1:red_dim_velocity) = B_pressure' * ...
+    stifness_matrix(params.ndofs + 1:params.ndofs + paramsP.ndofs, ...
+    1:params.ndofs) * B_velocity;
+params_reduced.dofs = zeros(red_dim_velocity,1);
+paramsP_reduced.dofs = zeros(red_dim_pressure,1);
+
 end

@@ -13,16 +13,16 @@
 \contentsline {section}{\numberline {3.4}Basis function}{22}
 \contentsline {subsection}{\numberline {3.4.1}Nodal basis functions}{22}
 \contentsline {subsection}{\numberline {3.4.2}Orthonormal basis functions}{23}
-\contentsline {section}{\numberline {3.5}Global and local coordinate system}{23}
+\contentsline {section}{\numberline {3.5}Global and local coordinate system}{24}
 \contentsline {section}{\numberline {3.6}Jump operator}{25}
-\contentsline {section}{\numberline {3.7}Average operator}{25}
+\contentsline {section}{\numberline {3.7}Average operator}{26}
 \contentsline {section}{\numberline {3.8}$L^2$ scalar product}{26}
 \contentsline {section}{\numberline {3.9}Problem statement}{26}
 \contentsline {subsection}{\numberline {3.9.1}Stokes strong, weak and discrete form}{26}
 \contentsline {subsubsection}{Derivation of the weak form of the Stokes equation}{27}
 \contentsline {subsection}{\numberline {3.9.2}Properties of the stiffness matrix}{28}
 \contentsline {subsubsection}{Proof}{29}
-\contentsline {subsubsection}{Coercivity constant for equation for Stokes flow}{29}
+\contentsline {subsubsection}{Coercivity constant for the equation for the Stokes flow}{29}
 \contentsline {subsection}{\numberline {3.9.3}Upwinding}{31}
 \contentsline {subsection}{\numberline {3.9.4}Navier Stokes strong, weak and discrete form}{31}
 \contentsline {subsection}{\numberline {3.9.5}Newton method}{32}
@@ -111,7 +111,6 @@
 \contentsline {subsection}{\numberline {4.8.4}Solving assembled form}{50}
 \contentsline {subsection}{\numberline {4.8.5}Post processing}{50}
 \contentsline {subsection}{\numberline {4.8.6}Newton method}{50}
-\contentsline {subsection}{\numberline {4.8.7}Additional remarks}{50}
 \contentsline {section}{\numberline {4.9}Sparsity pattern}{51}
 \contentsline {chapter}{\numberline {5}Numerical experiments}{59}
 \contentsline {section}{\numberline {5.1}Error definitions}{59}

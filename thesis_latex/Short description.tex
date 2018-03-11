@@ -37,22 +37,21 @@
 
 \section{Acknowledgement}
 
-The  presented in this thesis is a result of the work carried out between September 2017 - March 2018 at the Institute of Applied Analysis and Numerical Simulation, Universit\"at of Stuttgart and Scuola Internazionale Superiore di Studi Avanzati, Trieste. \\
+This thesis is a result of the work carried out between September 2017 - March 2018 at the Institute of Applied Analysis and Numerical Simulation, Universit\"at of Stuttgart and Scuola Internazionale Superiore di Studi Avanzati, Trieste. \\
 
 Undoubtedly, this result could only be achieved by the support of a number of people to whom I would
 like to express my gratitude.\\
 
 To my supervisor Professor Bernard Haasdonk: I experienced the freedom I needed to be
-creative while at the same time I was always helped to continue research in case of diffi-
-culties. \\
+creative while at the same time I was always helped to continue research in case of difficulties. \\
 
 To my coadvisors Dr. Martin Hess and Professor Dr. Gianluigi Rozza: I am thankful for their positive coordination and helping me to develop necessary skills in the field of work. \\
 
 I am really looking forward to continue these valuable working relationships.\\
 
-To my colleagues: I would also thank colleagues for their positive interest in my work and very positive support for the work.\\
+To my colleagues: I would also thank colleagues Mrs. Anne Weiß, Mr. Andreas Schmidt, Mr. Francesco Ballarin, Mr. Matteo Zancanaro, Ms. Maria Strazzullo and Mr. Giacomo Zuccarino for their positive interest in my work and valuable support which created highly conducive environment.\\
 
-To my parents:  Last but most importantly, I would like to thank my parents for their encouragement, infusing new energy to continue with my work.
+To my parents and brother: Last but most importantly, I would like to thank my parents for their encouragement, infusing new energy to continue with my work.
 
 \newpage
 
@@ -173,9 +172,9 @@ $h_{\tau_k}$ & Diameter of $\tau_k$\\
 \hline
 $\theta_k$ & Smallest angle of $\tau_k$\\ 
 \hline
-$r$ & Coordinates of point in Barycentric coordinate system\\
+$r$ & Coordinates of point in barycentric coordinate system\\
 \hline
-$r_1, r_2, r_3$ & Coordinates of Vertices of triangle\\
+$r_1, r_2, r_3$ & Coordinates of vertices of triangle\\
 \hline
 $\lambda_1, \lambda_2, \lambda_3$ & Weights in barycentric coordinate system (Equation \ref{barycentric point})\\
 \hline
@@ -197,17 +196,17 @@ $\hat{\psi}$ & Pressure basis function in local space\\
 \hline
 $N$ & Truth space dimension\\
 \hline
-$F_k$ & Mapping from local coordinate system to global coordinate system (Equation \ref{local global mapping equation})\\
+$F_k$ & Mapping from local coordinate system to global coordinate system (Equation \eqref{local global mapping equation})\\
 \hline
 $\hat{T}$ & Reference triangle\\
 \hline
-$J_k$ & Jacobian of $\tau_k$ (Equation \ref{local global mapping equation})\\
+$J_k$ & Jacobian of $\tau_k$ (Equation \eqref{local global mapping equation})\\
 \hline
 $\hat{X}$ & Coordinates of point in local coordinate system, $\hat{X} \in \mathbb{R}^d$\\
 \hline
 $X$ & Coordinates of point in global coordinate system, $X \in \mathbb{R}^d$\\
 \hline
-$C$ & Translational vector for local to global mapping (Equation \ref{local global mapping equation})\\
+$C$ & Translational vector for local to global mapping (Equation \eqref{local global mapping equation})\\
 \hline
 $g$ & Function in global space \\
 \hline
@@ -223,11 +222,11 @@ $JIT_k$ & Jacobian inverse transpose corresponding to $\tau_k$, $J_k^{-1}$\\
 \hline
 $C_{11}$ & Penalty parameter \\
 \hline
-$a_{IP}$ & Term representing poisson operator of strong form in weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3}) \\
+$a_{IP}$ & Term representing poisson operator of the strong form in the weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3}) \\
 \hline
-$b$ & Term representing gradient operator in weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})\\
+$b$ & Term representing gradient operator in the weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})\\
 \hline
-$c$ & Term representing non linear terms in weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})\\
+$c$ & Term representing non linear terms in the weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3})\\
 \hline
 $A$ & Matrix terms corresponding to $a_{IP}$\\
 \hline
@@ -237,7 +236,7 @@ $C$ & Matrix terms in corresponding to $c$\\
 \hline
 $l_{IP}$ & Term representing right hand side of strong form in weak formulation of the Navier Stoks equation (Equation \eqref{navier_stokes_weak_ch3}) \\
 \hline
-$u^{ext}$ & External trace of Velocity (Equation \ref{uext})\\
+$u^{ext}$ & External trace of velocity (Equation \eqref{uext})\\
 \hline
 $l$ & Length of an edge on $\mathcal{T}$\\
 \hline
@@ -245,13 +244,13 @@ $U$ & Velocity solution vector \\
 \hline
 $P$ & Pressure solution vector\\
 \hline
-$F_1$ & Discrete form of right hand side of equatio \eqref{navier_stokes_weak_ch3}\\
+$F_1$ & Discrete form of right hand side of equation \eqref{navier_stokes_weak_ch3}\\
 \hline
 $F_2$ & Discrete form of right hand side of equation \eqref{contiuity_weak_ch3}\\
 \hline
-$u_{ndofs}$ & Total number of degrees of freedom of Velocity\\
+$u_{ndofs}$ & Total number of degrees of freedom of velocity\\
 \hline
-$p_{ndofs}$ & Total number of degrees of freedom of Pressure\\
+$p_{ndofs}$ & Total number of degrees of freedom of pressure\\
 \hline
 $bicgstab$ & Biconjugate gradients stabilized method\\
 \hline
@@ -269,9 +268,9 @@ $S$ & Schur complement\\
 \hline
 $I$ & Identity matrix\\
 \hline
-$u_{npe}$ & Number of degrees of freedom per element for Velocity\\
+$u_{npe}$ & Number of degrees of freedom per element for velocity\\
 \hline
-$p_{npe}$ & Number of degrees of freedom per element for Pressure\\
+$p_{npe}$ & Number of degrees of freedom per element for pressure\\
 \hline
 $d$ & Dimension of problem\\
 \hline
@@ -305,9 +304,9 @@ In Chapter 4, we discuss the implementation of the discrete form of the Navier S
 
 In Chapter 5, we present results from numerical experiments, analyse results from benchmark problems, evaluate solver performance and draw related conclusions.
 
-In Chapter 6, we derive conclusions from numerical experiment results and also point towards future perspectives and possibilities for further developments.
+In Chapter 6, we summarise the conclusions from numerical experiment results and also point towards the possibilities for further developments.
 
-In appendix, we present mathematical preliminaries. Familiarity with concepts presented under this chapter is very helpful for understanding of the thesis. Readers familiar with the topics can skip this section. Additionally we also provide reference to published literature, online resources and implementation used for the present analysis for readers interested in exploring the topic further.
+In appendix, we present mathematical preliminaries. Familiarity with concepts presented under this chapter is very helpful for understanding of the thesis. Readers familiar with the topics can skip this section. Additionally we also provide reference to published literature, online resources and implementation used for the present analysis for readers interested in exploring the presented topic further.
 
 \newpage
 
@@ -319,23 +318,21 @@ The subject of mathematical applications in fluid mechanics starts with  one of 
 
 Before deriving the Navier Stokes equation we introduce some notations. The domain is denoted by $\Omega \subseteq \mathbb{R}^d $. The domain boundary is denoted by $\partial \Omega$. The domain boundary is divided into Dirichlet boundary $\Gamma_D$ and Neumann boundary $\Gamma_N$ i.e. $\Gamma_D \cup \Gamma_N = \partial \Omega $, $\Gamma_D \cap \Gamma_N = \emptyset $. 
 
-The governing equations for the incompressible Navier Stokes flow are the conservation equations: Mass conservation and Momentum conservation. The conservation equations are derived based on the concept of control volume and the control surface. The control volume is the volume, fixed or moving with constant velocity in space, through which the fluid moves. The control surface is the surface enclosing the control volume. All equations can be derived from the Reynold's transport equation as presented by White F.M. \cite{white}:
+The governing equations for the incompressible Navier Stokes flow are the conservation equations: Mass conservation and Momentum conservation. The conservation equations are derived based on the concept of control volume and the control surface. The control volume is the volume, fixed or moving with constant velocity in space, through which the fluid moves. Extensive quantity is the amount of a quantity contained in the system such as mass. Intensive quantity is the extensive quantity per unit mass of system. Intensive quantity is independent of the mass of the system and is not additive, while extensive quantity does depend on the mass of the system and is additive. The control surface is the surface enclosing the control volume. All equations can be derived from the Reynold's transport equation as presented by White F.M. \cite{white}:
 
 
 \begin{equation} \label{rtt} 
 \frac{dB'}{dt'}|_{cs} = \frac{d}{dt'} \int_{cv} b' \rho dV + \int_{cs} (b' \rho) u\cdot dA 
 \end{equation}
-
-\begin{center}
+{}\\
 $cv$ = Control volume\\
 $cs$ = Control surface\\
-$B'$ = Extensive property under consideration  \\
-$b'$ = Intensive property corresponding to $B'$ \\
+$B'$ = Extensive quantity under consideration  \\
+$b'$ = Intensive quantity corresponding to $B'$ \\
 $\rho$ = Density of fluid \\
 $u$ = Velocity of fluid\\
-\end{center}
 
-If in the above equation $B'$ is substituted as momentum $M$, correspondingly $b'$ as velocity $u$, we obtain the change in momentum. As per Newton's second law of motion change in momentum is equal to the sum of external forces acting on the system. 
+If in the above equation $B'$ is substituted as momentum $M$ and correspondingly $b'$ as velocity $u$, we obtain the change in momentum. As per Newton's second law of motion change in momentum is equal to the sum of external forces acting on the system. 
 
 \begin{equation}\label{External force lhs}
 F = \frac{dM}{dt'} = \frac{d}{dt'} \int_{cv} u \rho dV + \int_{cs} (u \rho) u\cdot dA 
@@ -396,7 +393,7 @@ We also introduce the dimensionless number Reynolds number, $Re$ which is the mo
 Re =  u L / \nu
 \end{equation}
 
-Where, $L$ is the Characteristic geometrical dimension, for example the diameter of a pipe in case of pipe flow or the span of the wing of an aircraft in case of flow over an aircraft wing.\\
+Where, $L$ is the characteristic geometrical dimension, such as the diameter of a pipe in case of pipe flow or the span of the wing of an aircraft in case of flow over an aircraft wing.\\
 
 \subsection[DNS]{Direct numerical simulation} 
 
@@ -404,7 +401,7 @@ We now differentiate between the type of flows, laminar and turbulent.\\
 
 Laminar flow is characterised by well defined velocity and pressure field and low Reynolds number. This flow has very low velocity fluctuations and pressure fluctuations. The viscous force is balanced by the pressure force and the flow has negligible inertial force. Mathematically, the non linear term in \eqref{navier_stokes} is no longer present. This equation is known as Stokes equation [White F.M.\cite{white}]\\
 
-The strong form of Stokes equation is as follow,
+The strong form of the Stokes equation is as follow,
 
 \begin{equation} \label{stokes_strong_form}
 -\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega
@@ -421,13 +418,13 @@ u = u_D \quad \textrm{on} \quad \Gamma_D
 
 Turbulent flow, in contrast, is characterised by fluctuations in velocity and pressure field and a high Reynolds number. The flow has high velocity and an inertial force is present in addition to a viscous and a pressure force. This inertial force makes the Equation \eqref{navier_stokes} non linear. The fluctuations of velocity and pressure are of the order of the Kolmogrov scale.[Kundu et al. \cite{Kundu}]\\
 
-The method used for solving Equation \eqref{navier_stokes} numerically is known as Direct Numerical Simulation, abbreviated as DNS. The direct numerical simulation could be computationally very expensive especially in applications such as turbulent flows as the time and space grid size is of the order of the Kolmogrov scale but the time period or space dimension over which the simulation is carried out are very large. In order to avoid such computational expenses alternate models are used replacing the original model. However, the alternate model can not explain the flow physics completely. The prediction of accurate flow physics description requires economical numerical solution of \eqref{navier_stokes}. It is to be noted that the simulation of turbulent flow is always a choice of balance between accuracy of computation and computational efforts.
+The method used for solving Equation \eqref{navier_stokes} numerically is known as Direct Numerical Simulation, abbreviated as $DNS$. The direct numerical simulation could be computationally very expensive especially in applications such as turbulent flows as the time and space grid size is of the order of the Kolmogrov scale but the time period or space dimension over which the simulation is carried out are very large. In order to avoid such computational expenses alternate models are used replacing the original model. However, the alternate model can not explain the flow physics completely. The prediction of accurate flow physics description requires economical numerical solution of \eqref{navier_stokes}. It is to be noted that the simulation of turbulent flow is always a choice of balance between accuracy of computation and computational efforts.
 
 \chapter{Discretisation and function spaces}
 
 \section{Grid geometry}
 
-In numerical analysis a continuous problem is posed over finite number of degrees of freedom. We divide the original domain into smaller subdomains to have finite number of degrres of freedom. The divided domain is called grid. If the original domain is denoted by $\Omega$, we denote the grid by $\mathcal{T}$. In the present case we use triangular grid and denote each triangle as $\tau_k$ with $k$ as element index. If $nel$ is the total number of elements in the grid, $1\leq k \leq nel$. We note that $\mathcal{T} = \cup_{k=1}^{nel} \tau_k$. Each triangle is an 'Element' of the grid. The boundary betwen elements i.e. interelement boundary is denoted by $\Gamma$. In case of a grid, the boundary $\partial \mathcal{T}$ comprises of domain boundaries and interelement boundaries i.e. $\partial \mathcal{T} = \Gamma_D \cup \Gamma_N \cup \Gamma$. During discussion on jump operator and average operator we denote the element under consideration as $\tau_{h}^+$ and neighbouring element as $\tau_{h}^-$. (Figure \ref{fig:Self_neighbour})
+In numerical analysis a continuous problem is posed over finite number of degrees of freedom. We divide the original domain into smaller subdomains to have finite number of degrees of freedom. The divided domain is called grid. If the original domain is denoted by $\Omega$, we denote the grid by $\mathcal{T}$. In the present case, we use triangular grid and denote each triangle as $\tau_k$ with $k$ as element index. If $nel$ is the total number of elements in the grid, $1\leq k \leq nel$. We note that $\mathcal{T} = \cup_{k=1}^{nel} \tau_k$. Each triangle is an 'Element' of the grid. The boundary between elements i.e. interelement boundary is denoted by $\Gamma$. In case of a grid, the boundary $\partial \mathcal{T}$ comprises of domain boundaries and interelement boundaries i.e. $\partial \mathcal{T} = \Gamma_D \cup \Gamma_N \cup \Gamma$. During discussion on jump operator and average operator we denote the element under consideration as $\tau_{h}^+$ and neighbouring element as $\tau_{h}^-$. (Figure \ref{fig:Self_neighbour})
 
 \begin{figure}
 \centering
@@ -444,7 +441,7 @@ For triangular grids we also consider a barycentric coordinate system. In baryce
 r = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3 \quad \textrm{.}
 \end{equation}
 
-where, $\lambda_1, \lambda_2, \lambda_3$ are weights. The weights satisfy the criterion, 
+Here, $\lambda_1, \lambda_2, \lambda_3$ are weights. The weights satisfy the criterion, 
 \begin{equation}\label{lambda constraint} 
 \lambda_1 + \lambda_2 + \lambda_3 = 1 \quad \textrm{.}
 \end{equation}
@@ -454,7 +451,7 @@ For example, the centroid of triangle will have $\lambda_1 = 1/3, \lambda_2 = 1/
 
 \section{Grid parameters}
 
-We refer to 'Grid parameters' as the geometrical parameters which are dependent on the geometry of the problem or the grid or both. These parameters do not depend upon the mathematical formulation but are supplementary to the mathematical formulation. On the triangular grid we have 3 entities: faces, edges, vertices as explained above. From faces we have the area (equivalent to volume of element in case of a 3-dimensional grid) and the Jacobian. As explained later in the weak form of the Stokes and Navier Stokes discontinuous Galerkin formulation and transformation between local and global geometry, the area of element is useful for volume integral terms and the Jacobian is useful for transformation between local and global geometry. From edges we derive the edge length $l$ which is useful for boundary integral terms and normal vector $n$ which is useful for flux calculation. The normal vector is the unit vector normal to the edge pointing outward from the element. Every element has 3 neighbouring elements and the element shares each of his edge with one of its neighbour. From vertices we derive the vertex index which helps to define the connectivity of the vertices which is useful especially in case of unstructured grid. In order to give clear visualization of domain or precisely, we refer to Figure \ref{fig:continuous_grid_figure}.
+We refer to 'Grid parameters' as the geometrical parameters which are dependent on the geometry of the problem or the grid or both. These parameters do not depend upon the mathematical formulation but are supplementary to the mathematical formulation. On the triangular grid we have 3 entities: faces, edges, vertices as explained above. From faces we have the area (equivalent to volume of element in case of a 3-dimensional grid) and the Jacobian. As explained later in the weak form of the Stokes and Navier Stokes discontinuous Galerkin formulation and transformation between local and global geometry, the area of element is useful for volume integral terms and the Jacobian is useful for transformation between local and global geometry. From edges we derive the edge length $l$ which is useful for boundary integral terms and normal vector $n$ which is useful for flux calculation. The normal vector is the unit vector normal to the edge pointing outward from the element. Every element has 3 neighbouring elements and the element shares each of his edge with one of its neighbour. From vertices we derive the vertex index which helps to define the connectivity of the vertices which is useful especially in case of unstructured grid. In order to give clear visualization of continuous domain and grid, we refer to Figure \ref{fig:continuous_grid_figure}.
 
 \begin{figure}[H]
 \begin{subfigure}{.5\textwidth}
@@ -473,7 +470,7 @@ We refer to 'Grid parameters' as the geometrical parameters which are dependent 
 
 \section{Discontinuous Galerkin method}
 
-In the context of the discontinuous Galerkin method we introduce the function spaces $V$($\mathcal{T}$) and $Q$($\mathcal{T}$) for analytical solution of velocity and analytical solution of pressure respectively. The space containing high fidelity solution (in this case discontinuous Galerkin) is called truth space denoted by $\mathbb{V}$ for velocity and $\mathbb{Q}$ for pressure. The dimension of truth space is denoted as $N$. 
+In the context of the discontinuous Galerkin method we introduce the function spaces $V$($\mathcal{T}$) and $Q$($\mathcal{T}$) for analytical solution of velocity and analytical solution of pressure respectively. The space containing high fidelity solution (in this case discontinuous Galerkin) is called truth space denoted by $\mathbb{V}$ for velocity and $\mathbb{Q}$ for pressure. $d_u$ and $d_p$ represent the dimension of velocity and pressure respectively.
 
 \begin{equation} \label{velocity_test}
 \mathbb{V} = \lbrace \phi \in (L^2(\mathcal{T}))^{d_u}| \quad \phi \in (P^D(\tau_k))^{d_u} \quad \forall \quad {\tau_k} \in \mathcal{T} \rbrace
@@ -485,13 +482,13 @@ In the context of the discontinuous Galerkin method we introduce the function sp
 
 Here, $P^D(\tau_k)$ denotes space of polynomials of degree at most $D$ over $\tau_k$.\\
 
-We apply a similar procedure as in the finite element method i.e. multiplying the partial differential equation by a test function and integration by parts (Section \ref{Stokes_flow_ch3}. However, we note that our test function is not continuous on the interface. Hence, we require flux approximations and jumps at the interface. These requirements have given rise to different discontinuous Galerkin methods. For explanation of each method we refer to literatures such as by Persson et al. \cite{persson} for local discontinuous Galerkin and by Montlaur et al. \cite{Montlaur} for the Compact discontinuous Galerkin and the Interior penalty method. \\
+We apply a similar procedure as in the finite element method i.e. multiplying the partial differential equation by a test function and integration by parts (Section \ref{Stokes_flow_ch3}. However, we note that our test function is not continuous on the interface. Hence, we require flux approximations and jumps at the interface. These requirements have given rise to different discontinuous Galerkin methods. For explanation of each method we refer to literatures such as by Persson et al. \cite{persson} for local discontinuous Galerkin method and by Montlaur et al. \cite{Montlaur} for the Compact discontinuous Galerkin method and the Interior penalty method. \\
 
 Discontinuous Galerkin methods for the Navier Stokes equation were compared by Motlaur et al. \cite{Montlaur}. The local discontinuous Galerkin (LDG) method extends the computational stencil beyond immediate neighbours whereas compact discontinuous Galerkin (CDG) and interior penalty method (IPM) only connect to neighbouring elements. The CDG method provides more flexibility with respect to the stabilisation constant at the cost of additional simulation effort related to computation of the lifting operator, while the IPM method requires restrictions on penalty parameter in order to maintain coercivity of bilinear form. However, implemenetation of IPM is simpler as compared to implementation of CDG. Both methods, CDG and IPM, have almost similar convergence rates. 
 
 \section[Basis function]{Nodal basis function and Orthonormal basis function}
 
-The "Basis functions" are also known as "Ansatz functions". There are two kinds of basis function which are used in the application of continuous Galerkin method or discontinuous Galerkin method. \\
+The "Basis functions" are also known as "Ansatz functions". There are two kinds of basis function, nodal basis function and orthonormal basis function, which are used in the application of continuous Galerkin method or discontinuous Galerkin method. \\
 
 The number of degrees of freedom per element $npe$ can be calculated as,
 
@@ -511,7 +508,8 @@ Nodal basis functions are also known as "Shape function". Such a basis function 
 In order to define a polynomial of given degree completely, we need to calculate its co-efficients. A polynomial of degree $D$ in a 1-dimensional domain has $D+1$ coefficients. In case of a 2-dimensional domain the number of coefficients become $(D+1)(D+2)/2$. To define these coefficients the known values of function at a number of points equal to the number of coefficients is required. These points are known as nodes. In case of triangular element, the nodes are located as,\\
 1. For polynomials of degree 1 i.e. $D=1$, the nodes are located at vertices of an element.\\
 2. For polynomials of degree 2 i.e. $D=2$, the nodes are located at the vertices of an element and mid points of edges.\\
-Similarly for higher order polynomials the nodes are located as shown in Figure \ref{fig:Nodes on Triangular Element}(Image source: Source:http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html)  . 
+
+For higher order polynomials the nodes are located as shown in Figure \ref{fig:Nodes on Triangular Element}. (Source:http://hplgit.github.io/INF5620/doc/pub/sphinx-fem/.\_main\_fem009.html)  
 
 \begin{figure}
   \includegraphics[width=\linewidth]{fem_triangle_2.png}
@@ -560,9 +558,8 @@ This mapping function is defined as,
 \begin{equation}\label{local global mapping equation}
 F_k(\hat{X}): X = J_k \hat{X} + C
 \end{equation}
-
-Here,
-\\
+${}$\\
+Here,\\
 $J_k$ = Jacobian matrix of element $\tau_k$ for transformation from local coordinate system to global coordinate system, $J_k \in \mathbb{R}^{d \times d}$\\
 $C$ = Translational vector for transformation from local coordinate system to global coordinate system, $C \in \mathbb{R}^d$\\
 $X$ = Coordinates of a point in Global coordinate system, $X \in \mathcal{T}$ \\
@@ -603,7 +600,7 @@ where,
 \\
 $l$ = length of an edge on $\mathcal{T}$\\
 $g$  = A function in global coordinate system, $g:\Omega \mapsto \mathbb{R}$\\
-$\hat{g}$  = A function in local coordinate system corresponding to function in $g$ in global coordinate system, $\hat{g}:\hat{T} \mapsto \mathbb{R}$\\
+$\hat{g}$  = A function in local coordinate system corresponding to function $g$ in global coordinate system, $\hat{g}:\hat{T} \mapsto \mathbb{R}$\\
 $JIT_k$ = $J_k^{-1}$, Jacobian inverse transpose of element $k$ \\
 
 Here $g$ and $\hat{g}$ satisfy,
@@ -611,7 +608,7 @@ Here $g$ and $\hat{g}$ satisfy,
 g(x) = \hat{g}(\hat{x}) \quad \textrm{for}  \quad x = F_k(\hat{x}) \quad \textrm{according to equation \eqref{local global mapping equation}}
 \end{equation}
 
-\section{Jump operator}
+\section{Jump operator} \label{jump_operator_ch3}
 
 The jump operator of a quantity $[u]$ at an internal boundary is defined as,
 \begin{equation}\label{jump operator}
@@ -641,7 +638,7 @@ $[n \otimes u] = n \otimes u$ on $\Gamma_D$\\
  or \\
 $[n \cdot u] = n^+ \cdot u^+ + n^- \cdot u^-$ on $\Gamma$\\
 $[n \cdot u] = n \cdot u$ on $\Gamma_D$\\
-where $u$ is vector and $n \otimes u = u_i n_j$\\ 
+where $u$ is vector and $n \otimes u = u_i n_j$, $1 \leq i \leq d_u$, $1 \leq j \leq d$\\ 
 \end{center}
 
 As can be seen the quantity and its jump are now in same space i.e. jump of vector is vector and jump of scalar is scalar.
@@ -651,7 +648,7 @@ As can be seen the quantity and its jump are now in same space i.e. jump of vect
 The average operator is defined as,
 
 \begin{equation}\label{average operator}
-\left\lbrace u \right\rbrace = \frac{u^+ + u^-}{2}  
+\left\lbrace u \right\rbrace = \frac{u^+ + u^-}{2}  \quad \textrm{.}
 \end{equation} 
 
 As can be seen definition of average operator does not involve normal and hence, is simpler as compared to the Jump operator.\\
@@ -659,26 +656,26 @@ Also, $u$ and $\lbrace u \rbrace$ are in same function space i.e. average of a v
 
 \section{$L^2$ scalar product}
 
-We denote the scalar product of $p$ and $q$ by $(p,q)$ which refers to,\\
+We denote the $L^2$ scalar product of $p$ and $q$ by $(p,q)$ which refers to,\\
 
 If $p$ and $q$ are scalars,
 \begin{equation}\label{inner product scalars}
-(p,q)=\int_{\Omega} pq
+(p,q)=\int_{\Omega} pq \quad \textrm{.}
 \end{equation}
 
 If $p$ and $q$ are vectors,
 \begin{equation}\label{Inner product vectors}
-(p,q)=\int_{\Omega} p \cdot q 
+(p,q)=\int_{\Omega} p \cdot q \quad \textrm{.}
 \end{equation}
 
 If $p$ and $q$ are tensors,
 \begin{equation}\label{Inner product tensors}
-(p,q)=\int_{\Omega} p \vdots q \quad \textrm{where} \quad p:q = Tr(pq^T)
+(p,q)=\int_{\Omega} p : q \quad \textrm{where} \quad p:q = Tr(pq^T) \quad \textrm{.}
 \end{equation}
 
 \section{Problem statement}
 
-With the above background we are now ready to derive weak formulation and define problem in weak form. Following the approach presented by Montlaur et al. \cite{Montlaur} and Montlaur et al. \cite{Montlaur2} we arrive at the weak form of the Stokes equation and the Navier Stokes equation interior penalty approximation.
+With the above background, we are now ready to derive weak formulation and define problem in weak form. Following the approach presented by Montlaur et al. \cite{Montlaur} and Montlaur et al. \cite{Montlaur2} we arrive at the weak form of the Stokes equation and the Navier Stokes equation interior penalty approximation.
 
 \subsection{Stokes strong, weak and discrete form} \label{Stokes_flow_ch3}
 
@@ -706,16 +703,16 @@ We multiply the Equation \ref{stokes_strong_form_ch3} by $\phi$ and integrate ov
 
 By applying Gauss divergence theoreom,
 \begin{equation}
-\int_{\mathcal{T}} (-\nabla (\phi \nu \nabla u) + (\nu \nabla \phi \vdots \nabla u) + \nabla \cdot (p \phi) - (p \nabla \cdot \phi)) = \int_{\mathcal{T}} \phi \cdot f 
+\int_{\mathcal{T}} (-\nabla (\phi \nu \nabla u) + (\nu \nabla \phi : \nabla u) + \nabla \cdot (p \phi) - (p \nabla \cdot \phi)) = \int_{\mathcal{T}} \phi \cdot f 
 \end{equation}
 
 \begin{equation}
-\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} (- [(\phi \nu \nabla u)] + \int_{\mathcal{T}}  (\nu \nabla \phi \vdots \nabla u) + \int_{\Gamma \cup \Gamma_D \cup \Gamma_N}  [p \phi] - \int_{\mathcal{T}}  (p \nabla \cdot \phi)) = \int_{\mathcal{T}} \phi \cdot f 
+\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} (- [(\phi \nu \nabla u)] + \int_{\mathcal{T}}  (\nu \nabla \phi : \nabla u) + \int_{\Gamma \cup \Gamma_D \cup \Gamma_N}  [p \phi] - \int_{\mathcal{T}}  (p \nabla \cdot \phi)) = \int_{\mathcal{T}} \phi \cdot f 
 \end{equation}
 
 Following symmetric formulation for jump operator proposed by Peraire et al. \cite{peraire},
 \begin{equation}
-\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} [(\phi \nu \nabla u)] = \int_{\Gamma} (\lbrace \phi \rbrace \vdots [n \otimes \nabla u]) + \int_{\Gamma} (\lbrace \nabla u \rbrace \vdots [n \otimes \phi]) + \int_{\Gamma_D \cup \Gamma_N} (\phi \cdot u ) 
+\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} [(\phi \nu \nabla u)] = \int_{\Gamma} (\lbrace \phi \rbrace : [n \otimes \nabla u]) + \int_{\Gamma} (\lbrace \nabla u \rbrace \vdots [n \otimes \phi]) + \int_{\Gamma_D \cup \Gamma_N} (\phi \cdot u ) 
 \end{equation}
 
 and 
@@ -811,16 +808,16 @@ We now write each element of matrix $A$. We represent components of Unit normal 
 A_{ij} = \sum_{k=1}^d (\frac{\partial \phi_i}{\partial x_k} , \frac{\partial \phi_j}{\partial x_k}) + C_{11} \sum_{k=1}^d ([\phi_i n_k] , [\phi_j n_k])_{\Gamma \cup \Gamma_D} \\ - \nu \sum_{k=1}^d ([\phi_i n_k] , \lbrace \frac{\partial \phi_j}{\partial x_k} \rbrace)_{\Gamma \cup \Gamma_D} - \nu \sum_{k=1}^d (\lbrace \frac{\partial \phi_i}{\partial x_k} \rbrace , [\phi_j n_k])_{\Gamma \cup \Gamma_D}
 \end{split}
 \end{equation}
-
+${}$\\
 We can see following properties of $A$: 
 \\
 1. $A_{ij} = A_{ji} \implies$ Symmetric\\
 2. $A$ is positive definite : As the penalty parameter $C_{11}$ is adjusted to ensure coercivity of $A$ (Section \ref{Coercivity_constant}),\\
-$\exists \quad c' > 0 $ and for non zero vector $z$
+$\exists \quad c' > 0 $ and for any non zero vector $z$
 \begin{equation}
 z^T A( \phi , \phi ) z \geq c' || z ||^2 \implies z^T A( \phi , \phi ) z > 0
 \end{equation}
-3. Size of matrix $A$: $A \in \mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ ($u_{ndofs}$ is total number of degrees of freedom of velocity)\\
+3. Size of matrix $A$: $A \in \mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ ($u_{ndofs}$ is the total number of degrees of freedom of velocity)\\
 
 Each element of $B$ can be represented as,\\
 \begin{equation} \label{matrix B}
@@ -840,9 +837,9 @@ p_{ndofs} = \left(\frac{D(D+1)}{2}\right) \quad nel
 \end{equation}
 
 With above considerations we arrive at following conclusions, \\
-
-1. Stiffness matrix is symmertic. \\
-2. Stiffness matrix $ \in \mathbb{R}^{(u_{ndofs} + p_{ndofs}) \times (u_{ndofs} + p_{ndofs})}$\\
+${}$\\
+1. Stiffness matrix is symmertic, \\
+2. Stiffness matrix $ \in \mathbb{R}^{(u_{ndofs} + p_{ndofs}) \times (u_{ndofs} + p_{ndofs})}$,\\
 3. The number of positive eigenvalues of stiffness matrix is equal to number of velocity degrees of freedom and number of negative eigenvalues of stiffness matrix is equal to number of pressure degrees of freedom.\\
 
 \subsubsection{Proof}
@@ -858,14 +855,14 @@ We look at the the eigenvalues of $S$ as the number of positive and negative eig
 We see that $S \in \mathbb{R}^{p_{ndofs} \times p_{ndofs}}$, $S = - B^T A^{-1} B$.\\ 
 For any non zero vector $z$, $z^T S z < 0$ i.e. $S$ is symmetric negative definite and hence, all eigenvalues of $S$ are negative.
 
-\subsubsection{Coercivity constant for equation for Stokes flow} \label{basics}
+\subsubsection{Coercivity constant for the equation for the Stokes flow} \label{basics}
 
 We define a lower and upper bound for the kinematic viscosity such that \\
 \begin{equation}
-\nu_0 \leq \nu \leq \nu_1
+\nu_0 \leq \nu \leq \nu_1 \quad \textrm{.}
 \end{equation}
 
-Using Cauchy Schwarz inequality, 
+For neighbouring elements $\tau_{k_1}$ and $\tau_{k_2}$ sharing the edge $e$,  using Cauchy Schwarz inequality, 
 
 \begin{equation}
 \begin{split}
@@ -873,7 +870,7 @@ Using Cauchy Schwarz inequality,
 \end{split}
 \end{equation}
 
-Based on the Trace inequatlity and the lower and upper bound for viscocity, for neighbouring elements $\tau_{k_1}$ and $\tau_{k_2}$ sharing the edge $e$, 
+Based on the Trace inequatlity and the lower and upper bound for viscocity, 
 
 \begin{equation}
 \begin{split}
@@ -898,6 +895,8 @@ If $n_0$ denotes maximum number of neighbours ($n_0 = 3$ for triangles),
 \end{split}
 \end{equation}
 
+and
+
 \begin{equation}
 \begin{split}
 \int_e \lbrace \nu \nabla \phi \rbrace[n \otimes \phi] \leq C_t \nu_1 \sqrt{n_0} \left( \sum_{e \in \Gamma_h \cup \Gamma_D} \frac{1}{l^\beta_0} ||[\phi]||^2_{L^2(e)} \right)^{1/2} \\ \left( \sum_{e \in \Gamma_h \cup \Gamma_D} ||\nabla \phi||^2_{L^2(\tau)} \right) \quad \textrm{.}
@@ -907,31 +906,30 @@ If $n_0$ denotes maximum number of neighbours ($n_0 = 3$ for triangles),
 Using Young's inequality for $\delta > 0$
 
 \begin{equation}
-\sum_{e \in \Gamma \cup \Gamma_D} \int_e \lbrace \nu \nabla \phi \rbrace [n \otimes \phi] \leq \frac{\delta}{2} \sum_{\tau \in \mathcal{T}} ||\nu^{1/2} \nabla \phi ||^2_{L^2(\tau)} +  \frac{C_t^2 \nu_1^2 n_0}{2 \delta \nu_0}  \sum_{e \in \Gamma \cup \Gamma_D} \frac{1}{l^{\beta_0}} ||[\phi]||^2_{L^2(e)}
+\sum_{e \in \Gamma \cup \Gamma_D} \int_e \lbrace \nu \nabla \phi \rbrace [n \otimes \phi] \leq \frac{\delta}{2} \sum_{\tau \in \mathcal{T}} ||\nu^{1/2} \nabla \phi ||^2_{L^2(\tau)} +  \frac{C_t^2 \nu_1^2 n_0}{2 \delta \nu_0}  \sum_{e \in \Gamma \cup \Gamma_D} \frac{1}{l^{\beta_0}} ||[\phi]||^2_{L^2(e)} \quad \textrm{,}
 \end{equation}
-
 
 \begin{equation}
-a_\epsilon (\phi , \phi) \geq \left( 1-\frac{\delta}{2} |1-\epsilon| \right) \sum_{\tau \epsilon \mathcal{T}} ||\nu^{1/2} \nabla v ||^2_{L^2(\tau)} + \sum_{e \epsilon \Gamma_h \cup \Gamma_D} \frac{\sigma_e^0 - \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0}|1-\epsilon|}{l^{\beta_0}} ||[v]||^2_{L^2(e)}
+a_\epsilon (\phi , \phi) \geq \left( 1-\frac{\delta}{2} |1-\epsilon| \right) \sum_{\tau \epsilon \mathcal{T}} ||\nu^{1/2} \nabla v ||^2_{L^2(\tau)} + \sum_{e \epsilon \Gamma_h \cup \Gamma_D} \frac{\sigma_e^0 - \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0}|1-\epsilon|}{l^{\beta_0}} ||[v]||^2_{L^2(e)} \quad \textrm{.}
 \end{equation}
 
-where, we have penalty parameter,
+Here, we have penalty parameter,
 \begin{equation}
 C_{11} = \frac{\kappa_e}{l}
 \end{equation} 
 
 where, $\kappa_e$ is coercivity constant.
 
-We can obtain exact expression for $\kappa_e$ for triangular mesh and Symmetric Interior Penalty Galerkin formulation $\epsilon = -1$ as,\\
+We can obtain exact expression for $\kappa_e$ for triangular mesh and Symmetric interior penalty discontinuous Galerkin formulation $\epsilon = -1$ as,\\
 \begin{equation}
 \begin{split}
-\kappa_e = \frac{3 ( {\nu_1}^{\tau_{k_1}})^2}{2 {\nu_0}^{\tau_{k_1}}} D (D+1) l^{\beta_0 - 1} cot {\theta^{\tau_{k_1}}}  \\ + \frac{3 ( {\nu_1}^{\tau_{k_2}})^2}{2 {\nu_0}^{\tau_{k_2}}} D (D+1) l^{\beta_0 - 1} cot {\theta^{\tau_{k_2}}}
+\kappa_e = \frac{3 ( {\nu_1}^{\tau_{k_1}})^2}{2 {\nu_0}^{\tau_{k_1}}} D (D+1) l^{\beta_0 - 1} cot {\theta^{\tau_{k_1}}}  \\ + \frac{3 ( {\nu_1}^{\tau_{k_2}})^2}{2 {\nu_0}^{\tau_{k_2}}} D (D+1) l^{\beta_0 - 1} cot {\theta^{\tau_{k_2}}} \quad \textrm{.}
 \end{split}
 \end{equation} 
 
 \subsection{Upwinding} \label{upwinding}
 
-Upwinding is the method used to discretise the convective term. In the case of Discontinuous Galerkin method we define the upwinding as follow.\\
+Upwinding is the method used to discretise the convective term. In the case of discontinuous Galerkin method we define the upwinding as follow.\\
 
 If $n_\tau$ is the unit normal from $\tau_1$ to $\tau_2$ and if we denote the upwind value of function $g$ as $g^{up}$ \cite{riviere},
 \begin{equation}
@@ -944,14 +942,14 @@ g^{up} = g|_{\tau_2} \quad \textrm{if} \quad g \cdot n_\tau < 0
 In our analysis this is explicitly defined in the term $c(u,u,\phi)$ in section \ref{n_s_ch3}. The formulation is such that,
 \begin{equation}
 \begin{split}
-u^{up} = u \quad \textrm{if} \quad u \cdot n \geq 0 \\
-u^{up} = u^{ext} \quad \textrm{if} \quad u \cdot n < 0
+u^{up} = u \quad \textrm{if} \quad u \cdot n \geq 0 \quad \textrm{,}\\
+u^{up} = u^{ext} \quad \textrm{if} \quad u \cdot n < 0 \quad \textrm{.}
 \end{split}
 \end{equation}
 
 \subsection{Navier Stokes strong, weak and discrete form} \label{n_s_ch3}
 
-Stokes flow is an example of the Navier Stokes flow with low Reynolds number, $Re$. In case of high Reynolds number the inertial force can no longer be neglected and hence we need to add inertial forces in Stokes flow. 
+The Stokes flow is an example of the Navier Stokes flow with low Reynolds number, $Re$. In case of high Reynolds number the inertial force can no longer be neglected and hence we need to add inertial forces in the Stokes flow. 
 
 The strong form of the Navier Stokes equation can be written as,
 
@@ -965,7 +963,7 @@ The inertial forces term i.e. $(u \cdot \nabla) u$ in weak form with upwinding (
 
 \begin{equation}
 \begin{split}
-c(g;u,\phi) = \sum_{i=1}^{nel} \int_{\partial \Omega_i \setminus \Gamma_N} \frac{1}{2} [[(g \cdot n_i)(u^{ext} + u) - |g \cdot n_i|(u^{ext} - u)]] \cdot \phi \\ + \int_{\Gamma_N} (g\cdot n) u \cdot \phi -((g\cdot \nabla)\phi,u)
+c(g;u,\phi) = \sum_{i=1}^{nel} \int_{\partial \Omega_i \setminus \Gamma_N} \frac{1}{2} [[(g \cdot n_i)(u^{ext} + u) - |g \cdot n_i|(u^{ext} - u)]] \cdot \phi \\ + \int_{\Gamma_N} (g\cdot n) u \cdot \phi -((g\cdot \nabla)\phi,u) \quad \textrm{.}
 \end{split}
 \end{equation}
 
@@ -991,7 +989,7 @@ AU + C(U) U + BP = F
 
 Here, $C(U)$ is a matrix which is dependent on solution vector $U$ and hence making the system of equation non linear.
 
-In matrix form the Navier Stokes equation with continuity equation can be written as,
+In matrix form the Navier Stokes equation with the continuity equation can be written as,
 
 \begin{equation} \label{navier_Stokes_matrix_ch3}
 \begin{spmatrix}{\textrm{Stiffness matrix}}
@@ -1007,6 +1005,7 @@ In matrix form the Navier Stokes equation with continuity equation can be writte
     F_1  \\
     F_2
 \end{spmatrix}
+\quad \textrm{.}
 \end{equation}
 
 In the present analysis, we use Newton method to solve nonlinear system of equations. We present the Newton scheme in section \ref{newton_method}. 
@@ -1074,9 +1073,9 @@ DS'(u) = b(\delta h,\psi) + (\{\psi\},[n \cdot \delta h])_{\Gamma \cup \Gamma_D}
 
 Algotrithm for the Newton method is as follow:\\
 
-1. Select $u^{iter} \in \mathbb{V}$ at iteration $iter$\\
+1. Select $u^{iter} \in \mathbb{V}$ at iteration $iter$,\\
 
-2. Verify $DS_{u^{iter}}(h^{iter}) = -S(u^{iter})$\\
+2. Verify $DS_{u^{iter}}(h^{iter}) = -S(u^{iter})$,\\
 
 3. Set $u^{iter + 1} := u^{iter} + h^{iter}$ till $||u^{iter+1} - u^{iter}|| < tol$ where $tol$ is specified tolerance.\\
 
@@ -1097,10 +1096,11 @@ In discrete form the Newton method means, solving the equation (at iteration = $
     F_1  \\
     F_2
 \end{spmatrix}
+\quad \textrm{.}
 \end{equation}
 \end{flushleft}
 
-to reach convergence i.e. $||U^{iter+1} - U^{iter}|| < tol$, some specified tolerance.\\
+to reach convergence in suitable norm i.e. $||U^{iter+1} - U^{iter}|| < tol$, some specified tolerance.\\
 
 For success of the Newton method it is important to have good initial guess. For the Newton method we use solution of the Stokes equation as initial guess.
 
@@ -1112,7 +1112,7 @@ at newton iteration $iter + 1$,
 \begin{flushleft}
 \begin{equation} \label{matric C}
 \begin{split}
-C_{IJ} = \sum_{i=1}^{nel} \int_{\partial \mathcal{T}_i \setminus \Gamma_N} \frac{1}{2} [[(U^{iter} \cdot n_i)({\phi^{ext}}_J + {\phi}_J ) - |U^{iter} \cdot n_i|({{\phi}^{ext}}_J - {\phi}_J)]] \cdot \phi_I \\ + \int_{\Gamma_N} (U^{iter} \cdot n) \phi_J \cdot \phi_I -((U^{iter} \cdot \nabla)\phi_J,\phi_I)
+C_{IJ} = \sum_{i=1}^{nel} \int_{\partial \mathcal{T}_i \setminus \Gamma_N} \frac{1}{2} [[(U^{iter} \cdot n_i)({\phi^{ext}}_J + {\phi}_J ) - |U^{iter} \cdot n_i|({{\phi}^{ext}}_J - {\phi}_J)]] \cdot \phi_I \\ + \int_{\Gamma_N} (U^{iter} \cdot n) \phi_J \cdot \phi_I -((U^{iter} \cdot \nabla)\phi_J,\phi_I)  \quad \textrm{.}
 \end{split}
 \end{equation}
 \end{flushleft}
@@ -1123,7 +1123,7 @@ We now can see that whereas the stiffness matrix of the Stokes equation is symme
 
 \subsection{Boundary conditions}
 
-We impose in our analysis boundary conditions weakly. This is done by the linear terms on right hand side of equation  $(t,\phi)_{\Gamma_N}$, $(u_D,\phi)_{\Gamma_D}$, \linebreak $(n \otimes u_D, \nu \nabla \phi)_{\Gamma_D}$ in equation \ref{navier_stokes_weak_ch3} and equation \ref{stokes_weak_ch3}.
+We impose in our analysis boundary conditions weakly. This is done by the linear terms on the right hand side of equation  $(t,\phi)_{\Gamma_N}$, $(u_D,\phi)_{\Gamma_D}$, \linebreak $(n \otimes u_D, \nu \nabla \phi)_{\Gamma_D}$ in equation \ref{navier_stokes_weak_ch3} and equation \ref{stokes_weak_ch3}.
 
 \section{Selection of solver}
 
@@ -1157,7 +1157,7 @@ STEP 1: \\
 U = A^{-1}(F_1 - BP) 
 \end{equation}
 
-The matrix $A$ is inverted by Cholesky decomposition (section \ref{chol}). 
+The matrix $A$ is inverted by Cholesky decomposition (section \ref{chol}). \\
 
 STEP 2 : \\
 We substitute now equation \eqref{schur step 1} into equation \eqref{continuity discrete_ch3} and \eqref{stokes discrete_ch3}
@@ -1178,11 +1178,11 @@ In the present analysis, we find that the Schur complement method is much faster
 We discuss now the implementation of the discrete formulation of the Navier Stokes discontinuous Galerkin weak formulation in RBmatlab, A MATLAB library containing all our numerical simulation approaches for linear and nonlinear, affine or arbitrarily parameter dependent evolution problems with finite element, finite volume or local discontinuous Galerkin discretizations. We refer to the literature of Haasdonk B.\cite{Haasdonk_book} and RBmatlab website: \\
 http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.16.09/\linebreak index.html.  
 
-Before we discuss details of the implementation it is important to understand some frequently used terminologies and the data type of Basis Function and derivative of basis function in RBmatlab.
+Before we discuss details of the implementation it is important to understand some frequently used terminologies and the data type of basis Function and derivative of basis function in RBmatlab.
 
 \section{Terminology}
 
-A. \verb|params| and \verb|paramsP| : These are structures corresponding to velocity and pressure respectively and primarily containing following fields. (Table \ref{table_params} and Table \ref{table_paramsP})\\
+A. \verb|params| and \verb|paramsP| : These are structures corresponding to velocity and pressure respectively and primarily containing fields related to basis function. (Table \ref{table_params} and Table \ref{table_paramsP})\\
 
 B. \verb|grid| : It is the structure containing fields relevant to information stored in grid. (Table \ref{table_grid})\\
 
@@ -1280,9 +1280,9 @@ C. We also define some other variables. (Table \ref{table_variable})\\
 
 \section{Basis functions in RBmatlab}
 
-\verb|ldg_evaluate_basis| routine of RBmatlab evaluates the basis functions at a given point.\\
+\verb|ldg_evaluate_basis| routine of RBmatlab evaluates the orthonormal basis functions at a given point.\\
 
-We approximate the solution at any point from solution of degrees of freedom in orthonormal basis. In matrix formulation this means basis function is matrix of the size,
+We approximate the solution at any point in element $\tau_k$ from the solution of degrees of freedom of $\tau_k$ in orthonormal basis. In matrix formulation this means basis function is matrix of the size,
 
 \begin{equation}\label{basis_func_velocity_rbmatlab}
 \phi \in \mathbb{R}^{u_{npe} \times d_u}
@@ -1324,34 +1324,35 @@ The assembly of the average operator is relatively simple as compared to the jum
 
 \section{Assembly of jump operator} \label{Jump operator}
 
-The jump of the quantity $A_h$ in discrete form is assembled as,
+The jump of the quantity $A_h$ in discrete form is assembled in line with explanation as per section \ref{jump_operator_ch3}. For example $[A_h \cdot n]$ is assembled as,
+
 \begin{equation} \label{Jump_operator}
-[A_h] = A_h^+ n^+ + A_h^- n^-
+[A_h \cdot n] = A_h^+ n^+ + A_h^- n^- \quad \textrm{.}
 \end{equation}
 
-In case of terms such as $[A_h],[B_h]$ we assemble matrices as, 
+In case of terms such as $[A_h \cdot n],[B_h \cdot n]$ we assemble matrices as, 
 
-For internal edges $\Gamma$,
+for internal edges $\Gamma$,
 
 \begin{equation} \label{Jump operator L2}
-[A_h],[B_h] = A_h^+ n^+ B_h^+ n^+ + A_h^+ n^+ B_h^- n^- + A_h^- n^- B_h^+ n^+ + A_h^- n^- B_h^- n^-
+[A_h \cdot n],[B_h \cdot n] = A_h^+ n^+ B_h^+ n^+ + A_h^+ n^+ B_h^- n^- + A_h^- n^- B_h^+ n^+ + A_h^- n^- B_h^- n^- \quad \textrm{,}
 \end{equation}
 
 and for Dirichlet edges $\Gamma_D$
 
 \begin{equation} \label{Jump operator L2 for dirichlet}
-[A_h],[B_h] = A_h^+ n^+ B_h^+ n^+ 
+[A_h \cdot n],[B_h \cdot n] = A_h^+ n^+ B_h^+ n^+ \quad \textrm{.}
 \end{equation}
 
 
 \section{Matrix assemblies} \label{matrix_assembly_ch4}
 
-It is to be noted that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with the equation \ref{func_transformation}.
+It is to be noted that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with the equation \eqref{func_transformation}.
 
-The matrices from weak form of Navier Stokes equation have been assembled in 3 steps,
-
-1. Evaluating function at vertex of local element and transform to global geometry. (Equation \ref{func_transformation})\\
-2. Transform function evaluation from step 1 to global geometry (if not done in step 1) and performing integral of function over local element.(Equation \ref{integral_local_global_boundary} and \ref{derivative_transformation})\\
+The matrices from weak form of the Navier Stokes equation have been assembled in 3 steps,
+${}$\\
+1. Evaluating function at vertex of local element and transform to global geometry. (Equation \eqref{func_transformation}),\\
+2. Transform function evaluation from step 1 to global geometry (if not done in step 1) and performing integral of function over local element.(Equation \eqref{integral_local_global_boundary} and \eqref{derivative_transformation}),\\
 3. Performing a loop over all elements and allocate integral at position in global matrix (for bilinear terms)/global vector (for linear terms) according to indices of element degrees of freedom in global degree of freedom vector.\\
 
 We also perform numerical integration over domain $\Omega$ as,
@@ -1361,7 +1362,7 @@ We also perform numerical integration over domain $\Omega$ as,
 \end{equation}
 
 Where, \\
-
+${}$\\
 $x_i$ = Location of function evaluation\\
 $w_i$ = Weight at corresponding point\\
 $nop$ = Number of points\\
@@ -1380,7 +1381,7 @@ With this preliminary informations we discuss now the assembly of matrices.
 
 \subsubsection{Step 1: Function evaluation}
 
-Through \verb|ldg_evaluate_basis_derivative| and \verb|grid| structure, we first evaluate the derivative of $\hat{\phi}$ and $JIT(k,:,:)$ at point $x_i$ . We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the equation \ref{derivative_transformation}.
+Through \verb|ldg_evaluate_basis_derivative| and \verb|grid| structure, we first evaluate the derivative of $\hat{\phi}$ and $JIT(k,:,:)$ at point $x_i$ . We also perform elementary operation so as to receive one global basis function in each row. The matrix transformation from local derivative to global derivative is based on the equation \eqref{derivative_transformation}.
 
 We than assemble the matrix,
  
@@ -1422,7 +1423,7 @@ Please note that $\hat{\phi_h}$ is evaluated at local coordinate corressponding 
 
 \subsubsection{Step 2: In step 2 we perform following integration}
  
-We perform the numerical integration as per equation \ref{integral_local_global_boundary}.
+We perform the numerical integration as per equation \eqref{numerical integration}.
 \begin{equation}
 \begin{split}
 res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)\\
@@ -1434,7 +1435,7 @@ res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)\\
 
 \subsubsection{Step 3: Degrees of freedom allocation in global matrix}
 
-Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop.
+Loop over all elements and perform following operation in each loop.
 \begin{equation}
 \begin{split}
 res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++}\\
@@ -1452,21 +1453,22 @@ It is to be noted that on dirichlet boundary only $res_1^{++}, res_2^{++}, res_3
 
 \subsection{$(\lbrace \nabla \phi \rbrace, [n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
 
+\subsubsection{Step 1: Function evaluation}
+
 We evaluate following matrices,
 
-\subsubsection{Step 1: Function evaluation}
 \begin{equation}
 \begin{split}
-res_1^{++} = (\nabla \phi)^+ (n \otimes \hat{\phi})^+\\
-res_1^{+-} = (\nabla \phi)^+ (n \otimes \hat{\phi})^-\\
-res_1^{-+} = (\nabla \phi)^- (n \otimes \hat{\phi})^+\\
-res_1^{--} = (\nabla \phi)^- (n \otimes \hat{\phi})^-\\
+res_1^{++} = (\nabla \phi)^+ (n \otimes \hat{\phi})^+ \quad \textrm{,}\\
+res_1^{+-} = (\nabla \phi)^+ (n \otimes \hat{\phi})^- \quad \textrm{,}\\
+res_1^{-+} = (\nabla \phi)^- (n \otimes \hat{\phi})^+ \quad \textrm{,}\\
+res_1^{--} = (\nabla \phi)^- (n \otimes \hat{\phi})^- \quad \textrm{.}\\
 \end{split}
 \end{equation}
 
 \subsubsection{Step 2: Integration of evaluated function}
 
-We perform the numerical integration as per equation \ref{integral_local_global_boundary}
+We perform the numerical integration as per equation \eqref{numerical integration}.
 \\ 
 $res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)$\\
 $res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j)$\\
@@ -1478,10 +1480,10 @@ $res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)$\\
 Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
 \begin{equation}
 \begin{split}
-res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++}\\
-res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-}\\
-res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+}\\
-res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--}\\
+res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++} \quad \textrm{,}\\
+res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-} \quad \textrm{,}\\
+res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+} \quad \textrm{,}\\
+res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--} \quad \textrm{.}\\
 \end{split}
 \end{equation}
 
@@ -1492,25 +1494,26 @@ res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--} \quad \textrm{.}
 
 It is to be noted that on Dirichlet boundary only $res_1^{++}, res_2^{++}, res_3^{++}$ is evaluated as all other terms are zero.
 
-The same routine is also used in case of $([n \otimes \phi],\lbrace \nabla u \rbrace )_{\Gamma \cup \Gamma_D}$
-
 \subsection{$(\lbrace \psi \rbrace, [n \cdot \phi])_{\Gamma \cup \Gamma_D}$}
+
+\subsubsection{Step 1: Function evaluation}
 
 We evaluate following matrices, 
 
-\subsubsection{Step 1: Function evaluation}
 \begin{equation}
-res_1^{++} = (\psi)^+ (n \cdot \hat{\phi})^+\\
-res_1^{+-} = (\psi)^+ (n \cdot \hat{\phi})^-\\
-res_1^{-+} = (\psi)^- (n \cdot \hat{\phi})^+\\
-res_1^{--} = (\psi)^- (n \cdot \hat{\phi})^-\\
+\begin{split}
+res_1^{++} = (\psi)^+ (n \cdot \hat{\phi})^+ \quad \textrm{,}\\
+res_1^{+-} = (\psi)^+ (n \cdot \hat{\phi})^- \quad \textrm{,}\\
+res_1^{-+} = (\psi)^- (n \cdot \hat{\phi})^+ \quad \textrm{,}\\
+res_1^{--} = (\psi)^- (n \cdot \hat{\phi})^- \quad \textrm{.}\\
+\end{split}
 \end{equation}
 
-Please note that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with \ref{func_transformation}.
+Please note that $\hat{\phi}$ is evaluated at local coordinate corresponding to global coordinate in accordance with \eqref{func_transformation}.
 
 \subsubsection{Step 2: Integration of evaluated function}
 
-In step 2, we perform the numerical integration as per equation \ref{integral_local_global_boundary}
+In step 2, we perform the numerical integration as per equation \eqref{numerical integration}.
 \begin{equation}
 \begin{split}
 res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j)\\
@@ -1525,10 +1528,10 @@ res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j)\\
 Loop over all elements, define the global assembly matrix as zero matrix and perform following operation in each loop,
 \begin{equation}
 \begin{split}
-res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++}\\
-res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-}\\
-res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+}\\
-res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--}\\
+res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++} \quad \textrm{,}\\
+res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-} \quad \textrm{,}\\
+res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+} \quad \textrm{,}\\
+res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--} \quad \textrm{.}\\
 \end{split}
 \end{equation}
 
@@ -1541,11 +1544,11 @@ It is to be noted that on Dirichlet boundary only $res_1^{++}, res_2^{++}, res_3
 
 \subsection{$-\int_{\hat{T}} \psi \nabla \cdot \phi$}
 
-We note that, In accordance with equation \ref{derivative_transformation}
+We note that, in accordance with equation \eqref{derivative_transformation}
 \begin{equation}
 \nabla \phi = JIT \hat{\nabla} \hat{\phi}
 \end{equation}
-and in accordance with equation \ref{func_transformation}
+and in accordance with equation \eqref{func_transformation}
 \begin{equation}
 \psi(x) = \hat{\psi} (\hat{x}) \quad \textrm{.}
 \end{equation}
@@ -1569,8 +1572,6 @@ Assemble the global matrix\\
 res_3[ids\_presure,ids\_velocity] = res_2 \quad \textrm{.}
 \end{equation}
 
-We use the same routine for $-\int_{\hat{T}} \nabla \cdot \phi_i \psi_j $
-
 \subsection{$(t,\phi)_{\Gamma_N}$}
 
 \subsubsection{Step 1: Function evaluation}
@@ -1578,18 +1579,18 @@ We use the same routine for $-\int_{\hat{T}} \nabla \cdot \phi_i \psi_j $
 On local element following function is evaluated 
 \begin{equation}
 res_1=\hat{\phi}_i \cdot t
-\end{equation} in accordance with equation  \ref{func_transformation}.
+\end{equation} in accordance with equation \eqref{func_transformation}.
 
 \subsubsection{Step 2: Integration of evaluated function}
 
-An integral is performed over the Neumann edge 
+An integral is performed over the Neumann edge. 
 \begin{equation}
 res_2=\int_{\Gamma_N} res_1 EL(i,j)
 \end{equation}
 
 \subsubsection{Step 3: Allocation in global dgrees of freedom vector}
 
-Loop over element having Neumann boundary and perform following operation in each loop.
+Loop over all Neumann edges and perform following operation in each loop.
 \begin{equation}
 res_3[ids]=res_2
 \end{equation}
@@ -1637,7 +1638,7 @@ res_2 = \int_{\Gamma_D} res_1 EL(i,j) \quad \textrm{.}
 
 \subsubsection{Step 3: Allocation in global degrees of freedom vector}
 
-Loop over element having Dirichlet boundary and perform following operation in each loop.
+Loop over all Dirichlet edges and perform following operation in each loop.
 \begin{equation}
 res_3[ids]=res_2.
 \end{equation}
@@ -1650,10 +1651,10 @@ On local element following function is evaluated
 \begin{equation}
 res_1 = \hat{\phi} f
 \end{equation} 
-in accordance with equation \ref{func_transformation}.\\
+in accordance with equation \eqref{func_transformation}.\\
 
 \subsubsection{Step 2: Integration of evaluated function}
-An integral is performed over an element as below.
+An integral is performed over an element.
 \begin{equation}
 res_2 = \int_{\hat{\Omega}} res_1 2 Ar(k)
 \end{equation}
@@ -1665,28 +1666,27 @@ Loop over element having Dirichlet boundary and perform following operation in e
 res_3[ids]=res_2
 \end{equation}
 
-
 \subsection{$(n \otimes u_D,\nabla \phi)_{\Gamma_D} $}
 
 \subsubsection{Step 1: Function evaluation}
 
-On local element following function is evaluated 
+On local element following function is evaluated
 \begin{equation}
 res_1 =  n \otimes u_D  \nabla \phi
 \end{equation}
 
-in accordance with equation \ref{func_transformation}.\\
+in accordance with equation \eqref{func_transformation}.\\
 
 \subsubsection{Step 2: Integration of evaluated function}
 
-An integral is performed over a Dirichlet edge 
+An integral is performed over a Dirichlet edge.
 \begin{equation}
 res_2 = \int_{\Gamma_D} res_1 EL(i,j)
 \end{equation}
 
 \subsubsection{Step 3: Allocation in global matrix}
 
-Loop over element having Dirichlet boundary and perform following operation in each loop. 
+Loop over all Dirichlet edges and perform following operation in each loop. 
 \begin{equation}
 res_3[ids] = res_2
 \end{equation}
@@ -1701,13 +1701,13 @@ On local element following function is evaluated
 \begin{equation}
 res_1 = (u_k \cdot \nabla \hat{\phi_i} \hat{\phi_j})
 \end{equation} 
-in accordance with equation \ref{func_transformation}.\\
+in accordance with equation \eqref{func_transformation}.\\
 
 \subsubsection{Step 2: Integration of evaluated function}
 
 An integral is performed over an element 
 \begin{equation}
-res_2= - \int_{\hat{T}} (res_1) (2Ar(k))
+res_2= - \int_{\hat{T}} (res_1) (2Ar(k)) \quad \textrm{.}
 \end{equation}
 
 \subsubsection{Step 3: Allocation in global matrix}
@@ -1721,22 +1721,22 @@ res_3[ids,ids]=res_2
 
 \subsubsection{Step 1: Function evaluation}
 
-On local element following function is evaluated 
+On local element following function is evaluated
 \begin{equation}
 res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}
 \end{equation} 
-in accordance with equation \ref{func_transformation}.\\
+in accordance with equation \eqref{func_transformation}.\\
 
 \subsubsection{Step 2: Integration of evaluated function}
 
-An integral is performed over a Neumann edge 
+An integral is performed over a Neumann edge. 
 \begin{equation}
 res_2 = \frac{1}{2}  \int_{\Gamma_N} res_1 EL(i,j)
 \end{equation}
 
 \subsubsection{Step 3: Allocation in global matrix}
 
-Loop over all Neumann edge and perform following operation in each loop.
+Loop over all Neumann edges and perform following operation in each loop.
 \begin{equation}
 res_3[ids,ids] = res_2
 \end{equation}
@@ -1749,7 +1749,7 @@ On local element following function is evaluated
 \begin{equation}
 res_1  = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}^{ext} 
 \end{equation}
-in accordance with equation \ref{func_transformation}.
+in accordance with equation \eqref{func_transformation}.
 
 \subsubsection{Step 2: Integration of evaluated function}
 
@@ -1760,7 +1760,7 @@ res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) \quad \textrm{.}
 
 \subsubsection{Step 3: Allocation in global matrix}
 
-Loop over all internal edge and Dirichlet edge and perform following operation in each loop.
+Loop over all internal edges and Dirichlet edges and perform following operation in each loop.
 \begin{equation}
 res_3[ids,ids^{ext}] = res_2
 \end{equation}
@@ -1774,18 +1774,18 @@ On local element following function is evaluated.
 res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j}^{ext} 
 \end{equation}
 
-in accordance with equation \ref{func_transformation}.\\
+in accordance with equation \eqref{func_transformation}.\\
 
 \subsubsection{Step 2: Integration of evaluated function}
 
-An integral is performed over an edge 
+An integral is performed over an edge as,
 \begin{equation}
-res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j)
+res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) \quad \textrm{.}
 \end{equation}
 
 \subsubsection{Step 3: Allocation in global matrix}
 
-Loop over all internal edge and Dirichlet edge and perform following operation in each loop.
+Loop over all internal edges and Dirichlet edges and perform following operation in each loop.
 \begin{equation}
 res_3[ids,ids^{ext}] = res_2
 \end{equation}
@@ -1798,18 +1798,18 @@ On local element following function is evaluated
 \begin{equation}
 res_1 = (u_k \cdot n) \hat{\phi_i} \hat{\phi_j}
 \end{equation} 
-in accordance with equation \ref{func_transformation}.\\
+in accordance with equation \eqref{func_transformation}.\\
 
 \subsubsection{Step 2: Integration of evaluated function}
 
-An integral is performed over an edge
+An integral is performed over an edge as,
 \begin{equation}
 res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j)  \quad \textrm{.}
 \end{equation}
 
 \subsubsection{Step 3: Allocation in global matrix}
 
-Loop over all internal edge and Dirichlet edge and perform following operation in each loop.
+Loop over all internal edges and Dirichlet edges and perform following operation in each loop.
 \begin{equation}
 res_3[ids,ids] = res_2
 \end{equation}
@@ -1818,7 +1818,13 @@ res_3[ids,ids] = res_2
 
 \subsubsection{Step 1: Function evaluation}
 
-On local element following function is evaluated $res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j} $ in accordance with equation \ref{func_transformation}\\
+On local element following function is evaluated 
+\begin{equation}
+res_1 = (|u_k \cdot n|) \hat{\phi_i} \hat{\phi_j}
+\end{equation}
+
+in accordance with equation \eqref{func_transformation}.\\
+
 \subsubsection{Step 2: Integration of evaluated function}
 
 An integral is performed over an edge
@@ -1828,17 +1834,20 @@ res_2 = \frac{1}{2} \int_{\Gamma} res_1 EL(i,j) \quad \textrm{.}
 
 \subsubsection{Step 3: Allocation in global matrix}
 
-Loop over all internal edge and Dirichlet edge and perform following operation in each loop $res_3[ids,ids] = res_2$\\
+Loop over all internal edges and Dirichlet edges and perform following operation in each loop.
+\begin{equation}
+res_3[ids,ids] = res_2
+\end{equation}
 
 \section{Setting boundary conditions}
 
-We extract the Dirichlet boundary edges and Neumann boundary edges by routine \verb|tria_edge_index_Dirichlet| and \verb|tria_edge_index_Neumann| respectively.
+We extract the Dirichlet edges and Neumann edges by routine \verb|tria_edge_index_Dirichlet| and \verb|tria_edge_index_Neumann| respectively.
 
 We set the Dirichlet and Neumann boundary values in routine \verb|Dirichlet_values| and \verb|Neumann_values| respectively as column vectors. 
 
 \section{Setting source term}
 
-We set the source term values in routine \verb|func_rhs| as column vectors. This routine is called during the process of assembling vector term $(f,\phi)$ of right hand side of equation \ref{navier_stokes_weak_ch3} and equation \ref{stokes_weak_ch3}.
+We set the source term values in routine \verb|func_rhs| as column vectors. This routine is called during the process of assembling vector term $(f,\phi)$ of right hand side of equation \eqref{navier_stokes_weak_ch3} and equation \eqref{stokes_weak_ch3}.
 
 \section{Program flow}
 
@@ -1852,7 +1861,7 @@ We use \verb|pdegrid| tool to generate grid. We generate mesh and export paramet
 
 \subsection{Function space formulation}
 
-We now define fields for constructing function spaces for pressure and velocity. We now use two structures \verb|params| for velocity and \verb|paramsP| for pressure as explained previously (Table \ref{table_params} and Table \ref{table_paramsP}). These structures contain fields (as relevant to function space formulation) \verb|pdeg| and \verb|dimrange|. \verb|pdeg| represents polynomial degree of Ansatz function and \verb|dimrange| represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field \verb|paramsP.pdeg| is calculated as \verb|paramsP.pdeg = params.pdeg - 1| in accordance with Taylor hood element. Based on these fields \verb|ndofs_per_element|, \verb|ndofs| are calculated. Number of elements in grid can be read from \verb|grid.nelements|. We also define degree for integration \verb|qdeg| and kinematic viscocity in \verb|params.kinematic_viscosity|. Variable \verb|mu| also holds the value of kinematic viscocity. We define penalty parameter in variable $C_{11}$. Bool variable \verb|show_sparsity| plots sparsity pattern of each matrix if set to true.\\
+We now define fields for constructing function spaces for pressure and velocity. We now use two structures \verb|params| for velocity and \verb|paramsP| for pressure as explained previously (Table \ref{table_params} and Table \ref{table_paramsP}). These structures contain fields (as relevant to function space formulation) \verb|pdeg| and \verb|dimrange|. \verb|pdeg| represents polynomial degree of basis function and \verb|dimrange| represents  dimension of qunatity i.e. 2 for velocity and 1 for pressure. The field \verb|paramsP.pdeg| is calculated as \verb|paramsP.pdeg = params.pdeg - 1| in accordance with Taylor hood element. Based on these fields \verb|ndofs_per_element|, \verb|ndofs| are calculated. Number of elements in grid can be read from \verb|grid.nelements|. We also define degree for integration \verb|qdeg| and kinematic viscocity in \verb|params.kinematic_viscosity|. Variable \verb|mu| also holds the value of kinematic viscocity. We define penalty parameter in variable $C_{11}$. Bool variable \verb|show_sparsity| plots sparsity pattern of each matrix if set to true.\\
 
 \subsection{Matrix assembly}
 
@@ -1864,22 +1873,18 @@ We now define the solver specific variables. \verb|required_residual_tol| specif
 
 \subsection{Post processing}
 
-We now enter into \verb|stiffness_matrix_test|, to check properties of assembled stiffness matrix as explained in section \ref{property_stif_mat_stokes}. Then we enter into error measurement (\verb|error_l2_norm_assembly| and \verb|error_h0_norm_assembly|) which measures the error in $L^2$ or $H_0$ norm. \verb|params.dof_analytical|, \verb|paramsP.dof_analytical| contain analytical expression against which numerical solution is to be compared. \verb|params.dof_derivative_analytical| and \verb|paramsP.dof_derivative_analytical| contain anlytical expression for derivative to be used for $H_0$ norm.\\
+We now enter into \verb|stiffness_matrix_test|, to check properties of assembled stiffness matrix as explained in section \ref{property_stif_mat_stokes}. Then we enter into error measurement (\verb|error_l2_norm_assembly| and \verb|error_h0_norm_assembly|) which measures the error in $L^2$ or $H_0$ norm. \verb|params.dof_analytical|, \verb|paramsP.dof_analytical| contain analytical expression against which numerical solution is to be compared. \verb|params.dof_derivative_analytical| and \verb|paramsP.dof_derivative_analytical| contain anlytical expression for derivative of the solution to be used for $H_0$ norm. We plot the solution using  \verb|ldg_plot| implemented for plotting discontinuous functions. \\
 
 \subsection{Newton method}
 
-We now enter into Newton method (Section \ref{newton_method}) implemented in \verb|newton_script|. We define again solver specific variables \verb|tol_newton|, \verb|max_iter_newton|, \verb|tol_solver|, \verb|max_iter_solver|. \verb|tol_newton|, \verb|max_iter_newton| are variables for ending newton method and \verb|tol_solver|, \verb|max_iter_solver| are variables for solver to solve $h^{iter}$ in each newton loop. We again measure the error in $L^2$ and $H_0$ norm.\\
-
-\subsection{Additional remarks}
-
-We plot the solution using  \verb|ldg_plot| written for plotting discontinuous functions. The Dirichlet values are defined in \verb|dirichlet_values|, the Neumann values are defined in \verb|neumann_values| and source function is defined in \verb|func_rhs|. 
+We now enter into Newton method (section \ref{newton_method}) implemented in \verb|newton_script|. We define again solver specific variables \verb|tol_newton|, \verb|max_iter_newton|, \verb|tol_solver|, \verb|max_iter_solver|. \verb|tol_newton|, \verb|max_iter_newton| are variables for ending newton method and \verb|tol_solver|, \verb|max_iter_solver| are variables for solver to solve $h^{iter}$ in each newton loop. We again measure the error in $L^2$ and $H_0$ norm.\\
 
 \section{Sparsity pattern}
 
 It is the connectivity of a node with neighbouring nodes that gives rise to different discontinuous Galerkin formulations and generates different sparsity patterns. In general the flux terms are responsible for connecting to other nodes. This is also demonstrated in assembly process in section \ref{matrix_assembly_ch4}. \\
 
 \begin{table}[H]
-\caption{Size and sparsity patterns of different terms}
+\caption{Size and sparsity pattern of different terms}
 \begin{center}
 \begin{tabular}{|p{.3\textwidth}| p{.3\textwidth} |  p{.4\textwidth}|}
 \hline
@@ -1938,7 +1943,7 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
   \caption{$([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure2}
 \end{subfigure}
-\caption{Sparsity patterns of constituents of $([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
+\caption{Sparsity pattern of constituents of $([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
 \label{figure_2_all}
 \end{figure}
 
@@ -1969,7 +1974,7 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
   \caption{$(\lbrace \nabla \phi \rbrace,[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure3}
 \end{subfigure}
-\caption{Sparsity patterns of constituents of $(\lbrace \nabla \phi  \rbrace,[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
+\caption{Sparsity pattern of constituents of $(\lbrace \nabla \phi  \rbrace,[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
 \label{figure_3_all}
 \end{figure}
 
@@ -2000,7 +2005,7 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
   \caption{$(\lbrace \psi \rbrace ,[n \cdot \phi])_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure4}
 \end{subfigure}
-\caption{Sparsity patterns of constituents of $(\lbrace \psi  \rbrace,[n \cdot \phi])_{\Gamma \cup \Gamma_D}$}
+\caption{Sparsity pattern of constituents of $(\lbrace \psi  \rbrace,[n \cdot \phi])_{\Gamma \cup \Gamma_D}$}
 \label{figure_4_all}
 \end{figure}
 
@@ -2047,7 +2052,7 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
   \caption{$((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N} + ((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
   \label{figure_8}
 \end{subfigure}
-\caption{Sparsity patterns of constituents of $((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N} + ((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
+\caption{Sparsity pattern of constituents of $((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N} + ((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
 \label{figure_8_all}
 \end{figure}
 
@@ -2070,7 +2075,7 @@ $(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndo
   \caption{$(abs(u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N} + (abs(u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
   \label{figure_9}
 \end{subfigure}
-\caption{Sparsity patterns of constituents of $(abs(u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N} + (abs(u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
+\caption{Sparsity pattern of constituents of $(abs(u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N} + (abs(u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$}
 \label{figure_9_all}
 \end{figure}
 
@@ -3030,6 +3035,7 @@ I would also like to mention below online resources which have frequently served
 1. http://mathworld.wolfram.com/\\
 2. https://de.mathworks.com/products/matlab.html\\
 3. http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.13.10/doc/index.html \\
+4. http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.16.09/\linebreak index.html.
 \end{flushleft}
 
 \section{Code access}

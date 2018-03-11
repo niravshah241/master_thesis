@@ -6,14 +6,14 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Finite Element nodes on triangle for polynomials of different degrees\relax }}{23}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Sparsity pattern of $(\psi ,\nabla \cdot \phi )$\relax }}{51}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Sparsity patterns of constituents of $([n \otimes \phi ],[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{52}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Sparsity patterns of constituents of $(\delimiter "4266308 \nabla \phi \delimiter "5267309 ,[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{53}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Sparsity patterns of constituents of $(\delimiter "4266308 \psi \delimiter "5267309 ,[n \cdot \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{54}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sparsity pattern of constituents of $([n \otimes \phi ],[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{52}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Sparsity pattern of constituents of $(\delimiter "4266308 \nabla \phi \delimiter "5267309 ,[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{53}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Sparsity pattern of constituents of $(\delimiter "4266308 \psi \delimiter "5267309 ,[n \cdot \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{54}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Sparsity pattern of $((u_k \cdot \nabla )\phi ,\phi )$\relax }}{55}
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Sparsity pattern of $((u_k \cdot n)\phi ,\phi )_{\Gamma _N}$\relax }}{56}
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Sparsity pattern of $(\nabla \phi ,\nabla \phi )$\relax }}{56}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Sparsity patterns of constituents of $((u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N} + ((u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$\relax }}{57}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Sparsity patterns of constituents of $(abs(u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N} + (abs(u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$\relax }}{58}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Sparsity pattern of constituents of $((u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N} + ((u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$\relax }}{57}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Sparsity pattern of constituents of $(abs(u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N} + (abs(u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$\relax }}{58}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.2}{\ignorespaces $h-$convergence in $L^2$ norm for Stokes flow\relax }}{63}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces $h-$convergence in $H_0$ norm for Stokes flow\relax }}{65}

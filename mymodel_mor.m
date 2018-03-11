@@ -13,7 +13,7 @@ disp('Parameter reference set created')
 %% Parameter generation
 disp('Generating training parameter set')
 para1 = [1 1.1 3]; %viscocity
-para2 = [0 0.1 2]; %dirichlet value
+para2 = [0 0.1 3]; %dirichlet value
 parameter_training_set = gen_parameters( para1,para2);
 disp('Parameter training set generation finished')
 
@@ -76,55 +76,83 @@ paramsP.dimrange = 1;
 params.grid = grid;
 paramsP.grid = grid;
 
-nrep=[3 6 10 15];
+nrep = [3 6 10 15];
 
-params.ndofs_per_element= nrep(params.pdeg)*params.dimrange;
-params.ndofs = params.ndofs_per_element*grid.nelements;
+params.ndofs_per_element = nrep(params.pdeg) * params.dimrange;
+params.ndofs = params.ndofs_per_element * grid.nelements;
 params.dofs = zeros(params.ndofs,1);
 
-paramsP.ndofs_per_element= nrep(paramsP.pdeg)*paramsP.dimrange;
-paramsP.ndofs = paramsP.ndofs_per_element*grid.nelements;
+paramsP.ndofs_per_element = nrep(paramsP.pdeg) * paramsP.dimrange;
+paramsP.ndofs = paramsP.ndofs_per_element * grid.nelements;
 paramsP.dofs = zeros(paramsP.ndofs,1);
-params.mu=4;
-df_info=ldginfo(params,grid);
-df=ldgdiscfunc(df_info);
-display(df);
-qdeg=3;
 
-mu = params.reference_parameter(1);
+df_info = ldginfo(params,grid);
+df = ldgdiscfunc(df_info);
+display(df);
+df_infoP = ldginfo(paramsP,grid);
+df = ldgdiscfunc(df_info);
+display(df);
+qdeg = 3;
+
+params.kinematic_viscosity = @(params) params.reference_parameter(1)*1e-6;
+mu = params.kinematic_viscosity(params);
 c11 = 1e1*mu*1e6;% penalty parameter, must be large enough for coercivity
 
 %% Assembly of stiffness matrix
 
+disp('Solving reference problem')
+disp('Assembling stifness matrix')
+
+tic
 [ params, paramsP, rhs, stifness_matrix] = assemble_stifness_matrix...
     ( params, paramsP, grid, qdeg, mu, c11 );
+time_matrix_assembly = toc;
+disp(['Time taken for assembling stifness matrix ',num2str(time_matrix_assembly)])
+stifness_matrix_reference = stifness_matrix;
+rhs_reference = rhs;
 
 %% Snapshot generation
+disp('Entering in snapshot generation')
 params.snapshots_matrix = zeros(params.ndofs,size(parameter_training_set,1));
 paramsP.snapshots_matrix = zeros(paramsP.ndofs,size(parameter_training_set,1));
+params_reference = params;
+paramsP_reference = paramsP;
 
 for i = 1:1:size(parameter_training_set,1)
-    
+    stifness_matrix = stifness_matrix_reference;
+    rhs = rhs_reference;
     params.parameter_training_set = parameter_training_set(i,:);
     params.kinematic_viscosity = @(params) params.parameter_training_set(1)*1e-6;
     mu = params.kinematic_viscosity(params);
-    c11 = 1e1*mu*1e6;% penalty parameter, must be large enough for coercivity
+    c11 = 1e4; %1e1*mu*1e6;% penalty parameter, must be large enough for coercivity
     
     %% AFFINE assembly of stiffness matrix
     
     %[ params, paramsP, rhs, stifness_matrix] = assemble_stifness_matrix...
     %    ( params, paramsP, grid, qdeg, mu, c11 );
     
-    theta_1 = params.parameter_training_set(1) - params.reference_parameter(1); 
-    theta_2 = params.parameter_training_set(2) - params.reference_parameter(2);
+    theta_1 = params.parameter_training_set(1) - params.reference_parameter(1);
+    %viscocity
+    theta_2 = params.parameter_training_set(2) / params.reference_parameter(2);
+    %dirichlet value
     
+    disp('Assembling stifness matrix affine')
+    tic
     stifness_matrix(1:params.ndofs,1:params.ndofs) = ...
         stifness_matrix(1:params.ndofs,1:params.ndofs) + theta_1 * ...
-        (params.bilinear_res1 - params.bilinear_res2 - params.bilinear_res2');
+        (params_reference.bilinear_res1 - params_reference.bilinear_res2 ...
+        - params_reference.bilinear_res2');
     
-    params.linear_side(1:params.ndofs) = params.linear_side(1:params.ndofs) ...
-        - theta_1 * params.linear_res4;
+    rhs(1:params.ndofs) = rhs(1:params.ndofs) - theta_1 * ...
+        params_reference.linear_res4 + (theta_2 - 1) * ...
+        (params_reference.linear_res3 - params_reference.linear_res4);
     
+    rhs(params.ndofs+1:params.ndofs+paramsP.ndofs) = ...
+        theta_2*rhs(params.ndofs+1:params.ndofs+paramsP.ndofs);
+    
+    time_matrix_assembly_affine = toc;
+    disp(['Time taken for affine assembling stifness matrix ',...
+        num2str(time_matrix_assembly_affine)])
     
     %% Stokes problem
     
@@ -140,96 +168,27 @@ for i = 1:1:size(parameter_training_set,1)
     % [ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
     %     ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
     % times_solver = toc;
-    
-    %% Stiffness matrix tests
-    
-    % disp('Entering into stiffness matrix tests')
-    % [ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
-    % ( stifness_matrix, params, paramsP, grid, qdeg );
-    
-    %% Penalty parameter tests
-    % c11_min = 1e-3;
-    % c11_max = 1e5;
-    % c11_num_interval = 10;
-    % [ condition_number, c11 ] = c11_condition_number...
-    %     ( params, paramsP, grid, qdeg, mu, c11_min, c11_max, c11_num_interval );
-    % [ solution_norm, c11] = c11_solution( params, paramsP, grid, qdeg,...
-    %     mu, required_residual_tol, max_iter, c11_min, c11_max, c11_num_interval);
-    
-    
-    %% Navier Stokes
-    %     tol_newton = 1e-12;
-    %     max_iter_newton = 10;
-    %     tol_solver = 1e-13;
-    %     max_iter_solver = 100;
-    %
-    %     [ params,paramsP,flag,relres_solver,iter_solver,...
-    %         relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
-    %         newton_script( params,paramsP,grid,qdeg,mu,c11,...
-    %         tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
-    %
-    % %% non linear Stiffness matrix tests
-    % %
-    % % disp('Entering into stiffness matrix tests')
-    % % [ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
-    % % ( stifness_matrix_nonlinear, params, paramsP, grid, qdeg );
-    
-    %% ERROR FUNCTION CALL
-    
-    % Analytical from paper
-    
-    % params.dof_analytical = @(glob)...
-    %     [glob(1)^2*(1-glob(1))^2*(2*glob(2)-6*glob(2)^2+4*glob(2)^3) ...
-    %     -glob(2)^2*(1-glob(2))^2*(2*glob(1)-6*glob(1)^2+4*glob(1)^3)];
-    % params.dof_derivative_analytical = @(glob)...
-    %      [(2*glob(2)-6*(glob(2))^2+4*(glob(2))^3) ...
-    %      glob(1)^2*(1-glob(1))^2*(2-12*glob(2)+12*glob(2)^2);...
-    %     -glob(2)^2*(1-glob(2))^2*(2-12*glob(1)+12*glob(1)^2) ...
-    %     -(2*glob(1)-6*glob(1)^2+4*glob(1)^3)*(glob(2)^2+glob(2)^4-2*glob(2)^3)];
-    % paramsP.dof_analytical = @(glob) (glob(1)*(1-glob(1)));
-    % paramsP.dof_derivative_analytical = @(glob) [(1-2*glob(1)) 0];
-    %
-    % % Standard
-    %
-    % params.dof_analytical = @(glob) [glob(2)*(1-glob(2)) 0];
-    % params.dof_derivative_analytical = @(glob) [0 1-2*glob(2);0 0];
-    % paramsP.dof_analytical = @(glob) (1-glob(1));
-    % paramsP.dof_derivative_analytical = @(glob) [-1 0];
-    
-    %% L^2 norm
-    % [ error_l2_velocity ] = error_l2_norm_assembly( params, grid, qdeg );
-    % [ error_l2_pressure ] = error_l2_norm_assembly( paramsP, grid, qdeg );
-    %
-    % %% h0 NORM Implemenetation needs to be verified
-    % [ error_h0_velocity ] = error_h0_norm_assembly( params, grid, qdeg );
-    % [ error_h0_pressure ] = error_h0_norm_assembly( paramsP, grid, qdeg );
-    
-    %% Miscelanneous
-    % k = -2:1:5;
-    % figure()
-    % plot(10.^k,error_l2_velocity)
-    % title('Error L^2 velocity vs penalty parameter')
-    % xlabel('Penalty parameter')
-    % ylabel('Error L^2 velocity')
-    % figure()
-    % plot(10.^k,error_l2_pressure)
-    % title('Error L^2 pressure vs penalty parameter')
-    % xlabel('Penalty parameter')
-    % ylabel('Error L^2 pressure')
+        
     params.snapshots_matrix(:,i) = params.dofs;
     paramsP.snapshots_matrix(:,i) = paramsP.dofs;
-
+    close all
 end
 
 %% Proper Orthogonal Decomposition
 n_s = size(params.snapshots_matrix,2); % number of snapshots
 % params.snapshots_matrix = rand(params.ndofs,n_s);
-disp('Check affine decomposition')
-red_dim_velocity = 6;
-red_dim_pressure = 3;
+red_dim_velocity = 15;
+red_dim_pressure = 6;
 min_eigen = 1e-10;
 params.qdeg = qdeg;
 paramsP.qdeg = qdeg;
+
+disp('Entering in pod')
+
+[ pod_res_params, pod_res_paramsP, B, B_velocity, B_pressure, ...
+    stifness_matrix_reduced, params_reduced, paramsP_reduced] = ...
+    pod( params, paramsP, grid, red_dim_velocity, red_dim_pressure, ...
+    min_eigen, stifness_matrix, rhs);
 
 %% Testing
 disp('Generating test parameter set')
@@ -240,8 +199,13 @@ disp('Test parameter set generated')
 error_velocity = zeros(size(parameter_test_set,1),1);
 error_pressure = zeros(size(parameter_test_set,1),1);
 
+error_velocity_vector = zeros(size(parameter_test_set,1),1);
+error_pressure_vector = zeros(size(parameter_test_set,1),1);
+
+disp('Entering in error calculation')
 for i = 1:1:size(parameter_test_set,1)
-    
+    stifness_matrix = stifness_matrix_reference;
+    rhs = rhs_reference;
     params.parameter_training_set = parameter_test_set(i,:);
     params.kinematic_viscosity = @(params) params.parameter_training_set(1)*1e-6;
     mu = params.kinematic_viscosity(params);
@@ -249,52 +213,58 @@ for i = 1:1:size(parameter_test_set,1)
     
     %% Assembly of stiffness matrix
     
-    [ params, paramsP, rhs, stifness_matrix] = assemble_stifness_matrix...
-        ( params, paramsP, grid, qdeg, mu, c11 );
-    
+%     [ params, paramsP, rhs, stifness_matrix] = assemble_stifness_matrix...
+%         ( params, paramsP, grid, qdeg, mu, c11 );
     
     %% Stokes problem
+    
+    
+    theta_1 = params.parameter_training_set(1) - params.reference_parameter(1);
+    theta_2 = params.parameter_training_set(2) / params.reference_parameter(2);
+    
+    disp('Assembling stifness matrix affine')
+    tic
+    stifness_matrix(1:params.ndofs,1:params.ndofs) = ...
+        stifness_matrix(1:params.ndofs,1:params.ndofs) + theta_1 * ...
+        (params_reference.bilinear_res1 - params_reference.bilinear_res2 - ...
+        params_reference.bilinear_res2');
+    
+    rhs(1:params.ndofs) = rhs(1:params.ndofs) - theta_1 * ...
+        params_reference.linear_res4 + (theta_2 - 1) * (params_reference.linear_res3 ...
+        - params_reference.linear_res4);
+    
+    rhs(params.ndofs+1:params.ndofs+paramsP.ndofs) = ...
+        theta_2*rhs(params.ndofs+1:params.ndofs+paramsP.ndofs);
+    
+    time_matrix_assembly_affine = toc;
+    disp(['Time taken for affine assembling stifness matrix ',...
+        num2str(time_matrix_assembly_affine)])
     
     tic;
     [ params, paramsP, achieved_residual_tol_schur] =...
         solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
     time_schur = toc;
     
-    required_residual_tol = 0;%achieved_residual_tol_schur; % allowable residual
-    max_iter = 1e5; % maximum number of iterations
-    
-    % tic;
-    % [ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
-    %     ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
-    % times_solver = toc;
-    
-    %% Navier Stokes
-    %     tol_newton = 1e-12;
-    %     max_iter_newton = 10;
-    %     tol_solver = 1e-13;
-    %     max_iter_solver = 100;
-    %
-    %     [ params,paramsP,flag,relres_solver,iter_solver,...
-    %         relres_newton, iter_newton, stifness_matrix_nonlinear ] =...
-    %         newton_script( params,paramsP,grid,qdeg,mu,c11,...
-    %         tol_newton,max_iter_newton,stifness_matrix, tol_solver, max_iter_solver);
-    %
-    % %% non linear Stiffness matrix tests
-    % %
-    % % disp('Entering into stiffness matrix tests')
-    % % [ eigen_vectors, eigen_values, condition_number, rank_matrix] = stifness_matrix_test...
-    % % ( stifness_matrix_nonlinear, params, paramsP, grid, qdeg );
-    
-    [ pod_res_params, pod_res_paramsP, B, B_velocity, B_pressure, ...
-        stifness_matrix_reduced, params_reduced, paramsP_reduced] = ...
-        pod( params, paramsP, grid, red_dim_velocity, red_dim_pressure, ...
-        min_eigen, stifness_matrix, rhs, 'L2' );
-    
+    error_velocity_vector(i) = error_velocity_rbasis( params, params_reduced, B_velocity, ...
+        grid, qdeg);
+    error_pressure_vector(i) = error_velocity_rbasis( paramsP, paramsP_reduced, B_pressure, ...
+        grid, qdeg);
+    close all
 end
 
-error_velocity = error_velocity_rbasis( params, params_reduced, B_velocity, ...
-    grid, qdeg);
-error_velocity_avg = mean(error_velocity);
-error_pressure = error_velocity_rbasis( paramsP, paramsP_reduced, B_pressure, ...
-    grid, qdeg);
-error_pressure_avg = mean(error_pressure);
+% Error in energy norm
+
+error_energy_velocity_reduced = B_velocity'*stifness_matrix(1:params.ndofs,...
+    1:params.ndofs)*B_velocity*params_reduced.dofs + ...
+    B_velocity'*stifness_matrix(1:params.ndofs,params.ndofs + ...
+    1:params.ndofs+paramsP.ndofs)*B_pressure*paramsP_reduced.dofs;
+error_energy_pressure_reduced = B_pressure'*...
+    stifness_matrix(params.ndofs+1:params.ndofs + ...
+    paramsP.ndofs,1:params.ndofs)*B_velocity*params_reduced.dofs;
+error_energy_velocity = B_velocity' * stifness_matrix(1:params.ndofs,1:params.ndofs) * ...
+    params.dofs + B_velocity' * stifness_matrix(1:params.ndofs,params.ndofs + ...
+    1:params.ndofs+paramsP.ndofs) * paramsP.dofs - error_energy_velocity_reduced;
+error_energy_velocity = norm(error_energy_velocity,2);
+error_energy_pressure = B_pressure' * stifness_matrix(params.ndofs+1:params.ndofs ...
+    + paramsP.ndofs,1:params.ndofs)*params.dofs - error_energy_pressure_reduced;
+error_energy_pressure = norm(error_energy_pressure,2);
