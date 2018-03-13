@@ -75,7 +75,7 @@ else
     
     %% standard
     if glob(1)<eps
-        res = params.parameter_training_set(2)*1e0*glob(2)*(1-glob(2));
+        res = -params.parameter_training_set(2)*1e0*glob(2)*(1-glob(2));
         res = [res 0]';
         
     elseif (glob(2)>(1-eps) || glob(2)<eps)
@@ -85,4 +85,5 @@ else
         res = params.parameter_training_set(2)*[0 0]'; %on circular object
     end
 end
+
 end

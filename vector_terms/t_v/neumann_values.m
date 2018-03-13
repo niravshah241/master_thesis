@@ -18,7 +18,7 @@ function [ res ] = neumann_values(glob,params)
 
 %% standard condition
 if glob(1)>(1-eps)
-    res=[0 0]';
+    res = [0 0]';
 else
     disp('Not on neumann boundary');
     %error('Not on neumann boundary');

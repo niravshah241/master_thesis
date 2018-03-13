@@ -3,7 +3,6 @@ function [ res ] = func_rhs( glob,params )
 %glob is global coordinate
 res = zeros(params.dimrange,1);
 
-
 x = glob(1);
 y = glob(2);
 

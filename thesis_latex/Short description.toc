@@ -137,7 +137,8 @@
 \contentsline {subsection}{\numberline {.1.6}Bilinear forms}{94}
 \contentsline {subsubsection}{Coercivity of bilinear form}{94}
 \contentsline {subsubsection}{Continuity of bilinear form}{94}
-\contentsline {subsection}{\numberline {.1.7}Important inequalities}{95}
+\contentsline {subsection}{\numberline {.1.7}Condition number}{94}
+\contentsline {subsection}{\numberline {.1.8}Important inequalities}{95}
 \contentsline {subsubsection}{Trace theorem}{95}
 \contentsline {subsubsection}{Cauchy-Schwarz inequality}{95}
 \contentsline {subsubsection}{Young's inequality}{95}
