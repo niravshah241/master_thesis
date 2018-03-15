@@ -62,7 +62,7 @@ I hereby certify that I have prepared this master‘s thesis independently, and 
 
 \noindent
 Ich versichere hiermit, dass\\
-1. ich meine Arbeit bzw. bei einer Gruppenarbeit ihren entsprechend gekennzeichneten Anteil der Arbeit selbst\"andig verfasst habe,\\
+1. ich meine Arbeit selbst\"andig verfasst habe,\\
 2. ich keine anderen als die angegebenen Quellen benutzt und alle w\"ortlich oder
 sinngem\"a\ss \space aus anderen Werken \"ubernommenen Aussagen als solche gekennzeichnet habe,\\
 3. die eingereichte Arbeit weder vollst\"andig noch in wesentlichen Teilen
@@ -315,85 +315,87 @@ In appendix, we present mathematical preliminaries. Familiarity with concepts pr
 
 \chapter[Perspective and formulation]{Engineering perspective and mathematical formulation} 
 
-The subject of mathematical applications in fluid mechanics starts with  one of the variants of the Navier Stokes equation. Almost all processes of fluid mechanics require considerations related to the Navier Stokes equation. Hence the importance of the Navier Stokes equation is impossible to be ignored as far as mathematical approaches in fluid mechanics are concerned. The numerical method for the incompressible Navier Stokes equation is simpler as compared to the numerical method for the compressible Navier Stokes equation. As the incompressible condition is imposed the state variables are constant. This in turn means that the equation of state no longer needs to be solved. Throughout the thesis we discuss only steady state incompressible Navier Stokes equation and hence, Navier Stokes equation refers hereafter to steady state incompressible Navier Stokes equation.
+The subject of mathematical applications in fluid mechanics starts with  one of the variants of the Navier-Stokes equations. Almost all processes of fluid mechanics require considerations related to the Navier-Stokes equations. Hence the importance of the Navier-Stokes equations is impossible to be ignored as far as mathematical approaches in fluid mechanics are concerned. The numerical methods for the incompressible Navier-Stokes equations are simpler if compared to the numerical methods for the compressible Navier-Stokes equations. As the incompressible condition is imposed the state variables are constant. This in turn means that the equation of state no longer needs to be solved. Throughout the thesis we discuss only steady state incompressible Navier-Stokes equations and hence, Navier-Stokes equations refer hereafter to steady state incompressible Navier Stokes equation.
 
-\section[Derivation]{Derivation of the Navier Stokes equation}
+\section[Derivation]{Derivation of the Navier-Stokes equations}
 
-Before deriving the Navier Stokes equation we introduce some notations. The domain is denoted by $\Omega \subseteq \mathbb{R}^d $. The domain boundary is denoted by $\partial \Omega$. The domain boundary is divided into Dirichlet boundary $\Gamma_D$ and Neumann boundary $\Gamma_N$ i.e. $\Gamma_D \cup \Gamma_N = \partial \Omega $, $\Gamma_D \cap \Gamma_N = \emptyset $. 
+Before deriving the Navier-Stokes equations we introduce some notations. The domain is denoted by $\Omega \subseteq \mathbb{R}^d $. The domain boundary is denoted by $\partial \Omega$. The domain boundary is divided into Dirichlet boundary $\Gamma_D$ and Neumann boundary $\Gamma_N$ i.e. $\Gamma_D \cup \Gamma_N = \partial \Omega $, $\Gamma_D \cap \Gamma_N = \emptyset $. 
 
-The governing equations for the incompressible Navier Stokes flow are the conservation equations: Mass conservation and Momentum conservation. The conservation equations are derived based on the concept of control volume and the control surface. The control volume is the volume, fixed or moving with constant velocity in space, through which the fluid moves. Extensive quantity is the amount of a quantity contained in the system such as mass. Intensive quantity is the extensive quantity per unit mass of system. Intensive quantity is independent of the mass of the system and is not additive, while extensive quantity does depend on the mass of the system and is additive. The control surface is the surface enclosing the control volume. All equations can be derived from the Reynold's transport equation as presented by White F.M. \cite{white}:
+The governing equations for the incompressible Navier-Stokes flows are the conservation equations: Mass conservation and Momentum conservation. The conservation equations are derived based on the concept of control volume and the control surface. The control volume is the volume, fixed or moving with constant velocity in space, through which the fluid moves. Extensive quantity is the amount of a quantity contained in the system such as mass. Intensive quantity is the extensive quantity per unit mass of system. Intensive quantity is independent of the mass of the system and is not additive, while extensive quantity does depend on the mass of the system and is additive. The control surface is the surface enclosing the control volume. All equations can be derived from the Reynold's transport equation as presented for example by White F.M. \cite{white}:
 
 
 \begin{equation} \label{rtt} 
 \frac{dB'}{dt'}|_{cs} = \frac{d}{dt'} \int_{cv} b' \rho dV + \int_{cs} (b' \rho) u\cdot dA 
 \end{equation}
 {}\\
-$cv$ = Control volume\\
-$cs$ = Control surface\\
-$B'$ = Extensive quantity under consideration  \\
-$b'$ = Intensive quantity corresponding to $B'$ \\
-$\rho$ = Density of fluid \\
-$u$ = Velocity of fluid\\
+$cv$ = Control volume,\\
+$cs$ = Control surface,\\
+$B'$ = Extensive quantity under consideration,\\
+$b'$ = Intensive quantity corresponding to $B'$,\\
+$\rho$ = Density of fluid,\\
+$u$ = Velocity of fluid.\\
 
 If in the above equation $B'$ is substituted as momentum $M$ and correspondingly $b'$ as velocity $u$, we obtain the change in momentum. As per Newton's second law of motion change in momentum is equal to the sum of external forces acting on the system. 
 
 \begin{equation}\label{External force lhs}
-F = \frac{dM}{dt'} = \frac{d}{dt'} \int_{cv} u \rho dV + \int_{cs} (u \rho) u\cdot dA 
+F = \frac{dM}{dt'} = \frac{d}{dt'} \int_{cv} u \rho dV + \int_{cs} (u \rho) u\cdot dA \quad \textrm{.}
 \end{equation}
 
 This sum of forces arises from stresses $\sigma$ (shear stresses and normal stresses) and external force $f$ such as weight. 
 
 \begin{equation}\label{External force rhs}
-F = \int_{cs} \sigma \cdot dA + \int_{cv} \rho f dV
+F = \int_{cs} \sigma \cdot dA + \int_{cv} \rho f dV \quad \textrm{,}
 \end{equation}
 \\
-$\sigma =$ Viscous stress\\
-$f =$ External force per unit volume\\
+$\sigma =$ Viscous stress,\\
+$f =$ External force per unit volume.\\
 
 Equating external forces with change in momentum i.e. equating \eqref{External force lhs} and \eqref{External force rhs}, considering steady conditions only, using definition of viscous stress tensor and with the application of the Gauss divergence theorem we arrive at the Navier Stokes equation,
 
 \begin{equation} \label{navier_stokes}
--2\nabla \cdot (\nu \nabla^s u) + (1/\rho) \nabla p + (u \cdot \nabla)u = f \quad   \textnormal{in}  \quad \Omega \quad \textrm{.}
+-2\nabla \cdot (\nu \nabla^s u) + (1/\rho) \nabla p + (u \cdot \nabla)u = f \quad   \textnormal{in}  \quad \Omega \textrm{.}
 \end{equation} 
 
 The incompressible mass conservation equation can be derived similarly by substituing $B' =$ Mass of control system and $b' = 1$ in equation \eqref{rtt}.  It can be written as,
 
 \begin{equation}\label{mass_conservation}
-\nabla \cdot u=0 \quad   \textnormal{in}  \quad \Omega \quad \textrm{.}
+\nabla \cdot u=0 \quad   \textnormal{in}  \quad \Omega \textrm{.}
 \end{equation}
 
 The boundary conditions are expressed as,\\
 
 Dirichlet boundary:
 \begin{equation}\label{dirichlet_ns}
-u=u_D \quad \textnormal{on} \quad \Gamma_D \quad \textrm{.}
+u=u_D \quad \textnormal{on} \quad \Gamma_D \textrm{.}
 \end{equation}
 
 Neumann boundary:
 \begin{equation} \label{neumann_ns}
--pn + 2\nu(n \cdot \nabla^s)u = t \quad   \textnormal{on}  \quad \Gamma_N \quad \textrm{.}
+-pn + 2\nu(n \cdot \nabla^s)u = t \quad   \textnormal{on}  \quad \Gamma_N \textrm{.}
 \end{equation}
 
 $ $\\
-$u$ = flow velocity and $u:\Omega \rightarrow \mathbb{R}^d$ \\
-$p$ = pressure and $p:\Omega \rightarrow \mathbb{R}$\\
-$\nu$ = kinematic viscocity (fluid property) $\nu:\Omega \rightarrow \mathbb{R}$\\ 
-$\rho$ = density (fluid property) $\rho:\Omega \rightarrow \mathbb{R}$\\
-$f$ = external force $f:\Omega \rightarrow \mathbb{R}^d$\\
-$u_D$ = specified flow velocity at Dirichlet boundary $u_D:\Gamma_D \rightarrow \mathbb{R}^d$\\
-$n$ = normal unit vector $n:\partial \Omega \rightarrow \mathbb{R}^d$\\
-$t$ = specified Neumann flux $t:\Gamma_N \rightarrow \mathbb{R}^d$\\
-$\nabla^s = \frac{1}{2}(\nabla + \nabla^T)$\\
+$u$ = flow velocity and $u:\Omega \rightarrow \mathbb{R}^d$,\\
+$p$ = pressure and $p:\Omega \rightarrow \mathbb{R}$,\\
+$\nu$ = kinematic viscocity (fluid property) $\nu:\Omega \rightarrow \mathbb{R}$,\\ 
+$\rho$ = density (fluid property) $\rho:\Omega \rightarrow \mathbb{R}$,\\
+$f$ = external force $f:\Omega \rightarrow \mathbb{R}^d$,\\
+$u_D$ = specified flow velocity at Dirichlet boundary $u_D:\Gamma_D \rightarrow \mathbb{R}^d$,\\
+$n$ = normal unit vector $n:\partial \Omega \rightarrow \mathbb{R}^d$,\\
+$t$ = specified Neumann flux $t:\Gamma_N \rightarrow \mathbb{R}^d$.\\
 
+\begin{center}
+$\nabla^s = \frac{1}{2}(\nabla + \nabla^T) \textrm{.}$
+\end{center}
 
-The equation \eqref{navier_stokes} is known as the strong form of the Navier Stokes equation.
+The equation \eqref{navier_stokes} is known as the strong form of the momentum conservation of the Navier Stokes equation.
 
 It can be seen that the steady state Navier Stokes equation is nonlinear and has two unknown variables, pressure $p$ and velocity $u$. The additional equation, mass conservation equation, is hence necessary to obtain a sufficient number of equations for the number of unknowns.
 
 We also introduce the dimensionless number Reynolds number, $Re$ which is the most characteristic quantity of the flow. The Reynolds number is defined as the ratio of inertial force to the viscous force,
 
 \begin{equation} \label{reynolds_number}
-Re =  u L / \nu
+Re =  u L / \nu \textrm{.}
 \end{equation}
 
 Where, $L$ is the characteristic geometrical dimension, such as the diameter of a pipe in case of pipe flow or the span of the wing of an aircraft in case of flow over an aircraft wing.\\
@@ -402,28 +404,30 @@ Where, $L$ is the characteristic geometrical dimension, such as the diameter of 
 
 We now differentiate between the type of flows, laminar and turbulent.\\
 
-Laminar flow is characterised by well defined velocity and pressure field and low Reynolds number. This flow has very low velocity fluctuations and pressure fluctuations. The viscous force is balanced by the pressure force and the flow has negligible inertial force. Mathematically, the non linear term in \eqref{navier_stokes} is no longer present. This equation is known as Stokes equation [White F.M.\cite{white}]\\
+Laminar flow is characterised by well defined velocity and pressure field and low Reynolds number. This flow has very low velocity fluctuations and pressure fluctuations. The viscous force is balanced by the pressure force and the flow has negligible inertial force. Mathematically, the non linear term in \eqref{navier_stokes} is no longer present. This equation is known as Stokes equation (White F.M.\cite{white}).\\
 
 The strong form of the Stokes equation is as follow,
 
 \begin{equation} \label{stokes_strong_form}
--\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega
+-\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega \textrm{,}
 \end{equation}
 
 \begin{equation} \label{dirichlet condition stokes}
-u = u_D \quad \textrm{on} \quad \Gamma_D
+u = u_D \quad \textrm{on} \quad \Gamma_D \textrm{,}
 \end{equation}
 
 \begin{equation} \label{neumann condition stokes}
--pn + \nu n \cdot \nabla u = t \quad \textrm{on} \quad \Gamma_N
+-pn + \nu n \cdot \nabla u = t \quad \textrm{on} \quad \Gamma_N \textrm{.}
 \end{equation}
 \\
 
-Turbulent flow, in contrast, is characterised by fluctuations in velocity and pressure field and a high Reynolds number. The flow has high velocity and an inertial force is present in addition to a viscous and a pressure force. This inertial force makes the Equation \eqref{navier_stokes} non linear. The fluctuations of velocity and pressure are of the order of the Kolmogrov scale.[Kundu et al. \cite{Kundu}]\\
+Turbulent flow, in contrast, is characterised by fluctuations in velocity and pressure field and a high Reynolds number. The flow has high velocity and an inertial force is present in addition to a viscous and a pressure force. This inertial force makes the Equation \eqref{navier_stokes} non linear. The fluctuations of velocity and pressure are of the order of the Kolmogrov scale (Kundu et al. \cite{Kundu}).\\
 
-The method used for solving Equation \eqref{navier_stokes} numerically is known as Direct Numerical Simulation, abbreviated as $DNS$. The direct numerical simulation could be computationally very expensive especially in applications such as turbulent flows as the time and space grid size is of the order of the Kolmogrov scale but the time period or space dimension over which the simulation is carried out are very large. In order to avoid such computational expenses alternate models are used replacing the original model. However, the alternate model can not explain the flow physics completely. The prediction of accurate flow physics description requires economical numerical solution of \eqref{navier_stokes}. It is to be noted that the simulation of turbulent flow is always a choice of balance between accuracy of computation and computational efforts.
+The method used for solving Equation \eqref{navier_stokes} numerically is known as Direct Numerical Simulation, abbreviated as $DNS$. The direct numerical simulation could be computationally very expensive especially in applications such as turbulent flows as the time and space grid size is of the order of the Kolmogrov scale but the time period or space dimension over which the simulation is carried out are very large. In order to avoid such computational expenses alternative models are used replacing the original model. However, the alternative model can not explain the flow physics completely. The prediction of accurate flow physics description requires economical numerical solution of \eqref{navier_stokes}. It is to be noted that the simulation of turbulent flow is always a choice of balance between accuracy of computation and computational efforts.
 
-\chapter{Discretisation and function spaces}
+We now discuss, in next chapter, about the grid formation, deriving weak formulation from the strong formulation presented in this chapter and solution of the weak formulation.
+
+\chapter{Discretisation and functional spaces}
 
 \section{Grid geometry}
 
@@ -441,12 +445,12 @@ We also denote the normal pointing from element itself towards neighbouring elem
 In case of a 2-dimensional domain the grid could be a triangular grid or a rectangular grid. The triangular grids are useful for irregular geometry and also on regular geometry if the solution is expected to be irregular due to complex flow physics. This flexibility requires additional efforts to define the grid accurately. That is, unlike a structured grid, an unstructured grid needs to define connectivity of vertices, which form edges, which in turn form a face. In case of a 2-dimensional grid we have faces which are 2-dimensional entities, edges which are 1-dimensional entities and points or vertices which are 0-dimensional entities. In case of 3-dimensional grid, these faces constitute tetrahedral elements. 
 
 For triangular grids we also consider a barycentric coordinate system. In barycentric coordinate system any point $r$ within a triangle is expressed in terms of vertices $r_1,r_2,r_3$ forming the triangle. This is represented as, \begin{equation}\label{barycentric point}
-r = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3 \quad \textrm{.}
+r = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3 \textrm{.}
 \end{equation}
 
 Here, $\lambda_1, \lambda_2, \lambda_3$ are weights. The weights satisfy the criterion, 
 \begin{equation}\label{lambda constraint} 
-\lambda_1 + \lambda_2 + \lambda_3 = 1 \quad \textrm{.}
+\lambda_1 + \lambda_2 + \lambda_3 = 1 \textrm{.}
 \end{equation}
 Hence, we only need to specify 2 values in 2-dimensional plane in order to fully define the position of point.
 
@@ -454,7 +458,7 @@ For example, the centroid of triangle will have $\lambda_1 = 1/3, \lambda_2 = 1/
 
 \section{Grid parameters}
 
-We refer to 'Grid parameters' as the geometrical parameters which are dependent on the geometry of the problem or the grid or both. These parameters do not depend upon the mathematical formulation but are supplementary to the mathematical formulation. On the triangular grid we have 3 entities: faces, edges, vertices as explained above. From faces we have the area (equivalent to volume of element in case of a 3-dimensional grid) and the Jacobian. As explained later in the weak form of the Stokes and Navier Stokes discontinuous Galerkin formulation and transformation between local and global geometry, the area of element is useful for volume integral terms and the Jacobian is useful for transformation between local and global geometry. From edges we derive the edge length $l$ which is useful for boundary integral terms and normal vector $n$ which is useful for flux calculation. The normal vector is the unit vector normal to the edge pointing outward from the element. Every element has 3 neighbouring elements and the element shares each of his edge with one of its neighbour. From vertices we derive the vertex index which helps to define the connectivity of the vertices which is useful especially in case of unstructured grid. In order to give clear visualization of continuous domain and grid, we refer to Figure \ref{fig:continuous_grid_figure}.
+We refer to 'Grid parameters' as the geometrical parameters which are dependent on the geometry of the problem or the grid or both. These parameters do not depend upon the mathematical formulation but are supplementary to the mathematical formulation. On the triangular grid we have 3 entities: faces, edges, vertices as explained above. From faces we have the area (equivalent to volume of element in case of a 3-dimensional grid) and the Jacobian. As explained later in the weak form of the Stokes and Navier-Stokes Discontinuous-Galerkin formulation and transformation between local and global geometry, the area of element is useful for volume integral terms and the Jacobian is useful for transformation between local and global geometry. From edges we derive the edge length $l$ which is useful for boundary integral terms and normal vector $n$ which is useful for flux calculation. The normal vector is the unit vector normal to the edge pointing outward from the element. Every element has 3 neighbouring elements and the element shares each of his edge with one of its neighbour. From vertices we derive the vertex index which helps to define the connectivity of the vertices which is useful especially in case of unstructured grid. In order to give clear visualization of continuous domain and grid, we refer to Figure \ref{fig:continuous_grid_figure}.
 
 \begin{figure}[H]
 \begin{subfigure}{.5\textwidth}
@@ -471,7 +475,7 @@ We refer to 'Grid parameters' as the geometrical parameters which are dependent 
 \label{fig:continuous_grid_figure}
 \end{figure}
 
-\section{Discontinuous Galerkin method}
+\section{Discontinuous-Galerkin (DG) method}
 
 In the context of the discontinuous Galerkin method we introduce the function spaces $V$($\mathcal{T}$) and $Q$($\mathcal{T}$) for analytical solution of velocity and analytical solution of pressure respectively. The space containing high fidelity solution (in this case discontinuous Galerkin) is called truth space denoted by $\mathbb{V}$ for velocity and $\mathbb{Q}$ for pressure. $d_u$ and $d_p$ represent the dimension of velocity and pressure respectively.
 
@@ -487,7 +491,7 @@ Here, $P^D(\tau_k)$ denotes space of polynomials of degree at most $D$ over $\ta
 
 We apply a similar procedure as in the finite element method i.e. multiplying the partial differential equation by a test function and integration by parts (Section \ref{Stokes_flow_ch3}. However, we note that our test function is not continuous on the interface. Hence, we require flux approximations and jumps at the interface. These requirements have given rise to different discontinuous Galerkin methods. For explanation of each method we refer to literatures such as by Persson et al. \cite{persson} for local discontinuous Galerkin method and by Montlaur et al. \cite{Montlaur} for the Compact discontinuous Galerkin method and the Interior penalty method. \\
 
-Discontinuous Galerkin methods for the Navier Stokes equation were compared by Montlaur et al. \cite{Montlaur}. The local discontinuous Galerkin (LDG) method extends the computational stencil beyond immediate neighbours whereas compact discontinuous Galerkin (CDG) and interior penalty method (IPM) only connect to neighbouring elements. The CDG method provides more flexibility with respect to the stabilisation constant at the cost of additional simulation effort related to computation of the lifting operator, while the IPM method requires restrictions on penalty parameter in order to maintain coercivity of bilinear form. However, implemenetation of IPM is simpler as compared to implementation of CDG. Both methods, CDG and IPM, have almost similar convergence rates. 
+Discontinuous-Galerkin methods for the Navier Stokes equation were compared by Montlaur et al. \cite{Montlaur}. The local discontinuous Galerkin (LDG) method extends the computational stencil beyond immediate neighbours whereas compact discontinuous Galerkin (CDG) and interior penalty method (IPM) only connect to neighbouring elements. The CDG method provides more flexibility with respect to the stabilisation constant at the cost of additional simulation effort related to computation of the lifting operator, while the IPM method requires restrictions on penalty parameter in order to maintain coercivity of bilinear form. However, implemenetation of IPM is simpler as compared to implementation of CDG. Both methods, CDG and IPM, have almost similar convergence rates. 
 
 \section[Basis function]{Nodal basis function and Orthonormal basis function}
 
@@ -496,11 +500,11 @@ The "Basis functions" are also known as "Ansatz functions". There are two kinds 
 The number of degrees of freedom per element $npe$ can be calculated as,
 
 \begin{equation} \label{unpe}
-u_{npe} = d_u \frac{(D+1)(D+2)}{2} \quad \textrm{for velocity}
+u_{npe} = d_u \frac{(D+1)(D+2)}{2} \quad \textrm{for velocity} \textrm{,}
 \end{equation} 
 
 \begin{equation} \label{pnpe}
-p_{npe} = d_p \frac{(D)(D+1)}{2} \quad \textrm{for pressure}
+p_{npe} = d_p \frac{(D)(D+1)}{2} \quad \textrm{for pressure} \textrm{.}
 \end{equation} 
 
 
@@ -525,13 +529,13 @@ For example, Nodal basis function of degree $D=1$ in 1 dimensional domain can be
 \begin{equation}
 \begin{aligned}
 \begin{split}
-\hat{\phi_i} = \frac{x-x_{i-1}}{x_i-x_{i-1}} \quad \textrm{for} \quad x_{i-1} \leq x \leq x_i\\
-\hat{\phi_i} = \frac{x_{i+1}-x}{x_{i+1}-x_{i}} \quad \textrm{for} \quad x_{i} \leq x \leq x_{i+1}\\
+\hat{\phi_i} = \frac{x-x_{i-1}}{x_i-x_{i-1}} \quad \textrm{for} \quad x_{i-1} \leq x \leq x_i \textrm{,}\\
+\hat{\phi_i} = \frac{x_{i+1}-x}{x_{i+1}-x_{i}} \quad \textrm{for} \quad x_{i} \leq x \leq x_{i+1} \textrm{,}\\
 \end{split}
 \end{aligned}
 \end{equation}
 \begin{center}
-$\hat{\phi_i} = 0$ else
+$\hat{\phi_i} = 0$ else.
 \end{center}
 
 We do not use Nodal basis function in our analysis, instead we use orthonormal basis function.
@@ -542,8 +546,8 @@ Orthonormal basis functions are the basis functions defined in such a way that a
 
 \begin{equation}
 \begin{split}
-(\hat{\phi_i } , \hat{\phi_j}) = \int_{\hat{T}} \hat{\phi_i} \hat{\phi_j} = 1 \quad \textrm{if} \quad i = j \\
-(\hat{\phi_i } , \hat{\phi_j}) = \int_{\hat{T}} \hat{\phi_i} \hat{\phi_j} = 0 \quad \textrm{if} \quad i \neq j 
+(\hat{\phi_i } , \hat{\phi_j}) = \int_{\hat{T}} \hat{\phi_i} \hat{\phi_j} = 1 \quad \textrm{if} \quad i = j \textrm{,}\\
+(\hat{\phi_i } , \hat{\phi_j}) = \int_{\hat{T}} \hat{\phi_i} \hat{\phi_j} = 0 \quad \textrm{if} \quad i \neq j \textrm{.}
 \end{split}
 \end{equation}
 
@@ -553,13 +557,13 @@ In the present analysis, $(\cdot,\cdot)$ represents $L^2$ scalar product and $\h
 
 Integral terms are evaluated on a reference triangle instead of the element itself. Accordingly, a coordinate transformation between reference triangle and element is performed for evaluating integrals. The coordinate system in which the reference triangle lies is called reference or local coordinate system and the coordinate system in which element itself lies is called global coordinate system. The reference triangle has vertices $(0,0),(1,0),(0,1) \in \mathbb{R}^2$ in order. The element is defined by vertex indices in order forming triangle. The transformation from local coordinate $\hat{X}$ to global coordinate $X$ is defined by the mapping,
 \begin{equation}\label{local global mapping}
-F_k:\hat{X} \mapsto X \quad \forall \quad \hat{X} \in \hat{T} \quad \textrm{and} \quad X \in \mathcal{T} \quad \textrm{.}
+F_k:\hat{X} \mapsto X \quad \forall \quad \hat{X} \in \hat{T} \quad \textrm{and} \quad X \in \mathcal{T} \textrm{.}
 \end{equation}
 
 This mapping function is defined as,
 
 \begin{equation}\label{local global mapping equation}
-F_k(\hat{X}): X = J_k \hat{X} + C \quad \textrm{.}
+F_k(\hat{X}): X = J_k \hat{X} + C \textrm{.}
 \end{equation}
 ${}$\\
 Here,\\
@@ -583,17 +587,17 @@ We represent the image of a global function space or grid constituent on referen
 
 The volume integral of a function $g(x)$ in global coordinates is related to volume integral on reference geometry as,
 \begin{equation}\label{integral_local_global_volume}
-\int_\Omega g(x) dx = \sum_{k=1}^{nel} \int_{\tau_k} g(x) dx = \sum_{k=1}^{nel} \int_{\hat{T}} \hat{g}(\hat{x}) |\det(J_k)| d \hat{x} \quad \textrm{.}
+\int_\Omega g(x) dx = \sum_{k=1}^{nel} \int_{\tau_k} g(x) dx = \sum_{k=1}^{nel} \int_{\hat{T}} \hat{g}(\hat{x}) |\det(J_k)| d \hat{x} \textrm{.}
 \end{equation}
 
 The linear boundary integral of a function $g(x)$ on global coordinates is related to boundary integral on reference geometry as, 
 \begin{equation}\label{integral_local_global_boundary}
-\int_{\Gamma} g(x) ds = \int_{\hat{\Gamma}} \hat{g}(\hat{x}) ld \hat{s} \quad \textrm{.}
+\int_{\Gamma} g(x) ds = \int_{\hat{\Gamma}} \hat{g}(\hat{x}) ld \hat{s} \textrm{.}
 \end{equation}
 
 Also, the following holds,
 \begin{equation}\label{derivative_transformation}
-\nabla g = JIT_k \quad \hat{\nabla} \hat{g}  \quad \textrm{.}
+\nabla g = JIT_k \hat{\nabla} \hat{g} \textrm{,}
 \end{equation}
 {}\\
 Here,\\
@@ -611,7 +615,7 @@ g(x) = \hat{g}(\hat{x}) \quad \textrm{for}  \quad x = F_k(\hat{x}) \quad \textrm
 
 The jump operator of a quantity $[u]$ at an internal boundary is defined as,
 \begin{equation}\label{jump operator}
-[u]=u^+ \cdot n^+ + u^- \cdot n^-
+[u]=u^+ \cdot n^+ + u^- \cdot n^- \textrm{,}
 \end{equation}
 
 where $n$ is the unit normal to an edge of an element pointing outward from the element.
@@ -621,35 +625,37 @@ As pointed out by Montlaur et al. \cite{Montlaur2} this jump representation has 
 1. The function space of the quantity itself and the function space of the jump are different that is, the jump of a vector is scalar and jump of a scalar is vector.\\
 2. The use of this definition camouflages the presence of a normal.\\
 
-To overcome these disadvantages Montlaur et al. \cite{Montlaur2} modified jump representation as,\\
+To overcome these disadvantages Montlaur et al. \cite{Montlaur2} modified jump representation as below :\\
 
-1.  
-\begin{center}
-$[pn] = p^+ n^+ + p^- n^- $ on $\Gamma$\\
-$[pn] = p n $ on $\Gamma_D$\\
-where $p$ is scalar.
-\end{center}
+1.  For scalar quantity $p$,
+\begin{equation}
+\begin{split}
+[pn] = p^+ n^+ + p^- n^- \quad \textrm{on} \quad \Gamma \textrm{,}\\
+[pn] = p n \quad \textrm{on} \quad \Gamma_D \textrm{.}
+\end{split}
+\end{equation}
 
-2. \\
-\begin{center}
-$[n \otimes u] = n^+ \otimes u^+ + n^- \otimes u^-$ on $\Gamma$\\
-$[n \otimes u] = n \otimes u$ on $\Gamma_D$\\
- or \\
-$[n \cdot u] = n^+ \cdot u^+ + n^- \cdot u^-$ on $\Gamma$\\
-$[n \cdot u] = n \cdot u$ on $\Gamma_D$\\
-where $u$ is vector and $n \otimes u = u_i n_j$, $1 \leq i \leq d_u$, $1 \leq j \leq d$\\ 
-\end{center}
+2. For vector quantity $u$ ($n \otimes u = u_i n_j$, $1 \leq i \leq d_u$, $1 \leq j \leq d$),
+\begin{equation}
+\begin{split}
+[n \otimes u] = n^+ \otimes u^+ + n^- \otimes u^- \quad \textrm{on} \quad \Gamma \textrm{,}\\
+[n \otimes u] = n \otimes u \quad \textrm{on} \quad \Gamma_D \textrm{,}\\
+ \textrm{or} \\
+[n \cdot u] = n^+ \cdot u^+ + n^- \cdot u^- \quad \textrm{on} \quad \Gamma \textrm{,}\\
+[n \cdot u] = n \cdot u \quad \textrm{on} \quad \Gamma_D \textrm{.}\\
+\end{split}
+\end{equation}
 
 As can be seen the quantity and its jump are now in same space i.e. jump of vector is vector and jump of scalar is scalar.
 
 \section{Average operator}
 
-The average operator is defined as,
+The average operator is defined as :
 
 \begin{equation}\label{average operator}
-\left\lbrace u \right\rbrace = \frac{u^+ + u^-}{2}  \quad \textrm{.}
+\left\lbrace u \right\rbrace = \frac{u^+ + u^-}{2} \textrm{.}
 \end{equation} 
-
+\noindent
 As can be seen definition of average operator does not involve normal and hence, is simpler as compared to the Jump operator.\\
 Also, $u$ and $\lbrace u \rbrace$ are in same function space i.e. average of a vector is vector and average of scalar is scalar.\\
 
@@ -659,37 +665,37 @@ We denote the $L^2$ scalar product of $p$ and $q$ by $(p,q)$ which refers to,\\
 
 If $p$ and $q$ are scalars,
 \begin{equation}\label{inner product scalars}
-(p,q)=\int_{\Omega} pq \quad \textrm{.}
+(p,q)=\int_{\Omega} pq \textrm{.}
 \end{equation}
 
 If $p$ and $q$ are vectors,
 \begin{equation}\label{Inner product vectors}
-(p,q)=\int_{\Omega} p \cdot q \quad \textrm{.}
+(p,q)=\int_{\Omega} p \cdot q \textrm{.}
 \end{equation}
 
 If $p$ and $q$ are tensors,
 \begin{equation}\label{Inner product tensors}
-(p,q)=\int_{\Omega} p : q \quad \textrm{where} \quad p:q = Tr(pq^T) \quad \textrm{.}
+(p,q)=\int_{\Omega} p : q \quad \textrm{where} \quad p:q = Tr(pq^T) \textrm{.}
 \end{equation}
 
 \section{Problem statement}
 
-With the above background, we are now ready to derive weak formulation and define problem in weak form. Following the approach presented by Montlaur et al. \cite{Montlaur} and Montlaur et al. \cite{Montlaur2} we arrive at the weak form of the Stokes equation and the Navier Stokes equation interior penalty approximation.
+With the above background, we are now ready to derive weak formulation and define problem in weak form. Following the approach presented by Montlaur et al. \cite{Montlaur} and Montlaur et al. \cite{Montlaur2} we arrive at the weak form of the Stokes equations and the Navier-Stokes equations interior penalty approximation.
 
 \subsection{Stokes strong, weak and discrete form} \label{Stokes_flow_ch3}
 
 The strong form of the Stokes equation is as follow,
 
 \begin{equation} \label{stokes_strong_form_ch3}
--\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega \quad \textrm{.}
+-\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega \textrm{.}
 \end{equation}
 
 \begin{equation} \label{dirichlet condition stokes_ch3}
-u = u_D \quad \textrm{on} \quad \Gamma_D \quad \textrm{.}
+u = u_D \quad \textrm{on} \quad \Gamma_D \textrm{.}
 \end{equation}
 
 \begin{equation} \label{neumann condition stokes_ch3}
--pn + \nu n \cdot \nabla u = t \quad \textrm{on} \quad \Gamma_N \quad \textrm{.}
+-pn + \nu n \cdot \nabla u = t \quad \textrm{on} \quad \Gamma_N \textrm{.}
 \end{equation}
 
 
@@ -697,21 +703,21 @@ u = u_D \quad \textrm{on} \quad \Gamma_D \quad \textrm{.}
 
 We multiply the Equation \ref{stokes_strong_form_ch3} by $\phi$ and integrate over $\mathcal{T}$,
 \begin{equation}
-\int_{\mathcal{T}} (- \phi \nu \Delta u + \phi \cdot \nabla p) = \int_{\mathcal{T}} \phi \cdot f 
+\int_{\mathcal{T}} (- \phi \nu \Delta u + \phi \cdot \nabla p) = \int_{\mathcal{T}} \phi \cdot f \textrm{.}
 \end{equation}
 
 By applying Gauss divergence theoreom,
 \begin{equation}
-\int_{\mathcal{T}} (-\nabla (\phi \nu \nabla u) + (\nu \nabla \phi : \nabla u) + \nabla \cdot (p \phi) - (p \nabla \cdot \phi)) = \int_{\mathcal{T}} \phi \cdot f 
+\int_{\mathcal{T}} (-\nabla (\phi \nu \nabla u) + (\nu \nabla \phi : \nabla u) + \nabla \cdot (p \phi) - (p \nabla \cdot \phi)) = \int_{\mathcal{T}} \phi \cdot f \textrm{,}
 \end{equation}
 
 \begin{equation}
-\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} (- [(\phi \nu \nabla u)] + \int_{\mathcal{T}}  (\nu \nabla \phi : \nabla u) + \int_{\Gamma \cup \Gamma_D \cup \Gamma_N}  [p \phi] - \int_{\mathcal{T}}  (p \nabla \cdot \phi)) = \int_{\mathcal{T}} \phi \cdot f 
+\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} (- [(\phi \nu \nabla u)] + \int_{\mathcal{T}}  (\nu \nabla \phi : \nabla u) + \int_{\Gamma \cup \Gamma_D \cup \Gamma_N}  [p \phi] - \int_{\mathcal{T}}  (p \nabla \cdot \phi)) = \int_{\mathcal{T}} \phi \cdot f \textrm{.}
 \end{equation}
 
 Following symmetric formulation for jump operator proposed by Peraire et al. \cite{peraire},
 \begin{equation}
-\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} [(\phi \nu \nabla u)] = \int_{\Gamma} (\lbrace \phi \rbrace : [n \otimes \nabla u]) + \int_{\Gamma} (\lbrace \nabla u \rbrace : [n \otimes \phi]) + \int_{\Gamma_D \cup \Gamma_N} (\phi \cdot u ) 
+\int_{\Gamma \cup \Gamma_D \cup \Gamma_N} [(\phi \nu \nabla u)] = \int_{\Gamma} (\lbrace \phi \rbrace : [n \otimes \nabla u]) + \int_{\Gamma} (\lbrace \nabla u \rbrace : [n \otimes \phi]) + \int_{\Gamma_D \cup \Gamma_N} (\phi \cdot u ) \textrm{,}
 \end{equation}
 
 and 
@@ -727,33 +733,33 @@ Collecting all Neumann boundary integral terms, the weak form of Stokes equation
 
 \begin{equation}\label{stokes_weak_ch3}
 \begin{split}
-a_{IP}(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) \quad \textrm{.}
+a_{IP}(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) \textrm{.}
 \end{split}
 \end{equation}
 
 \begin{equation}
 \begin{split}
 a_{IP}(u,\phi) = (\nabla u, \nabla \phi) + C_{11} ([n \otimes u],[n \otimes \phi])_{\Gamma \cup \Gamma_D} \\
-- \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D} \quad \textrm{.}
+- \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D} \textrm{.}
 \end{split}
 \end{equation}
 
 It is to be noted that penalty paramter $C_{11}$ is to be kept large enough to maintain coercivity of bilinear form.
 
 \begin{equation}
-b(\phi,\psi) = -\int_{\mathcal{T}} \psi \nabla \cdot \phi
+b(\phi,\psi) = -\int_{\mathcal{T}} \psi \nabla \cdot \phi \textrm{,}
 \end{equation}
 
 \begin{equation}
 \begin{split}
-l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (n \otimes u_D, \nu \nabla \phi)_{\Gamma_D}
+l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (n \otimes u_D, \nu \nabla \phi)_{\Gamma_D} \textrm{.}
 \end{split}
 \end{equation}
 
 The discrete form of Stokes equation is written as,
 
 \begin{equation} \label{stokes discrete_ch3}
-AU + BP = F_1 \quad \textrm{.}
+AU + BP = F_1 \textrm{.}
 \end{equation}
 
 Matrix $A$ and matrix $B$ are calculated as per equation \ref{matrix A} and equation \ref{matrix B} respectively. \\
@@ -761,21 +767,21 @@ Matrix $A$ and matrix $B$ are calculated as per equation \ref{matrix A} and equa
 The strong form of continuity equation is as follow,
 
 \begin{equation}
-\nabla \cdot u = 0 \quad \textrm{in} \quad \Omega \quad \textrm{.}
+\nabla \cdot u = 0 \quad \textrm{in} \quad \Omega \textrm{.}
 \end{equation}
 
 and the weak for of continuity equation is as follow,
 
 \begin{equation}\label{contiuity_weak_ch3}
 \begin{split}
-b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamma_D} \quad \textrm{.}
+b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamma_D} \textrm{.}
 \end{split}
 \end{equation}
 
 The discrete form of continuity equation is written as,
 
 \begin{equation} \label{continuity discrete_ch3}
-B^T U  = F_2 \quad \textrm{.}
+B^T U  = F_2 \textrm{.}
 \end{equation}
 
 Discrete form of equations can be written in Matrix form as, 
@@ -794,6 +800,7 @@ Discrete form of equations can be written in Matrix form as,
     F_1  \\
     F_2
 \end{spmatrix}
+\textrm{.}
 \end{equation}
 
 Here, $(\cdot , \cdot)$ is $L^2$ inner product, $\{\cdot\}$ is average operator, $[\cdot]$ is jump operator. 
@@ -804,28 +811,28 @@ We now write each element of matrix $A$. We represent components of Unit normal 
 
 \begin{equation} \label{matrix A}
 \begin{split}
-A_{ij} = \sum_{k=1}^d (\frac{\partial \phi_i}{\partial x_k} , \frac{\partial \phi_j}{\partial x_k}) + C_{11} \sum_{k=1}^d ([\phi_i n_k] , [\phi_j n_k])_{\Gamma \cup \Gamma_D} \\ - \nu \sum_{k=1}^d ([\phi_i n_k] , \lbrace \frac{\partial \phi_j}{\partial x_k} \rbrace)_{\Gamma \cup \Gamma_D} - \nu \sum_{k=1}^d (\lbrace \frac{\partial \phi_i}{\partial x_k} \rbrace , [\phi_j n_k])_{\Gamma \cup \Gamma_D}
+A_{ij} = \sum_{k=1}^d (\frac{\partial \phi_i}{\partial x_k} , \frac{\partial \phi_j}{\partial x_k}) + C_{11} \sum_{k=1}^d ([\phi_i n_k] , [\phi_j n_k])_{\Gamma \cup \Gamma_D} \\ - \nu \sum_{k=1}^d ([\phi_i n_k] , \lbrace \frac{\partial \phi_j}{\partial x_k} \rbrace)_{\Gamma \cup \Gamma_D} - \nu \sum_{k=1}^d (\lbrace \frac{\partial \phi_i}{\partial x_k} \rbrace , [\phi_j n_k])_{\Gamma \cup \Gamma_D} \textrm{.}
 \end{split}
 \end{equation}
 ${}$\\
 We can see following properties of $A$: 
 \\
-1. $A_{ij} = A_{ji} \implies$ Symmetric\\
+1. $A_{ij} = A_{ji} \implies$ Symmetric,\\
 2. $A$ is positive definite : As the penalty parameter $C_{11}$ is adjusted to ensure coercivity of $A$ (Section \ref{Coercivity_constant}),\\
-$\exists \quad c' > 0 $ and for any non zero vector $z$
+$\exists \quad c' > 0 $ and for any non zero vector $z$,
 \begin{equation}
-z^T A( \phi , \phi ) z \geq c' || z ||^2 \implies z^T A( \phi , \phi ) z > 0
+z^T A( \phi , \phi ) z \geq c' || z ||^2 \implies z^T A( \phi , \phi ) z > 0 \textrm{.}
 \end{equation}
-3. Size of matrix $A$: $A \in \mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ ($u_{ndofs}$ is the total number of degrees of freedom of velocity)\\
+3. Size of matrix $A$: $A \in \mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ ($u_{ndofs}$ is the total number of degrees of freedom of velocity).\\
 
 Each element of $B$ can be represented as,\\
 \begin{equation} \label{matrix B}
-B_{ij} = - \int_\mathcal{T} \frac{\partial \phi_i}{\partial x_i} \psi_j + (\lbrace \psi_j \rbrace , [n \cdot \phi_i])_{\Gamma \cup \Gamma_D}
+B_{ij} = - \int_\mathcal{T} \frac{\partial \phi_i}{\partial x_i} \psi_j + (\lbrace \psi_j \rbrace , [n \cdot \phi_i])_{\Gamma \cup \Gamma_D} \textrm{.}
 \end{equation}
 
 We notice that, Size of matrix $B$: $B \in \mathbb{R}^{u_{ndofs} \times p_{ndofs}}$ ($p_{ndofs}$ is total number of degrees of freedom of pressure)
 
-$u_{ndofs}$ and $p_{ndofs}$ on triangular grid and taylor-hood pressure velocity basis function can be calculated as below. In present analysis we have $d_u = 2$ and $d_p = 1$.
+$u_{ndofs}$ and $p_{ndofs}$ i.e. total number of degrees of freedom of velocity and pressure respectively on triangular grid and taylor-hood pressure velocity basis function can be calculated as below. In present analysis we have $d_u = 2$ and $d_p = 1$ and we represent total number of elements as $nel$.
 
 \begin{equation} \label{undofs}
 u_{ndofs} = 2 \quad \left( \frac{(D+1)(D+2)}{2} \right) \quad nel
@@ -837,11 +844,11 @@ p_{ndofs} = \left(\frac{D(D+1)}{2}\right) \quad nel
 
 With above considerations we arrive at following conclusions, \\
 ${}$\\
-1. Stiffness matrix is symmertic, \\
+1. Stiffness matrix is symmetric, \\
 2. Stiffness matrix $ \in \mathbb{R}^{(u_{ndofs} + p_{ndofs}) \times (u_{ndofs} + p_{ndofs})}$,\\
 3. The number of positive eigenvalues of stiffness matrix is equal to number of velocity degrees of freedom and number of negative eigenvalues of stiffness matrix is equal to number of pressure degrees of freedom.\\
 
-\subsubsection{Proof}
+\subsubsection{Proof :}
 
 From equation \eqref{factorisation1} we see that the congruent matrix of the stiffness matrix for Stokes equation is,
 \begin{equation}
@@ -849,6 +856,7 @@ From equation \eqref{factorisation1} we see that the congruent matrix of the sti
     A & 0 \\
     0 & S
 \end{spmatrix}
+\textrm{.}
 \end{equation}
 We look at the the eigenvalues of $S$ as the number of positive and negative eigenvalues of congruent matrix and stiffness matrix are same.\\
 We see that $S \in \mathbb{R}^{p_{ndofs} \times p_{ndofs}}$, $S = - B^T A^{-1} B$.\\ 
@@ -858,14 +866,14 @@ For any non zero vector $z$, $z^T S z < 0$ i.e. $S$ is symmetric negative defini
 
 We define a lower and upper bound for the kinematic viscosity such that \\
 \begin{equation}
-\nu_0 \leq \nu \leq \nu_1 \quad \textrm{.}
+\nu_0 \leq \nu \leq \nu_1 \textrm{.}
 \end{equation}
 
 For neighbouring elements $\tau_{k_1}$ and $\tau_{k_2}$ sharing the edge $e$,  using Cauchy Schwarz inequality, 
 
 \begin{equation}
 \begin{split}
-\sum_{e \in \Gamma \cup \Gamma_D} \int_e {\nu}[n \otimes \phi] \leq \sum_{e \in \Gamma \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} \quad ||[\phi]||_{L^2(e)} \\ \leq \sum_{e \in \Gamma \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} (\frac{1}{l})^{(1/2-1/2)} \quad ||[\phi]||_{L^2(e)} \quad \textrm{.}
+\sum_{e \in \Gamma \cup \Gamma_D} \int_e {\nu}[n \otimes \phi] \leq \sum_{e \in \Gamma \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} \quad ||[\phi]||_{L^2(e)} \\ \leq \sum_{e \in \Gamma \cup \Gamma_D} ||\nu \nabla \phi \cdot n||_{L^2(e)} (\frac{1}{l})^{(1/2-1/2)} \quad ||[\phi]||_{L^2(e)} \textrm{.}
 \end{split}
 \end{equation}
 
@@ -873,7 +881,7 @@ Based on the Trace inequatlity and the lower and upper bound for viscocity,
 
 \begin{equation}
 \begin{split}
-||\lbrace \nu \nabla \phi \cdot n \rbrace||_{L^2(e)} \leq \frac{C_t \nu_1}{2} {h_{\tau_{k_1}}^{-1/2}} ||\nabla \phi||_{L^2({\tau_{k_1}})} \\ + \frac{C_t \nu_1}{2} {h_{{\tau_{k_2}}}^{-1/2}} ||\nabla \phi||_{L^2({\tau_{k_2}})} \quad \textrm{.}
+||\lbrace \nu \nabla \phi \cdot n \rbrace||_{L^2(e)} \leq \frac{C_t \nu_1}{2} {h_{\tau_{k_1}}^{-1/2}} ||\nabla \phi||_{L^2({\tau_{k_1}})} \\ + \frac{C_t \nu_1}{2} {h_{{\tau_{k_2}}}^{-1/2}} ||\nabla \phi||_{L^2({\tau_{k_2}})} \textrm{.}
 \end{split}
 \end{equation}
 
@@ -881,7 +889,7 @@ Again based on the trace inequality, for $e \in \Gamma \cup \Gamma_D$
 
 \begin{equation}
 \begin{split}
-\int_e \lbrace \nu \nabla \phi \rbrace [n \otimes \phi] \leq \frac{C_t \nu_1}{2}  \left( h_{(\tau_{k_1})}^{\frac{-1}{2}} ||\nabla \phi||_{L^2{(\tau_{k_1})}} + {h_{(\tau_{k_2})}^{\frac{-1}{2}}} ||\nabla \phi||_{L^2{(\tau_{k_2})}} \right) \\ l^{\frac{\beta_0}{2}} \left({\frac{1}{l}}\right)^{\frac{\beta_0}{2}} ||[\phi]||_{L^2(e)} \quad \textrm{.}
+\int_e \lbrace \nu \nabla \phi \rbrace [n \otimes \phi] \leq \frac{C_t \nu_1}{2}  \left( h_{(\tau_{k_1})}^{\frac{-1}{2}} ||\nabla \phi||_{L^2{(\tau_{k_1})}} + {h_{(\tau_{k_2})}^{\frac{-1}{2}}} ||\nabla \phi||_{L^2{(\tau_{k_2})}} \right) \\ l^{\frac{\beta_0}{2}} \left({\frac{1}{l}}\right)^{\frac{\beta_0}{2}} ||[\phi]||_{L^2(e)} \textrm{.}
 \end{split}
 \end{equation}
 
@@ -898,23 +906,23 @@ and
 
 \begin{equation}
 \begin{split}
-\int_e \lbrace \nu \nabla \phi \rbrace[n \otimes \phi] \leq C_t \nu_1 \sqrt{n_0} \left( \sum_{e \in \Gamma_h \cup \Gamma_D} \frac{1}{l^\beta_0} ||[\phi]||^2_{L^2(e)} \right)^{1/2} \\ \left( \sum_{e \in \Gamma_h \cup \Gamma_D} ||\nabla \phi||^2_{L^2(\tau)} \right) \quad \textrm{.}
+\int_e \lbrace \nu \nabla \phi \rbrace[n \otimes \phi] \leq C_t \nu_1 \sqrt{n_0} \left( \sum_{e \in \Gamma_h \cup \Gamma_D} \frac{1}{l^\beta_0} ||[\phi]||^2_{L^2(e)} \right)^{1/2} \\ \left( \sum_{e \in \Gamma_h \cup \Gamma_D} ||\nabla \phi||^2_{L^2(\tau)} \right) \textrm{.}
 \end{split}
 \end{equation}
 
 Using Young's inequality for $\delta > 0$
 
 \begin{equation}
-\sum_{e \in \Gamma \cup \Gamma_D} \int_e \lbrace \nu \nabla \phi \rbrace [n \otimes \phi] \leq \frac{\delta}{2} \sum_{\tau \in \mathcal{T}} ||\nu^{1/2} \nabla \phi ||^2_{L^2(\tau)} +  \frac{C_t^2 \nu_1^2 n_0}{2 \delta \nu_0}  \sum_{e \in \Gamma \cup \Gamma_D} \frac{1}{l^{\beta_0}} ||[\phi]||^2_{L^2(e)} \quad \textrm{,}
+\sum_{e \in \Gamma \cup \Gamma_D} \int_e \lbrace \nu \nabla \phi \rbrace [n \otimes \phi] \leq \frac{\delta}{2} \sum_{\tau \in \mathcal{T}} ||\nu^{1/2} \nabla \phi ||^2_{L^2(\tau)} +  \frac{C_t^2 \nu_1^2 n_0}{2 \delta \nu_0}  \sum_{e \in \Gamma \cup \Gamma_D} \frac{1}{l^{\beta_0}} ||[\phi]||^2_{L^2(e)} \textrm{,}
 \end{equation}
 
 \begin{equation}
-a_\epsilon (\phi , \phi) \geq \left( 1-\frac{\delta}{2} |1-\epsilon| \right) \sum_{\tau \epsilon \mathcal{T}} ||\nu^{1/2} \nabla v ||^2_{L^2(\tau)} + \sum_{e \epsilon \Gamma_h \cup \Gamma_D} \frac{\sigma_e^0 - \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0}|1-\epsilon|}{l^{\beta_0}} ||[v]||^2_{L^2(e)} \quad \textrm{.}
+a_\epsilon (\phi , \phi) \geq \left( 1-\frac{\delta}{2} |1-\epsilon| \right) \sum_{\tau \epsilon \mathcal{T}} ||\nu^{1/2} \nabla v ||^2_{L^2(\tau)} + \sum_{e \epsilon \Gamma_h \cup \Gamma_D} \frac{\sigma_e^0 - \frac{C_t^2 \nu_1^2 n_0}{2 \delta K_0}|1-\epsilon|}{l^{\beta_0}} ||[v]||^2_{L^2(e)} \textrm{,}
 \end{equation}
 
 Here, we have penalty parameter,
 \begin{equation}
-C_{11} = \frac{\kappa_e}{l}
+C_{11} = \frac{\kappa_e}{l} \textrm{,}
 \end{equation} 
 
 where, $\kappa_e$ is coercivity constant.
@@ -933,16 +941,16 @@ Upwinding is the method used to discretise the convective term. In the case of d
 If $n_\tau$ is the unit normal from $\tau_1$ to $\tau_2$ and if we denote the upwind value of function $g$ as $g^{up}$ \cite{riviere},
 \begin{equation}
 \begin{split}
-g^{up} = g|_{\tau_1} \quad \textrm{if} \quad g \cdot n_\tau \geq 0 \\
-g^{up} = g|_{\tau_2} \quad \textrm{if} \quad g \cdot n_\tau < 0
+g^{up} = g|_{\tau_1} \quad \textrm{if} \quad g \cdot n_\tau \geq 0 \textrm{,} \\
+g^{up} = g|_{\tau_2} \quad \textrm{if} \quad g \cdot n_\tau < 0 \textrm{.}
 \end{split}
 \end{equation}
 \\
 In our analysis this is explicitly defined in the term $c(u,u,\phi)$ in section \ref{n_s_ch3}. The formulation is such that,
 \begin{equation}
 \begin{split}
-u^{up} = u \quad \textrm{if} \quad u \cdot n \geq 0 \quad \textrm{,}\\
-u^{up} = u^{ext} \quad \textrm{if} \quad u \cdot n < 0 \quad \textrm{.}
+u^{up} = u \quad \textrm{if} \quad u \cdot n \geq 0 \textrm{,}\\
+u^{up} = u^{ext} \quad \textrm{if} \quad u \cdot n < 0 \textrm{.}
 \end{split}
 \end{equation}
 
@@ -953,7 +961,7 @@ The Stokes flow is an example of the Navier Stokes flow with low Reynolds number
 The strong form of the Navier Stokes equation can be written as,
 
 \begin{equation} \label{navier_stokes_strong_ch3}
--\nu \Delta u + \nabla p + (u \cdot \nabla) u = f \quad \textrm{in} \quad \Omega \quad \textrm{.}
+-\nu \Delta u + \nabla p + (u \cdot \nabla) u = f \quad \textrm{in} \quad \Omega \textrm{.}
 \end{equation}
 
 with Dirichlet and Neumann boundary condition as per section \ref{Stokes_flow_ch3}. Also the continuity equation as mentioned in section \ref{Stokes_flow_ch3} is valid.
@@ -967,14 +975,14 @@ c(g;u,\phi) = \sum_{i=1}^{nel} \int_{\partial \Omega_i \setminus \Gamma_N} \frac
 \end{equation}
 
 \begin{equation} \label{uext}
-u^{ext} = \lim_{\epsilon \rightarrow 0} u(x+\epsilon n_i) \quad  \textrm{for} \quad x \in \partial \mathcal{T}_i
+u^{ext} = \lim_{\epsilon \rightarrow 0} u(x+\epsilon n_i) \quad  \textrm{for} \quad x \in \partial \mathcal{T}_i \textrm{.}
 \end{equation}
 
 Hence, the Navier Stokes equation can be written as,
 
 \begin{equation}\label{navier_stokes_weak_ch3}
 \begin{split}
-a_{IP}(u,\phi) + c(u;u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) \quad \textrm{.}
+a_{IP}(u,\phi) + c(u;u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) \textrm{.}
 \end{split}
 \end{equation}
 
@@ -983,7 +991,7 @@ Here, we can see that the $c(u,u,\phi)$ is non linear term.
 In discrete form this equation can be written as,
 
 \begin{equation}
-AU + C(U) U + BP = F \quad \textrm{.}
+AU + C(U) U + BP = F \textrm{.}
 \end{equation} 
 
 Here, $C(U)$ is a matrix which is dependent on solution vector $U$ and hence making the system of equation non linear.
@@ -991,20 +999,20 @@ Here, $C(U)$ is a matrix which is dependent on solution vector $U$ and hence mak
 In matrix form the Navier Stokes equation with the continuity equation can be written as,
 
 \begin{equation} \label{navier_Stokes_matrix_ch3}
-\begin{spmatrix}{\textrm{Stiffness matrix}}
+\begin{spmatrix}{\textrm{Stiffness matrix \textrm{,}}}
     A+C(U) & B \\
     B^T & 0
 \end{spmatrix}
-\begin{spmatrix}{\textrm{Solution vector}}
+\begin{spmatrix}{\textrm{Solution vector \textrm{,}}}
     U \\
     P
 \end{spmatrix}
 =
-\begin{spmatrix}{{\textrm{Right hand side (Known)}}}
+\begin{spmatrix}{{\textrm{Right hand side (Known) \textrm{.}}}}
     F_1  \\
     F_2
 \end{spmatrix}
-\quad \textrm{.}
+\textrm{,}
 \end{equation}
 
 In the present analysis, we use Newton method to solve nonlinear system of equations. We present the Newton scheme in section \ref{newton_method}. 
@@ -1016,14 +1024,14 @@ Our problem statement now reduces to, find $(u,p) \in (\mathbb{V},\mathbb{Q})$ s
 We derive Newton method as per method presented by Haasdonk B. \cite{Haasdonk} for solving nonlinear system of equations arising out of the discrete form of the Navier Stokes equation. For $u, \phi , h \in \mathbb{V}$ and $p, \psi , h' \in \mathbb{Q}$ \\
 \begin{flushleft}
 \begin{equation}
-S(u) = a(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi)
+S(u) = a(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi) \textrm{,}
 \end{equation}
 \end{flushleft}
 
 \begin{flushleft}
 \begin{equation}
 \begin{split}
-S(u+h) - S(u) = (a(u+\delta h,\phi) + c(u + \delta h;u + \delta h,\phi)\\ + b(\phi,p+\delta h') + (\{p+\delta h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi)) - (a(u,\phi)\\ + c(u,u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi))
+S(u+h) - S(u) = (a(u+\delta h,\phi) + c(u + \delta h;u + \delta h,\phi)\\ + b(\phi,p+\delta h') + (\{p+\delta h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi)) - (a(u,\phi)\\ + c(u,u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi)) \textrm{,}
 \end{split}
 \end{equation}
 \end{flushleft}
@@ -1031,21 +1039,21 @@ S(u+h) - S(u) = (a(u+\delta h,\phi) + c(u + \delta h;u + \delta h,\phi)\\ + b(\p
 \begin{flushleft}
 \begin{equation}
 \begin{split}
-S(u+h) - S(u) = 2\delta c(u,h,\cdot) + \delta^2 c(h,h,\cdot) + \delta a(h,\cdot)\\ + \delta b(h',\cdot) + \delta (\{h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D}
+S(u+h) - S(u) = 2\delta c(u,h,\cdot) + \delta^2 c(h,h,\cdot) + \delta a(h,\cdot)\\ + \delta b(h',\cdot) + \delta (\{h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} \textrm{,}
 \end{split}
 \end{equation}
 \end{flushleft}
 
 \begin{flushleft}
 \begin{equation}
-DS(u) = \lim_{\delta \to 0} \frac{S(u+h)-S(u)}{\delta}
+DS(u) = \lim_{\delta \to 0} \frac{S(u+h)-S(u)}{\delta} \textrm{,}
 \end{equation}
 \end{flushleft}
 
 \begin{flushleft}
 \begin{equation}
 \begin{split}
-DS(u) = 2 c(u,h,\cdot) + a(h,\cdot) + b(h',\cdot) + (\{h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D}
+DS(u) = 2 c(u,h,\cdot) + a(h,\cdot) + b(h',\cdot) + (\{h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} \textrm{.}
 \end{split}
 \end{equation}
 \end{flushleft}
@@ -1053,28 +1061,28 @@ DS(u) = 2 c(u,h,\cdot) + a(h,\cdot) + b(h',\cdot) + (\{h'\},[n\cdot \phi])_{\Gam
 Following similar procedure we write for continuity equation:\\
 \begin{flushleft}
 \begin{equation}
-S'(u) = b(u,\psi) + (\{\psi\},[n \cdot u])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D}
+S'(u) = b(u,\psi) + (\{\psi\},[n \cdot u])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D} \textrm{,}
 \end{equation}
 \end{flushleft}
 
 \begin{flushleft}
 \begin{equation}
-S'(u+\delta h) = b(u + \delta h,\psi) + (\{\psi\},[n \cdot u + \delta h])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D}
+S'(u+\delta h) = b(u + \delta h,\psi) + (\{\psi\},[n \cdot u + \delta h])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D} \textrm{,}
 \end{equation}
 \end{flushleft}
 
 \begin{flushleft}
 \begin{equation}
-DS'(u) = b(\delta h,\psi) + (\{\psi\},[n \cdot \delta h])_{\Gamma \cup \Gamma_D} 
+DS'(u) = b(\delta h,\psi) + (\{\psi\},[n \cdot \delta h])_{\Gamma \cup \Gamma_D} \textrm{.}
 \end{equation}
 \end{flushleft}
 
 
-Algotrithm for the Newton method is as follow:\\
+Algorithm for the Newton method is as follow \cite{Haasdonk} :\\
 
-1. Select $u^{iter} \in \mathbb{V}$ at iteration $iter$,\\
+1. Select $u^{iter} \in \mathbb{V}$ at iteration $iter$;\\
 
-2. Verify $DS_{u^{iter}}(h^{iter}) = -S(u^{iter})$,\\
+2. Verify $DS_{u^{iter}}(h^{iter}) = -S(u^{iter})$;\\
 
 3. Set $u^{iter + 1} := u^{iter} + h^{iter}$ till $||u^{iter+1} - u^{iter}|| < tol$ where $tol$ is specified tolerance.\\
 
@@ -1091,23 +1099,23 @@ In discrete form the Newton method means, solving the equation (at iteration = $
     P^{iter+1}
 \end{spmatrix}
 =
-\begin{spmatrix}{\textrm{Right hand side (Known function)}}
+\begin{spmatrix}{\textrm{Right hand side (Known function) \textrm{.}}}
     F_1  \\
     F_2
 \end{spmatrix}
-\quad \textrm{.}
+\quad \textrm{,}
 \end{equation}
 \end{flushleft}
 
 to reach convergence in suitable norm i.e. $||U^{iter+1} - U^{iter}|| < tol$, some specified tolerance.\\
 
+\noindent
 For success of the Newton method it is important to have good initial guess. For the Newton method we use solution of the Stokes equation as initial guess.
 
 \subsection{Properties of the stiffness matrix} \label{property_stif_mat_navier}
 
-Each element of $C$ can be represented as,\\
+Each element of $C$, at newton iteration $iter + 1$, can be represented as,\\
 
-at newton iteration $iter + 1$,
 \begin{flushleft}
 \begin{equation} \label{matric C}
 \begin{split}
@@ -1118,11 +1126,11 @@ C_{IJ} = \sum_{i=1}^{nel} \int_{\partial \mathcal{T}_i \setminus \Gamma_N} \frac
 
 Size of matrix : $C \in \mathbb{R}^{u_{ndofs} \times u_{ndofs}}$. \\
 
-We now can see that whereas the stiffness matrix of the Stokes equation is symmetric and has Symmetric positive definite part $A$, the stiffness matrix of the Navier Stokes equation is non symmetric.
+We now can see that whereas the stiffness matrix of the Stokes equation is symmetric and has symmetric positive definite part $A$, the stiffness matrix of the Navier-Stokes equations is non symmetric.
 
 \subsection{Boundary conditions}
 
-We impose in our analysis boundary conditions weakly. This is done by the linear terms on the right hand side of equation  $(t,\phi)_{\Gamma_N}$, $(u_D,\phi)_{\Gamma_D}$, \linebreak $(n \otimes u_D, \nu \nabla \phi)_{\Gamma_D}$ in equation \ref{navier_stokes_weak_ch3} and equation \ref{stokes_weak_ch3}.
+We impose in our analysis boundary conditions weakly. This is done by the linear terms on the right hand side of equation  $(t,\phi)_{\Gamma_N}$, $(u_D,\phi)_{\Gamma_D}$, $(n \otimes u_D, \nu \nabla \phi)_{\Gamma_D}$ in equation \eqref{navier_stokes_weak_ch3} and equation \eqref{stokes_weak_ch3}.
 
 \section{Selection of solver}
 
@@ -1133,10 +1141,14 @@ In order to solve the variation form of the Stokes equation we use Biconjugate g
 The $bicgstab$ works to minimise residual of linear equation of the form:
 
 \begin{equation} \label{linear_matrix_equation}
-KX = B
+KX = B \textrm{,}
 \end{equation}
+\noindent
+$K$ = Coefficient matrix, \\
+$X$ = Vector of unknowns, \\ 
+$B$ = vector of value of known function. 
 
-with $K$ = Coefficient matrix, $X$ = Vector of unknowns and $B$ = vector of value of known function. The coefficient matrix $A$ need not be symmetric. We refer to \cite{bicgstab} for details about the method.\\
+The coefficient matrix $A$ need not be symmetric. We refer to \cite{bicgstab} for details about the method.\\
 
 \subsection{Minimum residual method} 
 
@@ -1146,7 +1158,7 @@ As the coefficient matrix in case discrete form of Stokes equation is symmetric,
 
 \subsection{Schur complement method} \label{schur}
 
-We subdivide the matrix form of the Stokes equation \eqref{Stokes_matrix} into smaller dimension system by Schur complement method. We also note that matrix $A$ is symmetric positive definite and matrix $K$ is symmetric.
+We refer to methods by Fritzen F. \cite{Fritzen}. We subdivide the matrix form of the Stokes equation \eqref{Stokes_matrix} into smaller dimension system by Schur complement method. We also note that matrix $A$ is symmetric positive definite and matrix $K$ is symmetric.
 Here, $A \in \mathbb{R}^{u_{ndofs} \times p_{ndofs}}$; $B \in \mathbb{R}^{u_{ndofs} \times p_{ndofs}}$; $U,F_1 \in \mathbb{R}^{u_{ndofs}}$; $P, F_2 \in \mathbb{R}^{p_{ndofs}}$. \\
 
 We solve equation \eqref{Stokes_matrix} in following steps,\\

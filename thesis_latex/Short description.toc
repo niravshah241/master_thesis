@@ -6,10 +6,10 @@
 \contentsline {chapter}{\numberline {2}Perspective and formulation}{15}
 \contentsline {section}{\numberline {2.1}Derivation}{15}
 \contentsline {subsection}{\numberline {2.1.1}DNS}{17}
-\contentsline {chapter}{\numberline {3}Discretisation and function spaces}{19}
+\contentsline {chapter}{\numberline {3}Discretisation and functional spaces}{19}
 \contentsline {section}{\numberline {3.1}Grid geometry}{19}
 \contentsline {section}{\numberline {3.2}Grid parameters}{20}
-\contentsline {section}{\numberline {3.3}Discontinuous Galerkin method}{21}
+\contentsline {section}{\numberline {3.3}Discontinuous-Galerkin (DG) method}{21}
 \contentsline {section}{\numberline {3.4}Basis function}{22}
 \contentsline {subsection}{\numberline {3.4.1}Nodal basis functions}{22}
 \contentsline {subsection}{\numberline {3.4.2}Orthonormal basis functions}{23}
@@ -21,17 +21,17 @@
 \contentsline {subsection}{\numberline {3.9.1}Stokes strong, weak and discrete form}{26}
 \contentsline {subsubsection}{Derivation of the weak form of the Stokes equation}{27}
 \contentsline {subsection}{\numberline {3.9.2}Properties of the stiffness matrix}{28}
-\contentsline {subsubsection}{Proof}{29}
+\contentsline {subsubsection}{Proof :}{29}
 \contentsline {subsubsection}{Coercivity constant for the equation for the Stokes flow}{29}
 \contentsline {subsection}{\numberline {3.9.3}Upwinding}{31}
 \contentsline {subsection}{\numberline {3.9.4}Navier Stokes strong, weak and discrete form}{31}
 \contentsline {subsection}{\numberline {3.9.5}Newton method}{32}
-\contentsline {subsection}{\numberline {3.9.6}Properties of the stiffness matrix}{33}
+\contentsline {subsection}{\numberline {3.9.6}Properties of the stiffness matrix}{34}
 \contentsline {subsection}{\numberline {3.9.7}Boundary conditions}{34}
 \contentsline {section}{\numberline {3.10}Selection of solver}{34}
 \contentsline {subsection}{\numberline {3.10.1}Biconjugate gradients stabilized method}{34}
-\contentsline {subsection}{\numberline {3.10.2}Minimum residual method}{34}
-\contentsline {subsection}{\numberline {3.10.3}Schur complement method}{34}
+\contentsline {subsection}{\numberline {3.10.2}Minimum residual method}{35}
+\contentsline {subsection}{\numberline {3.10.3}Schur complement method}{35}
 \contentsline {chapter}{\numberline {4}Implementation aspects}{36}
 \contentsline {section}{\numberline {4.1}Terminology}{36}
 \contentsline {section}{\numberline {4.2}Basis functions in RBmatlab}{36}
