@@ -128,19 +128,20 @@
 \contentsline {chapter}{\numberline {6}Summary, conclusion and outlook}{87}
 \contentsline {section}{\numberline {6.1}Conclusions}{87}
 \contentsline {section}{\numberline {6.2}Outlook}{88}
-\contentsline {section}{\numberline {.1}Mathematical preliminaries}{90}
-\contentsline {subsection}{\numberline {.1.1}Cholesky decomposition}{90}
-\contentsline {subsection}{\numberline {.1.2}Saddle point formulation}{91}
-\contentsline {subsection}{\numberline {.1.3}Sobolev spaces}{92}
-\contentsline {subsection}{\numberline {.1.4}Basic definitions}{93}
-\contentsline {subsection}{\numberline {.1.5}Linear forms}{93}
-\contentsline {subsection}{\numberline {.1.6}Bilinear forms}{94}
-\contentsline {subsubsection}{Coercivity of bilinear form}{94}
-\contentsline {subsubsection}{Continuity of bilinear form}{94}
-\contentsline {subsection}{\numberline {.1.7}Condition number}{94}
-\contentsline {subsection}{\numberline {.1.8}Important inequalities}{95}
+\contentsline {chapter}{Appendices}{90}
+\contentsline {chapter}{\numberline {A}Mathematical preliminaries}{90}
+\contentsline {subsection}{\numberline {A.0.1}Cholesky decomposition}{90}
+\contentsline {subsection}{\numberline {A.0.2}Saddle point formulation}{91}
+\contentsline {subsection}{\numberline {A.0.3}Sobolev spaces}{92}
+\contentsline {subsection}{\numberline {A.0.4}Basic definitions}{93}
+\contentsline {subsection}{\numberline {A.0.5}Linear forms}{94}
+\contentsline {subsection}{\numberline {A.0.6}Bilinear forms}{94}
+\contentsline {subsubsection}{Coercivity of bilinear form}{95}
+\contentsline {subsubsection}{Continuity of bilinear form}{95}
+\contentsline {subsection}{\numberline {A.0.7}Condition number}{95}
+\contentsline {subsection}{\numberline {A.0.8}Important inequalities}{95}
 \contentsline {subsubsection}{Trace theorem}{95}
 \contentsline {subsubsection}{Cauchy-Schwarz inequality}{95}
 \contentsline {subsubsection}{Young's inequality}{95}
-\contentsline {section}{\numberline {.1}Online resources}{96}
-\contentsline {section}{\numberline {.2}Code access}{96}
+\contentsline {chapter}{\numberline {B}Online resources}{96}
+\contentsline {chapter}{\numberline {C}Code access}{97}

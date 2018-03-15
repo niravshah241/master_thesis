@@ -4,6 +4,7 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Element self (+) and neighbouring element (-)\relax }}{20}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Continuous domain (left) and discretised domain or grid (right)\relax }}{21}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Finite Element nodes on triangle for polynomials of different degrees\relax }}{23}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Global geometry (left) to Local geometry (right)\relax }}{24}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Sparsity pattern of $(\psi ,\nabla \cdot \phi )$\relax }}{51}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Sparsity pattern of constituents of $([n \otimes \phi ],[n \otimes \phi ])_{\Gamma \cup \Gamma _D}$\relax }}{52}
@@ -15,9 +16,9 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Sparsity pattern of constituents of $((u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N} + ((u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$\relax }}{57}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Sparsity pattern of constituents of $(abs(u_k \cdot n)\phi ,\phi ^{ext})_{\partial T \setminus \Gamma _N} + (abs(u_k \cdot n)\phi ,\phi )_{\partial T \setminus \Gamma _N}$\relax }}{58}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.2}{\ignorespaces $h-$convergence in $L^2$ norm for Stokes flow\relax }}{63}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces $h-$convergence in $H_0$ norm for Stokes flow\relax }}{65}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces $p-$convergence for Stokes flow\relax }}{66}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces $h-$convergence in $L^2$ norm for the Stokes flow\relax }}{63}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces $h-$convergence in $H_0$ norm for the Stokes flow\relax }}{65}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces $p-$convergence for the Stokes flow\relax }}{66}
 \contentsline {figure}{\numberline {5.6}{\ignorespaces Lid driven cavity problem ($bicgstab$ solver)\relax }}{67}
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Lid driven cavity problem ($minres$ solver)\relax }}{68}
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Lid driven cavity problem (Schur complement method)\relax }}{69}
@@ -26,14 +27,17 @@
 \contentsline {figure}{\numberline {5.11}{\ignorespaces Flow over cylinder (Schur complement method)\relax }}{72}
 \contentsline {figure}{\numberline {5.12}{\ignorespaces Effect of penalty parameter on condition number of the stiffness matrix\relax }}{73}
 \contentsline {figure}{\numberline {5.13}{\ignorespaces Flow over cylinder for smaller than minimum allowable penalty parameter\relax }}{74}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces $h-$convergence for Navier Stokes flow in $L^2$ error\relax }}{76}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces $h-$convergence for Navier Stokes flow in $L^2$ error (Logarithmic scale)\relax }}{77}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces $h-$convergence for Navier Stokes flow in $H_0$ error\relax }}{78}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces $h-$convergence for Navier Stokes flow in $H_0$ error (Logarithmic scale)\relax }}{79}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces $h-$convergence for the Navier Stokes flow in $L^2$ error\relax }}{76}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces $h-$convergence for the Navier Stokes flow in $L^2$ error (Logarithmic scale)\relax }}{77}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces $h-$convergence for the Navier Stokes flow in $H_0$ error\relax }}{78}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces $h-$convergence for the Navier Stokes flow in $H_0$ error (Logarithmic scale)\relax }}{79}
 \contentsline {figure}{\numberline {5.18}{\ignorespaces Lid driven cavity flow (Initial guess by $bicgstab$ solver)\relax }}{80}
 \contentsline {figure}{\numberline {5.19}{\ignorespaces Lid driven cavity flow (Initial guess by $minres$ solver)\relax }}{81}
 \contentsline {figure}{\numberline {5.20}{\ignorespaces Lid driven cavity flow (Initial guess by Schur complement method)\relax }}{82}
 \contentsline {figure}{\numberline {5.21}{\ignorespaces Flow over cylinder (Initial guess by $bicgstab$ solver)\relax }}{83}
 \contentsline {figure}{\numberline {5.22}{\ignorespaces Flow over cylinder (Initial guess by minres solver)\relax }}{84}
 \contentsline {figure}{\numberline {5.23}{\ignorespaces Flow over cylinder (Initial guess by Schur complement method)\relax }}{85}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
 \addvspace {10\p@ }

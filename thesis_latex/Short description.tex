@@ -13,7 +13,7 @@
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{makecell}
-\usepackage[title]{appendix}
+\usepackage[toc]{appendix}
 \usepackage{longtable}
 \usepackage{cprotect}
 \usepackage{cleveref}
@@ -21,55 +21,58 @@
 \DeclareMathOperator{\spn}{span}
 \newcommand{\minus}{\scalebox{0.75}[1.0]{$-$}}
 \begin{document}
-\begin{center}
+\begin{titlepage}
 
-\title{Discontinuous Galerkin method for direct numerical simulation of the Navier Stokes equation: Master Thesis Report}
+\title{Discontinuous - Galerkin method for direct numerical simulation of the Navier - Stokes equation: Master Thesis Report}
 
 
 \author{Nirav Vasant Shah, \\M.Sc. Candidate, Water Resources Engineering and Management, \\Universit\"at Stuttgart, \\Stuttgart, Deutschland (Germany)\\ 
-\and Supervisor: Prof. Dr. Bernard Haasdonk,\\ Institute of Applied Analysis and Numerical Simulation, \\Universit\"at Stuttgart,\\ Stuttgart, Deutschland (Germany)\\ \and Co-advisor: Prof. Dr. Gianluigi Rozza,\\ Scuola Internazionale Superiore di Studi Avanzati, \\Trieste, Italy \\ \and Co-advisor: Dr. Martin Hess,\\ Scuola Internazionale Superiore di Studi Avanzati, \\Trieste, Italy }
+\and Supervisor: Prof. Dr. Bernard Haasdonk,\\ Institute of Applied Analysis and Numerical Simulation, \\Universit\"at Stuttgart,\\ Stuttgart, Deutschland (Germany)\\ \and Coadvisor: Prof. Dr. Gianluigi Rozza,\\ SISSA, Scuola Internazionale Superiore di Studi Avanzati, \\Mathematics area, mathlab, \\Trieste, Italy \\ \and Coadvisor: Dr. Martin Hess,\\ SISSA, Scuola Internazionale Superiore di Studi Avanzati, \\Mathematics area, mathlab,  \\Trieste, Italy }
 \date{\today}
 \maketitle
 
-\end{center}
+
+\end{titlepage}
 
 \noindent
 
 \section{Acknowledgement}
 
-This thesis is a result of the work carried out between September 2017 - March 2018 at the Institute of Applied Analysis and Numerical Simulation, Universit\"at of Stuttgart and Scuola Internazionale Superiore di Studi Avanzati, Trieste. \\
+This thesis is a result of the work carried out between September 2017 - March 2018 at the Institute of Applied Analysis and Numerical Simulation, Universit\"at Stuttgart and at the mathematics area, mathlab, SISSA, Scuola Internazionale Superiore di Studi Avanzati, Trieste. \\
 
-Undoubtedly, this result could only be achieved by the support of a number of people to whom I would
-like to express my gratitude.\\
+Undoubtedly, this result could only be achieved by the support of a number of people to whom I would like to express my gratitude.\\
 
-To my supervisor Professor Bernard Haasdonk: I experienced the freedom I needed to be
-creative while at the same time I was always helped to continue research in case of difficulties. \\
+To my supervisor Professor Dr. Bernard Haasdonk: I experienced the freedom that was necessary needed to be creative and continuous support which helped to continue research in case of difficulties. I am thankful for assistance for short term study mission application as home supervisor.\\
 
-To my coadvisors Dr. Martin Hess and Professor Dr. Gianluigi Rozza: I am thankful for their positive coordination and helping me to develop necessary skills in the field of work. \\
+To my coadvisors Dr. Martin Hess and Professor Dr. Gianluigi Rozza: I am thankful for their positive coordination and helping me to develop necessary skills in the field of work. I also thank them for hosting me as visiting student as part of short term study mission.\\
+
+To COST organisation : I am very much thankful for acceptance of my application for the award of short term study mission grant. The trust shown by them in my skills has been of great importance.\\
+
+To my colleagues: I would also thank colleagues Mrs. Anne Wei\ss, Mr. Andreas Schmidt, Mr. Francesco Ballarin, Mr. Matteo Zancanaro, Ms. Maria Strazzullo and Mr. Giacomo Zuccarino for their positive interest in my work and valuable support which created highly conducive environment.\\
 
 I am really looking forward to continue these valuable working relationships.\\
 
-To my colleagues: I would also thank colleagues Mrs. Anne Weiß, Mr. Andreas Schmidt, Mr. Francesco Ballarin, Mr. Matteo Zancanaro, Ms. Maria Strazzullo and Mr. Giacomo Zuccarino for their positive interest in my work and valuable support which created highly conducive environment.\\
-
-To my parents and brother: Last but most importantly, I would like to thank my parents for their encouragement, infusing new energy to continue with my work.
+To my parents and brother: Last but most importantly, I would like to thank my parents for their continuous encouragement, infusion of new energy and especially support during critical and difficult times.\\
 
 \newpage
 
 \section{Declaration/Eigenst\"andigkeitserkl\"arung}
 
 I hereby certify that I have prepared this master‘s thesis independently, and that only those sources, aids and advisors that are duly noted herein have been used and / or consulted.\\
-${}$\\
-${}$\\
 
+\noindent
 Ich versichere hiermit, dass\\
-1. ich meine Arbeit bzw. bei einer Gruppenarbeit ihren entsprechend gekennzeichneten Anteil der Arbeit selbständig verfasst habe,\\
-2. ich keine anderen als die angegebenen Quellen benutzt und alle wörtlich oder
-sinngemäß aus anderen Werken übernommenen Aussagen als solche gekennzeichnet habe,\\
-3. die eingereichte Arbeit weder vollständig noch in wesentlichen Teilen
+1. ich meine Arbeit bzw. bei einer Gruppenarbeit ihren entsprechend gekennzeichneten Anteil der Arbeit selbst\"andig verfasst habe,\\
+2. ich keine anderen als die angegebenen Quellen benutzt und alle w\"ortlich oder
+sinngem\"a\ss \space aus anderen Werken \"ubernommenen Aussagen als solche gekennzeichnet habe,\\
+3. die eingereichte Arbeit weder vollst\"andig noch in wesentlichen Teilen
 Gegenstand eines anderen Prüfungsverfahrens gewesen ist,\\
-4. ich die Arbeit weder vollständig noch in Teilen bereits veröffentlicht habe und\\
-5. das elektronische Exemplar mit den anderen Exemplaren übereinstimmt.\\
+4. ich die Arbeit weder vollst\"andig noch in Teilen bereits veröffentlicht habe und\\
+5. das elektronische Exemplar mit den anderen Exemplaren \"ubereinstimmt.\\
 
+
+
+\noindent
 Signature/Unterschrift
 ${}$\\
 ${}$\\
@@ -292,21 +295,21 @@ $nop$ & Number of points\\
 
 \section{Overview}
 
-The thesis deals with the numerical simulation of the Navier Stokes equation [White F.M. \cite{white}] which is the core of Computational Fluid Dynamics or $CFD$. The thesis performs numerical simulation of the Navier Stokes equation through the discontinuous Galerkin method.
+The thesis deals with the numerical simulation of the Navier Stokes equations (White F.M. \cite{white}) which are the core of Computational Fluid Dynamics or ($CFD$). The thesis performs numerical simulation of the Navier-Stokes equations through the discontinuous - Galerkin (DG) method.
 
-The goal of the thesis is to derive, discretise and implement the discontinuous Galerkin [Riviere B. \cite{riviere}] weak form of the Navier Stokes equation and perform numerical simulation of the Navier Stokes equation. In the course of the numerical solution we measure the computational efforts. This includes Solver performance such as run time, accuracy.
+The goal of the thesis is to derive, discretise and implement the discontinuous Galerkin (Rivier\`e B. \cite{riviere}) weak form of the Navier-Stokes equations and perform numerical simulation of the Navier-Stokes equations. During the numerical solution we measure the computational efforts. This includes solver performance such as run time as well as accuracy.
 
-In Chapter 2, the Navier Stokes equation is introduced. We first derive the Navier Stokes equation from the conservation equation or the Reynolds transport theoreom. We discuss the flow classification and important issues related to numerical simulation of the Navier Stokes equation. 
+In Chapter 2 the Navier Stokes equations are introduced. We first derive the Navier-Stokes equations from the conservation equation or the Reynolds transport theoreom. We discuss the flow classification and important issues related to numerical simulation of the Navier-Stokes equations. 
 
-In Chapter 3, we bring the infinite dimensional problem to a finite dimensional problem by introducing discretisation. We first introduce grid, constituents of elements and transformation between local and global geometry. Further the function spaces over the grid are discussed in which, the basis functions or the Ansatz functions, function spaces for pressure and velocity are introdued. We further introduce and discuss the weak form of the Navier Stokes equation, discrete form of the Navier Stokes equation with boundary conditions and properties of the weak form.
+In Chapter 3 we bring the infinite dimensional problem to a finite dimensional problem by introducing discretisation. We first introduce grid, constituents of elements and transformation between local and global geometry. Further the function spaces over the grid are discussed in which, the basis functions or the Ansatz functions, function spaces for pressure and velocity are introdued. We further introduce and discuss the weak form of the Navier-Stokes equation, discrete form of the Navier-Stokes equation with boundary conditions and properties of the weak form.
 
-In Chapter 4, we discuss the implementation of the discrete form of the Navier Stokes equation in RBmatlab, an opensource software developed at the University of Stuttgart and the University of M\"unster, for numerical simulation. During the chapter we discuss evaluation of basis functions in RBmatlab, matrix assembly, dimension of assembled matrices and boundary condition implementation. We further discuss the Schur complement method and the Newton method for nonlinearity.
+In Chapter 4 we discuss the implementation of the discrete form of the Navier- Stokes equations in RBmatlab, an open-source software developed at the University of Stuttgart and at the University of M\"unster, for numerical simulation. In this chapter we discuss evaluation of basis functions in RBmatlab, matrix assembly, dimension of assembled matrices and boundary condition implementation. We further discuss the Schur complement method and the Newton method for nonlinearity.
 
-In Chapter 5, we present results from numerical experiments, analyse results from benchmark problems, evaluate solver performance and draw related conclusions.
+In Chapter 5 we present results from numerical experiments, analyse results from benchmark problems, evaluate solver performance and draw related conclusions.
 
-In Chapter 6, we summarise the conclusions from numerical experiment results and also point towards the possibilities for further developments.
+In Chapter 6 we summarise the conclusions from numerical experiment results and also point towards the possibilities for further developments.
 
-In appendix, we present mathematical preliminaries. Familiarity with concepts presented under this chapter is very helpful for understanding of the thesis. Readers familiar with the topics can skip this section. Additionally we also provide reference to published literature, online resources and implementation used for the present analysis for readers interested in exploring the presented topic further.
+In appendix, we present mathematical preliminaries. Familiarity with concepts presented under this chapter is very helpful for the understanding of the thesis. Readers familiar with the topics can skip this section. Additionally we also provide references to published literature, online resources and implementation used for the current analysis for readers interested in exploring the presented topic further.
 
 \newpage
 
@@ -550,23 +553,23 @@ In the present analysis, $(\cdot,\cdot)$ represents $L^2$ scalar product and $\h
 
 Integral terms are evaluated on a reference triangle instead of the element itself. Accordingly, a coordinate transformation between reference triangle and element is performed for evaluating integrals. The coordinate system in which the reference triangle lies is called reference or local coordinate system and the coordinate system in which element itself lies is called global coordinate system. The reference triangle has vertices $(0,0),(1,0),(0,1) \in \mathbb{R}^2$ in order. The element is defined by vertex indices in order forming triangle. The transformation from local coordinate $\hat{X}$ to global coordinate $X$ is defined by the mapping,
 \begin{equation}\label{local global mapping}
-F_k:\hat{X} \mapsto X \quad \forall \quad \hat{X} \in \hat{T} \quad \textrm{and} \quad X \in \mathcal{T}
+F_k:\hat{X} \mapsto X \quad \forall \quad \hat{X} \in \hat{T} \quad \textrm{and} \quad X \in \mathcal{T} \quad \textrm{.}
 \end{equation}
 
 This mapping function is defined as,
 
 \begin{equation}\label{local global mapping equation}
-F_k(\hat{X}): X = J_k \hat{X} + C
+F_k(\hat{X}): X = J_k \hat{X} + C \quad \textrm{.}
 \end{equation}
 ${}$\\
 Here,\\
-$J_k$ = Jacobian matrix of element $\tau_k$ for transformation from local coordinate system to global coordinate system, $J_k \in \mathbb{R}^{d \times d}$\\
-$C$ = Translational vector for transformation from local coordinate system to global coordinate system, $C \in \mathbb{R}^d$\\
-$X$ = Coordinates of a point in Global coordinate system, $X \in \mathcal{T}$ \\
-$\hat{X}$ = Coordinates of a point in local coordinate system, $\hat{X} \in \hat{T}$\\
+$J_k$ = Jacobian matrix of element $\tau_k$ for transformation from local coordinate system to global coordinate system, $J_k \in \mathbb{R}^{d \times d}$,\\
+$C$ = Translational vector for transformation from local coordinate system to global coordinate system, $C \in \mathbb{R}^d$,\\
+$X$ = Coordinates of a point in Global coordinate system, $X \in \mathcal{T}$,\\
+$\hat{X}$ = Coordinates of a point in local coordinate system, $\hat{X} \in \hat{T}$.\\
 
 We represent the image of a global function space or grid constituent on reference triangle by superscript $\hat{•}$ . This function space is known as local basis function space. 
-
+\begin{figure}[H]
 \begin{picture}(300,100)(0,0) 
 \put(0,0){\line(1,0){50}}
 \put(50,0){\line(1,1){100}}
@@ -575,37 +578,33 @@ We represent the image of a global function space or grid constituent on referen
 \put(300,0){\line(-1,1){100}}
 \put(200,100){\line(0,-1){100}}
 \end{picture}
+\caption{Global geometry (left) to Local geometry (right)}
+\end{figure}
 
-\begin{center}
-Global geometry (left) to Local geometry (right)
-\end{center}
-
-The volume integral of a function $g(x)$ in global coordinates is related to volume integral on reference geometry as 
+The volume integral of a function $g(x)$ in global coordinates is related to volume integral on reference geometry as,
 \begin{equation}\label{integral_local_global_volume}
-\int_\Omega g(x) dx = \sum_{k=1}^{nel} \int_{\tau_k} g(x) dx = \sum_{k=1}^{nel} \int_{\hat{T}} g(\hat{x}) |\det(J_k)| d \hat{x}
+\int_\Omega g(x) dx = \sum_{k=1}^{nel} \int_{\tau_k} g(x) dx = \sum_{k=1}^{nel} \int_{\hat{T}} \hat{g}(\hat{x}) |\det(J_k)| d \hat{x} \quad \textrm{.}
 \end{equation}
 
 The linear boundary integral of a function $g(x)$ on global coordinates is related to boundary integral on reference geometry as, 
 \begin{equation}\label{integral_local_global_boundary}
-\int_{\Gamma} g(x) ds = \int_{\hat{\Gamma}} g(\hat{x}) ld \hat{s}
+\int_{\Gamma} g(x) ds = \int_{\hat{\Gamma}} \hat{g}(\hat{x}) ld \hat{s} \quad \textrm{.}
 \end{equation}
 
 Also, the following holds,
 \begin{equation}\label{derivative_transformation}
-\nabla g = JIT_k \quad \hat{\nabla} \hat{g} 
+\nabla g = JIT_k \quad \hat{\nabla} \hat{g}  \quad \textrm{.}
 \end{equation}
-
-
-where,
-\\
-$l$ = length of an edge on $\mathcal{T}$\\
-$g$  = A function in global coordinate system, $g:\Omega \mapsto \mathbb{R}$\\
-$\hat{g}$  = A function in local coordinate system corresponding to function $g$ in global coordinate system, $\hat{g}:\hat{T} \mapsto \mathbb{R}$\\
-$JIT_k$ = $J_k^{-1}$, Jacobian inverse transpose of element $k$ \\
+{}\\
+Here,\\
+$l$ = length of an edge on $\mathcal{T}$,\\
+$g$  = A function in global coordinate system, $g:\Omega \mapsto \mathbb{R}$,\\
+$\hat{g}$  = A function in local coordinate system corresponding to function $g$ in global coordinate system, $\hat{g}:\hat{T} \mapsto \mathbb{R}$,\\
+$JIT_k$ = $J_k^{-1}$, Jacobian inverse transpose of element $k$. \\
 
 Here $g$ and $\hat{g}$ satisfy,
 \begin{equation}\label{func_transformation}
-g(x) = \hat{g}(\hat{x}) \quad \textrm{for}  \quad x = F_k(\hat{x}) \quad \textrm{according to equation \eqref{local global mapping equation}}
+g(x) = \hat{g}(\hat{x}) \quad \textrm{for}  \quad x = F_k(\hat{x}) \quad \textrm{according to equation \eqref{local global mapping equation}} \quad \textrm{.}
 \end{equation}
 
 \section{Jump operator} \label{jump_operator_ch3}
@@ -618,7 +617,7 @@ The jump operator of a quantity $[u]$ at an internal boundary is defined as,
 where $n$ is the unit normal to an edge of an element pointing outward from the element.
 
 As pointed out by Montlaur et al. \cite{Montlaur2} this jump representation has two disadvantages.\\
-
+{}\\
 1. The function space of the quantity itself and the function space of the jump are different that is, the jump of a vector is scalar and jump of a scalar is vector.\\
 2. The use of this definition camouflages the presence of a normal.\\
 
@@ -975,7 +974,7 @@ Hence, the Navier Stokes equation can be written as,
 
 \begin{equation}\label{navier_stokes_weak_ch3}
 \begin{split}
-a_{IP}(u,\phi) + c(u;u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) 
+a_{IP}(u,\phi) + c(u;u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) \quad \textrm{.}
 \end{split}
 \end{equation}
 
@@ -984,7 +983,7 @@ Here, we can see that the $c(u,u,\phi)$ is non linear term.
 In discrete form this equation can be written as,
 
 \begin{equation}
-AU + C(U) U + BP = F
+AU + C(U) U + BP = F \quad \textrm{.}
 \end{equation} 
 
 Here, $C(U)$ is a matrix which is dependent on solution vector $U$ and hence making the system of equation non linear.
@@ -2095,7 +2094,7 @@ In the present analysis, we measure the error in the $L^2$ norm and the $H_0$ se
 
 The $L^2$ norm of the error is defined as,
 \begin{equation}
-P_{error,L^2} = (\int_{\Omega} |P - P_h|^2)^{\frac{1}{2}} \quad \mathrm{.}
+P_{error,L^2} = \int_{\Omega} |P - P_h|^2 \quad \mathrm{.}
 \end{equation}
 
 The $H_0$ semi norm of the error is defined as,\begin{equation}
@@ -2183,7 +2182,7 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
   \caption{$h-$convergence test for pressure in $L^2$ error (Logarithmic scale)}
   \label{fig:pre_stoke_conv_log}
 \end{subfigure}
-\caption{$h-$convergence in $L^2$ norm for Stokes flow}
+\caption{$h-$convergence in $L^2$ norm for the Stokes flow}
 \label{fig:l2_stokes}
 \end{figure}
 
@@ -2210,7 +2209,7 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
   \caption{$h-$convergence test for pressure in $H_0$ error (Logarithmic scale)}
   \label{fig:pre_stoke_conv_log_h0}
 \end{subfigure}
-\caption{$h-$convergence in $H_0$ norm for Stokes flow}
+\caption{$h-$convergence in $H_0$ norm for the Stokes flow}
 \label{fig:h0_stokes}
 \end{figure}
 
@@ -2233,7 +2232,7 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
   \caption{($p-$convergence for pressure in $L^2$ norm for Stokes flow)}
   \label{p_convergence_pressure_l2}
 \end{subfigure}
-\caption{$p-$convergence for Stokes flow}
+\caption{$p-$convergence for the Stokes flow}
 \label{p_conv_stokes_flow}
 \end{figure}
 
@@ -2448,7 +2447,7 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
   \caption{$h-$convergence test for pressure in $L^2$ error}
   \label{fig:pre_navier_stoke_conv}
 \end{subfigure}
-\caption{$h-$convergence for Navier Stokes flow in $L^2$ error}
+\caption{$h-$convergence for the Navier Stokes flow in $L^2$ error}
 \label{navier_stoke_conv_l2}
 \end{figure}
 
@@ -2463,7 +2462,7 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
   \caption{$h-$convergence test for pressure in $L^2$ error (Logarithmic scale)}
   \label{fig:pre_navier_stoke_conv_log}
 \end{subfigure}
-\caption{$h-$convergence for Navier Stokes flow in $L^2$ error (Logarithmic scale)}
+\caption{$h-$convergence for the Navier Stokes flow in $L^2$ error (Logarithmic scale)}
 \label{navier_stoke_conv_l2_log}
 \end{figure}
 
@@ -2478,9 +2477,10 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
   \caption{$h-$convergence test for pressure in $H_0$ error}
   \label{fig:pre_navier_stoke_conv_h0}
 \end{subfigure}
-\caption{$h-$convergence for Navier Stokes flow in $H_0$ error}
+\caption{$h-$convergence for the Navier Stokes flow in $H_0$ error}
 \label{navier_stoke_conv_h0}
 \end{figure}
+
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s_log.jpg}
@@ -2492,7 +2492,7 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
   \caption{$h-$convergence test for pressure in $H_0$ error (Logarithmic scale)}
   \label{fig:pre_navier_stoke_conv_log_h0}
 \end{subfigure}
-\caption{$h-$convergence for Navier Stokes flow in $H_0$ error (Logarithmic scale)}
+\caption{$h-$convergence for the Navier Stokes flow in $H_0$ error (Logarithmic scale)}
 \label{navier_stoke_conv_h0_log}
 \end{figure}
 
@@ -2641,7 +2641,7 @@ Through the analysis of the Stokes flow, we notice that that the $bicgstab$ solv
 
 \section{Conclusions}
 
-After implementation of the theoretical concepts and achieving experimental outcomes we arrive at the following conclusion: \\
+After implementation of the theoretical concepts and achieving experimental outcomes we reach at the following conclusion: \\
 
 1. The stiffness matrix of the Stokes equation is symmetric and has a positive definite part. Also the number of positive eigenvalues of the stiffness matrix of the Stokes equation equals the total number of velocity degrees of freedom and number of negative eigenvalues of the stiffness matrix of the Stokes equation is same as the total number of pressure degrees of freedom.\\
 
@@ -2665,13 +2665,13 @@ After implementation of the theoretical concepts and achieving experimental outc
 
 \section{Outlook}
 
-The current work offers new areas for future development in the fields of discontinuous Galerkin method as well as reduced order modelling as pertaining to the Navier Stokes equation. \\
+The current work offers new areas for future development in the fields of discontinuous Galerkin method as well as reduced order modelling with special focus on the Navier Stokes equation. \\
 
 The present implementation can be tested for computational efforts  required for increasing Reynold's number. As the Reynold's number is increased the fluctuations in velocity and presure become more relevant and hence turbulence plays crucial role in numerical simulations. Computationally this also means need for more accurate solver and efficient computational methods. Additionally, the present implementation can also be extended to transient cases. One of the classical applications could be to create vortex pattern for flow over cylinder.\\
 
-Also as demonstrated, the Solvers play very important role in prediction and reproducibility of the flow physics. Also from computational science viewpoint, solvers for Saddle point problems are of special interest. The present analysis only tests few solvers/methods, however, further solvers/methods should be tested and new methods should be investigated to enhance the computational performance.\\
+Also as demonstrated, the solvers play very important role in prediction and reproducibility of the flow physics. Also from computational science viewpoint, solvers for saddle point problems are of special interest. The present analysis only tests few solvers/methods, however, further solvers/methods should be tested and new methods should be investigated to enhance the computational performance.\\
 
-As future development, additionally, the Stokes equation and the Navier Stokes equation can be parametrized for parameters such as fluid properties, geometry of domain or boundary conditions. While the geometric parametrisation is of high importance in technical areas such as Fluid structure interaction occuring in Aerospace Engineering and Mechanical engineering applications, natural applications such as porous media flows are also potential application due to varying pore sizes. Such parametrisation allows the approximation of the numerical solution with respect to parameter space. Affine transformation for the Stokes equation and the Empirical interpolation method for the Navier Stokes equation can be used to evaluate parametrised solutions. Such parametric evaluations are very helpful in optimisation of the size of components or deciding optimum operating condition. \\
+As future developments, additionally, the Stokes equation and the Navier Stokes equation can be parametrized considering fluid properties, geometry of domain or boundary conditions. While the geometric parametrisation is of great importance in technical areas such as fluid-structure interaction occuring in aerospace engineering and mechanical engineering applications, natural applications, such as porous media flows, are of potential interest due to varying pore sizes. Such parametrisation allows the approximation of the numerical solution with respect to parameter space. Affine transformation for the Stokes equation and the Empirical interpolation method (EIM) for the Navier Stokes equation can be used to evaluate parametrised solutions. Such parametric evaluations are very helpful in optimisation of the size of components or deciding optimum operating condition. \\
 
 The solution of the parametrized form can be stored for reduced basis evaluations. Model order reduction with a method such as proper orthogonal decompositon or greedy algorithm can be performed. As an example, proper orthogonal decomposition sorts and segregates the stored solution based on the eigenvalues. This sorted and segregated snapshots with parametrised form can be used for the prediction of the full numerical solution. In this process the evaluations are made faster but with increase in approximation error. Hence, time saving vs. induced error can be compared.
 
@@ -2679,7 +2679,7 @@ The solution of the parametrized form can be stored for reduced basis evaluation
 
 \begin{appendices}
 
-\section{Mathematical preliminaries}
+\chapter{Mathematical preliminaries}
 
 We present now mathematical preliminaries, from literature, relevant to the thesis. 
 
@@ -2713,7 +2713,7 @@ We now explain the algorithm for Cholesky decomposition. \\
     l_{11} & l_{21} & l_{31}\\
     0 & l_{22} & l_{32}\\
     0 & 0 & l_{33}
-\end{spmatrix}
+\end{spmatrix} \quad \textrm{.}
 \end{equation}
 
 We see that,\\
@@ -2723,7 +2723,7 @@ a_{11} = l_{11}^2, \quad a_{22} = l_{21}^2 + l_{22}^2, \quad a_{33} = l_{31}^2 +
 
 and 
 \begin{equation}
-a_{12} = a_{21} = l_{11}l_{21}, \quad a_{13} = a_{31} = l_{11}l_{31}, \quad a_{23} = a_{32} = l_{31}l_{21} + l_{32}l_{22}
+a_{12} = a_{21} = l_{11}l_{21}, \quad a_{13} = a_{31} = l_{11}l_{31}, \quad a_{23} = a_{32} = l_{31}l_{21} + l_{32}l_{22} \quad \textrm{.}
 \end{equation}
 
 We now see that for diagonal elements,\\
@@ -2735,7 +2735,7 @@ l_{kk} = \sqrt{a_{kk} - \sum_{k=1}^{j-1} l_{kj}^2}
 and for elements below diagonal,\\
 
 \begin{equation}
-l_{ik} = \frac{1}{l_{kk}}(a_{ik}-\sum_{j=1}^{k-1} l_{ij}l_{kj})
+l_{ik} = \frac{1}{l_{kk}}(a_{ik}-\sum_{j=1}^{k-1} l_{ij}l_{kj}) \quad \textrm{.}
 \end{equation}
 \\
 It is to be noted that similar theory is also applicable for Cholesky decomposition with upper triangular matrix instead of lower triangular matrix. Also, this algorithm can be extended to Matrix of any size. \\
@@ -2798,7 +2798,7 @@ We consider following important factorisations :\\
 \begin{spmatrix}{}
     I & \mathcal{A}^{-1} \mathcal{B}_1 \\
     0 & I
-\end{spmatrix}
+\end{spmatrix} \quad \textrm{,}
 \end{equation}
 
 \begin{equation} \label{factorisation2}
@@ -2814,7 +2814,7 @@ We consider following important factorisations :\\
 \begin{spmatrix}{}
     I & \mathcal{A}^{-1}\mathcal{B}_1 \\
     0 & I
-\end{spmatrix}
+\end{spmatrix} \quad \textrm{,}
 \end{equation}
 
 \begin{equation} \label{factorisation3}
@@ -2829,8 +2829,9 @@ We consider following important factorisations :\\
 \end{spmatrix}
 \begin{spmatrix}{}
     \mathcal{A} & \mathcal{B}_1 \\
-    0 & \mathcal{S}
+    0 & \mathcal{S} 
 \end{spmatrix}
+\quad \textrm{.}
 \end{equation}
 
 Here, $S$ is the Schur complement and $\mathcal{S} = \mathcal{C} - \mathcal{B}_2 \mathcal{A}^{-1} \mathcal{B}_1$ with size $\mathcal{S} \in \mathbb{R}^{m \times m}$. $I$ is the Identity matrix of size $I \in \mathbb{R}^{n \times n}$  \\
@@ -2871,7 +2872,7 @@ It holds by construction that $H^{k'+1}(\Omega) \subset H^{k'} (\Omega)$ and tha
 the induced norm 
 
 \begin{equation}
-||f||_{H^{k'} (\Omega)} = \sqrt{(f,f)_{H^{k'}(\Omega)}} = \sqrt{\sum_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega |D^\alpha f|^2}
+||f||_{H^{k'} (\Omega)} = \sqrt{(f,f)_{H^{k'}(\Omega)}} = \sqrt{\sum_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega |D^\alpha f|^2} \quad \textrm{,}
 \end{equation}
 
 and the semi norm 
@@ -2883,7 +2884,7 @@ and the semi norm
 In case of the discontinuous Galerkin space we use the broken Sobolev norm (for symmetric interior penalty Galerkin), \cite{Montlaur2}
 
 \begin{equation}
-||f||_{1,h}^2 = \sum_{\tau_k \in \mathcal{T}} ||\nabla f||_{L^2(\tau_k)}^2 + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ||[[u]]||_{L^2 (\tau_k)}^2
+||f||_{1,h}^2 = \sum_{\tau_k \in \mathcal{T}} ||\nabla f||_{L^2(\tau_k)}^2 + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ||[[u]]||_{L^2 (\tau_k)}^2 \quad \textrm{,}
 \end{equation}
 
 and inner product
@@ -2943,7 +2944,7 @@ F(\alpha u) = \alpha F(u) \quad \forall \quad \alpha \in \mathbb{R}, u \in \math
 
 3. F is continuous if for all $\epsilon > 0$ there exists a $\delta_\epsilon > 0$ such that \\
 \begin{equation}
-||u - v||_\mathbb{V} \leq \delta_\epsilon \Rightarrow  |F(u) - F(v)| < \epsilon
+||u - v||_\mathbb{V} \leq \delta_\epsilon \Rightarrow  |F(u) - F(v)| < \epsilon \quad \textrm{.}
 \end{equation}
 
 The notion of continuity and boundedness is equivalent for linear forms.
@@ -2952,7 +2953,7 @@ The notion of continuity and boundedness is equivalent for linear forms.
 
 1. A bilinear form $a(\cdot,\cdot)$ acting on the vector spaces $\mathbb{V}$ and $\mathbb{W}$ is given as
 \begin{equation}
-a : \mathbb{V} \times \mathbb{W} \Rightarrow \mathbb{R}
+a : \mathbb{V} \times \mathbb{W} \Rightarrow \mathbb{R} \quad \textrm{,}
 \end{equation}
 
 \begin{equation}
@@ -2963,12 +2964,12 @@ and is linear with respect to each of its arguments.\\
 
 2. Let $\mathbb{V}$ and $\mathbb{W}$ be endowed with the norms $||\cdot||_\mathbb{V}$ and $||\cdot||_\mathbb{W}$. A bilinear form $a(\cdot,\cdot)$ is continuous if there exists a constant $\gamma > 0$ such that,
 \begin{equation}
-|a(u,v)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \quad \forall \quad u,v \in \mathbb{V}
+|a(u,v)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \quad \forall \quad u,v \in \mathbb{V} \quad \textrm{.}
 \end{equation}
 
 3. If $\mathbb{V} = \mathbb{W}$, a bilinear form $a(\cdot,\cdot)$ is coercive if there exists a constant $\alpha > 0$ such that,
 \begin{equation}
-a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V}
+a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V} \quad \textrm{.}
 \end{equation}
 
 \subsubsection{Coercivity of bilinear form} \label{Coercivity_constant}
@@ -2976,7 +2977,7 @@ a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V}
 A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $\kappa_e > 0$ such that
 
 \begin{equation}\label{Coercivity}
-a(v,v) > \kappa_e ||v||^2   \quad \forall \quad v \in  \mathbb{V}
+a(v,v) > \kappa_e ||v||^2   \quad \forall \quad v \in  \mathbb{V} \quad \textrm{.}
 \end{equation}
 
 \subsubsection{Continuity of bilinear form}
@@ -2984,7 +2985,7 @@ a(v,v) > \kappa_e ||v||^2   \quad \forall \quad v \in  \mathbb{V}
 A bilinear form $a(u,v)$ is said to be continuous if there exists a constant $\gamma > 0$ such that
 
 \begin{equation}\label{Continuity_constant}
-a(u,v) \leq \gamma ||u||||v|| \quad  \forall \quad u,v \in  \mathbb{V}
+a(u,v) \leq \gamma ||u||||v|| \quad  \forall \quad u,v \in  \mathbb{V} \quad \textrm{.}
 \end{equation}
 
 \subsection{Condition number}
@@ -2997,43 +2998,37 @@ The ratio $\frac{\gamma}{\kappa_e}$ denotes condition number.
 
 We now refer to trace inequalities presented by Rivi\`ere B.\cite{riviere}. The trace inequalities are used to define restrictions of Sobolev function along the boundary of domain and used for proper treatment of boundary conditions. 
 
-If $l$ is the length of $\Gamma$ and $Ar$ is the area of $\tau$,  $\forall \phi \in P^D (\tau)$, $\forall \Gamma \subset \partial \Omega$
+If $l$ is the length of $\Gamma$ and $Ar$ is the area of $\tau$,  $\forall \phi \in P^D (\tau)$, $\forall \Gamma \subset \partial \Omega$ :
 
 \begin{equation}
-||\phi||_{L^2(\Gamma)} \leq \hat{C}_t l^{\frac{1}{2}} Ar^{\frac{-1}{2}} ||\phi||_{L^2(\tau)}
+||\phi||_{L^2(\Gamma)} \leq \hat{C}_t l^{\frac{1}{2}} Ar^{\frac{-1}{2}} ||\phi||_{L^2(\tau)} \quad \textrm{,}
 \end{equation}
 
 \begin{equation}
-||\phi||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\phi||_{L^2(\tau)}
+||\phi||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\phi||_{L^2(\tau)} \quad \textrm{,}
 \end{equation}
 
 \begin{equation}
-||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq \hat{C}_t |l|^{\frac{1}{2}} |Ar|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)}
+||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq \hat{C}_t |l|^{\frac{1}{2}} |Ar|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)} \quad \textrm{,}
 \end{equation}
 
 \begin{equation}
-||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)}
+||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)} \quad \textrm{.}
 \end{equation}
 
 Here, $\hat{C}_t$ and ${C}_t$ are constants independent of $h_\tau$ and $\phi$ but dependent on polynomial degree $D$. The exact expressions for $C_t$ are given by Warburton T. et al \cite{warburton}.
 
 \subsubsection{Cauchy-Schwarz inequality} 
 \begin{equation}
-\forall \quad f,g \in L^2(\Omega) \textrm{,} \quad |(f,g)_{\Omega}| \leq ||f||_{L^2(\Omega)} ||g||_{L^2(\Omega)}
+\forall \quad f,g \in L^2(\Omega) \textrm{,} \quad |(f,g)_{\Omega}| \leq ||f||_{L^2(\Omega)} ||g||_{L^2(\Omega)} \quad \textrm{.}
 \end{equation}
 
 \subsubsection{Young's inequality} 
 \begin{equation}
-\forall \epsilon > 0 \forall a,b \in \mathbb{R} \textrm{,} \quad ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2
+\forall \epsilon > 0 \forall a,b \in \mathbb{R} \textrm{,} \quad ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2 \quad \textrm{.}
 \end{equation}
 
-\end{appendices}
-
-\begin{appendices}
-
-\newpage
-
-\section{Online resources}
+\chapter{Online resources}
 
 I would also like to mention below online resources which have frequently served as valuable source of information.
 \\
@@ -3042,18 +3037,14 @@ I would also like to mention below online resources which have frequently served
 3. http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.13.10/doc/index.html \\
 4. www.cfd-online.com\\
 
-\section{Code access}
+\chapter{Code access}
 
 The codes used for the present thesis is uploaded under: \\
-https://github.com/niravshah241/master\_thesis.git .\\
-
-It is also recommended to use \verb|help <filename>| command for getting more information about the function definition and input/output data.
-
-\end{appendices}
-
+https://github.com/niravshah241/master\_thesis.git . It is also recommended to use \verb|help <filename>| command for getting more information about the function definition and input/output data.
 
 \bibliographystyle{plain}
 \bibliography{ref1}
 
+\end{appendices}
 
 \end{document}
