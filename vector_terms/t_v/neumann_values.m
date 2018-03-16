@@ -10,17 +10,17 @@ function [ res ] = neumann_values(glob,params)
 % end
 
 %% benchmark problem lid driven cavity
-% if glob(2)<eps
-%     res=[0 0]';
-% else
-%     error('Not on neumann boundary');
-% end
+if glob(2)<eps
+    res=[0 0]';
+else
+    error('Not on neumann boundary');
+end
 
 %% standard condition
-if glob(1)>(1-eps)
-    res = [0 0]';
-else
-    disp('Not on neumann boundary');
-    %error('Not on neumann boundary');
-end
+% if glob(1)>(1-eps)
+%     res = [0 0]';
+% else
+%     disp('Not on neumann boundary');
+%     %error('Not on neumann boundary');
+% end
 end

@@ -7,7 +7,7 @@ disp('Entering into solve')
 %  dofs = stifness_matrix\rhs;
 %  flag = 'none';
 %  achieved_residual_tol = stifness_matrix*dofs - rhs;
-[dofs, flag, achieved_residual_tol, actual_iter] = minres(stifness_matrix,rhs,...
+[dofs, flag, achieved_residual_tol, actual_iter] = bicgstab(stifness_matrix,rhs,...
    required_residual_tol,max_iter);
 % dofs = inv(stifness_matrix)*rhs; %too expensive
 %minres,bicgstab(stifness_matrix,rhs,required_residual_tol,max_iter);

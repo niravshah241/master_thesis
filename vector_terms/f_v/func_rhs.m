@@ -15,12 +15,12 @@ y = glob(2);
 
 %% Benchmark problem
 
-% res = zeros(params.dimrange,1);
+res = zeros(params.dimrange,1);
 
 %% Standard
 
 % res = [-4*x^3+2*x+12*params.kinematic_viscosity(params)*y^2-2*params.kinematic_viscosity(params) 0]';
 % res = 1e0*[2*params.kinematic_viscosity(params)-1 0]';
-res = [0 0]';
+% res = [0 0]';
 
 end
