@@ -111,8 +111,8 @@ rhs_reference = rhs;
 
 %% Parameter-training generation
 disp('Generating training parameter set')
-para1 = [1 1 10]; %viscocity
-para2 = [1 1 10]; %dirichlet value
+para1 = [1 1 2]; %viscocity
+para2 = [1 1 2]; %dirichlet value
 parameter_training_set = gen_parameters( para1,para2);
 disp('Parameter training set generation finished')
 
@@ -181,8 +181,8 @@ end
 %% Proper Orthogonal Decomposition
 n_s = size(params.snapshots_matrix,2); % number of snapshots
 % params.snapshots_matrix = rand(params.ndofs,n_s);
-red_dim_velocity = 100;
-red_dim_pressure = 50;
+red_dim_velocity = 3;
+red_dim_pressure = 2;
 min_eigen = 0;
 params.qdeg = qdeg;
 paramsP.qdeg = qdeg;
@@ -199,8 +199,8 @@ min_eigen_pressure = 1e-12;
 
 %% Testing
 disp('Generating test parameter set')
-para_test_1 = [1 1 20];
-para_test_2 = [1 1 20];
+para_test_1 = [1 1 2];
+para_test_2 = [1 1 2];
 parameter_test_set = gen_test_parameters(para_test_1,para_test_2);
 disp('Test parameter set generated')
 error_velocity = zeros(size(parameter_test_set,1),1);
