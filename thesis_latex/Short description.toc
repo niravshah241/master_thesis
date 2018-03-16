@@ -134,7 +134,7 @@
 \contentsline {subsection}{\numberline {A.0.4}Basic definitions}{98}
 \contentsline {subsection}{\numberline {A.0.5}Linear forms}{99}
 \contentsline {subsection}{\numberline {A.0.6}Bilinear forms}{99}
-\contentsline {subsubsection}{Coercivity of bilinear form}{100}
+\contentsline {subsubsection}{Coercivity of bilinear form}{99}
 \contentsline {subsubsection}{Continuity of bilinear form}{100}
 \contentsline {subsection}{\numberline {A.0.7}Condition number}{100}
 \contentsline {subsection}{\numberline {A.0.8}Important inequalities}{100}

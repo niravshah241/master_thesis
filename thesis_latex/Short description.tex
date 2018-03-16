@@ -21,6 +21,12 @@
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\spn}{span}
 \newcommand{\minus}{\scalebox{0.75}[1.0]{$-$}}
+%\usepackage{titlesec}
+%\newcommand*{\justifyheading}{\raggedleft}
+%\titleformat{\chapter}[display]
+ % {\normalfont\huge\bfseries\justifyheading}{\chaptertitlename\ \thechapter}
+  %{20pt}{\Huge}
+
 \begin{document}
 \begin{titlepage}
 
@@ -620,7 +626,7 @@ The jump operator of a quantity $[u]$ at an internal boundary is defined as,
 where $n$ is the unit normal to an edge of an element pointing outward from the element.
 
 As pointed out by Montlaur et al. \cite{Montlaur2} this jump representation has two disadvantages.\\
-{}\\
+\noindent
 1. The function space of the quantity itself and the function space of the jump are different that is, the jump of a vector is scalar and jump of a scalar is vector.\\
 2. The use of this definition camouflages the presence of a normal.\\
 
@@ -2779,8 +2785,7 @@ The Saddle point problem has following form,
 with $n \geq m$.\\
 
 We assume here that $\mathcal{A}, \mathcal{B}_1, \mathcal{B}_2$ are non zeros. Usually constituents $\mathcal{A}, \mathcal{B}_1, \mathcal{B}_2, \mathcal{C}$ satisfy one or more of following properties.
-\\
-\\
+\noindent
 1. $\mathcal{A} = \mathcal{A}^T$ (Symmetric)\\
 2. Symmetric part of $\mathcal{A}$ is positive semidefinite\\
 3. $\mathcal{B}_1 = \mathcal{B}_2 = \mathcal{B}$\\
@@ -2917,8 +2922,7 @@ the linear subspace spanned by the elements $w_1,....,w_N$.\\
 2. The space $\mathbb{V}$ is of finite dimension if there exists a maximal a set of linearly independent elements $v_1,....,v_N$, otherwise $\mathbb{V}$ is of infinite dimension.\\
 
 3. A norm $||.||_\mathbb{V}$ on $\mathbb{V}$ is a function $||.||_\mathbb{V} : \mathbb{V} \rightarrow \mathbb{R}$ such that,
-\\ 
-\\
+\noindent
 A. $||v||_\mathbb{V} \geq 0 \forall v \in \mathbb{V}$ and $||v||_\mathbb{V} = 0$ iff $v=0$,\\
 B. $||\alpha v||_\mathbb{V} = |\alpha| ||v||_\mathbb{V}$  $\forall \alpha \in \mathbb{R}, v \in \mathbb{V}$,\\
 C. $||u+v|| \leq ||u||_\mathbb{V} + ||v||_\mathbb{V}$ $u,v \in \mathbb{V}$.\\
