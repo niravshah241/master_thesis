@@ -6,7 +6,7 @@ res = zeros(grid.nelements,1);
 
 for tria_index = 1:1:grid.nelements
     res_integral = error_h0_norm_integral( params, grid, tria_index, qdeg );
-    res(tria_index) = res(tria_index) + res_integral;
+    res(tria_index) = res(tria_index) + res_integral^(1/2);
 end
 
 res = sum(res);

@@ -2104,11 +2104,11 @@ In the present analysis, we measure the error in the $L^2$ norm and the $H_0$ se
 
 The $L^2$ norm of the error is defined as,
 \begin{equation}
-P_{error,L^2} = \int_{\Omega} |P - P_h|^2 \mathrm{.}
+P_{error,L^2} = (\int_{\Omega} |P - P_h|^2 )^\frac{1}{2} \mathrm{.}
 \end{equation}
 
 The $H_0$ semi norm of the error is defined as,\begin{equation}
-P_{error,H_0} = \sum_{k=1}^{nel} \int_{\tau_k} |\nabla P - \nabla P_h|^2 \mathrm{.}
+P_{error,H_0} = \sum_{k=1}^{nel} (\int_{\tau_k} |\nabla P - \nabla P_h|^2)^\frac{1}{2} \mathrm{.}
 \end{equation}
 
 We use the notations from the section \ref{n_s_ch3} and the section \ref{Stokes_flow_ch3}.

@@ -19,11 +19,7 @@ error = solution_derivative - params.dof_derivative_analytical(glob);
 
 
 for j = 1:1:params.dimrange
-    res = res + norm(error(j,:),2);
+    res = res + norm(error(j,:),2)^2;
 end
-
-%check formula
-
-res = res^(1/2);
 
 end
