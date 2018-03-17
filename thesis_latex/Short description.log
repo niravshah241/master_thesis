@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  16 MAR 2018 15:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  17 MAR 2018 16:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -787,10 +787,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 62--63
  []
 
 [2]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ˜ in font cmr10!
-
 Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
@@ -1715,32 +1711,29 @@ File: h0_pressure_log_stokes.jpg Graphic file (type jpg)
 Package pdftex.def Info: h0_pressure_log_stokes.jpg used on input line 2224.
 (pdftex.def)             Requested size: 358.50314pt x 191.80748pt.
 
-<p_conv_velocity_l2_stokes.jpg, id=276, 562.1pt x 421.575pt>
+<p_conv_velocity_l2_stokes.jpg, id=276, 1540.75626pt x 824.07875pt>
 File: p_conv_velocity_l2_stokes.jpg Graphic file (type jpg)
 
 <use p_conv_velocity_l2_stokes.jpg>
 Package pdftex.def Info: p_conv_velocity_l2_stokes.jpg used on input line 2235.
 
-(pdftex.def)             Requested size: 286.8036pt x 215.10332pt.
+(pdftex.def)             Requested size: 286.8036pt x 153.39526pt.
 
-<p_conv_velocity_h0_stokes.jpg, id=277, 562.1pt x 421.575pt>
+<p_conv_velocity_h0_stokes.jpg, id=277, 1540.75626pt x 824.07875pt>
 File: p_conv_velocity_h0_stokes.jpg Graphic file (type jpg)
 
 <use p_conv_velocity_h0_stokes.jpg>
 Package pdftex.def Info: p_conv_velocity_h0_stokes.jpg used on input line 2241.
 
-(pdftex.def)             Requested size: 286.8036pt x 215.10332pt.
+(pdftex.def)             Requested size: 286.8036pt x 153.39526pt.
 
-<p_conv_pressure_l2_stokes.jpg, id=278, 562.1pt x 421.575pt>
+<p_conv_pressure_l2_stokes.jpg, id=278, 1540.75626pt x 824.07875pt>
 File: p_conv_pressure_l2_stokes.jpg Graphic file (type jpg)
 
 <use p_conv_pressure_l2_stokes.jpg>
 Package pdftex.def Info: p_conv_pressure_l2_stokes.jpg used on input line 2247.
 
-(pdftex.def)             Requested size: 286.8036pt x 215.10332pt.
-
-
-LaTeX Warning: Float too large for page by 128.77975pt on input line 2253.
+(pdftex.def)             Requested size: 286.8036pt x 153.39526pt.
 
 <lid_bicgstab_vx.jpg, id=279, 562.1pt x 421.575pt>
 File: lid_bicgstab_vx.jpg Graphic file (type jpg)
@@ -2224,16 +2217,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 2674--2675
 
  []
 
+[91
 
+]
 Underfull \hbox (badness 10000) in paragraph at lines 2676--2677
 
  []
 
-[91
 
-]
 Underfull \hbox (badness 10000) in paragraph at lines 2678--2679
 
+ []
+
+
+Overfull \hbox (10.85852pt too wide) in paragraph at lines 2684--2685
+\OT1/cmr/m/n/10 The cur-rent work of-fers new ar-eas for fu-ture de-vel-op-ment
+ in the fields of discontinuous-
  []
 
 
@@ -2411,9 +2410,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 2977--2978
 [99] [100]
 Appendix B.
 
-Overfull \hbox (39.71077pt too wide) in paragraph at lines 3047--3053
-\OT1/cmr/m/n/10 3. http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1
-.13.10/doc/index.html 
+Overfull \hbox (5.09567pt too wide) in paragraph at lines 3047--3053
+\OT1/cmr/m/n/10 3. \OT1/cmtt/m/n/10 http://www.ians.uni-stuttgart.de/MoRePaS/so
+ftware/rbmatlab/1.13.10/
  []
 
 
@@ -2427,6 +2426,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 3047--3053
 
 ]
 Appendix C.
+
+Overfull \hbox (1.76552pt too wide) in paragraph at lines 3056--3058
+\OT1/cmtt/m/n/10 https://github.com/niravshah241/master[]thesis.git\OT1/cmr/m/n
+/10 . It is also rec-om-mended
+ []
+
 (./Short description.bbl [103] [104
 
 ]
@@ -2437,7 +2442,7 @@ Missing character: There is no “ in font cmr10!
 Here is how much of TeX's memory you used:
  17679 strings out of 493029
  344814 string characters out of 6136233
- 418075 words of memory out of 5000000
+ 417075 words of memory out of 5000000
  20773 multiletter control sequences out of 15000+600000
  18781 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2471,7 +2476,7 @@ cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfo
 nt/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msbm7.pfb>
-Output written on "Short description.pdf" (106 pages, 6285095 bytes).
+Output written on "Short description.pdf" (106 pages, 6366999 bytes).
 PDF statistics:
  561 PDF objects out of 1000 (max. 8388607)
  329 compressed objects within 4 object streams

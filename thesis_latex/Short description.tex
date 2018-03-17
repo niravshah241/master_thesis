@@ -30,7 +30,7 @@
 \begin{document}
 \begin{titlepage}
 
-\title{Discontinuous - Galerkin method for direct numerical simulation of the Navier - Stokes equation: Master Thesis Report}
+\title{Discontinuous-Galerkin method for direct numerical simulation of the Navier-Stokes equation: Master thesis report}
 
 
 \author{Nirav Vasant Shah, \\M.Sc. Candidate, Water Resources Engineering and Management, \\Universit\"at Stuttgart, \\Stuttgart, Deutschland (Germany)\\ 
@@ -49,23 +49,23 @@ This thesis is a result of the work carried out between September 2017 - March 2
 
 Undoubtedly, this result could only be achieved by the support of a number of people to whom I would like to express my gratitude.\\
 
-To my supervisor Professor Dr. Bernard Haasdonk: I experienced the freedom that was necessary needed to be creative and continuous support which helped to continue research in case of difficulties. I am thankful for assistance for short term study mission application as home supervisor.\\
+To my supervisor Professor Dr. Bernard Haasdonk: I experienced the freedom that was necessary to be creative and received continuous support which helped me to continue research in case of difficulties. I am also thankful for assistance for short term study mission application as home supervisor.\\
 
 To my coadvisors Dr. Martin Hess and Professor Dr. Gianluigi Rozza: I am thankful for their positive coordination and helping me to develop necessary skills in the field of work. I also thank them for hosting me as visiting student as part of short term study mission.\\
 
 To COST organisation : I am very much thankful for acceptance of my application for the award of short term study mission grant. The trust shown by them in my skills has been of great importance.\\
 
-To my colleagues: I would also thank colleagues Mrs. Anne Wei\ss, Mr. Andreas Schmidt, Mr. Francesco Ballarin, Mr. Matteo Zancanaro, Ms. Maria Strazzullo and Mr. Giacomo Zuccarino for their positive interest in my work and valuable support which created highly conducive environment.\\
+To my colleagues: I would also thank Mrs. Anne Wei\ss, Mr. Andreas Schmidt, Mr. Francesco Ballarin, Mr. Matteo Zancanaro, Ms. Maria Strazzullo and Mr. Giacomo Zuccarino for their positive interest in my work and valuable support which created highly conducive environment.\\
 
 I am really looking forward to continue these valuable working relationships.\\
 
-To my parents and brother: Last but most importantly, I would like to thank my parents for their continuous encouragement, infusion of new energy and especially support during critical and difficult times.\\
+To my parents and brother: Last but most importantly, I would like to thank my family for their continuous encouragement, infusion of new energy and support during critical and difficult times.\\
 
 \newpage
 
 \section{Declaration/Eigenst\"andigkeitserkl\"arung}
 
-I hereby certify that I have prepared this master‘s thesis independently, and that only those sources, aids and advisors that are duly noted herein have been used and / or consulted.\\
+I hereby certify that I have prepared this master thesis independently, and that only those sources, aids and advisors that are duly noted herein have been used and / or consulted.\\
 
 \noindent
 Ich versichere hiermit, dass\\
@@ -300,19 +300,19 @@ $nop$ & Number of points\\
 
 \chapter*{Introduction}
 
-The thesis deals with the numerical simulation of the Navier Stokes equations (White F.M. \cite{white}) which are the core of Computational Fluid Dynamics or ($CFD$). The thesis performs numerical simulation of the Navier-Stokes equations through the discontinuous - Galerkin (DG) method.
+The thesis deals with the numerical simulation of the Navier-Stokes equations (White F.M. \cite{white}) which are the core of Computational Fluid Dynamics or ($CFD$). The thesis performs numerical simulation of the Navier-Stokes equations through the discontinuous-Galerkin (DG) method.
 
-The goal of the thesis is to derive, discretise and implement the discontinuous Galerkin (Rivier\`e B. \cite{riviere}) weak form of the Navier-Stokes equations and perform numerical simulation of the Navier-Stokes equations. During the numerical solution we measure the computational efforts. This includes solver performance such as run time as well as accuracy.
+The goal of the thesis is to derive, discretise and implement the discontinuous- Galerkin (Rivier\`e B. \cite{riviere}) weak form of the Navier-Stokes equations and perform numerical simulation of the Navier-Stokes equations. During the numerical solution we measure the computational efforts. This includes solver performance such as run time as well as accuracy.
 
-In Chapter 1 the Navier Stokes equations are introduced. We first derive the Navier-Stokes equations from the conservation equation or the Reynolds transport theoreom. We discuss the flow classification and important issues related to numerical simulation of the Navier-Stokes equations. 
+In Chapter 1 the Navier-Stokes equations are introduced. We first derive the Navier-Stokes equations from the conservation equation or the Reynolds transport theoreom. We discuss the flow classification and important issues related to numerical simulation of the Navier-Stokes equations. 
 
-In Chapter 2 we bring the infinite dimensional problem to a finite dimensional problem by introducing discretisation. We first introduce grid, constituents of elements and transformation between local and global geometry. Further the function spaces over the grid are discussed in which, the basis functions or the Ansatz functions, function spaces for pressure and velocity are introdued. We further introduce and discuss the weak form of the Navier-Stokes equation, discrete form of the Navier-Stokes equation with boundary conditions and properties of the weak form.
+In Chapter 2 we bring the infinite dimensional problem to a finite dimensional problem by introducing discretisation. We first introduce grid, constituents of elements and transformation between local and global geometry. Further the function spaces over the grid are discussed in which, the basis functions or the Ansatz functions, function spaces for pressure and velocity are introdued. We further introduce and discuss the weak form of the Navier-Stokes equations, discrete form of the Navier-Stokes equations with boundary conditions and properties of the weak form.
 
-In Chapter 3 we discuss the implementation of the discrete form of the Navier- Stokes equations in RBmatlab, an open-source software developed at the University of Stuttgart and at the University of M\"unster, for numerical simulation. In this chapter we discuss evaluation of basis functions in RBmatlab, matrix assembly, dimension of assembled matrices and boundary condition implementation. We further discuss the Schur complement method and the Newton method for nonlinearity.
+In Chapter 3 we discuss the implementation of the discrete form of the Navier- Stokes equations in RBmatlab, an open-source software developed at the University of Stuttgart and at the University of M\"unster, for numerical simulation. In this chapter we discuss evaluation of basis functions in RBmatlab, matrix assembly, dimension of assembled matrices and boundary condition implementation. We further discuss the solvers, the Schur complement method and the Newton method for nonlinearity.
 
-In Chapter 4 we present results from numerical experiments, analyse results from benchmark problems, evaluate solver performance and draw related conclusions.
+In Chapter 4 we present the outcomes of the numerical experiments, analyse results from benchmark problems and evaluate solver performance.
 
-In Chapter 5 we summarise the conclusions from numerical experiment results and also point towards the possibilities for further developments.
+In Chapter 5 we summarise the conclusions from the results of the numerical experiments and also point towards the possibilities for further developments.
 
 In appendix, we present mathematical preliminaries. Familiarity with concepts presented under this chapter is very helpful for the understanding of the thesis. Readers familiar with the topics can skip this section. Additionally we also provide references to published literature, online resources and implementation used for the current analysis for readers interested in exploring the presented topic further.
 
@@ -343,13 +343,13 @@ $u$ = Velocity of fluid.\\
 If in the above equation $B'$ is substituted as momentum $M$ and correspondingly $b'$ as velocity $u$, we obtain the change in momentum. As per Newton's second law of motion change in momentum is equal to the sum of external forces acting on the system. 
 
 \begin{equation}\label{External force lhs}
-F = \frac{dM}{dt'} = \frac{d}{dt'} \int_{cv} u \rho dV + \int_{cs} (u \rho) u\cdot dA \quad \textrm{.}
+F = \frac{dM}{dt'} = \frac{d}{dt'} \int_{cv} u \rho dV + \int_{cs} (u \rho) u\cdot dA \textrm{.}
 \end{equation}
 
 This sum of forces arises from stresses $\sigma$ (shear stresses and normal stresses) and external force $f$ such as weight. 
 
 \begin{equation}\label{External force rhs}
-F = \int_{cs} \sigma \cdot dA + \int_{cv} \rho f dV \quad \textrm{,}
+F = \int_{cs} \sigma \cdot dA + \int_{cv} \rho f dV \textrm{,}
 \end{equation}
 \\
 $\sigma =$ Viscous stress,\\
@@ -382,12 +382,12 @@ Neumann boundary:
 $ $\\
 $u$ = flow velocity and $u:\Omega \rightarrow \mathbb{R}^d$,\\
 $p$ = pressure and $p:\Omega \rightarrow \mathbb{R}$,\\
-$\nu$ = kinematic viscocity (fluid property) $\nu:\Omega \rightarrow \mathbb{R}$,\\ 
-$\rho$ = density (fluid property) $\rho:\Omega \rightarrow \mathbb{R}$,\\
-$f$ = external force $f:\Omega \rightarrow \mathbb{R}^d$,\\
-$u_D$ = specified flow velocity at Dirichlet boundary $u_D:\Gamma_D \rightarrow \mathbb{R}^d$,\\
-$n$ = normal unit vector $n:\partial \Omega \rightarrow \mathbb{R}^d$,\\
-$t$ = specified Neumann flux $t:\Gamma_N \rightarrow \mathbb{R}^d$.\\
+$\nu$ = kinematic viscocity (fluid property) and $\nu:\Omega \rightarrow \mathbb{R}$,\\ 
+$\rho$ = density (fluid property) and $\rho:\Omega \rightarrow \mathbb{R}$,\\
+$f$ = external force and $f:\Omega \rightarrow \mathbb{R}^d$,\\
+$u_D$ = specified flow velocity at Dirichlet boundary and $u_D:\Gamma_D \rightarrow \mathbb{R}^d$,\\
+$n$ = normal unit vector and $n:\partial \Omega \rightarrow \mathbb{R}^d$,\\
+$t$ = specified Neumann flux and $t:\Gamma_N \rightarrow \mathbb{R}^d$.\\
 
 \begin{center}
 $\nabla^s = \frac{1}{2}(\nabla + \nabla^T) \textrm{.}$
@@ -515,7 +515,7 @@ p_{npe} = d_p \frac{(D)(D+1)}{2} \quad \textrm{for pressure} \textrm{.}
 
 \subsection{Nodal basis functions}
 
-Nodal basis functions are also known as "Shape function". Such a basis function has value of 1 at its respective node and 0 at other nodes. At all other points it is approximated based on the degree of the basis function. 
+Nodal basis functions are also known as "Shape functions". Such a basis function has value of 1 at its respective node and 0 at other nodes. At all other points it is approximated based on the degree of the basis function. 
 
 In order to define a polynomial of given degree completely, we need to calculate its co-efficients. A polynomial of degree $D$ in a 1-dimensional domain has $D+1$ coefficients. In case of a 2-dimensional domain the number of coefficients become $(D+1)(D+2)/2$. To define these coefficients the known values of function at a number of points equal to the number of coefficients is required. These points are known as nodes. In case of triangular element, the nodes are located as,\\
 1. For polynomials of degree 1 i.e. $D=1$, the nodes are located at vertices of an element.\\
@@ -666,7 +666,7 @@ Also, $u$ and $\lbrace u \rbrace$ are in same function space i.e. average of a v
 
 \section{$L^2$ scalar product}
 
-We denote the $L^2$ scalar product of $p$ and $q$ by $(p,q)$ which refers to,\\
+We denote the $L^2$ scalar product of $p$ and $q$ by $(p,q)$ as below :\\
 
 If $p$ and $q$ are scalars,
 \begin{equation}\label{inner product scalars}
@@ -1334,7 +1334,7 @@ Average of quantity $A_h$ in discrete form is assembled as
 \lbrace A_h \rbrace = \frac{(A_h^+ + A_h^-)}{2} \textrm{.}
 \end{equation}
 
-The assembly of the average operator is relatively simple as compared to the jump operator which is explained in the section \ref{Average operator}.
+The assembly of the average operator is relatively simple as compared to the jump operator which is explained in the section \ref{Jump operator}.
 
 \section{Assembly of jump operator} \label{Jump operator}
 
@@ -2233,19 +2233,19 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{subfigure}{\textwidth}
 \centering
   \includegraphics[width=0.8\linewidth]{p_conv_velocity_l2_stokes.jpg}
-  \caption{($p-$convergence for velocity in $L^2$ norm for Stokes flow)}
+  \caption{$p-$convergence for velocity in $L^2$ norm for Stokes flow}
   \label{p_convergence_velocity_l2}
 \end{subfigure}
 \begin{subfigure}{\textwidth}
 \centering
   \includegraphics[width=0.8\linewidth]{p_conv_velocity_h0_stokes.jpg}
-  \caption{($p-$convergence for velocity in $H_0$ semi norm for Stokes flow)}
+  \caption{$p-$convergence for velocity in $H_0$ semi norm for Stokes flow}
   \label{p_convergence_velocity_h0}
 \end{subfigure}
 \begin{subfigure}{\textwidth}
 \centering
   \includegraphics[width=0.8\linewidth]{p_conv_pressure_l2_stokes.jpg}
-  \caption{($p-$convergence for pressure in $L^2$ norm for Stokes flow)}
+  \caption{$p-$convergence for pressure in $L^2$ norm for Stokes flow}
   \label{p_convergence_pressure_l2}
 \end{subfigure}
 \caption{$p-$convergence for the Stokes flow}
@@ -2255,12 +2255,12 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=0.8\linewidth]{lid_bicgstab_vx.jpg}
-  \caption{$x-$ velocity} 
+  \caption{$x-$velocity} 
   \label{x_vel_stoke_bicgstab_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=0.8\linewidth]{lid_bicgstab_vy.jpg}
-  \caption{$y-$ velocity} 
+  \caption{$y-$velocity} 
   \label{y_vel_stoke_bicgstab_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
@@ -2275,12 +2275,12 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=0.8\linewidth]{lid_minres_vx.jpg}
-  \caption{$x-$ velocity} 
+  \caption{$x-$velocity} 
   \label{x_vel_stoke_minres_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=0.8\linewidth]{lid_minres_vy.jpg}
-  \caption{$y-$ velocity} 
+  \caption{$y-$velocity} 
   \label{y_vel_stoke_minres_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
@@ -2295,12 +2295,12 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=0.8\linewidth]{lid_schur_vx.jpg}
-  \caption{$x-$ velocity} 
+  \caption{$x-$velocity} 
   \label{x_vel_stoke_schur_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=0.8\linewidth]{lid_schur_vy.jpg}
-    \caption{$y-$ velocity} 
+    \caption{$y-$velocity} 
     \label{y_vel_stoke_schur_lid}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
@@ -2315,12 +2315,12 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=0.8\linewidth]{cylinder_bicgstab_vx.jpg}
-      \caption{$x-$ velocity}
+      \caption{$x-$velocity}
     \label{x_vel_stoke_bicgstab}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
       \includegraphics[width=0.8\linewidth]{cylinder_bicgstab_vy.jpg}
-    \caption{$y-$ velocity}
+    \caption{$y-$velocity}
      \label{y_vel_stoke_bicgstab}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
@@ -2335,12 +2335,12 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{figure}
 \begin{subfigure}{\textwidth}	
   \includegraphics[width=0.8\linewidth]{cylinder_minres_vx.jpg}
-    \caption{$x-$ velocity}
+    \caption{$x-$velocity}
     \label{x_vel_stoke_minres}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
     \includegraphics[width=0.8\linewidth]{cylinder_minres_vy.jpg}
-    \caption{$y-$ velocity}
+    \caption{$y-$velocity}
      \label{y_vel_stoke_minres}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
@@ -2355,12 +2355,12 @@ The domain considered for this example is the unit square [0,1] $\times$ [0,1] w
 \begin{figure}
 \begin{subfigure}{\textwidth}	
     \includegraphics[width=0.8\linewidth]{cylinder_schur_vx.jpg}
-    \caption{$x-$ velocity}
+    \caption{$x-$velocity}
     \label{x_vel_stoke_schur}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
     \includegraphics[width=0.8\linewidth]{cylinder_schur_vy.jpg}
-    \caption{$y-$ velocity}
+    \caption{$y-$velocity}
      \label{y_vel_stoke_schur}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
@@ -2397,17 +2397,17 @@ We also solve flow over cylinder problem from the section \ref{flow_over_cylinde
 \begin{figure}
 \begin{subfigure}{\textwidth}	
     \includegraphics[width=0.8\linewidth]{c11_unphysical_vx.jpg}
-    \caption{$x-$ velocity with penalty parameter smaller than minimum required for coercivity}
+    \caption{$x-$velocity}
     \label{x_vel_stoke_c11_low}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
     \includegraphics[width=0.8\linewidth]{c11_unphysical_vy.jpg}
-    \caption{$y-$ velocity with penalty parameter smaller than minimum required for coercivity}
+    \caption{$y-$velocity}
      \label{y_vel_stoke_c11_low}
 \end{subfigure}
 \begin{subfigure}{\textwidth}	
     \includegraphics[width=0.8\linewidth]{c11_unphysical_pressure.jpg}
-    \caption{Pressure with penalty parameter smaller than minimum required for coercivity}
+    \caption{Pressure}
       \label{pressure_stoke_c11_low}
 \end{subfigure}
 \caption{Flow over cylinder for smaller than minimum allowable penalty parameter}
@@ -2515,12 +2515,12 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 \begin{figure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{lid_newton_vx_bicgstab.jpg}
-    \caption{$x-$ velocity}
+    \caption{$x-$velocity}
   \label{x_vel_navier_stoke_bicgstab_lid}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{lid_newton_vy_bicgstab.jpg}
-    \caption{$y-$ velocity}
+    \caption{$y-$velocity}
   \label{y_vel_navier_stoke_bicgstab_lid}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
@@ -2535,12 +2535,12 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 \begin{figure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{lid_newton_vx_minres.jpg}
-    \caption{$x-$ velocity}
+    \caption{$x-$velocity}
   \label{x_vel_navier_stoke_minres_lid}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{lid_newton_vy_minres.jpg}
-    \caption{$y-$ velocity}
+    \caption{$y-$velocity}
   \label{y_vel_navier_stoke_minres_lid}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
@@ -2555,12 +2555,12 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 \begin{figure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{lid_newton_vx_schur.jpg}
-    \caption{$x-$ velocity}
+    \caption{$x-$velocity}
   \label{x_vel_navier_stoke_schur_lid}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{lid_newton_vy_schur.jpg}
-    \caption{$y-$ velocity}
+    \caption{$y-$velocity}
   \label{y_vel_navier_stoke_schur_lid}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
@@ -2575,12 +2575,12 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 \begin{figure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{cylinder_newton_vx_bicgstab.jpg}
-    \caption{$x-$ velocity }
+    \caption{$x-$velocity }
   \label{x_vel_navier_stoke_bicgstab}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{cylinder_newton_vy_bicgstab.jpg}
-    \caption{$y-$ velocity}
+    \caption{$y-$velocity}
   \label{y_vel_navier_stoke_bicgstab}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
@@ -2595,12 +2595,12 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 \begin{figure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{cylinder_newton_vx_minres.jpg}
-    \caption{$x-$ velocity}
+    \caption{$x-$velocity}
   \label{x_vel_navier_stoke_minres}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{cylinder_newton_vy_minres.jpg}
-    \caption{$y-$ velocity}
+    \caption{$y-$velocity}
   \label{y_vel_navier_stoke_minres}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
@@ -2615,12 +2615,12 @@ We again consider the example presented in the Section \ref{flow_over_cylinder_s
 \begin{figure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{cylinder_newton_vx_schur.jpg}
-    \caption{$x-$ velocity}
+    \caption{$x-$velocity}
   \label{x_vel_navier_stoke_schur}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\linewidth]{cylinder_newton_vy_schur.jpg}
-    \caption{$y-$ velocity}
+    \caption{$y-$velocity}
   \label{y_vel_navier_stoke_schur}
   \end{subfigure}
   \begin{subfigure}{\textwidth}
@@ -2663,9 +2663,9 @@ After implementation of the theoretical concepts and achieving experimental outc
 
 2. The Schur complement method is very useful for the Stokes equation due to efficient computation and good accuracy. \\
 
-3. $minres$ solver is able to solve the linear system of equations of the Stokes equation without unexpected termination of solver, i.e. the solver stops either after reaching the maximum number of iterations or specified tolerance level.\\
+3. The $minres$ solver is able to solve the linear system of equations of the Stokes equation without unexpected termination of solver, i.e. the solver stops either after reaching the maximum number of iterations or specified tolerance level.\\
 
-4. In contrast, $bicgstab$ has shown failure to converge to desired tolerance level.\\
+4. In contrast, the $bicgstab$ has shown failure to converge to desired tolerance level.\\
 
 5. The condition number of the stiffness matrix of the Stokes equation increases with increase in penalty parameter. Therefore, the penalty parameter has to be small enough to limit the condition number. However, the penalty parameter has to be large enough to maintain coercivity of the bilinear form. \\
 
@@ -2681,7 +2681,7 @@ After implementation of the theoretical concepts and achieving experimental outc
 
 \section{Outlook}
 
-The current work offers new areas for future development in the fields of discontinuous Galerkin method as well as reduced order modelling with special focus on the Navier Stokes equation. \\
+The current work offers new areas for future development in the fields of discontinuous-Galerkin method as well as reduced order modelling with special focus on the Navier-Stokes equations. \\
 
 The present implementation can be tested for computational efforts  required for increasing Reynold's number. As the Reynold's number is increased the fluctuations in velocity and presure become more relevant and hence turbulence plays crucial role in numerical simulations. Computationally this also means need for more accurate solver and efficient computational methods. Additionally, the present implementation can also be extended to transient cases. One of the classical applications could be to create vortex pattern for flow over cylinder.\\
 
@@ -2729,7 +2729,7 @@ We now explain the algorithm for Cholesky decomposition. \\
     l_{11} & l_{21} & l_{31}\\
     0 & l_{22} & l_{32}\\
     0 & 0 & l_{33}
-\end{spmatrix} \quad \textrm{.}
+\end{spmatrix} \textrm{.}
 \end{equation}
 
 We see that,\\
@@ -2739,7 +2739,7 @@ a_{11} = l_{11}^2, \quad a_{22} = l_{21}^2 + l_{22}^2, \quad a_{33} = l_{31}^2 +
 
 and 
 \begin{equation}
-a_{12} = a_{21} = l_{11}l_{21}, \quad a_{13} = a_{31} = l_{11}l_{31}, \quad a_{23} = a_{32} = l_{31}l_{21} + l_{32}l_{22} \quad \textrm{.}
+a_{12} = a_{21} = l_{11}l_{21}, \quad a_{13} = a_{31} = l_{11}l_{31}, \quad a_{23} = a_{32} = l_{31}l_{21} + l_{32}l_{22} \textrm{.}
 \end{equation}
 
 We now see that for diagonal elements,\\
@@ -2751,7 +2751,7 @@ l_{kk} = \sqrt{a_{kk} - \sum_{k=1}^{j-1} l_{kj}^2}
 and for elements below diagonal,\\
 
 \begin{equation}
-l_{ik} = \frac{1}{l_{kk}}(a_{ik}-\sum_{j=1}^{k-1} l_{ij}l_{kj}) \quad \textrm{.}
+l_{ik} = \frac{1}{l_{kk}}(a_{ik}-\sum_{j=1}^{k-1} l_{ij}l_{kj}) \textrm{.}
 \end{equation}
 \\
 It is to be noted that similar theory is also applicable for Cholesky decomposition with upper triangular matrix instead of lower triangular matrix. Also, this algorithm can be extended to Matrix of any size. \\
@@ -2813,7 +2813,7 @@ We consider following important factorisations :\\
 \begin{spmatrix}{}
     I & \mathcal{A}^{-1} \mathcal{B}_1 \\
     0 & I
-\end{spmatrix} \quad \textrm{,}
+\end{spmatrix} \textrm{,}
 \end{equation}
 
 \begin{equation} \label{factorisation2}
@@ -2829,7 +2829,7 @@ We consider following important factorisations :\\
 \begin{spmatrix}{}
     I & \mathcal{A}^{-1}\mathcal{B}_1 \\
     0 & I
-\end{spmatrix} \quad \textrm{,}
+\end{spmatrix} \textrm{,}
 \end{equation}
 
 \begin{equation} \label{factorisation3}
@@ -2846,10 +2846,10 @@ We consider following important factorisations :\\
     \mathcal{A} & \mathcal{B}_1 \\
     0 & \mathcal{S} 
 \end{spmatrix}
-\quad \textrm{.}
+\textrm{.}
 \end{equation}
 
-Here, $S$ is the Schur complement and $\mathcal{S} = \mathcal{C} - \mathcal{B}_2 \mathcal{A}^{-1} \mathcal{B}_1$ with size $\mathcal{S} \in \mathbb{R}^{m \times m}$. $I$ is the Identity matrix of size $I \in \mathbb{R}^{n \times n}$  \\
+Here, $S$ is the Schur complement and $\mathcal{S} = \mathcal{C} - \mathcal{B}_2 \mathcal{A}^{-1} \mathcal{B}_1$ with size $\mathcal{S} \in \mathbb{R}^{m \times m}$. $I$ is the Identity matrix of size $I \in \mathbb{R}^{n \times n}$.\\
 
 It can be seen if $\mathcal{C}$ is negative semidefinite, $B_1 = B_2^T$ and $\mathcal{A}$ is positive definite, $\mathcal{S}$ is negative definite. For more details on the saddle point problems we refer to literature such as Benzi M. et al\cite{saddle}. We make some important observations related to Saddle point problems as follow :\\
 
@@ -2881,31 +2881,31 @@ in the sense of distributions for the multi-index $\alpha = (\alpha_1,.....,\alp
 
 It holds by construction that $H^{k'+1}(\Omega) \subset H^{k'} (\Omega)$ and that $H^0 (\Omega) = L^2 (\Omega)$. $H^{k'}(\Omega)$ is a Hilbert space with the inner product
 \begin{equation}
-(f,g)_{H^{k'}(\Omega)} = \sum_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega (D^\alpha f) (D^\alpha g) \quad \textrm{,}
+(f,g)_{H^{k'}(\Omega)} = \sum_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega (D^\alpha f) (D^\alpha g) \textrm{,}
 \end{equation}
 
 the induced norm 
 
 \begin{equation}
-||f||_{H^{k'} (\Omega)} = \sqrt{(f,f)_{H^{k'}(\Omega)}} = \sqrt{\sum_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega |D^\alpha f|^2} \quad \textrm{,}
+||f||_{H^{k'} (\Omega)} = \sqrt{(f,f)_{H^{k'}(\Omega)}} = \sqrt{\sum_{\alpha \in \mathbb{N}^d, |\alpha| \leq k'} \int_\Omega |D^\alpha f|^2} \textrm{,}
 \end{equation}
 
 and the semi norm 
 
 \begin{equation}
-|f|_{H^{k'} (\Omega)} = \sqrt{\sum_{\alpha \in \mathbb{N}^d, |\alpha| = k'} \int_\Omega |D^\alpha f|^2} \quad \textrm{.}
+|f|_{H^{k'} (\Omega)} = \sqrt{\sum_{\alpha \in \mathbb{N}^d, |\alpha| = k'} \int_\Omega |D^\alpha f|^2} \textrm{.}
 \end{equation}
 
 In case of the discontinuous Galerkin space we use the broken Sobolev norm (for symmetric interior penalty Galerkin), \cite{Montlaur2}
 
 \begin{equation}
-||f||_{1,h}^2 = \sum_{\tau_k \in \mathcal{T}} ||\nabla f||_{L^2(\tau_k)}^2 + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ||[[u]]||_{L^2 (\tau_k)}^2 \quad \textrm{,}
+||f||_{1,h}^2 = \sum_{\tau_k \in \mathcal{T}} ||\nabla f||_{L^2(\tau_k)}^2 + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ||[[u]]||_{L^2 (\tau_k)}^2 \textrm{,}
 \end{equation}
 
 and inner product
 
 \begin{equation}
-(f,g) = \sum_{\tau_k \in \mathcal{T}} (f,g)_{L^2(\tau_k)} + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ([u],[v])_{L^2 (\tau_k)} \quad \textrm{.}
+(f,g) = \sum_{\tau_k \in \mathcal{T}} (f,g)_{L^2(\tau_k)} + \sum_{\tau_k \in \mathcal{T}} \kappa_E \nu ([u],[v])_{L^2 (\tau_k)} \textrm{.}
 \end{equation}
 
 \subsection{Basic definitions}
@@ -2944,21 +2944,21 @@ Let $(\mathbb{V,||.||_\mathbb{V}})$ be a normed space. Then, we define the follo
 1. A function $F : \mathbb{V} \rightarrow \mathbb{R}$ is said to be linear if,
 
 \begin{equation} 
-F(u+v) = F(u) + F(v) \quad \forall \quad u,v \in \mathbb{V} \quad \textrm{,}
+F(u+v) = F(u) + F(v) \quad \forall \quad u,v \in \mathbb{V} \textrm{,}
 \end{equation}
 
 \begin{equation} 
-F(\alpha u) = \alpha F(u) \quad \forall \quad \alpha \in \mathbb{R}, u \in \mathbb{V} \quad \textrm{.}
+F(\alpha u) = \alpha F(u) \quad \forall \quad \alpha \in \mathbb{R}, u \in \mathbb{V} \textrm{.}
 \end{equation}
 
 2. F is bounded if there exists a constant $\gamma > 0$ such that,
 \begin{equation} 
-|F(v)| \leq \gamma ||v||_\mathbb{V} \quad \forall \quad v \in \mathbb{V} \quad \textrm{.}
+|F(v)| \leq \gamma ||v||_\mathbb{V} \quad \forall \quad v \in \mathbb{V} \textrm{.}
 \end{equation}
 
 3. F is continuous if for all $\epsilon > 0$ there exists a $\delta_\epsilon > 0$ such that \\
 \begin{equation}
-||u - v||_\mathbb{V} \leq \delta_\epsilon \Rightarrow  |F(u) - F(v)| < \epsilon \quad \textrm{.}
+||u - v||_\mathbb{V} \leq \delta_\epsilon \Rightarrow  |F(u) - F(v)| < \epsilon \textrm{.}
 \end{equation}
 
 The notion of continuity and boundedness is equivalent for linear forms.
@@ -2967,7 +2967,7 @@ The notion of continuity and boundedness is equivalent for linear forms.
 
 1. A bilinear form $a(\cdot,\cdot)$ acting on the vector spaces $\mathbb{V}$ and $\mathbb{W}$ is given as
 \begin{equation}
-a : \mathbb{V} \times \mathbb{W} \Rightarrow \mathbb{R} \quad \textrm{,}
+a : \mathbb{V} \times \mathbb{W} \Rightarrow \mathbb{R} \textrm{,}
 \end{equation}
 
 \begin{equation}
@@ -2978,12 +2978,12 @@ and is linear with respect to each of its arguments.\\
 
 2. Let $\mathbb{V}$ and $\mathbb{W}$ be endowed with the norms $||\cdot||_\mathbb{V}$ and $||\cdot||_\mathbb{W}$. A bilinear form $a(\cdot,\cdot)$ is continuous if there exists a constant $\gamma > 0$ such that,
 \begin{equation}
-|a(u,v)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \quad \forall \quad u,v \in \mathbb{V} \quad \textrm{.}
+|a(u,v)| \leq \gamma ||u||_\mathbb{V} ||v||_\mathbb{W} \quad \forall \quad u,v \in \mathbb{V} \textrm{.}
 \end{equation}
 
 3. If $\mathbb{V} = \mathbb{W}$, a bilinear form $a(\cdot,\cdot)$ is coercive if there exists a constant $\alpha > 0$ such that,
 \begin{equation}
-a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V} \quad \textrm{.}
+a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V} \textrm{.}
 \end{equation}
 
 \subsubsection{Coercivity of bilinear form} \label{Coercivity_constant}
@@ -2991,7 +2991,7 @@ a(v,v) \geq \alpha ||v||_\mathbb{V}^2  \quad \forall \quad v \in  \mathbb{V} \qu
 A bilinear form $a(u,v)$ is said to be coercive if there exists a constant $\kappa_e > 0$ such that
 
 \begin{equation}\label{Coercivity}
-a(v,v) > \kappa_e ||v||^2   \quad \forall \quad v \in  \mathbb{V} \quad \textrm{.}
+a(v,v) > \kappa_e ||v||^2   \quad \forall \quad v \in  \mathbb{V} \textrm{.}
 \end{equation}
 
 \subsubsection{Continuity of bilinear form}
@@ -2999,7 +2999,7 @@ a(v,v) > \kappa_e ||v||^2   \quad \forall \quad v \in  \mathbb{V} \quad \textrm{
 A bilinear form $a(u,v)$ is said to be continuous if there exists a constant $\gamma > 0$ such that
 
 \begin{equation}\label{Continuity_constant}
-a(u,v) \leq \gamma ||u||||v|| \quad  \forall \quad u,v \in  \mathbb{V} \quad \textrm{.}
+a(u,v) \leq \gamma ||u||||v|| \quad  \forall \quad u,v \in  \mathbb{V} \textrm{.}
 \end{equation}
 
 \subsection{Condition number}
@@ -3015,46 +3015,46 @@ We now refer to trace inequalities presented by Rivi\`ere B.\cite{riviere}. The 
 If $l$ is the length of $\Gamma$ and $Ar$ is the area of $\tau$,  $\forall \phi \in P^D (\tau)$, $\forall \Gamma \subset \partial \Omega$ :
 
 \begin{equation}
-||\phi||_{L^2(\Gamma)} \leq \hat{C}_t l^{\frac{1}{2}} Ar^{\frac{-1}{2}} ||\phi||_{L^2(\tau)} \quad \textrm{,}
+||\phi||_{L^2(\Gamma)} \leq \hat{C}_t l^{\frac{1}{2}} Ar^{\frac{-1}{2}} ||\phi||_{L^2(\tau)} \textrm{,}
 \end{equation}
 
 \begin{equation}
-||\phi||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\phi||_{L^2(\tau)} \quad \textrm{,}
+||\phi||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\phi||_{L^2(\tau)} \textrm{,}
 \end{equation}
 
 \begin{equation}
-||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq \hat{C}_t |l|^{\frac{1}{2}} |Ar|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)} \quad \textrm{,}
+||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq \hat{C}_t |l|^{\frac{1}{2}} |Ar|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)} \textrm{,}
 \end{equation}
 
 \begin{equation}
-||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)} \quad \textrm{.}
+||\nabla \phi \cdot n||_{L^2(\Gamma)} \leq {C}_t |h_\tau|^{\frac{-1}{2}} ||\nabla \phi||_{L^2(\tau)} \textrm{.}
 \end{equation}
 
 Here, $\hat{C}_t$ and ${C}_t$ are constants independent of $h_\tau$ and $\phi$ but dependent on polynomial degree $D$. The exact expressions for $C_t$ are given by Warburton T. et al \cite{warburton}.
 
 \subsubsection{Cauchy-Schwarz inequality} 
 \begin{equation}
-\forall \quad f,g \in L^2(\Omega) \textrm{,} \quad |(f,g)_{\Omega}| \leq ||f||_{L^2(\Omega)} ||g||_{L^2(\Omega)} \quad \textrm{.}
+\forall \quad f,g \in L^2(\Omega) \textrm{,} \quad |(f,g)_{\Omega}| \leq ||f||_{L^2(\Omega)} ||g||_{L^2(\Omega)} \textrm{.}
 \end{equation}
 
 \subsubsection{Young's inequality} 
 \begin{equation}
-\forall \epsilon > 0 \forall a,b \in \mathbb{R} \textrm{,} \quad ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2 \quad \textrm{.}
+\forall \epsilon > 0 \forall a,b \in \mathbb{R} \textrm{,} \quad ab \leq \frac{\epsilon}{2}a^2 + \frac{1}{2 \epsilon}b^2 \textrm{.}
 \end{equation}
 
 \chapter{Online resources}
 
 I would also like to mention below online resources which have frequently served as valuable source of information.
 \\
-1. http://mathworld.wolfram.com/\\
-2. https://de.mathworks.com/products/matlab.html\\
-3. http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.13.10/doc/index.html \\
-4. www.cfd-online.com\\
+1. \texttt{http://mathworld.wolfram.com/}\\
+2. \texttt{https://de.mathworks.com/products/matlab.html}\\
+3. \texttt{http://www.ians.uni-stuttgart.de/MoRePaS/software/rbmatlab/1.13.10/\linebreak doc/index.html}\\
+4. \texttt{www.cfd-online.com}\\
 
 \chapter{Code access}
 
 The codes used for the present thesis is uploaded under: \\
-https://github.com/niravshah241/master\_thesis.git . It is also recommended to use \verb|help <filename>| command for getting more information about the function definition and input/output data.
+\texttt{https://github.com/niravshah241/master\_thesis.git}. It is also recommended to use \verb|help <filename>| command for getting more information about the function definition and input/output data.
 
 \bibliographystyle{plain}
 \bibliography{ref1}
