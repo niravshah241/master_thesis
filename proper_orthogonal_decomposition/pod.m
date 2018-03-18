@@ -55,6 +55,7 @@ D_sqrt = exp(-0.5*log(eigen_values(1:red_dim_pressure)));
 B_pressure = S*V(:,1:red_dim_pressure)*diag(D_sqrt)*R(1:red_dim_pressure,:);
 pod_res_paramsP.eigen_values = eigen_values;
 pod_res_paramsP.B = B_pressure;
+
 B_velocity = sparse(B_velocity);
 B_pressure = sparse(B_pressure);
 

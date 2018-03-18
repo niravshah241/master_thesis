@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  17 MAR 2018 16:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  18 MAR 2018 23:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1963,21 +1963,21 @@ Package pdftex.def Info: L2_convergence_pressure_n_s_log.jpg used on input line
  2477.
 (pdftex.def)             Requested size: 358.50314pt x 191.80748pt.
 
-<H0_convergence_velocity_n_s.jpg, id=350, 878.28125pt x 658.46pt>
+<H0_convergence_velocity_n_s.jpg, id=350, 1540.75626pt x 824.07875pt>
 File: H0_convergence_velocity_n_s.jpg Graphic file (type jpg)
 
 <use H0_convergence_velocity_n_s.jpg>
 Package pdftex.def Info: H0_convergence_velocity_n_s.jpg used on input line 248
 7.
-(pdftex.def)             Requested size: 358.50314pt x 268.77472pt.
+(pdftex.def)             Requested size: 358.50314pt x 191.73465pt.
 
-<H0_convergence_pressure_n_s.jpg, id=351, 2406.9925pt x 1287.81125pt>
+<H0_convergence_pressure_n_s.jpg, id=351, 1540.75626pt x 824.07875pt>
 File: H0_convergence_pressure_n_s.jpg Graphic file (type jpg)
 
 <use H0_convergence_pressure_n_s.jpg>
 Package pdftex.def Info: H0_convergence_pressure_n_s.jpg used on input line 249
 2.
-(pdftex.def)             Requested size: 358.50314pt x 191.80748pt.
+(pdftex.def)             Requested size: 358.50314pt x 191.73465pt.
 
 <H0_convergence_velocity_n_s_log.jpg, id=352, 2406.9925pt x 1287.81125pt>
 File: H0_convergence_velocity_n_s_log.jpg Graphic file (type jpg)
@@ -2426,12 +2426,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 3047--3053
 
 ]
 Appendix C.
-
-Overfull \hbox (1.76552pt too wide) in paragraph at lines 3056--3058
-\OT1/cmtt/m/n/10 https://github.com/niravshah241/master[]thesis.git\OT1/cmr/m/n
-/10 . It is also rec-om-mended
- []
-
 (./Short description.bbl [103] [104
 
 ]
@@ -2476,7 +2470,7 @@ cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfo
 nt/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msbm7.pfb>
-Output written on "Short description.pdf" (106 pages, 6366999 bytes).
+Output written on "Short description.pdf" (106 pages, 6333694 bytes).
 PDF statistics:
  561 PDF objects out of 1000 (max. 8388607)
  329 compressed objects within 4 object streams

@@ -111,8 +111,8 @@ rhs_reference = rhs;
 
 %% Parameter-training generation
 disp('Generating training parameter set')
-para1 = [1e-10 1 10]; %viscocity
-para2 = [1 1e8 15]; %dirichlet value
+para1 = [1e-10 1e5 3]; %viscocity
+para2 = [1 1e8 3]; %dirichlet value
 parameter_training_set = gen_parameters( para1,para2);
 disp('Parameter training set generation finished')
 
@@ -181,16 +181,15 @@ end
 %% Proper Orthogonal Decomposition
 n_s = size(params.snapshots_matrix,2); % number of snapshots
 % params.snapshots_matrix = rand(params.ndofs,n_s);
-red_dim_velocity = 10;
-red_dim_pressure = 9;
-min_eigen = 0;
+red_dim_velocity = 2 * grid.nelements;
+red_dim_pressure = 3 * grid.nelements;
 params.qdeg = qdeg;
 paramsP.qdeg = qdeg;
+min_eigen_velocity = 0;
+min_eigen_pressure = 0;
 
 disp('Entering in pod')
 
-min_eigen_velocity = 1e-14;
-min_eigen_pressure = 1e-14;
 
 [ pod_res_params, pod_res_paramsP, B_velocity, B_pressure, ...
     red_dim_velocity, red_dim_pressure] = pod( params, paramsP, grid, ...
@@ -199,7 +198,7 @@ min_eigen_pressure = 1e-14;
 
 %% Testing
 disp('Generating test parameter set')
-para_test_1 = [1e-10 1 3];
+para_test_1 = [1e-10 1e5 3];
 para_test_2 = [1 1e8 3];
 parameter_test_set = gen_test_parameters(para_test_1,para_test_2);
 disp('Test parameter set generated')
@@ -208,8 +207,8 @@ error_pressure = zeros(size(parameter_test_set,1),1);
 
 error_velocity_vector = zeros(size(parameter_test_set,1),1);
 error_pressure_vector = zeros(size(parameter_test_set,1),1);
-error_energy_velocity = zeros(size(parameter_test_set,1),1);
-error_energy_pressure = zeros(size(parameter_test_set,1),1);
+error_energy_velocity = ones(size(parameter_test_set,1),1);
+error_energy_pressure = ones(size(parameter_test_set,1),1);
 error_energy = zeros(size(parameter_test_set,1),1);
 
 disp('Entering in error calculation')
