@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {0.3}List of symbols}{4}
 \contentsline {chapter}{\numberline {1}Perspective and formulation}{17}
 \contentsline {section}{\numberline {1.1}Derivation}{17}
-\contentsline {subsection}{\numberline {1.1.1}DNS}{19}
+\contentsline {section}{\numberline {1.2}Direct numerical simulation}{19}
 \contentsline {chapter}{\numberline {2}Discretisation and functional spaces}{21}
 \contentsline {section}{\numberline {2.1}Grid geometry}{21}
 \contentsline {section}{\numberline {2.2}Grid parameters}{22}
