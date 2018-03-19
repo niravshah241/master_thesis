@@ -21,7 +21,8 @@
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\spn}{span}
 \newcommand{\minus}{\scalebox{0.75}[1.0]{$-$}}
-%\geometry{bindingoffset=2cm}
+\geometry{bindingoffset=2cm}
+\geometry{textwidth=345pt}
 %\usepackage{titlesec}
 %\newcommand*{\justifyheading}{\raggedleft}
 %\titleformat{\chapter}[display]
@@ -1857,9 +1858,7 @@ res_3[ids,ids] = res_2 \textrm{.}
 
 \section{Setting boundary conditions}
 
-We extract the Dirichlet edges and Neumann edges by routine \verb|tria_edge_index_Dirichlet| and \verb|tria_edge_index_Neumann| respectively.
-
-We set the Dirichlet and Neumann boundary values in routine \verb|Dirichlet_values| and \verb|Neumann_values| respectively as column vectors. 
+We extract the Dirichlet edges and Neumann edges by routine \linebreak \verb|tria_edge_index_Dirichlet| and \verb|tria_edge_index_Neumann| respectively. We set the Dirichlet and Neumann boundary values in routine \verb|Dirichlet_values| and \verb|Neumann_values| respectively as column vectors. 
 
 \section{Setting source term}
 
@@ -1881,7 +1880,7 @@ We now define fields for constructing function spaces for pressure and velocity.
 
 \subsection{Matrix assembly}
 
-We now assemble all the matrices as explained during matrix assembly (routine \verb|assemble_stiffness_matrix|). The individual matrices are assembled and stored in struct \verb|params|. \verb|params.bilinear_side| contains $A$ or assembly of $a(u,\phi)$. \verb|params.bilinear_side_pressure_terms| contains assembly of $B$ or assembly of \verb|b(|$\phi$,$\psi$\verb|)|.\verb|params.lhs_continuity| contains assembly of $B^T$. \verb|rhs| is the right hand side matrix \verb|[F_1;F_2]| as \verb|[params.linear_side;params.rhs_continuity]|. \\
+We now assemble all the matrices as explained during matrix assembly (routine \verb|assemble_stiffness_matrix|). The individual matrices are assembled and stored in struct \verb|params|. \verb|params.bilinear_side| contains $A$ or assembly of $a(u,\phi)$. \verb|params.bilinear_side_pressure_terms| contains assembly of $B$ or assembly of \verb|b(|$\phi$,$\psi$\verb|)|.\verb|params.lhs_continuity| contains assembly of $B^T$. \verb|rhs| is the right hand side matrix \verb|[F_1;F_2]| as \verb|[params.linear_side;|\linebreak \verb|params.rhs_continuity]|. \\
 
 \subsection{Solving assembled form}
 
@@ -1889,11 +1888,11 @@ We now define the solver specific variables. \verb|required_residual_tol| specif
 
 \subsection{Post processing}
 
-We now enter into \verb|stiffness_matrix_test|, to check properties of assembled stiffness matrix as explained in section \ref{property_stif_mat_stokes}. Then we enter into error measurement (\verb|error_l2_norm_assembly| and \verb|error_h0_norm_assembly|) which measures the error in $L^2$ or $H_0$ norm. \verb|params.dof_analytical|, \verb|paramsP.dof_analytical| contain analytical expression against which numerical solution is to be compared. \verb|params.dof_derivative_analytical| and \verb|paramsP.dof_derivative_analytical| contain anlytical expression for derivative of the solution to be used for $H_0$ norm. We plot the solution using  \verb|ldg_plot| implemented for plotting discontinuous functions. \\
+We now enter into \verb|stiffness_matrix_test|, to check properties of assembled stiffness matrix as explained in section \ref{property_stif_mat_stokes}. Then we enter into error measurement (\verb|error_l2_norm_assembly| and \verb|error_h0_norm_assembly|) which measures the error in $L^2$ or $H_0$ norm. \\ \verb|params.dof_analytical|, \verb|paramsP.dof_analytical| contain analytical expression against which numerical solution is to be compared. \\ \verb|params.dof_derivative_analytical| , \verb|paramsP.dof_derivative_analytical| contain anlytical expression for derivative of the solution to be used for $H_0$ norm. We plot the solution using  \verb|ldg_plot| implemented for plotting discontinuous functions. \\
 
 \subsection{Newton method}
 
-We now enter into Newton method (section \ref{newton_method}) implemented in \verb|newton_script|. We define again solver specific variables \verb|tol_newton|, \verb|max_iter_newton|, \verb|tol_solver|, \verb|max_iter_solver|. \verb|tol_newton|, \verb|max_iter_newton| are variables for ending newton method and \verb|tol_solver|, \verb|max_iter_solver| are variables for solver to solve $h^{iter}$ in each newton loop. We again measure the error in $L^2$ and $H_0$ norm.\\
+We now enter into Newton method (section \ref{newton_method}) implemented in \verb|newton_script|. We define again solver specific variables \verb|tol_newton|, \verb|max_iter_newton|, \\ \verb|tol_newton|, \verb|max_iter_solver|. \verb|tol_newton|, \verb|max_iter_newton| are variables for ending newton method. \verb|tol_solver|, \verb|max_iter_solver| are variables for solver to solve $h^{iter}$ in each newton loop. We again measure the error in $L^2$ and $H_0$ norm.\\
 
 \section{Sparsity pattern}
 

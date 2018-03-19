@@ -26,16 +26,16 @@
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Flow over cylinder (Schur complement method)\relax }}{76}
 \contentsline {figure}{\numberline {4.12}{\ignorespaces Effect of penalty parameter on condition number of the stiffness matrix\relax }}{77}
 \contentsline {figure}{\numberline {4.13}{\ignorespaces Flow over cylinder for smaller than minimum allowable penalty parameter\relax }}{78}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces $h-$convergence for the Navier Stokes flow in $L^2$ error\relax }}{80}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces $h-$convergence for the Navier Stokes flow in $L^2$ error (Logarithmic scale)\relax }}{81}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces $h-$convergence for the Navier Stokes flow in $H_0$ error\relax }}{82}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces $h-$convergence for the Navier Stokes flow in $H_0$ error (Logarithmic scale)\relax }}{83}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Lid driven cavity flow (Initial guess by $bicgstab$ solver)\relax }}{84}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Lid driven cavity flow (Initial guess by $minres$ solver)\relax }}{85}
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Lid driven cavity flow (Initial guess by Schur complement method)\relax }}{86}
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Flow over cylinder (Initial guess by $bicgstab$ solver)\relax }}{87}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Flow over cylinder (Initial guess by minres solver)\relax }}{88}
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Flow over cylinder (Initial guess by Schur complement method)\relax }}{89}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces $h-$convergence for the Navier Stokes flow in $L^2$ error\relax }}{81}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces $h-$convergence for the Navier Stokes flow in $L^2$ error (Logarithmic scale)\relax }}{82}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces $h-$convergence for the Navier Stokes flow in $H_0$ error\relax }}{83}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces $h-$convergence for the Navier Stokes flow in $H_0$ error (Logarithmic scale)\relax }}{84}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Lid driven cavity flow (Initial guess by $bicgstab$ solver)\relax }}{85}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Lid driven cavity flow (Initial guess by $minres$ solver)\relax }}{86}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Lid driven cavity flow (Initial guess by Schur complement method)\relax }}{87}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Flow over cylinder (Initial guess by $bicgstab$ solver)\relax }}{88}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Flow over cylinder (Initial guess by minres solver)\relax }}{89}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Flow over cylinder (Initial guess by Schur complement method)\relax }}{90}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

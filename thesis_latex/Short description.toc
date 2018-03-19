@@ -118,11 +118,11 @@
 \contentsline {subsection}{\numberline {4.2.3}Lid-driven cavity problem}{65}
 \contentsline {subsection}{\numberline {4.2.4}Flow over cylinder}{65}
 \contentsline {section}{\numberline {4.3}Penalty parameter}{65}
-\contentsline {section}{\numberline {4.4}Navier-Stokes flow}{65}
+\contentsline {section}{\numberline {4.4}Navier-Stokes flow}{79}
 \contentsline {subsection}{\numberline {4.4.1}Analytical example}{79}
 \contentsline {subsection}{\numberline {4.4.2}Lid-driven cavity problem}{79}
-\contentsline {subsection}{\numberline {4.4.3}Flow over cylinder}{79}
-\contentsline {section}{\numberline {4.5}Solver selection}{90}
+\contentsline {subsection}{\numberline {4.4.3}Flow over cylinder}{80}
+\contentsline {section}{\numberline {4.5}Solver selection}{80}
 \contentsline {chapter}{\numberline {5}Summary, conclusion and outlook}{91}
 \contentsline {section}{\numberline {5.1}Conclusions}{91}
 \contentsline {section}{\numberline {5.2}Outlook}{92}
