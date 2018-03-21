@@ -1,0 +1,168 @@
+\beamer@slide {rtt}{6}
+\beamer@slide {External force lhs}{6}
+\beamer@slide {External force rhs}{6}
+\beamer@slide {External force lhs}{7}
+\beamer@slide {External force rhs}{7}
+\beamer@slide {navier_stokes}{8}
+\beamer@slide {dirichlet_ns}{8}
+\beamer@slide {neumann_ns}{8}
+\beamer@slide {reynolds_number}{9}
+\beamer@slide {fig:Domain}{11}
+\beamer@slide {sub@fig:Domain}{11}
+\beamer@slide {fig:Mesh}{11}
+\beamer@slide {sub@fig:Mesh}{11}
+\beamer@slide {fig:continuous_grid_figure}{11}
+\beamer@slide {fig:Self_neighbour}{12}
+\beamer@slide {barycentric point}{13}
+\beamer@slide {lambda constraint}{13}
+\beamer@slide {unpe}{15}
+\beamer@slide {pnpe}{15}
+\beamer@slide {local global mapping}{17}
+\beamer@slide {local global mapping equation}{17}
+\beamer@slide {integral_local_global_volume}{18}
+\beamer@slide {integral_local_global_boundary}{18}
+\beamer@slide {derivative_transformation}{18}
+\beamer@slide {average operator}{19}
+\beamer@slide {inner product scalars}{20}
+\beamer@slide {Inner product vectors}{20}
+\beamer@slide {Inner product tensors}{20}
+\beamer@slide {stokes_strong_form_ch3}{21}
+\beamer@slide {stokes_weak_ch3}{21}
+\beamer@slide {stokes discrete_ch3}{22}
+\beamer@slide {contiuity_weak_ch3}{23}
+\beamer@slide {continuity discrete_ch3}{23}
+\beamer@slide {Stokes_matrix_ch3}{24}
+\beamer@slide {matrix A}{25}
+\beamer@slide {matrix B}{25}
+\beamer@slide {navier_stokes_strong_ch3}{26}
+\beamer@slide {navier_stokes_weak_ch3}{26}
+\beamer@slide {uext}{27}
+\beamer@slide {schur step 1}{31}
+\beamer@slide {schur step 2}{31}
+\beamer@slide {basis_func_velocity_rbmatlab}{32}
+\beamer@slide {basis_func_pressure_rbmatlab}{32}
+\beamer@slide {basis_func_derivative_velocity_rbmatlab}{32}
+\beamer@slide {basis_func_derivative_pressure_rbmatlab}{32}
+\beamer@slide {Jump operator L2}{34}
+\beamer@slide {Average operator}{34}
+\beamer@slide {fig:sparsity_del_phi_del_phi}{39}
+\beamer@slide {fig:figure21}{40}
+\beamer@slide {sub@fig:figure21}{40}
+\beamer@slide {fig:figure22}{40}
+\beamer@slide {sub@fig:figure22}{40}
+\beamer@slide {fig:figure23}{40}
+\beamer@slide {sub@fig:figure23}{40}
+\beamer@slide {fig:figure24}{40}
+\beamer@slide {sub@fig:figure24}{40}
+\beamer@slide {fig:figure2}{40}
+\beamer@slide {sub@fig:figure2}{40}
+\beamer@slide {figure_2_all}{40}
+\beamer@slide {fig:figure2}{41}
+\beamer@slide {sub@fig:figure2}{41}
+\beamer@slide {figure_2_all}{41}
+\beamer@slide {fig:vel_stoke_conv}{44}
+\beamer@slide {sub@fig:vel_stoke_conv}{44}
+\beamer@slide {fig:pre_stoke_conv}{44}
+\beamer@slide {sub@fig:pre_stoke_conv}{44}
+\beamer@slide {fig:vel_stoke_conv_log}{45}
+\beamer@slide {sub@fig:vel_stoke_conv_log}{45}
+\beamer@slide {fig:pre_stoke_conv_log}{45}
+\beamer@slide {sub@fig:pre_stoke_conv_log}{45}
+\beamer@slide {fig:l2_stokes}{45}
+\beamer@slide {fig:vel_stoke_conv_h0}{46}
+\beamer@slide {sub@fig:vel_stoke_conv_h0}{46}
+\beamer@slide {fig:pre_stoke_conv_h0}{46}
+\beamer@slide {sub@fig:pre_stoke_conv_h0}{46}
+\beamer@slide {fig:vel_stoke_conv_log_h0}{47}
+\beamer@slide {sub@fig:vel_stoke_conv_log_h0}{47}
+\beamer@slide {fig:pre_stoke_conv_log_h0}{47}
+\beamer@slide {sub@fig:pre_stoke_conv_log_h0}{47}
+\beamer@slide {fig:h0_stokes}{47}
+\beamer@slide {p_convergence_velocity_l2}{48}
+\beamer@slide {sub@p_convergence_velocity_l2}{48}
+\beamer@slide {p_convergence_velocity_h0}{48}
+\beamer@slide {sub@p_convergence_velocity_h0}{48}
+\beamer@slide {p_convergence_pressure_l2}{48}
+\beamer@slide {sub@p_convergence_pressure_l2}{48}
+\beamer@slide {p_conv_stokes_flow}{48}
+\beamer@slide {x_vel_stoke_schur}{50}
+\beamer@slide {sub@x_vel_stoke_schur}{50}
+\beamer@slide {y_vel_stoke_schur}{50}
+\beamer@slide {sub@y_vel_stoke_schur}{50}
+\beamer@slide {pressure_stoke_schur}{50}
+\beamer@slide {sub@pressure_stoke_schur}{50}
+\beamer@slide {flow_over_cylinder_schur}{50}
+\beamer@slide {x_vel_stoke_schur_lid}{52}
+\beamer@slide {sub@x_vel_stoke_schur_lid}{52}
+\beamer@slide {y_vel_stoke_schur_lid}{52}
+\beamer@slide {sub@y_vel_stoke_schur_lid}{52}
+\beamer@slide {pressure_stoke_schur_lid}{52}
+\beamer@slide {sub@pressure_stoke_schur_lid}{52}
+\beamer@slide {stoke_schur_lid}{52}
+\beamer@slide {x_vel_stoke_bicgstab_lid}{53}
+\beamer@slide {sub@x_vel_stoke_bicgstab_lid}{53}
+\beamer@slide {y_vel_stoke_bicgstab_lid}{53}
+\beamer@slide {sub@y_vel_stoke_bicgstab_lid}{53}
+\beamer@slide {pressure_stoke_bicgstab_lid}{53}
+\beamer@slide {sub@pressure_stoke_bicgstab_lid}{53}
+\beamer@slide {stoke_bicgstab_lid}{53}
+\beamer@slide {x_vel_stoke_minres_lid}{54}
+\beamer@slide {sub@x_vel_stoke_minres_lid}{54}
+\beamer@slide {y_vel_stoke_minres_lid}{54}
+\beamer@slide {sub@y_vel_stoke_minres_lid}{54}
+\beamer@slide {pressure_stoke_minres_lid}{54}
+\beamer@slide {sub@pressure_stoke_minres_lid}{54}
+\beamer@slide {stoke_minres_lid}{54}
+\beamer@slide {grid_penalty_para}{55}
+\beamer@slide {sub@grid_penalty_para}{55}
+\beamer@slide {penalty_condition_number}{55}
+\beamer@slide {sub@penalty_condition_number}{55}
+\beamer@slide {effect_penalty_parameter}{55}
+\beamer@slide {fig:vel_navier_stoke_conv}{59}
+\beamer@slide {sub@fig:vel_navier_stoke_conv}{59}
+\beamer@slide {fig:pre_navier_stoke_conv}{59}
+\beamer@slide {sub@fig:pre_navier_stoke_conv}{59}
+\beamer@slide {navier_stoke_conv_l2}{59}
+\beamer@slide {fig:vel_naviers_stoke_conv_log}{60}
+\beamer@slide {sub@fig:vel_naviers_stoke_conv_log}{60}
+\beamer@slide {fig:pre_navier_stoke_conv_log}{60}
+\beamer@slide {sub@fig:pre_navier_stoke_conv_log}{60}
+\beamer@slide {navier_stoke_conv_l2_log}{60}
+\beamer@slide {fig:vel_navier_stoke_conv_h0}{61}
+\beamer@slide {sub@fig:vel_navier_stoke_conv_h0}{61}
+\beamer@slide {fig:pre_navier_stoke_conv_h0}{61}
+\beamer@slide {sub@fig:pre_navier_stoke_conv_h0}{61}
+\beamer@slide {navier_stoke_conv_h0}{61}
+\beamer@slide {fig:vel_navier_stoke_conv_log_h0}{62}
+\beamer@slide {sub@fig:vel_navier_stoke_conv_log_h0}{62}
+\beamer@slide {fig:pre_navier_stoke_conv_log_h0}{62}
+\beamer@slide {sub@fig:pre_navier_stoke_conv_log_h0}{62}
+\beamer@slide {navier_stoke_conv_h0_log}{62}
+\beamer@slide {x_vel_navier_stoke_schur}{64}
+\beamer@slide {sub@x_vel_navier_stoke_schur}{64}
+\beamer@slide {y_vel_navier_stoke_schur}{64}
+\beamer@slide {sub@y_vel_navier_stoke_schur}{64}
+\beamer@slide {pressure_navier_stoke_schur}{64}
+\beamer@slide {sub@pressure_navier_stoke_schur}{64}
+\beamer@slide {flow_over_cylinder_schur_n_s}{64}
+\beamer@slide {x_vel_navier_stoke_bicgstab}{65}
+\beamer@slide {sub@x_vel_navier_stoke_bicgstab}{65}
+\beamer@slide {y_vel_navier_stoke_bicgstab}{65}
+\beamer@slide {sub@y_vel_navier_stoke_bicgstab}{65}
+\beamer@slide {pressure_navier_stoke_bicgstab}{65}
+\beamer@slide {sub@pressure_navier_stoke_bicgstab}{65}
+\beamer@slide {flow_over_cylinder_bicgstab_n_s}{65}
+\beamer@slide {x_vel_navier_stoke_minres}{66}
+\beamer@slide {sub@x_vel_navier_stoke_minres}{66}
+\beamer@slide {y_vel_navier_stoke_minres}{66}
+\beamer@slide {sub@y_vel_navier_stoke_minres}{66}
+\beamer@slide {pressure_navier_stoke_minres}{66}
+\beamer@slide {sub@pressure_navier_stoke_minres}{66}
+\beamer@slide {flow_over_cylinder_minres_n_s}{66}
+\beamer@slide {x_vel_navier_stoke_schur_lid}{68}
+\beamer@slide {sub@x_vel_navier_stoke_schur_lid}{68}
+\beamer@slide {y_vel_navier_stoke_schur_lid}{68}
+\beamer@slide {sub@y_vel_navier_stoke_schur_lid}{68}
+\beamer@slide {pressure_navier_stoke_schur_lid}{68}
+\beamer@slide {sub@pressure_navier_stoke_schur_lid}{68}
+\beamer@slide {lid_driven_cavity_n_s_schur}{68}

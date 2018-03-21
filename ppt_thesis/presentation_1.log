@@ -1,0 +1,1986 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  21 MAR 2018 10:35
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**presentation_1.tex
+(./presentation_1.tex
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasercs.sty
+Package: beamerbasercs 2015/03/08 (rcs-revision 368aa9ba9d38)
+)
+Document Class: beamer 2015/01/05 3.36 A class for typesetting presentations (r
+cs-revision 8a39122e1f63)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
+Package: beamerbasemodes 2013/09/03 (rcs-revision 768f2d98ca64)
+\beamer@tempbox=\box26
+\beamer@tempcount=\count79
+\c@beamerpauses=\count80
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
+Package: beamerbasedecode 2010/05/01 (rcs-revision efa082c6111d)
+\beamer@slideinframe=\count81
+\beamer@minimum=\count82
+)
+\beamer@commentbox=\box27
+\beamer@modecount=\count83
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+\headheight=\dimen102
+\headdp=\dimen103
+\footheight=\dimen104
+\sidebarheight=\dimen105
+\beamer@tempdim=\dimen106
+\beamer@finalheight=\dimen107
+\beamer@animht=\dimen108
+\beamer@animdp=\dimen109
+\beamer@animwd=\dimen110
+\beamer@leftmargin=\dimen111
+\beamer@rightmargin=\dimen112
+\beamer@leftsidebar=\dimen113
+\beamer@rightsidebar=\dimen114
+\beamer@boxsize=\dimen115
+\beamer@vboxoffset=\dimen116
+\beamer@descdefault=\dimen117
+\beamer@descriptionwidth=\dimen118
+\beamer@lastskip=\skip41
+\beamer@areabox=\box28
+\beamer@animcurrent=\box29
+\beamer@animshowbox=\box30
+\beamer@sectionbox=\box31
+\beamer@logobox=\box32
+\beamer@linebox=\box33
+\beamer@sectioncount=\count84
+\beamer@subsubsectionmax=\count85
+\beamer@subsectionmax=\count86
+\beamer@sectionmax=\count87
+\beamer@totalheads=\count88
+\beamer@headcounter=\count89
+\beamer@partstartpage=\count90
+\beamer@sectionstartpage=\count91
+\beamer@subsectionstartpage=\count92
+\beamer@animationtempa=\count93
+\beamer@animationtempb=\count94
+\beamer@xpos=\count95
+\beamer@ypos=\count96
+\beamer@showpartnumber=\count97
+\beamer@currentsubsection=\count98
+\beamer@coveringdepth=\count99
+\beamer@sectionadjust=\count100
+\beamer@tocsectionnumber=\count101
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
+Package: beamerbaseoptions 2013/03/10 (rcs-revision 47431932db0d)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+))
+\beamer@paperwidth=\skip42
+\beamer@paperheight=\skip43
+
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count102
+\Gm@cntv=\count103
+\c@Gm@tempcnt=\count104
+\Gm@bindingoffset=\dimen119
+\Gm@wd@mp=\dimen120
+\Gm@odd@mp=\dimen121
+\Gm@even@mp=\dimen122
+\Gm@layoutwidth=\dimen123
+\Gm@layoutheight=\dimen124
+\Gm@layouthoffset=\dimen125
+\Gm@layoutvoffset=\dimen126
+\Gm@dimlist=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 95.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count105
+))
+\Gin@req@height=\dimen127
+\Gin@req@width=\dimen128
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks16
+\pgfutil@tempdima=\dimen129
+\pgfutil@tempdimb=\dimen130
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box34
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks17
+\pgfkeys@temptoks=\toks18
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex
+\pgfkeys@tmptoks=\toks19
+))
+\pgf@x=\dimen131
+\pgf@y=\dimen132
+\pgf@xa=\dimen133
+\pgf@ya=\dimen134
+\pgf@xb=\dimen135
+\pgf@yb=\dimen136
+\pgf@xc=\dimen137
+\pgf@yc=\dimen138
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count106
+\c@pgf@countb=\count107
+\c@pgf@countc=\count108
+\c@pgf@countd=\count109
+\t@pgf@toka=\toks20
+\t@pgf@tokb=\toks21
+\t@pgf@tokc=\toks22
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count110
+\pgfsyssoftpath@bigbuffer@items=\count111
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen139
+\pgfmath@count=\count112
+\pgfmath@box=\box35
+\pgfmath@toks=\toks23
+\pgfmath@stack@operand=\toks24
+\pgfmath@stack@operation=\toks25
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count113
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen140
+\pgf@picmaxx=\dimen141
+\pgf@picminy=\dimen142
+\pgf@picmaxy=\dimen143
+\pgf@pathminx=\dimen144
+\pgf@pathmaxx=\dimen145
+\pgf@pathminy=\dimen146
+\pgf@pathmaxy=\dimen147
+\pgf@xx=\dimen148
+\pgf@xy=\dimen149
+\pgf@yx=\dimen150
+\pgf@yy=\dimen151
+\pgf@zx=\dimen152
+\pgf@zy=\dimen153
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen154
+\pgf@path@lasty=\dimen155
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen156
+\pgf@shorten@start@additional=\dimen157
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box36
+\pgf@hbox=\box37
+\pgf@layerbox@main=\box38
+\pgf@picture@serial@count=\count114
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen158
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen159
+\pgf@pt@y=\dimen160
+\pgf@pt@temp=\dimen161
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen162
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen163
+\pgf@sys@shading@range@num=\count115
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box39
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+))) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count116
+\XC@countmixins=\count117
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package hobsub Info: Skipping package `atbegshi' (already loaded).
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen164
+\Hy@linkcounter=\count118
+\Hy@pagecounter=\count119
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count120
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 4319.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4319.
+Package hyperref Info: Option `implicit' set `false' on input line 4319.
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count121
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen165
+\Fld@menulength=\count122
+\Field@Width=\dimen166
+\Fld@charsize=\dimen167
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count123
+
+
+Package hyperref Message: Stopped early.
+
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count124
+\c@bookmark@seq@number=\count125
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaserequires.sty
+Package: beamerbaserequires 2010/05/01  (rcs-revision efa082c6111d)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasecompatibility.sty
+Package: beamerbasecompatibility 2012/05/01  (rcs-revision 67c48b3b652d)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasefont.sty
+Package: beamerbasefont 2015/01/05  (rcs-revision b4b4bee242e2)
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks26
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+Package: sansmathaccent 2013/03/28
+
+(/usr/share/texlive/texmf-dist/tex/latex/filehook/filehook.sty
+Package: filehook 2011/10/12 v0.5d Hooks for input files
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
+Package: beamerbasetranslator 2010/06/11  (rcs-revision 85fd1cc7fc42)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/translator.sty
+Package: translator 2010/06/12 ver 1.10
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/translator-language-
+mappings.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemisc.sty
+Package: beamerbasemisc 2013/09/03  (rcs-revision a55719c41d85)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty
+Package: beamerbasetwoscreens 2010/05/01  (rcs-revision efa082c6111d)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
+Package: beamerbaseoverlay 2013/12/25  (rcs-revision f6bd5e3805da)
+\beamer@argscount=\count126
+\beamer@lastskipcover=\skip44
+\beamer@trivlistdepth=\count127
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetitle.sty
+Package: beamerbasetitle 2010/09/21  (rcs-revision f0446ed0b6ae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasesection.sty
+Package: beamerbasesection 2013/06/07  (rcs-revision 60b9fe0f342f)
+\c@lecture=\count128
+\c@part=\count129
+\c@section=\count130
+\c@subsection=\count131
+\c@subsubsection=\count132
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
+Package: beamerbaseframe 2014/02/20  (rcs-revision 4b8ceeeff434)
+\beamer@framebox=\box40
+\beamer@frametitlebox=\box41
+\beamer@zoombox=\box42
+\beamer@zoomcount=\count133
+\beamer@zoomframecount=\count134
+\beamer@frametextheight=\dimen168
+\c@subsectionslide=\count135
+\beamer@frametopskip=\skip45
+\beamer@framebottomskip=\skip46
+\beamer@frametopskipautobreak=\skip47
+\beamer@framebottomskipautobreak=\skip48
+\beamer@envbody=\toks27
+\framewidth=\dimen169
+\c@framenumber=\count136
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
+Package: beamerbaseverbatim 2015/01/05  (rcs-revision 431510bb5890)
+\beamer@verbatimfileout=\write4
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
+Package: beamerbaseframesize 2011/09/12  (rcs-revision 70f9d8411e54)
+\beamer@splitbox=\box43
+\beamer@autobreakcount=\count137
+\beamer@autobreaklastheight=\dimen170
+\beamer@frametitletoks=\toks28
+\beamer@framesubtitletoks=\toks29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.sty
+Package: beamerbaseframecomponents 2013/10/18  (rcs-revision 5cf6c5555a45)
+\beamer@footins=\box44
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasecolor.sty
+Package: beamerbasecolor 2015/02/21  (rcs-revision d944b04ee2d5)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
+Package: beamerbasenotes 2012/12/19  (rcs-revision 1686da3db3c9)
+\beamer@frameboxcopy=\box45
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetoc.sty
+Package: beamerbasetoc 2015/03/08  (rcs-revision 7270298bbaae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
+Package: beamerbasetemplates 2010/05/01  (rcs-revision efa082c6111d)
+\beamer@sbttoks=\toks30
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
+Package: beamerbaseauxtemplates 2014/06/30  (rcs-revision 580088513a67)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+Package: beamerbaseboxes 2012/05/13  (rcs-revision 56972908a390)
+\bmb@box=\box46
+\bmb@colorbox=\box47
+\bmb@boxshadow=\box48
+\bmb@boxshadowball=\box49
+\bmb@boxshadowballlarge=\box50
+\bmb@temp=\dimen171
+\bmb@dima=\dimen172
+\bmb@dimb=\dimen173
+\bmb@prevheight=\dimen174
+)
+\beamer@blockheadheight=\dimen175
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.sty
+Package: beamerbaselocalstructure 2014/09/10  (rcs-revision 393f6dcff371)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks31
+)
+\c@figure=\count138
+\c@table=\count139
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
+Package: beamerbasenavigation 2015/02/27  (rcs-revision 923f4bf87efa)
+\beamer@section@min@dim=\dimen176
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
+Package: beamerbasetheorems 2010/06/06  (rcs-revision 7e7cc5e53e9d)
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks32
+\ex@=\dimen177
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen178
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count140
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count141
+\leftroot@=\count142
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count143
+\DOTSCASE@=\count144
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+\big@size=\dimen179
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+\macc@depth=\count145
+\c@MaxMatrixCols=\count146
+\dotsspace@=\muskip11
+\c@parentequation=\count147
+\dspbrk@lvl=\count148
+\tag@help=\toks33
+\row@=\count149
+\column@=\count150
+\maxfields@=\count151
+\andhelp@=\toks34
+\eqnshift@=\dimen180
+\alignsep@=\dimen181
+\tagshift@=\dimen182
+\tagwidth@=\dimen183
+\totwidth@=\dimen184
+\lineht@=\dimen185
+\@envbody=\toks35
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks36
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks37
+\thm@bodyfont=\toks38
+\thm@headfont=\toks39
+\thm@notefont=\toks40
+\thm@headpunct=\toks41
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
+\dth@everypar=\toks42
+)
+\c@theorem=\count152
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasethemes.sty
+Package: beamerbasethemes 2010/05/01  (rcs-revision efa082c6111d)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/theme/beamerthemedefault
+.sty
+Package: beamerthemedefault 2010/06/17  (rcs-revision d02a7cf4d8ae)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/font/beamerfontthemedefa
+ult.sty
+Package: beamerfontthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemede
+fault.sty
+Package: beamercolorthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemede
+fault.sty
+Package: beamerinnerthemedefault 2014/06/30  (rcs-revision 580088513a67)
+\beamer@dima=\dimen186
+\beamer@dimb=\dimen187
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemede
+fault.sty
+Package: beamerouterthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeMadrid.
+sty
+Package: beamerthemeMadrid 2010/06/17  (rcs-revision d02a7cf4d8ae)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemewh
+ale.sty
+Package: beamercolorthemewhale 2010/06/17  (rcs-revision d02a7cf4d8ae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemeor
+chid.sty
+Package: beamercolorthemeorchid 2010/06/17  (rcs-revision d02a7cf4d8ae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemero
+unded.sty
+Package: beamerinnerthemerounded 2010/06/17  (rcs-revision d02a7cf4d8ae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemein
+folines.sty
+Package: beamerouterthemeinfolines 2012/10/16  (rcs-revision 51a8c72084af)
+)) (/usr/share/texlive/texmf-dist/tex/latex/emptypage/emptypage.sty
+Package: emptypage 2010/05/30 v1.2 Suppress page numbers and headings on empty 
+pages
+) (/usr/share/texlive/texmf-dist/tex/latex/layouts/layouts.sty
+Package: layouts 2009/09/02 v2.6d graphical depiction of document elements
+\l@ylen=\skip57
+\layoutsbox=\box53
+\l@youtunitlength=\skip58
+\l@youtlinethick=\skip59
+\l@youtlinethickii=\skip60
+\l@ysetupparskip=\skip61
+\l@ysetupbaselineskip=\skip62
+\l@yonem=\skip63
+\l@yonex=\skip64
+\l@ylmarg=\skip65
+\l@yrmarg=\skip66
+\l@yitmindent=\skip67
+\l@ylblwidth=\skip68
+\l@ylblsep=\skip69
+\l@ylparindent=\skip70
+\l@ytsep=\skip71
+\l@ypskip=\skip72
+\l@yptsep=\skip73
+\l@ypsep=\skip74
+\l@yitmsep=\skip75
+\l@ytok=\toks43
+\l@youtpw=\count153
+\l@youtph=\count154
+\l@youthpi=\count155
+\l@youthpii=\count156
+\l@youthpiii=\count157
+\l@youthpiv=\count158
+\l@youthpv=\count159
+\l@youthpvi=\count160
+\l@youthpvii=\count161
+\l@youtparskip=\count162
+\l@youtvpi=\count163
+\l@youtvpii=\count164
+\l@youtvpiii=\count165
+\l@youtvpiv=\count166
+\l@youtvpv=\count167
+\l@youtvpvi=\count168
+\l@youtvpvii=\count169
+\l@youthdo=\count170
+\l@youthdi=\count171
+\l@youthdii=\count172
+\l@youthdiii=\count173
+\l@youthdiv=\count174
+\l@youthdv=\count175
+\l@youthdvi=\count176
+\l@youthdvii=\count177
+\l@youtvdo=\count178
+\l@youtvdi=\count179
+\l@youtvdii=\count180
+\l@youtvdiii=\count181
+\l@youtvdiv=\count182
+\l@youtvdv=\count183
+\l@youtvdvi=\count184
+\l@youtvdvii=\count185
+\l@youtvdviii=\count186
+\l@youtxci=\count187
+\l@youtxcii=\count188
+\l@youtxciii=\count189
+\l@youtxciv=\count190
+\l@youtxcv=\count191
+\l@youtxcvi=\count192
+\l@youtyci=\count193
+\l@youtycii=\count194
+\l@youtyciii=\count195
+\l@youtyciv=\count196
+\l@youtycv=\count197
+\l@youtycvi=\count198
+\l@youtycvii=\count199
+\l@youtycviii=\count266
+\l@youtxco=\count267
+\l@youtyco=\count268
+\l@ytempdima=\skip76
+\stockwidth=\skip77
+\stockheight=\skip78
+\trimedge=\skip79
+\trimtop=\skip80
+\uppermargin=\skip81
+\spinemargin=\skip82
+)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip83
+\bibsep=\skip84
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count269
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count270
+\float@exts=\toks44
+\float@box=\box54
+\@float@everytoks=\toks45
+\@floatcapt=\box55
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen188
+\captionmargin@=\dimen189
+\captionwidth=\dimen190
+\caption@tempdima=\dimen191
+\caption@indent=\dimen192
+\caption@parindent=\dimen193
+\caption@hangindent=\dimen194
+)
+\c@ContinuedFloat=\count271
+Package caption Info: beamer document class.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/wasysym/wasysym.sty
+Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
+\symwasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
+(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 90.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box56
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen195
+\pgf@nodesepend=\dimen196
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen197
+\pgffor@skip=\dimen198
+\pgffor@stack=\toks46
+\pgffor@toks=\toks47
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count272
+\pgfplotmarksize=\dimen199
+)
+\tikz@lastx=\dimen256
+\tikz@lasty=\dimen257
+\tikz@lastxsaved=\dimen258
+\tikz@lastysaved=\dimen259
+\tikzleveldistance=\dimen260
+\tikzsiblingdistance=\dimen261
+\tikz@figbox=\box57
+\tikz@figbox@bg=\box58
+\tikz@tempbox=\box59
+\tikz@tempbox@bg=\box60
+\tikztreelevel=\count273
+\tikznumberofchildren=\count274
+\tikznumberofcurrentchild=\count275
+\tikz@fig@count=\count276
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count277
+\pgfmatrixcurrentcolumn=\count278
+\pgf@matrix@numberofcolumns=\count279
+)
+\tikz@expandcount=\count280
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
+\c@subfigure=\count281
+\c@subtable=\count282
+)
+(/usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen262
+\extrarowheight=\dimen263
+\NC@list=\toks48
+\extratabsurround=\skip85
+\backup@length=\skip86
+)
+\rotheadsize=\dimen264
+\c@nlinenum=\count283
+\TeXr@lab=\toks49
+)
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count284
+\c@@ppsavesec=\count285
+\c@@ppsaveapp=\count286
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip87
+\LTright=\skip88
+\LTpre=\skip89
+\LTpost=\skip90
+\LTchunksize=\count287
+\LTcapwidth=\dimen265
+\LT@head=\box61
+\LT@firsthead=\box62
+\LT@foot=\box63
+\LT@lastfoot=\box64
+\LT@cols=\count288
+\LT@rows=\count289
+\c@LT@tables=\count290
+\c@LT@chunks=\count291
+\LT@p@ftn=\toks50
+)
+(/usr/share/texlive/texmf-dist/tex/latex/cprotect/cprotect.sty
+Package: cprotect 2011/01/27 v1.0e (Bruno Le Floch)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/bigfoot/suffix.sty
+Package: suffix 2006/07/15 1.5a Variant command support
+)
+\CPT@WriteOut=\write5
+\c@CPT@WriteCount=\count292
+\c@CPT@numB=\count293
+\CPT@commandatend@toks=\toks51
+)
+(/usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
+Package cleveref Info: `amsthm' support loaded on input line 2858.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen266
+\lightrulewidth=\dimen267
+\cmidrulewidth=\dimen268
+\belowrulesep=\dimen269
+\belowbottomsep=\dimen270
+\aboverulesep=\dimen271
+\abovetopsep=\dimen272
+\cmidrulesep=\dimen273
+\cmidrulekern=\dimen274
+\defaultaddspace=\dimen275
+\@cmidla=\count294
+\@cmidlb=\count295
+\@aboverulesep=\dimen276
+\@belowrulesep=\dimen277
+\@thisruleclass=\count296
+\@lastruleclass=\count297
+\@thisrulewidth=\dimen278
+)
+(./presentation_1.aux
+
+LaTeX Warning: Label `External force lhs' multiply defined.
+
+
+LaTeX Warning: Label `External force lhs@cref' multiply defined.
+
+
+LaTeX Warning: Label `External force rhs' multiply defined.
+
+
+LaTeX Warning: Label `External force rhs@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:figure2' multiply defined.
+
+
+LaTeX Warning: Label `fig:figure2@cref' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:figure2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:figure2@cref' multiply defined.
+
+
+LaTeX Warning: Label `figure_2_all' multiply defined.
+
+
+LaTeX Warning: Label `figure_2_all@cref' multiply defined.
+
+)
+\openout1 = `presentation_1.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(10.95003pt, 342.2953pt, 10.95003pt)
+* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
+* \paperwidth=364.19536pt
+* \paperheight=273.14662pt
+* \textwidth=342.2953pt
+* \textheight=244.6939pt
+* \oddsidemargin=-61.31996pt
+* \evensidemargin=-61.31996pt
+* \topmargin=-72.26999pt
+* \headheight=14.22636pt
+* \headsep=0.0pt
+* \topskip=11.0pt
+* \footskip=14.22636pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count298
+\scratchdimen=\dimen279
+\scratchbox=\box65
+\nofMPsegments=\count299
+\nofMParguments=\count300
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count301
+\MPscratchDim=\dimen280
+\MPnumerator=\count302
+\makeMPintoPDFobject=\count303
+\everyMPtoPDFconversion=\toks53
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+ABD: EveryShipout initializing macros
+\AtBeginShipoutBox=\box66
+
+
+Package hyperref Warning: Height of page (\stockheight) is invalid (0.0pt),
+(hyperref)                using 11in.
+
+Package hyperref Info: Link coloring OFF on input line 119.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count304
+)
+LaTeX Info: Redefining \ref on input line 119.
+LaTeX Info: Redefining \pageref on input line 119.
+LaTeX Info: Redefining \nameref on input line 119.
+
+(./presentation_1.out) (./presentation_1.out)
+\@outlinefile=\write6
+\openout6 = `presentation_1.out'.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 119.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 119.
+\symnumbers=\mathgroup7
+\sympureletters=\mathgroup8
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 119.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 119.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 119.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 119.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 119.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 119.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 119.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 119.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 1
+19.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
+119.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
+ut line 119.
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bas
+ic-dictionary/translator-basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bib
+liography-dictionary/translator-bibliography-dictionary-English.dict
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-env
+ironment-dictionary/translator-environment-dictionary-English.dict
+Dictionary: translator-environment-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-mon
+ths-dictionary/translator-months-dictionary-English.dict
+Dictionary: translator-months-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-num
+bers-dictionary/translator-numbers-dictionary-English.dict
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-the
+orem-dictionary/translator-theorem-dictionary-English.dict
+Dictionary: translator-theorem-dictionary, Language: English 
+)
+LaTeX Info: Redefining \includegraphics on input line 119.
+
+
+Package layouts Warning: Layout scale set to 0.5 on input line 119.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: longtable package is loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
+)
+Package caption Info: End \AtBeginDocument code.
+
+(./presentation_1.nav)
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
+(Font)              size <5> substituted on input line 123.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./presentation_1.toc)
+[2
+
+] [3
+
+]
+LaTeX Font Info:    Try loading font information for U+msa on input line 174.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 174.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+wasy on input line 174.
+
+(/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
+File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 174.
+
+(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
+[4
+
+] [5
+
+] [6
+
+]pdfTeX warning (ext4): destination with the same identifier (name{External\040
+force\040lhs}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.231 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{External\040force\040rhs}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.231 \end{frame}
+                  [7
+
+] [8
+
+] [9
+
+] [10
+
+] <domain.jpg, id=347, 276.03125pt x 240.9pt>
+File: domain.jpg Graphic file (type jpg)
+
+<use domain.jpg>
+Package pdftex.def Info: domain.jpg used on input line 330.
+(pdftex.def)             Requested size: 154.03183pt x 134.43256pt.
+ <grid.jpg, id=348, 260.975pt x 161.60374pt>
+File: grid.jpg Graphic file (type jpg)
+ <use grid.jpg>
+Package pdftex.def Info: grid.jpg used on input line 330.
+(pdftex.def)             Requested size: 154.03183pt x 95.38237pt.
+
+[11
+
+ <./domain.jpg> <./grid.jpg>]
+<ch_3_fig_1.jpg, id=381, 318.43968pt x 190.46156pt>
+File: ch_3_fig_1.jpg Graphic file (type jpg)
+ <use ch_3_fig_1.jpg>
+Package pdftex.def Info: ch_3_fig_1.jpg used on input line 343.
+(pdftex.def)             Requested size: 308.06367pt x 184.25632pt.
+
+[12
+
+ <./ch_3_fig_1.jpg>] [13
+
+] [14
+
+] [15
+
+] [16
+
+]
+Overfull \vbox (6.20444pt too high) detected at line 461
+ []
+
+[17
+
+] [18
+
+]
+Overfull \vbox (0.52591pt too high) detected at line 519
+ []
+
+[19
+
+] [20
+
+]
+Overfull \vbox (25.13992pt too high) detected at line 579
+ []
+
+[21
+
+] [22
+
+] [23
+
+] [24
+
+] [25
+
+] [26
+
+] [27
+
+] [28
+
+] [29
+
+]
+Overfull \hbox (44.55177pt too wide) detected at line 835
+[] [] \OT1/cmss/m/n/10.95 = []  []
+ []
+
+[30
+
+] [31
+
+]
+Overfull \vbox (10.36246pt too high) detected at line 904
+ []
+
+[32
+
+] [33
+
+] [34
+
+] [35
+
+] [36
+
+] [37
+
+]
+
+LaTeX Warning: Reference `figure_3_all' on page 38 undefined on input line 1066
+.
+
+
+LaTeX Warning: Reference `figure_4_all' on page 38 undefined on input line 1066
+.
+
+
+LaTeX Warning: Reference `figure_5' on page 38 undefined on input line 1066.
+
+
+LaTeX Warning: Reference `figure_6' on page 38 undefined on input line 1066.
+
+
+LaTeX Warning: Reference `figure_7' on page 38 undefined on input line 1066.
+
+
+LaTeX Warning: Reference `figure_81' on page 38 undefined on input line 1066.
+
+
+LaTeX Warning: Reference `figure_91' on page 38 undefined on input line 1066.
+
+
+LaTeX Warning: Reference `figure_82' on page 38 undefined on input line 1066.
+
+
+LaTeX Warning: Reference `figure_92' on page 38 undefined on input line 1066.
+
+
+Overfull \hbox (37.59995pt too wide) in paragraph at lines 1066--1066
+ [] 
+ []
+
+[38
+
+] <figure1.jpg, id=1157, 1540.75626pt x 824.07875pt>
+File: figure1.jpg Graphic file (type jpg)
+ <use figure1.jpg>
+Package pdftex.def Info: figure1.jpg used on input line 1077.
+(pdftex.def)             Requested size: 342.2953pt x 183.07088pt.
+
+[39
+
+ <./figure1.jpg>] <figure21.jpg, id=1184, 562.1pt x 421.575pt>
+File: figure21.jpg Graphic file (type jpg)
+
+<use figure21.jpg>
+Package pdftex.def Info: figure21.jpg used on input line 1115.
+(pdftex.def)             Requested size: 136.91603pt x 102.68532pt.
+ <figure22.jpg, id=1185, 562.1pt x 421.575pt>
+File: figure22.jpg Graphic file (type jpg)
+
+<use figure22.jpg>
+Package pdftex.def Info: figure22.jpg used on input line 1115.
+(pdftex.def)             Requested size: 136.91603pt x 102.68532pt.
+ <figure23.jpg, id=1186, 562.1pt x 421.575pt>
+File: figure23.jpg Graphic file (type jpg)
+
+<use figure23.jpg>
+Package pdftex.def Info: figure23.jpg used on input line 1115.
+(pdftex.def)             Requested size: 136.91603pt x 102.68532pt.
+ <figure24.jpg, id=1187, 562.1pt x 421.575pt>
+File: figure24.jpg Graphic file (type jpg)
+
+<use figure24.jpg>
+Package pdftex.def Info: figure24.jpg used on input line 1115.
+(pdftex.def)             Requested size: 136.91603pt x 102.68532pt.
+ <figure2.jpg, id=1188, 562.1pt x 421.575pt>
+File: figure2.jpg Graphic file (type jpg)
+
+<use figure2.jpg>
+Package pdftex.def Info: figure2.jpg used on input line 1115.
+(pdftex.def)             Requested size: 342.2953pt x 256.72295pt.
+
+Overfull \vbox (334.023pt too high) detected at line 1115
+ []
+
+[40
+
+ <./figure21.jpg> <./figure22.jpg> <./figure23.jpg> <./figure24.jpg> <./figure2
+.jpg>]
+File: figure2.jpg Graphic file (type jpg)
+ <use figure2.jpg>
+Package pdftex.def Info: figure2.jpg used on input line 1130.
+(pdftex.def)             Requested size: 219.07065pt x 164.30423pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:figure2})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1130 \end{frame}
+                  pdfTeX warning (ext4): destination with the same identifier (
+name{sub@fig:figure2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1130 \end{frame}
+                  pdfTeX warning (ext4): destination with the same identifier (
+name{figure_2_all}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1130 \end{frame}
+                   [41
+
+] [42
+
+] [43
+
+]
+<l2_velocity_stokes.jpg, id=1305, 2406.9925pt x 1287.81125pt>
+File: l2_velocity_stokes.jpg Graphic file (type jpg)
+
+<use l2_velocity_stokes.jpg>
+Package pdftex.def Info: l2_velocity_stokes.jpg used on input line 1186.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+
+<l2_pressure_stokes.jpg, id=1306, 2406.9925pt x 1287.81125pt>
+File: l2_pressure_stokes.jpg Graphic file (type jpg)
+
+<use l2_pressure_stokes.jpg>
+Package pdftex.def Info: l2_pressure_stokes.jpg used on input line 1186.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+ [44
+
+ <./l2_velocity_stokes.jpg> <./l2_pressure_stokes.jpg>] <l2_velocity_log_stokes
+.jpg, id=1338, 2406.9925pt x 1287.81125pt>
+File: l2_velocity_log_stokes.jpg Graphic file (type jpg)
+
+<use l2_velocity_log_stokes.jpg>
+Package pdftex.def Info: l2_velocity_log_stokes.jpg used on input line 1204.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+
+<l2_pressure_log_stokes.jpg, id=1339, 2406.9925pt x 1287.81125pt>
+File: l2_pressure_log_stokes.jpg Graphic file (type jpg)
+
+<use l2_pressure_log_stokes.jpg>
+Package pdftex.def Info: l2_pressure_log_stokes.jpg used on input line 1204.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+ [45
+
+ <./l2_velocity_log_stokes.jpg> <./l2_pressure_log_stokes.jpg>]
+<h0_velocity_stokes.jpg, id=1371, 2406.9925pt x 1287.81125pt>
+File: h0_velocity_stokes.jpg Graphic file (type jpg)
+
+<use h0_velocity_stokes.jpg>
+Package pdftex.def Info: h0_velocity_stokes.jpg used on input line 1221.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+
+<h0_pressure_stokes.jpg, id=1372, 2406.9925pt x 1287.81125pt>
+File: h0_pressure_stokes.jpg Graphic file (type jpg)
+
+<use h0_pressure_stokes.jpg>
+Package pdftex.def Info: h0_pressure_stokes.jpg used on input line 1221.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+ [46
+
+ <./h0_velocity_stokes.jpg> <./h0_pressure_stokes.jpg>] <h0_velocity_log_stokes
+.jpg, id=1403, 2406.9925pt x 1287.81125pt>
+File: h0_velocity_log_stokes.jpg Graphic file (type jpg)
+
+<use h0_velocity_log_stokes.jpg>
+Package pdftex.def Info: h0_velocity_log_stokes.jpg used on input line 1239.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+
+<h0_pressure_log_stokes.jpg, id=1404, 2406.9925pt x 1287.81125pt>
+File: h0_pressure_log_stokes.jpg Graphic file (type jpg)
+
+<use h0_pressure_log_stokes.jpg>
+Package pdftex.def Info: h0_pressure_log_stokes.jpg used on input line 1239.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+ [47
+
+ <./h0_velocity_log_stokes.jpg> <./h0_pressure_log_stokes.jpg>]
+<p_conv_velocity_l2_stokes.jpg, id=1436, 562.1pt x 421.575pt>
+File: p_conv_velocity_l2_stokes.jpg Graphic file (type jpg)
+
+<use p_conv_velocity_l2_stokes.jpg>
+Package pdftex.def Info: p_conv_velocity_l2_stokes.jpg used on input line 1264.
+
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+
+<p_conv_velocity_h0_stokes.jpg, id=1437, 562.1pt x 421.575pt>
+File: p_conv_velocity_h0_stokes.jpg Graphic file (type jpg)
+
+<use p_conv_velocity_h0_stokes.jpg>
+Package pdftex.def Info: p_conv_velocity_h0_stokes.jpg used on input line 1264.
+
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+
+<p_conv_pressure_l2_stokes.jpg, id=1438, 562.1pt x 421.575pt>
+File: p_conv_pressure_l2_stokes.jpg Graphic file (type jpg)
+
+<use p_conv_pressure_l2_stokes.jpg>
+Package pdftex.def Info: p_conv_pressure_l2_stokes.jpg used on input line 1264.
+
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+ [48
+
+ <./p_conv_velocity_l2_stokes.jpg> <./p_conv_velocity_h0_stokes.jpg> <./p_conv_
+pressure_l2_stokes.jpg>] [49
+
+]
+<cylinder_schur_vx.jpg, id=1500, 878.28125pt x 658.46pt>
+File: cylinder_schur_vx.jpg Graphic file (type jpg)
+
+<use cylinder_schur_vx.jpg>
+Package pdftex.def Info: cylinder_schur_vx.jpg used on input line 1297.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
+
+<cylinder_schur_vy.jpg, id=1501, 862.22125pt x 611.28375pt>
+File: cylinder_schur_vy.jpg Graphic file (type jpg)
+
+<use cylinder_schur_vy.jpg>
+Package pdftex.def Info: cylinder_schur_vy.jpg used on input line 1297.
+(pdftex.def)             Requested size: 102.68962pt x 72.80057pt.
+
+<cylinder_schur_pressure.jpg, id=1502, 878.28125pt x 658.46pt>
+File: cylinder_schur_pressure.jpg Graphic file (type jpg)
+
+<use cylinder_schur_pressure.jpg>
+Package pdftex.def Info: cylinder_schur_pressure.jpg used on input line 1297.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
+ [50
+
+ <./cylinder_schur_vx.jpg> <./cylinder_schur_vy.jpg> <./cylinder_schur_pressure
+.jpg>] [51
+
+]
+<lid_schur_vx.jpg, id=1563, 878.28125pt x 658.46pt>
+File: lid_schur_vx.jpg Graphic file (type jpg)
+ <use lid_schur_vx.jpg>
+Package pdftex.def Info: lid_schur_vx.jpg used on input line 1336.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
+
+<lid_schur_vy.jpg, id=1564, 878.28125pt x 658.46pt>
+File: lid_schur_vy.jpg Graphic file (type jpg)
+ <use lid_schur_vy.jpg>
+Package pdftex.def Info: lid_schur_vy.jpg used on input line 1336.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
+
+<lid_schur_pressure.jpg, id=1565, 894.34125pt x 705.63625pt>
+File: lid_schur_pressure.jpg Graphic file (type jpg)
+
+<use lid_schur_pressure.jpg>
+Package pdftex.def Info: lid_schur_pressure.jpg used on input line 1336.
+(pdftex.def)             Requested size: 102.68962pt x 81.01187pt.
+ [52
+
+ <./lid_schur_vx.jpg> <./lid_schur_vy.jpg> <./lid_schur_pressure.jpg>] <lid_bic
+gstab_vx.jpg, id=1599, 562.1pt x 421.575pt>
+File: lid_bicgstab_vx.jpg Graphic file (type jpg)
+
+<use lid_bicgstab_vx.jpg>
+Package pdftex.def Info: lid_bicgstab_vx.jpg used on input line 1359.
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+ <lid_bicgstab_vy.jpg, id=1600, 562.1pt x 421.575pt>
+File: lid_bicgstab_vy.jpg Graphic file (type jpg)
+
+<use lid_bicgstab_vy.jpg>
+Package pdftex.def Info: lid_bicgstab_vy.jpg used on input line 1359.
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+
+<lid_bicgstab_pressure.jpg, id=1601, 562.1pt x 421.575pt>
+File: lid_bicgstab_pressure.jpg Graphic file (type jpg)
+
+<use lid_bicgstab_pressure.jpg>
+Package pdftex.def Info: lid_bicgstab_pressure.jpg used on input line 1359.
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+ [53
+
+ <./lid_bicgstab_vx.jpg> <./lid_bicgstab_vy.jpg> <./lid_bicgstab_pressure.jpg>]
+
+<lid_minres_vx.jpg, id=1635, 878.28125pt x 658.46pt>
+File: lid_minres_vx.jpg Graphic file (type jpg)
+ <use lid_minres_vx.jpg>
+Package pdftex.def Info: lid_minres_vx.jpg used on input line 1382.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
+
+<lid_minres_vy.jpg, id=1636, 878.28125pt x 658.46pt>
+File: lid_minres_vy.jpg Graphic file (type jpg)
+ <use lid_minres_vy.jpg>
+Package pdftex.def Info: lid_minres_vy.jpg used on input line 1382.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
+
+<lid_minres_pressure.jpg, id=1637, 878.28125pt x 658.46pt>
+File: lid_minres_pressure.jpg Graphic file (type jpg)
+
+<use lid_minres_pressure.jpg>
+Package pdftex.def Info: lid_minres_pressure.jpg used on input line 1382.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
+ [54
+
+ <./lid_minres_vx.jpg> <./lid_minres_vy.jpg> <./lid_minres_pressure.jpg>]
+<grid_penalty_parameter.jpg, id=1672, 572.1375pt x 451.6875pt>
+File: grid_penalty_parameter.jpg Graphic file (type jpg)
+
+<use grid_penalty_parameter.jpg>
+Package pdftex.def Info: grid_penalty_parameter.jpg used on input line 1402.
+(pdftex.def)             Requested size: 136.91603pt x 108.09016pt.
+
+<penalty_condition_number.jpg, id=1673, 1540.75626pt x 824.07875pt>
+File: penalty_condition_number.jpg Graphic file (type jpg)
+
+<use penalty_condition_number.jpg>
+Package pdftex.def Info: penalty_condition_number.jpg used on input line 1402.
+(pdftex.def)             Requested size: 136.91603pt x 73.2208pt.
+ [55
+
+ <./grid_penalty_parameter.jpg> <./penalty_condition_number.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1421--1421
+[]|\OT1/cmss/m/n/10.95 Schur com-ple-ment
+ []
+
+
+Overfull \hbox (3.37354pt too wide) in alignment at lines 1421--1421
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1421
+ []
+
+[56
+
+] [57
+
+]
+Overfull \vbox (5.13641pt too high) detected at line 1451
+ []
+
+[58
+
+] <L2_convergence_velocity_n_s.jpg, id=1785, 2406.9925pt x 1287.81125pt>
+File: L2_convergence_velocity_n_s.jpg Graphic file (type jpg)
+
+<use L2_convergence_velocity_n_s.jpg>
+Package pdftex.def Info: L2_convergence_velocity_n_s.jpg used on input line 146
+9.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+
+<L2_convergence_pressure_n_s.jpg, id=1786, 2406.9925pt x 1287.81125pt>
+File: L2_convergence_pressure_n_s.jpg Graphic file (type jpg)
+
+<use L2_convergence_pressure_n_s.jpg>
+Package pdftex.def Info: L2_convergence_pressure_n_s.jpg used on input line 146
+9.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+ [59
+
+ <./L2_convergence_velocity_n_s.jpg> <./L2_convergence_pressure_n_s.jpg>]
+<L2_convergence_velocity_n_s_log.jpg, id=1818, 2406.9925pt x 1287.81125pt>
+File: L2_convergence_velocity_n_s_log.jpg Graphic file (type jpg)
+
+<use L2_convergence_velocity_n_s_log.jpg>
+Package pdftex.def Info: L2_convergence_velocity_n_s_log.jpg used on input line
+ 1487.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+
+<L2_convergence_pressure_n_s_log.jpg, id=1819, 2406.9925pt x 1287.81125pt>
+File: L2_convergence_pressure_n_s_log.jpg Graphic file (type jpg)
+
+<use L2_convergence_pressure_n_s_log.jpg>
+Package pdftex.def Info: L2_convergence_pressure_n_s_log.jpg used on input line
+ 1487.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+ [60
+
+ <./L2_convergence_velocity_n_s_log.jpg> <./L2_convergence_pressure_n_s_log.jpg
+>]
+<H0_convergence_velocity_n_s.jpg, id=1851, 878.28125pt x 658.46pt>
+File: H0_convergence_velocity_n_s.jpg Graphic file (type jpg)
+
+<use H0_convergence_velocity_n_s.jpg>
+Package pdftex.def Info: H0_convergence_velocity_n_s.jpg used on input line 150
+5.
+(pdftex.def)             Requested size: 136.91603pt x 102.64299pt.
+
+<H0_convergence_pressure_n_s.jpg, id=1852, 2406.9925pt x 1287.81125pt>
+File: H0_convergence_pressure_n_s.jpg Graphic file (type jpg)
+
+<use H0_convergence_pressure_n_s.jpg>
+Package pdftex.def Info: H0_convergence_pressure_n_s.jpg used on input line 150
+5.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+ [61
+
+ <./H0_convergence_velocity_n_s.jpg> <./H0_convergence_pressure_n_s.jpg>]
+<H0_convergence_velocity_n_s_log.jpg, id=1885, 2406.9925pt x 1287.81125pt>
+File: H0_convergence_velocity_n_s_log.jpg Graphic file (type jpg)
+
+<use H0_convergence_velocity_n_s_log.jpg>
+Package pdftex.def Info: H0_convergence_velocity_n_s_log.jpg used on input line
+ 1523.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+
+<H0_convergence_pressure_n_s_log.jpg, id=1886, 2406.9925pt x 1287.81125pt>
+File: H0_convergence_pressure_n_s_log.jpg Graphic file (type jpg)
+
+<use H0_convergence_pressure_n_s_log.jpg>
+Package pdftex.def Info: H0_convergence_pressure_n_s_log.jpg used on input line
+ 1523.
+(pdftex.def)             Requested size: 136.91603pt x 73.237pt.
+ [62
+
+ <./H0_convergence_velocity_n_s_log.jpg> <./H0_convergence_pressure_n_s_log.jpg
+>] [63
+
+]
+<cylinder_newton_vx_schur.jpg, id=1945, 562.1pt x 421.575pt>
+File: cylinder_newton_vx_schur.jpg Graphic file (type jpg)
+
+<use cylinder_newton_vx_schur.jpg>
+Package pdftex.def Info: cylinder_newton_vx_schur.jpg used on input line 1556.
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+
+<cylinder_newton_vy_schur.jpg, id=1946, 552.0625pt x 391.4625pt>
+File: cylinder_newton_vy_schur.jpg Graphic file (type jpg)
+
+<use cylinder_newton_vy_schur.jpg>
+Package pdftex.def Info: cylinder_newton_vy_schur.jpg used on input line 1556.
+(pdftex.def)             Requested size: 102.68962pt x 72.81366pt.
+
+<cylinder_newton_pressure_schur.jpg, id=1947, 878.28125pt x 658.46pt>
+File: cylinder_newton_pressure_schur.jpg Graphic file (type jpg)
+
+<use cylinder_newton_pressure_schur.jpg>
+Package pdftex.def Info: cylinder_newton_pressure_schur.jpg used on input line 
+1556.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
+ [64
+
+ <./cylinder_newton_vx_schur.jpg> <./cylinder_newton_vy_schur.jpg> <./cylinder_
+newton_pressure_schur.jpg>]
+<cylinder_newton_vx_bicgstab.jpg, id=1981, 562.1pt x 421.575pt>
+File: cylinder_newton_vx_bicgstab.jpg Graphic file (type jpg)
+
+<use cylinder_newton_vx_bicgstab.jpg>
+Package pdftex.def Info: cylinder_newton_vx_bicgstab.jpg used on input line 157
+9.
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+
+<cylinder_newton_vy_bicgstab.jpg, id=1982, 552.0625pt x 391.4625pt>
+File: cylinder_newton_vy_bicgstab.jpg Graphic file (type jpg)
+
+<use cylinder_newton_vy_bicgstab.jpg>
+Package pdftex.def Info: cylinder_newton_vy_bicgstab.jpg used on input line 157
+9.
+(pdftex.def)             Requested size: 102.68962pt x 72.81366pt.
+
+<cylinder_newton_pressure_bicgstab.jpg, id=1983, 562.1pt x 421.575pt>
+File: cylinder_newton_pressure_bicgstab.jpg Graphic file (type jpg)
+
+<use cylinder_newton_pressure_bicgstab.jpg>
+Package pdftex.def Info: cylinder_newton_pressure_bicgstab.jpg used on input li
+ne 1579.
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+ [65
+
+ <./cylinder_newton_vx_bicgstab.jpg> <./cylinder_newton_vy_bicgstab.jpg> <./cyl
+inder_newton_pressure_bicgstab.jpg>] <cylinder_newton_vx_minres.jpg, id=2018, 5
+62.1pt x 421.575pt>
+File: cylinder_newton_vx_minres.jpg Graphic file (type jpg)
+
+<use cylinder_newton_vx_minres.jpg>
+Package pdftex.def Info: cylinder_newton_vx_minres.jpg used on input line 1602.
+
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+
+<cylinder_newton_vy_minres.jpg, id=2019, 562.1pt x 421.575pt>
+File: cylinder_newton_vy_minres.jpg Graphic file (type jpg)
+
+<use cylinder_newton_vy_minres.jpg>
+Package pdftex.def Info: cylinder_newton_vy_minres.jpg used on input line 1602.
+
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+
+<cylinder_newton_pressure_minres.jpg, id=2020, 878.28125pt x 658.46pt>
+File: cylinder_newton_pressure_minres.jpg Graphic file (type jpg)
+
+<use cylinder_newton_pressure_minres.jpg>
+Package pdftex.def Info: cylinder_newton_pressure_minres.jpg used on input line
+ 1602.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
+ [66
+
+ <./cylinder_newton_vx_minres.jpg> <./cylinder_newton_vy_minres.jpg> <./cylinde
+r_newton_pressure_minres.jpg>]
+[67
+
+] <lid_newton_vx_schur.jpg, id=2080, 562.1pt x 421.575pt>
+File: lid_newton_vx_schur.jpg Graphic file (type jpg)
+
+<use lid_newton_vx_schur.jpg>
+Package pdftex.def Info: lid_newton_vx_schur.jpg used on input line 1641.
+(pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
+
+<lid_newton_vy_schur.jpg, id=2081, 552.0625pt x 391.4625pt>
+File: lid_newton_vy_schur.jpg Graphic file (type jpg)
+
+<use lid_newton_vy_schur.jpg>
+Package pdftex.def Info: lid_newton_vy_schur.jpg used on input line 1641.
+(pdftex.def)             Requested size: 102.68962pt x 72.81366pt.
+
+<lid_newton_pressure_schur.jpg, id=2082, 894.34125pt x 705.63625pt>
+File: lid_newton_pressure_schur.jpg Graphic file (type jpg)
+
+<use lid_newton_pressure_schur.jpg>
+Package pdftex.def Info: lid_newton_pressure_schur.jpg used on input line 1641.
+
+(pdftex.def)             Requested size: 102.68962pt x 81.01187pt.
+ [68
+
+ <./lid_newton_vx_schur.jpg> <./lid_newton_vy_schur.jpg> <./lid_newton_pressure
+_schur.jpg>] [69
+
+] [70
+
+]
+(./presentation_1.bbl) [71
+
+]
+\tf@nav=\write7
+\openout7 = `presentation_1.nav'.
+
+\tf@toc=\write8
+\openout8 = `presentation_1.toc'.
+
+\tf@snm=\write9
+\openout9 = `presentation_1.snm'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1684.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1684.
+ (./presentation_1.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1684.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1684.
+
+Package rerunfilecheck Info: File `presentation_1.out' has not changed.
+(rerunfilecheck)             Checksum: 716AD55D0B4146046189B2B87D90A03F;375.
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.0pt have occurred.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1684.
+ ) 
+Here is how much of TeX's memory you used:
+ 24767 strings out of 493029
+ 485909 string characters out of 6136233
+ 579703 words of memory out of 5000000
+ 27392 multiletter control sequences out of 15000+600000
+ 21266 words of font info for 79 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 56i,23n,62p,422b,697s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{figure_92} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure_82} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{figure_91} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{figure_81} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{figure_7} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{figure_6} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{figure_5} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{figure_4_all} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure_3_all} has been referenced but does not exis
+t, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+si8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on presentation_1.pdf (71 pages, 4100750 bytes).
+PDF statistics:
+ 2325 PDF objects out of 2487 (max. 8388607)
+ 2144 compressed objects within 22 object streams
+ 322 named destinations out of 1000 (max. 500000)
+ 403 words of extra memory for PDF output out of 10000 (max. 10000000)
+

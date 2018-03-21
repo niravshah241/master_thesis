@@ -1,6 +1,3 @@
-% grid making and saving
-% pdegrid
-% save('mygrid','p','e','t')
 clc
 %% Parameter-reference generation
 disp('Generating reference parameter set')
@@ -30,28 +27,6 @@ params.show_sparsity = show_sparsity;
 paramsP.show_sparsity = show_sparsity;
 
 %ACTUAL GRID OVER
-
-%% Test grid
-
-%ONLY FOR TEST GRID
-
-% params.xrange = [0,1];
-% params.yrange = [0,1];
-% params.xnumintervals = 10;
-% params.ynumintervals = 10;
-% params.bnd_rect_corner1=[-1,-1;-eps,eps]'; % for analytical
-% params.bnd_rect_corner2=[2,2;eps,1-0.06]';% for analytical ex.
-% % params.bnd_rect_corner1=[-1,-1;1-eps,0+3*10^14*eps]';
-% % params.bnd_rect_corner2=[eps,1+eps;1+eps,1-eps]';
-% params.bnd_rect_index=[-1,-2];
-% params.gridtype = 'triagrid';
-% grid = construct_grid(params);
-% show_sparsity = false; % Bool variable which plots sparsity pattern of
-% %assembled matrix is set to true else(i.e. false) the sparsity pattern is not shown
-% params.show_sparsity = show_sparsity;
-% paramsP.show_sparsity = show_sparsity;
-
-%TEST GRID OVER
 
 %% Plotting of grid
 disp('Please check the grid')
@@ -111,8 +86,8 @@ rhs_reference = rhs;
 
 %% Parameter-training generation
 disp('Generating training parameter set')
-para1 = [1e0 1e6 10]; %viscocity
-para2 = [1e0 1e8 10]; %dirichlet value
+para1 = [1e5 3e5 20]; %viscocity
+para2 = [1 2 20]; %dirichlet value
 parameter_training_set = gen_parameters( para1,para2);
 disp('Parameter training set generation finished')
 
@@ -123,73 +98,21 @@ paramsP.snapshots_matrix = zeros(paramsP.ndofs,size(parameter_training_set,1));
 params_reference = params;
 paramsP_reference = paramsP;
 
-for i = 1:1:size(parameter_training_set,1)
-    disp(['Training parameter number ',num2str(i),' of ', ...
-        num2str(para1(3)*para2(3))])
-    stifness_matrix = stifness_matrix_reference;
-    rhs = rhs_reference;
-    params.parameter_training_set = parameter_training_set(i,:);
-    params.kinematic_viscosity = @(params) params.parameter_training_set(1)*1e-6;
-    mu = params.kinematic_viscosity(params);
-    %c11 = 1e1*mu*1e3;% penalty parameter, must be large enough for coercivity
-    
-    %% AFFINE assembly of stiffness matrix
-    
-    %[ params, paramsP, rhs, stifness_matrix] = assemble_stifness_matrix...
-    %    ( params, paramsP, grid, qdeg, mu, c11 );
-    
-    theta_1 = params.parameter_training_set(1) / params.reference_parameter(1);
-    %viscocity
-    theta_2 = params.parameter_training_set(2) / params.reference_parameter(2);
-    %dirichlet value
-    
-    disp('Assembling stifness matrix affine')
-    tic
-    stifness_matrix(1:params.ndofs,1:params.ndofs) = ...
-        theta_1 * stifness_matrix(1:params.ndofs,1:params.ndofs);
-    
-    rhs(1:params.ndofs) = rhs(1:params.ndofs) + (theta_1 * theta_2 - 1)...
-        * (linear_side_reference.term_3 - linear_side_reference.term_4);
-    
-    rhs(params.ndofs+1:params.ndofs+paramsP.ndofs) = ...
-        theta_2*rhs(params.ndofs+1:params.ndofs+paramsP.ndofs);
-    
-    time_matrix_assembly_affine = toc;
-    disp(['Time taken for affine assembling stifness matrix ',...
-        num2str(time_matrix_assembly_affine)])
-    
-    %% Stokes problem
-    
-    tic;
-    [ params, paramsP, achieved_residual_tol_schur] =...
-        solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
-    time_schur = toc;
-    
-    required_residual_tol = 0;%achieved_residual_tol_schur; % allowable residual
-    max_iter = 1e5; % maximum number of iterations
-    
-    % tic;
-    % [ params, paramsP, flag, achieved_residual_tol, actual_iter] = solve_plot_solution...
-    %     ( params, paramsP, grid, rhs, stifness_matrix, required_residual_tol, max_iter);
-    % times_solver = toc;
-    
-    params.snapshots_matrix(:,i) = params.dofs;
-    paramsP.snapshots_matrix(:,i) = paramsP.dofs;
-    close all
-end
+[params, paramsP] = snapshot_generation( params, paramsP, para1, ...
+    para2, stifness_matrix_reference, rhs_reference, grid, ...
+    parameter_training_set, linear_side_reference);
 
 %% Proper Orthogonal Decomposition
 n_s = size(params.snapshots_matrix,2); % number of snapshots
 % params.snapshots_matrix = rand(params.ndofs,n_s);
-red_dim_velocity = 15;
-red_dim_pressure = 10;
+red_dim_velocity = 20;
+red_dim_pressure = 20;
 params.qdeg = qdeg;
 paramsP.qdeg = qdeg;
-min_eigen_velocity = 0;
-min_eigen_pressure = 0;
+min_eigen_velocity = 1e-12;
+min_eigen_pressure = 1e-12;
 
 disp('Entering in pod')
-
 
 [ pod_res_params, pod_res_paramsP, B_velocity, B_pressure, ...
     red_dim_velocity, red_dim_pressure] = pod( params, paramsP, grid, ...
@@ -198,89 +121,33 @@ disp('Entering in pod')
 
 %% Testing
 disp('Generating test parameter set')
-para_test_1 = [1e-10 1e5 3];
-para_test_2 = [1 1e8 3];
+para_test_1 = [1e5 2e5 3];
+para_test_2 = [1 2 3];
 parameter_test_set = gen_test_parameters(para_test_1,para_test_2);
 disp('Test parameter set generated')
-error_velocity = zeros(size(parameter_test_set,1),1);
-error_pressure = zeros(size(parameter_test_set,1),1);
-
-error_velocity_vector = zeros(size(parameter_test_set,1),1);
-error_pressure_vector = zeros(size(parameter_test_set,1),1);
-error_energy_velocity = ones(size(parameter_test_set,1),1);
-error_energy_pressure = ones(size(parameter_test_set,1),1);
-error_energy = zeros(size(parameter_test_set,1),1);
 
 disp('Entering in error calculation')
-for i = 1:1:size(parameter_test_set,1)
-    disp(['Test parameter number ',num2str(i),' of ', ...
-        num2str(para_test_1(3)*para_test_2(3))])
-    stifness_matrix = stifness_matrix_reference;
-    rhs = rhs_reference;
-    params.parameter_training_set = parameter_test_set(i,:);
-    params.kinematic_viscosity = @(params) params.parameter_training_set(1)*1e-6;
-    mu = params.kinematic_viscosity(params);
-    %c11 = 1e3*mu*1e3;% penalty parameter, must be large enough for coercivity
-    
-    %% Assembly of stiffness matrix
-    
-    %     [ params, paramsP, rhs, stifness_matrix] = assemble_stifness_matrix...
-    %         ( params, paramsP, grid, qdeg, mu, c11 );
-    
-    %% Stokes problem
-    
-    
-    theta_1 = params.parameter_training_set(1) / params.reference_parameter(1);
-    %viscocity
-    theta_2 = params.parameter_training_set(2) / params.reference_parameter(2);
-    %dirichlet value
-    
-    disp('Assembling stifness matrix affine')
-    tic
-    stifness_matrix(1:params.ndofs,1:params.ndofs) = ...
-        theta_1 * stifness_matrix(1:params.ndofs,1:params.ndofs);
-    
-    rhs(1:params.ndofs) = rhs(1:params.ndofs) + (theta_1 * theta_2 - 1)...
-        * (linear_side_reference.term_3 - linear_side_reference.term_4);
-    
-    rhs(params.ndofs+1:params.ndofs+paramsP.ndofs) = ...
-        theta_2*rhs(params.ndofs+1:params.ndofs+paramsP.ndofs);
-    
-    time_matrix_assembly_affine = toc;
-    disp(['Time taken for affine assembling stifness matrix ',...
-        num2str(time_matrix_assembly_affine)])
-    
-    tic;
-    [ params, paramsP, achieved_residual_tol_schur] =...
-        solve_plot_solution_schur( params, paramsP, grid, rhs, stifness_matrix);
-    time_schur = toc;
-    
-    [params_reduced, paramsP_reduced, stifness_matrix_reduced, rhs_reduced] = ...
-        galerkin_formulation(stifness_matrix, rhs, params, paramsP, grid, ...
-        red_dim_velocity, red_dim_pressure, B_velocity, B_pressure);
-    
-    error_velocity_vector(i) = error_velocity_rbasis( params, params_reduced, B_velocity, ...
-        grid, qdeg);
-    error_pressure_vector(i) = error_velocity_rbasis( paramsP, paramsP_reduced, B_pressure, ...
-        grid, qdeg);
-    
-    % Error in energy norm
-    
-    error_energy(i) = [params.dofs',paramsP.dofs'] * stifness_matrix * ...
-        [params.dofs;paramsP.dofs] - [params_reduced.dofs',paramsP_reduced.dofs'] * ...
-        stifness_matrix_reduced * [params_reduced.dofs;paramsP_reduced.dofs];
-    
-    close all
-    
-end
 
-params_reduced.dofs
-paramsP_reduced.dofs
+[error_l2, error_energy] = error_analysis(params, paramsP, ...
+    stifness_matrix_reference, rhs_reference, parameter_test_set, B_velocity, ...
+    B_pressure, grid, para_test_1, para_test_2, linear_side_reference, ...
+    red_dim_velocity, red_dim_pressure);
 
-% tria_index = 1;
-% glob = [0 1];
-% tria_index = 1;
-% [res_velocity] = online_solve(glob, tria_index, params, params_reduced, ...
-%     grid, B_velocity);
-% [res_pressure] = online_solve(glob, tria_index, paramsP, paramsP_reduced, ...
-%     grid, B_pressure);
+% online phase
+
+parameter_online = [2e5 1.5];
+params.parameter_online = parameter_online;
+
+tic
+[params, paramsP, params_reduced, paramsP_reduced] = online_phase...
+    (params, paramsP, grid, stifness_matrix_reference, rhs_reference, ...
+    B_velocity, B_pressure, linear_side_reference, red_dim_velocity, ...
+    red_dim_pressure);
+online_time = toc;
+disp(['Time for online phase: ',num2str(online_time)])
+
+tic
+[params, paramsP] = dg_solution( params, paramsP, grid, rhs_reference, ...
+    stifness_matrix_reference, linear_side_reference);
+offline_time = toc;
+disp(['Time for ofline phase: ',num2str(offline_time)])
