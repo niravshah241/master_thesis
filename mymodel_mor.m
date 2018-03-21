@@ -86,8 +86,8 @@ rhs_reference = rhs;
 
 %% Parameter-training generation
 disp('Generating training parameter set')
-para1 = [1e5 3e5 20]; %viscocity
-para2 = [1 2 20]; %dirichlet value
+para1 = [1 3 5]; %viscocity
+para2 = [1 2 5]; %dirichlet value
 parameter_training_set = gen_parameters( para1,para2);
 disp('Parameter training set generation finished')
 
@@ -121,8 +121,8 @@ disp('Entering in pod')
 
 %% Testing
 disp('Generating test parameter set')
-para_test_1 = [1e5 2e5 3];
-para_test_2 = [1 2 3];
+para_test_1 = [1 2 10];
+para_test_2 = [1 2 10];
 parameter_test_set = gen_test_parameters(para_test_1,para_test_2);
 disp('Test parameter set generated')
 
@@ -133,9 +133,37 @@ disp('Entering in error calculation')
     B_pressure, grid, para_test_1, para_test_2, linear_side_reference, ...
     red_dim_velocity, red_dim_pressure);
 
+figure()
+[xq,yq] = meshgrid(para_test_1(1):0.1:para_test_1(2),...
+    para_test_2(1):0.1:para_test_2(2));
+vq = griddata(parameter_test_set(:,1),parameter_test_set(:,2),...
+    error_l2,xq,yq);
+mesh(xq,yq,vq)
+hold on
+plot3(parameter_test_set(:,1),parameter_test_set(:,2),error_l2,'o')
+axis tight
+xlabel('Viscocity')
+ylabel('Dirichlet value')
+zlabel('Error L^2')
+title('Error L^2 over parameter space')
+
+figure()
+[xq,yq] = meshgrid(para_test_1(1):0.1:para_test_1(2),...
+    para_test_2(1):0.1:para_test_2(2));
+vq = griddata(parameter_test_set(:,1),parameter_test_set(:,2),...
+    error_energy,xq,yq);
+mesh(xq,yq,vq)
+hold on
+plot3(parameter_test_set(:,1),parameter_test_set(:,2),error_energy,'o')
+axis tight
+xlabel('Viscocity')
+ylabel('Dirichlet value')
+zlabel('Error energy')
+title('Error energy over parameter space')
+
 % online phase
 
-parameter_online = [2e5 1.5];
+parameter_online = [2 1.5];
 params.parameter_online = parameter_online;
 
 tic

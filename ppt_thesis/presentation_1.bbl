@@ -1,9 +1,33 @@
 \begin{thebibliography}{1}
 
+\bibitem{Montlaur2}
+Montlaur A., Fernandez-Mendez S., and Huerta A.
+\newblock Discontinuous {G}alerkin methods for the {S}tokes equations using
+  divergence-free approximations.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  57(9):1071--1092, 2008.
+
+\bibitem{Montlaur}
+Montlaur A., Fernandez-Mendez S., Peraire J., and Huerta A.
+\newblock Discontinuous {G}alerkin methods for the {N}avier {S}tokes equations
+  using solenoidal approximations.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  64(5):549--564, 2010.
+
 \bibitem{riviere}
 Riviere B.
 \newblock {\em Discontinuous Galerkin Methods for Solving Elliptic and
   Parabolic Equations: Theory and Implementation}.
 \newblock Frontiers in Applied Mathematics. Cambridge University Press, 2008.
+
+\bibitem{white}
+White F.M.
+\newblock {\em Fluid mechanics}.
+\newblock Second edition, 97-99, 2002. Academic press.
+
+\bibitem{Kundu}
+Kundu P.~K. and Cohen I.~M.
+\newblock {\em Fluid Mechanics}.
+\newblock Academic Press, 2002.
 
 \end{thebibliography}

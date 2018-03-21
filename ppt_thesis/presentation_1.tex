@@ -198,7 +198,7 @@ $t$ = specified Neumann flux and $t:\Gamma_N \rightarrow \mathbb{R}^d$.\\
 \begin{frame}
 \frametitle{Governing equations}
 
-\begin{block}{Reynolds transport theoreom}
+\begin{block}{Reynolds transport theoreom (White F.M. \cite{white})} 
 \begin{equation} \label{rtt} 
 \frac{dB'}{dt'}|_{cs} = \frac{d}{dt'} \int_{cv} b' \rho dV + \int_{cs} (b' \rho) u\cdot dA 
 \end{equation}
@@ -213,21 +213,6 @@ F = \int_{cs} \sigma \cdot dA + \int_{cv} \rho f dV \textrm{,}
 \end{equation}
 \end{block}
 
-\end{frame}
-
-%------------------------------------------------
-\begin{frame}
-\frametitle{Governing equations}
-
-\begin{block}{Momentum conservation equation}
-\begin{equation}\label{External force lhs}
-F = \frac{dM}{dt'} = \frac{d}{dt'} \int_{cv} u \rho dV + \int_{cs} (u \rho) u\cdot dA \textrm{.}
-\end{equation}
-
-\begin{equation}\label{External force rhs}
-F = \int_{cs} \sigma \cdot dA + \int_{cv} \rho f dV \textrm{,}
-\end{equation}
-\end{block}
 \end{frame}
 
 %------------------------------------------------
@@ -267,7 +252,7 @@ Neumann boundary:
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Flow classification}
+\frametitle{Flow classification (Kundu P.K \cite{Kundu})}
 \begin{block}{Reynolds number}
 \begin{equation} \label{reynolds_number}
 Re =  \frac{uL}{\nu} \textrm{.}
@@ -298,80 +283,34 @@ Re =  \frac{uL}{\nu} \textrm{.}
 \frametitle{Grid}
 \begin{itemize}
 \item Continuous domain ($\Omega$) $\implies$ Grid ($\mathcal{T}$)
-\item Triangular element, $\tau_k$, $\cup_{k=1}^{nel} \tau_k = \mathcal{T}$, $nel$ is total number of elements
+\item Triangular element, $\tau_k$, $\cup_{k=1}^{nel} \tau_k = \mathcal{T}$, $nel$ is the total number of elements
 \item Grid boundary includes interelement boundaries.
 \begin{equation}
 \partial \mathcal{T} = \Gamma_D \cup \Gamma_N \cup \Gamma
 \end{equation}
-\item Grid parameters : Parameters for formulation of problem
-\item Unstructured grid : Connectivity of vertices, Element
+
+\begin{block}{Barycentric coordinate}
+For a triangle with vertices, $r_1, r_2, r_3$
+\begin{equation}\label{barycentric point}
+r = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3 \textrm{.}
+\end{equation}
+Weights, $\lambda_1, \lambda_2, \lambda_3$ satisfy,
+\begin{equation}\label{lambda constraint} 
+\lambda_1 + \lambda_2 + \lambda_3 = 1 \textrm{.}
+\end{equation}
+\end{block}
+
 \end{itemize}
 \end{frame}
 
 %------------------------------------------------
 
-\begin{frame}
-\frametitle{Grid}
-\begin{figure}
-\begin{subfigure}{0.45\textwidth}
-\centering
-  \includegraphics[width=\linewidth]{domain.jpg}
-  \label{fig:Domain}
-\end{subfigure}
-\begin{subfigure}{0.45\textwidth}	
-\centering
-  \includegraphics[width=\linewidth]{grid.jpg}
-  \label{fig:Mesh}
-\end{subfigure}
-\caption{Continuous domain (left) and discretised domain or grid (right)}
-\label{fig:continuous_grid_figure}
-\end{figure}
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Grid}
-\begin{figure}
-\centering
-  \includegraphics[width=0.9\linewidth]{ch_3_fig_1.jpg}
-  \caption{Element self (+) and neighbouring element (-)}
-  \label{fig:Self_neighbour}
-\end{figure}
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Grid}
-
-\begin{block}{Barycentric coordinate}
-For a triangle with vertices, $r_1, r_2, r_3$
-\begin{equation}\label{barycentric point}
-r = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3 \quad \textrm{.}
-\end{equation}
-\end{block}
-
-\begin{block}{Barycentric coordinate}
-Weights, $\lambda_1, \lambda_2, \lambda_3$ satisfy,
-\begin{equation}\label{lambda constraint} 
-\lambda_1 + \lambda_2 + \lambda_3 = 1 \quad \textrm{.}
-\end{equation}
-\end{block}
-
-\end{frame}
-
-%------------------------------------------------
 \begin{frame}
 \frametitle{Discontinuous Galerkin method}
 \begin{itemize}
 \item Multiply with test function and integrate
 \item Discontinuous at the interface of elements
 \item $P^D(\tau_k)$ denotes space of polynomials of degree at most $D$ over $\tau_k$.
-\end{itemize}
-
 
 \begin{block}{Function space for velocity}
 \begin{equation}
@@ -384,111 +323,16 @@ Weights, $\lambda_1, \lambda_2, \lambda_3$ satisfy,
 \mathbb{Q} = \lbrace \psi \in (L^2(\mathcal{T}))^{d_p}| \quad \psi \in (P^{D-1}(\tau_k))^{d_p} \quad \forall \quad {\tau_k} \in \mathcal{T} \rbrace
 \end{equation}
 \end{block}
-
-\end{frame}
-
-%------------------------------------------------
-\begin{frame}
-\frametitle{Basis function}
-\begin{itemize}
-
-\item 2 Types of basis functions : Nodal basis function and Orthonormal basis function
-
-\item The number of degrees of freedom per element $npe$ can be calculated as,
-
-\begin{equation} \label{unpe}
-u_{npe} = d_u \frac{(D+1)(D+2)}{2} \quad \textrm{for velocity}
-\end{equation} 
-
-\begin{equation} \label{pnpe}
-p_{npe} = d_p \frac{(D)(D+1)}{2} \quad \textrm{for pressure}
-\end{equation} 
-
+\item We use Orthonormal basis function
 \end{itemize}
-
 \end{frame}
 
 %------------------------------------------------
 
-\begin{frame}
-\frametitle{Orthonormal basis function}
-\begin{itemize}
-
-\item Basis functions are orthonormal to each other with respect to suitable inner product. 
-
-\begin{equation}
-\begin{split}
-(\hat{\phi_i } , \hat{\phi_j}) = \int_{\hat{T}} \hat{\phi_i} \hat{\phi_j} = 1 \quad \textrm{if} \quad i = j \\
-(\hat{\phi_i } , \hat{\phi_j}) = \int_{\hat{T}} \hat{\phi_i} \hat{\phi_j} = 0 \quad \textrm{if} \quad i \neq j 
-\end{split}
-\end{equation}
-
-\end{itemize}
-
-\end{frame}
-
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Global and local coordinate system}
-\begin{itemize}
-
-\item Integral terms are evaluated on a reference triangle instead of the element itself.
-\item The transformation from local coordinate $\hat{X}$ to global coordinate $X$ is defined by the mapping,
-\begin{equation}\label{local global mapping}
-F_k:\hat{X} \mapsto X \quad \forall \quad \hat{X} \in \hat{T} \quad \textrm{and} \quad X \in \mathcal{T}
-\end{equation}
-
-\begin{equation}\label{local global mapping equation}
-F_k(\hat{X}): X = J_k \hat{X} + C
-\end{equation}
-
-\begin{picture}(300,100)(0,0) 
-\put(0,0){\line(1,0){50}}
-\put(50,0){\line(1,1){100}}
-\put(0,0){\line(3,2){150}}
-\put(200,0){\line(1,0){100}}
-\put(300,0){\line(-1,1){100}}
-\put(200,100){\line(0,-1){100}}
-\end{picture}
-
-\begin{center}
-Global geometry (left) to Local geometry (right)
-\end{center}
-
-\end{itemize}
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Global and local coordinate system}
-\begin{itemize}
-
-\item The volume integral of a function $g(x)$ in global coordinates is related to volume integral on reference geometry as 
-\begin{equation}\label{integral_local_global_volume}
-\int_\Omega g(x) dx = \sum_{k=1}^{nel} \int_{\tau_k} g(x) dx = \sum_{k=1}^{nel} \int_{\hat{T}} g(\hat{x}) |\det(J_k)| d \hat{x}
-\end{equation}
-
-\item The linear boundary integral of a function $g(x)$ on global coordinates is related to boundary integral on reference geometry as, 
-\begin{equation}\label{integral_local_global_boundary}
-\int_{\Gamma} g(x) ds = \int_{\hat{\Gamma}} g(\hat{x}) ld \hat{s}
-\end{equation}
-
-\item Also, the following holds,
-\begin{equation}\label{derivative_transformation}
-\nabla g = JIT_k \quad \hat{\nabla} \hat{g} 
-\end{equation}
-
-\end{itemize}
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Jump operator, Average operator and $L^2$ scalar product}
+\frametitle{Jump operator, Average operator}
 
 \begin{block}{Jump operator}
 
@@ -521,114 +365,65 @@ The average operator is defined as,
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Jump operator, Average operator and $L^2$ scalar product}
-
-\begin{block}{$L^2$ scalar product}
-If $p$ and $q$ are scalars,
-\begin{equation}\label{inner product scalars}
-(p,q)=\int_{\Omega} pq \quad \textrm{.}
-\end{equation}
-
-If $p$ and $q$ are vectors,
-\begin{equation}\label{Inner product vectors}
-(p,q)=\int_{\Omega} p \cdot q \quad \textrm{.}
-\end{equation}
-
-If $p$ and $q$ are tensors,
-\begin{equation}\label{Inner product tensors}
-(p,q)=\int_{\Omega} p : q \quad \textrm{where} \quad p:q = Tr(pq^T) \quad \textrm{.}
-\end{equation}
-\end{block}
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
 \frametitle{Stokes equation}
+
 \begin{block}{Strong form}
 \begin{equation} \label{stokes_strong_form_ch3}
--\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega \quad \textrm{.}
+\begin{split}
+-\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega \quad \textrm{.}\\
+\nabla \cdot u = 0 \quad \textrm{in} \quad \Omega \quad \textrm{.}
+\end{split}
 \end{equation}
 \end{block}
-\begin{block}{Weak form}
+
+\begin{block}{Weak form (Montlaur et al. \cite{Montlaur2})}
 \begin{equation}\label{stokes_weak_ch3}
 \begin{split}
-a_{IP}(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) \quad \textrm{.}
-\end{split}
-\end{equation}
-
-\begin{equation}
-\begin{split}
-a_{IP}(u,\phi) = (\nabla u, \nabla \phi) + C_{11} ([n \otimes u],[n \otimes \phi])_{\Gamma \cup \Gamma_D} \\
-- \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D} \quad \textrm{.}
-\end{split}
-\end{equation}
-
-\begin{equation}
-b(\phi,\psi) = -\int_{\mathcal{T}} \psi \nabla \cdot \phi
-\end{equation}
-
-\begin{equation}
-\begin{split}
-l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (n \otimes u_D, \nu \nabla \phi)_{\Gamma_D}
-\end{split}
-\end{equation}
-
-\end{block}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Stokes equation}
-\begin{block}{Weak form}
-
-\begin{equation}
-\begin{split}
-l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (n \otimes u_D, \nu \nabla \phi)_{\Gamma_D}
-\end{split}
-\end{equation}
-
-\end{block}
-
-\begin{block}{Discrete form}
-\begin{equation} \label{stokes discrete_ch3}
-AU + BP = F_1 \quad \textrm{.}
-\end{equation}
-\end{block}
-
-\end{frame}
-
-%------------------------------------------------
-\begin{frame}
-\frametitle{Continuity equation}
-
-\begin{block}{Strong form}
-\begin{equation}
-\nabla \cdot u = 0 \quad \textrm{in} \quad \Omega \quad \textrm{.}
-\end{equation}
-\end{block}
-
-\begin{block}{Weak form}
-\begin{equation}\label{contiuity_weak_ch3}
-\begin{split}
+a_{IP}(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) \quad \textrm{.}\\
 b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamma_D} \quad \textrm{.}
 \end{split}
 \end{equation}
 \end{block}
 
-\begin{block}{Discrete form}
-\begin{equation} \label{continuity discrete_ch3}
-B^T U  = F_2 \quad \textrm{.}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Stokes equation}
+\begin{block}{Weak form}
+
+\begin{equation}
+\begin{split}
+a_{IP}(u,\phi) = (\nabla u, \nabla \phi) + C_{11} ([n \otimes u],[n \otimes \phi])_{\Gamma \cup \Gamma_D} \\ - \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D} \textrm{.}
+\end{split}
 \end{equation}
+
+\begin{equation}
+b(\phi,\psi) = -\int_{\mathcal{T}} \psi \nabla \cdot \phi \textrm{.}
+\end{equation}
+
+\begin{equation}
+l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (n \otimes u_D, \nu \nabla \phi)_{\Gamma_D} \textrm{.}
+\end{equation}
+
 \end{block}
 
+\begin{block}{Discrete form}
+
+\begin{equation} \label{stokes discrete_ch3}
+\begin{split}
+AU + BP = F_1 \quad \textrm{.}\\
+B^T U  = F_2 \quad \textrm{.}
+\end{split}
+\end{equation}
+
+\end{block}
 \end{frame}
 
 %------------------------------------------------
 \begin{frame}
-\frametitle{Saddle point problem}
+\frametitle{Stiffness matrix}
 
 \begin{equation} \label{Stokes_matrix_ch3}
 \begin{spmatrix}{\textrm{Stiffness matrix}}
@@ -645,15 +440,6 @@ B^T U  = F_2 \quad \textrm{.}
     F_2
 \end{spmatrix}
 \end{equation}
-
-Here, $(\cdot , \cdot)$ is $L^2$ inner product, $\{\cdot\}$ is average operator, $[\cdot]$ is jump operator. 
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Stiffness matrix}
 
 \begin{block}{Matrix $A$}
 \begin{equation} \label{matrix A}
@@ -674,38 +460,11 @@ B_{ij} = - \int_\mathcal{T} \frac{\partial \phi_i}{\partial x_i} \psi_j + (\lbra
 
 %------------------------------------------------
 
-\begin{frame}
-\frametitle{Navier Stokes equation}
-
-\begin{block}{Strong form}
-\begin{equation} \label{navier_stokes_strong_ch3}
--\nu \Delta u + \nabla p + (u \cdot \nabla) u = f \quad \textrm{in} \quad \Omega \quad \textrm{.}
-\end{equation}
-\end{block}
-
-\begin{block}{Weak form}
-\begin{equation}\label{navier_stokes_weak_ch3}
-\begin{split}
-a_{IP}(u,\phi) + c(u;u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) 
-\end{split}
-\end{equation}
-\end{block}
-
-\begin{block}{Discrete form}
-\begin{equation}
-AU + C(U) U + BP = F
-\end{equation} 
-\end{block}
-
-\end{frame}
-
 %------------------------------------------------
 
 \begin{frame}
 \frametitle{Navier Stokes equation : Upwinding}
 \begin{itemize}
-
-\item Upwinding is the method used to discretise the convective term. 
 
 \item If $n_\tau$ is the unit normal from $\tau_1$ to $\tau_2$ and if we denote the upwind value of function $g$ as $g^{up}$ \cite{riviere},
 \begin{equation}
@@ -715,7 +474,7 @@ g^{up} = g|_{\tau_2} \quad \textrm{if} \quad g \cdot n_\tau < 0
 \end{split}
 \end{equation}
 
-\item For the weak form of the Navier Stokes equation,
+\item For the weak form of the Navier Stokes equation (Montlaur et al. \cite{Montlaur}),
 
 \begin{equation}
 \begin{split}
@@ -724,80 +483,13 @@ c(g;u,\phi) = \sum_{i=1}^{nel} \int_{\partial \Omega_i \setminus \Gamma_N} \frac
 \end{equation}
 
 \begin{equation} \label{uext}
-u^{ext} = \lim_{\epsilon \rightarrow 0} u(x+\epsilon n_i) \quad  \textrm{for} \quad x \in \partial \mathcal{T}_i
+u^{ext} = \lim_{\epsilon \rightarrow 0} u(x+\epsilon n_i) \textrm{,} \quad \epsilon \to 0^+ \quad  \textrm{for} \quad x \in \partial \mathcal{T}_i
 \end{equation}
 
 \end{itemize}
 \end{frame}
 
 %------------------------------------------------
-
-\begin{frame}
-\frametitle{Newton method}
-
-\begin{flushleft}
-\begin{equation}
-S(u) = a(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi)
-\end{equation}
-\end{flushleft}
-
-\begin{flushleft}
-\begin{equation}
-\begin{split}
-S(u+h) - S(u) = (a(u+\delta h,\phi) + c(u + \delta h;u + \delta h,\phi)\\ + b(\phi,p+\delta h') + (\{p+\delta h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi)) - (a(u,\phi)\\ + c(u,u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} - l_{IP}(\phi))
-\end{split}
-\end{equation}
-\end{flushleft}
-
-\begin{flushleft}
-\begin{equation}
-\begin{split}
-S(u+h) - S(u) = 2\delta c(u,h,\cdot) + \delta^2 c(h,h,\cdot) + \delta a(h,\cdot)\\ + \delta b(h',\cdot) + \delta (\{h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D}
-\end{split}
-\end{equation}
-\end{flushleft}
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Newton method}
-
-\begin{flushleft}
-\begin{equation}
-DS(u) = \lim_{\delta \to 0} \frac{S(u+h)-S(u)}{\delta}
-\end{equation}
-\end{flushleft}
-
-\begin{flushleft}
-\begin{equation}
-\begin{split}
-DS(u) = 2 c(u,h,\cdot) + a(h,\cdot) + b(h',\cdot) + (\{h'\},[n\cdot \phi])_{\Gamma \cup \Gamma_D}
-\end{split}
-\end{equation}
-\end{flushleft}
-
-Following similar procedure we write for continuity equation:\\
-\begin{flushleft}
-\begin{equation}
-S'(u) = b(u,\psi) + (\{\psi\},[n \cdot u])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D}
-\end{equation}
-\end{flushleft}
-
-\begin{flushleft}
-\begin{equation}
-S'(u+\delta h) = b(u + \delta h,\psi) + (\{\psi\},[n \cdot u + \delta h])_{\Gamma \cup \Gamma_D} - (\psi,n \cdot u_D)_{\Gamma_D}
-\end{equation}
-\end{flushleft}
-
-\begin{flushleft}
-\begin{equation}
-DS'(u) = b(\delta h,\psi) + (\{\psi\},[n \cdot \delta h])_{\Gamma \cup \Gamma_D} 
-\end{equation}
-\end{flushleft}
-
-\end{frame}
 
 %------------------------------------------------
 
@@ -806,13 +498,13 @@ DS'(u) = b(\delta h,\psi) + (\{\psi\},[n \cdot \delta h])_{\Gamma \cup \Gamma_D}
 
 Algotrithm for the Newton method is as follow:\\
 
-1. Select $u^{iter} \in \mathbb{V}$ at iteration $iter$,\\
+1. Calculate $u^{iter} \in \mathbb{V}$ at iteration $iter$,\\
 
 2. Verify $DS_{u^{iter}}(h^{iter}) = -S(u^{iter})$,\\
 
 3. Set $u^{iter + 1} := u^{iter} + h^{iter}$ till $||u^{iter+1} - u^{iter}|| < tol$ where $tol$ is specified tolerance.\\
 
-We use the solution from the Stokes equation as initial guess. In discrete form the Newton method means, solving the equation (at iteration = $iter$)
+We use the solution from the Stokes equation as initial guess. In discrete form the Newton method means, solving the equation, 
 
 \begin{flushleft}
 \begin{equation}
@@ -825,7 +517,7 @@ We use the solution from the Stokes equation as initial guess. In discrete form 
     P^{iter+1}
 \end{spmatrix}
 =
-\begin{spmatrix}{\textrm{Right hand side (Known function)}}
+\begin{spmatrix}{\textrm{Right hand side}}
     F_1  \\
     F_2
 \end{spmatrix}
@@ -853,7 +545,7 @@ STEP 2 : \\
 STEP 3 : \\
 \begin{center}
 
-Backsubstituion in equation \eqref{schur step 1}
+Backsubstitution in equation \eqref{schur step 1}
 
 \end{center}
 
@@ -904,38 +596,6 @@ Backsubstituion in equation \eqref{schur step 1}
 \end{frame}
 
 %------------------------------------------------
-\begin{frame}
-\frametitle{Matrix assemblies : Steps}
-
-\begin{itemize}
-
-\item Function evaluation
-
-\item Integration and transform from local to global geometry
-
-\item Allocation in global matrix / vector
-
-\end{itemize}
-
-\begin{block}{Assembly of $(\nabla \phi, \nabla \phi)$}
-Step 1 : 
-\begin{equation}
-res_1[i,j]= {\nabla \phi_i} {\nabla \phi_j}^T \quad \textrm{for} \quad 1 \leq i,j \leq u_{npe} \textrm{.}
-\end{equation}
-
-Step 2 : 
-\begin{equation}
-res_2 = \int_{\hat{T}} (res_1) (2 Ar(k)) \textrm{.}
-\end{equation}
-
-Step 3 : 
-\begin{equation}
-res_3[ids\_velocity,ids\_velocity]=res_2 \textrm{.}
-\end{equation}
-
-\end{block}
-
-\end{frame}
 
 %------------------------------------------------
 \begin{frame}
@@ -954,128 +614,6 @@ res_3[ids\_velocity,ids\_velocity]=res_2 \textrm{.}
 \end{block}
 
 \end{frame}
-%------------------------------------------------
-\begin{frame}
-\frametitle{Matrix assemblies}
-\begin{block}{Assembly of $([n \otimes \phi], [n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
-Step 1 :
-\begin{equation}
-\begin{split}
-res_1^{++} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^+ \textrm{,}\\
-res_1^{+-} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^- \textrm{,}\\
-res_1^{-+} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^+ \textrm{,}\\
-res_1^{--} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^- \textrm{.}\\
-\end{split}
-\end{equation}
- 
-Step 2 : 
-\begin{equation}
-\begin{split}
-res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j) \textrm{,}\\
-res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j) \textrm{,}\\
-\end{split}
-\end{equation}
-\end{block}
-\end{frame}
-%------------------------------------------------
-\begin{frame}
-\frametitle{Matrix assemblies}
-
-\begin{block}{Assembly of $([n \otimes \phi], [n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
-
-\begin{equation}
-\begin{split}
-res_2^{-+} = \int_{\Gamma} res_1^{-+} EL(i,j) \textrm{,}\\
-res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j) \textrm{.}\\
-\end{split}
-\end{equation}
-
-Step 3 :
-\begin{equation}
-\begin{split}
-res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++} \textrm{,}\\
-res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-} \textrm{,}\\
-res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+} \textrm{,}\\
-res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--} \textrm{.}\\
-\end{split}
-\end{equation}
-
-\begin{equation}
-res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--} \textrm{.}
-\end{equation}
-
-\end{block}
-
-\end{frame}
-
-%------------------------------------------------
-\begin{frame}
-\frametitle{Program flow}
-\begin{itemize}
-
-\item Grid preparation
-\item Fomrulating function space
-\item Matrix assembly
-\item Solving assembled form
-\item Post processing
-\item Newton method
-
-\end{itemize}
-
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Sparsity pattern}
-
-\begin{table}[H]
-\caption{Size and sparsity pattern of different terms}
-\begin{center}
-\begin{tabular}{|p{.3\textwidth}| p{.3\textwidth} |  p{.4\textwidth}|}
-\hline
-\textbf{Matrix term} & \textbf{Size} & \textbf{Sparsity pattern} \\
-\hline
-$(\nabla \phi, \nabla \phi)$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{fig:sparsity_del_phi_del_phi}\\
-\hline
-$([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_2_all}\\
-\hline
-$(\lbrace \nabla \phi \rbrace,[n \otimes \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_3_all}\\
-\hline
-$(\lbrace \psi \rbrace,[n \cdot \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{p_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_4_all}\\
-\hline
-$(- \int_{\hat{T}} \psi \nabla \cdot \phi)$ & $\mathbb{R}^{p_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_5} \\
-\hline
-$-((u_k \cdot \nabla)\phi , \phi)$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_6}\\
-\hline
-$((u_k \cdot n)\phi , \phi)_{\Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_7}\\
-\hline
-$((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_81}\\
-\hline
-$(|u_k \cdot n|\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_91}\\
-\hline
-$((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_82}\\
-\hline
-$(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_92}\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-\end{frame}
-
-%------------------------------------------------
-\begin{frame}
-\frametitle{Sparsity pattern}
-\begin{figure}
-\centering
-  \includegraphics[width=\linewidth]{figure1.jpg}
-  \caption{Sparsity pattern of $(\nabla \phi,\nabla \phi)$}
-  \label{fig:sparsity_del_phi_del_phi}
-\end{figure}
-\end{frame}
-
 %------------------------------------------------
 
 \begin{frame}
@@ -1185,24 +723,7 @@ p = (1 - x) \textrm{,}
 \end{figure}
 \end{frame}
 %------------------------------------------------
-\begin{frame}
-\frametitle{Stokes equation: Convergence test}
-\begin{figure}
-\begin{subfigure}{0.4\textwidth}	
-  \includegraphics[width=\linewidth]{l2_velocity_log_stokes.jpg}
-  \caption{$h-$convergence test for velocity $L^2$ error (Logarithmic scale)}
-  \label{fig:vel_stoke_conv_log}
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}	
-  \includegraphics[width=\linewidth]{l2_pressure_log_stokes.jpg}
-  \caption{$h-$convergence test for pressure in $L^2$ error (Logarithmic scale)}
-  \label{fig:pre_stoke_conv_log}
-\end{subfigure}
-\caption{$h-$convergence in $L^2$ norm for the Stokes flow (Logarithmic scale)}
-\label{fig:l2_stokes}
-\end{figure}
-\end{frame}
-%------------------------------------------------
+
 \begin{frame}
 \frametitle{Stokes equation: Convergence test}
 \begin{figure}
@@ -1217,24 +738,6 @@ p = (1 - x) \textrm{,}
   \label{fig:pre_stoke_conv_h0}
 \end{subfigure}
 \caption{$h-$convergence in $H_0$ norm for the Stokes flow}
-\end{figure}
-\end{frame}
-%------------------------------------------------
-\begin{frame}
-\frametitle{Stokes equation: Convergence test}
-\begin{figure}
-\begin{subfigure}{0.4\textwidth}	
-  \includegraphics[width=\linewidth]{h0_velocity_log_stokes.jpg}
-  \caption{$h-$convergence test for velocity $H_0$ error (Logarithmic scale)}
-  \label{fig:vel_stoke_conv_log_h0}
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}	
-  \includegraphics[width=\linewidth]{h0_pressure_log_stokes.jpg}
-  \caption{$h-$convergence test for pressure in $H_0$ error (Logarithmic scale)}
-  \label{fig:pre_stoke_conv_log_h0}
-\end{subfigure}
-\caption{$h-$convergence in $H_0$ norm for the Stokes flow (Logarithmic scale)}
-\label{fig:h0_stokes}
 \end{figure}
 \end{frame}
 %------------------------------------------------
@@ -1359,29 +862,6 @@ u = (10 - 10x,0) \quad \textrm{for} \quad 0.9 \leq x \leq 1 \textrm{.}
 \end{frame}
 %------------------------------------------------
 \begin{frame}
-\frametitle{Stokes equation: Lid driven cavity}
-\begin{figure}
-\begin{subfigure}{0.3\textwidth}	
-  \includegraphics[width=\linewidth]{lid_minres_vx.jpg}
-  \caption{$x-$velocity} 
-  \label{x_vel_stoke_minres_lid}
-\end{subfigure}
-\begin{subfigure}{0.3\textwidth}	
-  \includegraphics[width=\linewidth]{lid_minres_vy.jpg}
-  \caption{$y-$velocity} 
-  \label{y_vel_stoke_minres_lid}
-\end{subfigure}
-\begin{subfigure}{0.3\textwidth}	
-  \includegraphics[width=\linewidth]{lid_minres_pressure.jpg}
-  \caption{Pressure} 
-  \label{pressure_stoke_minres_lid}
-\end{subfigure}
-\caption{Lid driven cavity problem ($minres$ solver)}
-\label{stoke_minres_lid}
-\end{figure}
-\end{frame}
-%------------------------------------------------
-\begin{frame}
 \frametitle{Penalty parameter}
 \begin{figure}
 \begin{figure}
@@ -1426,18 +906,8 @@ $bicgstab$ & 9.0071e-05 & 58.3472 Seconds\\
 \item Domain: unit square [0,1] $\times$ [0,1].
 \item ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = a*(y(1-y), 0)$.
 \item The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is a Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. 
+\item Specified source term
 \end{itemize}
-\end{frame}
-%------------------------------------------------
-\begin{frame}
-\frametitle{Navier-Stokes equation: Convergence test}
-\begin{block}{Source term}
-\begin{equation}
-\begin{split}
-f = (-4 \nu (1+2y) (y^2 - 6xy^2 + 6x^2 y^2 - y + 6xy \\ - 6x^2 y + 3x^2 - 6x^3 + 3x^4)+ 1 - 2x \\+ 4x^3 y^2 (2y^2 - 2y + 1)(y - 1)^2 (-1 + 2x)(x - 1)^3 \textrm{,}\\ 4 \nu (-1 + 2x)(x^2 - 6x^2 y + 6x^2 y^2 - x + 6xy \\ - 6xy^2 + 3y^2 - 6y^3 + 3y^4) + \\ 4x^2y^3 (-1+2y)(y-1)^3 (2x^2-2x+1)(x-1)^2) \textrm{.}
-\end{split}
-\end{equation}
-\end{block}
 \begin{block}{Analytical solution}
 \begin{equation}
 p = x(1 - x) \textrm{,}
@@ -1472,24 +942,6 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
 \frametitle{Navier-Stokes equation: Convergence test}
 \begin{figure}
 \begin{subfigure}{0.4\textwidth}	
-  \includegraphics[width=\linewidth]{L2_convergence_velocity_n_s_log.jpg}
-  \caption{$h-$convergence test for velocity $L^2$ error (Logarithmic scale)}
-  \label{fig:vel_naviers_stoke_conv_log}
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}	
-  \includegraphics[width=\linewidth]{L2_convergence_pressure_n_s_log.jpg}
-  \caption{$h-$convergence test for pressure in $L^2$ error (Logarithmic scale)}
-  \label{fig:pre_navier_stoke_conv_log}
-\end{subfigure}
-\caption{$h-$convergence for the Navier Stokes flow in $L^2$ error (Logarithmic scale)}
-\label{navier_stoke_conv_l2_log}
-\end{figure}
-\end{frame}
-%------------------------------------------------
-\begin{frame}
-\frametitle{Navier-Stokes equation: Convergence test}
-\begin{figure}
-\begin{subfigure}{0.4\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s.jpg}
   \caption{$h-$convergence test for velocity $H_0$ error}
   \label{fig:vel_navier_stoke_conv_h0}
@@ -1502,34 +954,6 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
 \caption{$h-$convergence for the Navier Stokes flow in $H_0$ error}
 \label{navier_stoke_conv_h0}
 \end{figure}
-\end{frame}
-%------------------------------------------------
-\begin{frame}
-\frametitle{Navier-Stokes equation: Convergence test}
-\begin{figure}
-\begin{subfigure}{0.4\textwidth}	
-  \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s_log.jpg}
-  \caption{$h-$convergence test for velocity $H_0$ error (logarithmic scale)}
-  \label{fig:vel_navier_stoke_conv_log_h0}
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}	
-  \includegraphics[width=\linewidth]{H0_convergence_pressure_n_s_log.jpg}
-  \caption{$h-$convergence test for pressure in $H_0$ error (Logarithmic scale)}
-  \label{fig:pre_navier_stoke_conv_log_h0}
-\end{subfigure}
-\caption{$h-$convergence for the Navier Stokes flow in $H_0$ error (Logarithmic scale)}
-\label{navier_stoke_conv_h0_log}
-\end{figure}
-\end{frame}
-%------------------------------------------------
-\begin{frame}
-\frametitle{Navier-Stokes equation: Flow around cylinder}
-\begin{itemize}
-\item Domain: [0,1] $\times$ [0,1] with a cut out cylinder of diameter 0.2 centered at $(0.5,0.5)$.
-\item The boundary ${x=0}$ is Dirichlet boundary with inflow velocity at point $(0,y)$ as $u = a*(y(1-y), 0)$. 
-\item The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is a Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. 
-\item The source term is $f = (0, 0)$.
-\end{itemize}
 \end{frame}
 %------------------------------------------------
 \begin{frame}
@@ -1552,6 +976,344 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
   \end{subfigure}
 \caption{Flow over cylinder (Initial guess by Schur complement method)}
 \label{flow_over_cylinder_schur_n_s}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Navier-Stokes equation: Lid driven cavity}
+\begin{figure}
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{lid_newton_vx_schur.jpg}
+    \caption{$x-$velocity}
+  \label{x_vel_navier_stoke_schur_lid}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{lid_newton_vy_schur.jpg}
+    \caption{$y-$velocity}
+  \label{y_vel_navier_stoke_schur_lid}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{lid_newton_pressure_schur.jpg}
+    \caption{Pressure}
+  \label{pressure_navier_stoke_schur_lid}
+  \end{subfigure}
+\caption{Lid driven cavity flow (Initial guess by Schur complement method)}
+\label{lid_driven_cavity_n_s_schur}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\section{Conclusions and outlook}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Conclusions}
+\begin{itemize}
+
+\item The Schur complement : Efficient and accurate
+\item $minres$ slow convergence and $bicgstab$ does not converge
+\item Penalty parameter
+\item The solvers/methods which are applicable for the Saddle point problems should be used for solving the weak form of the Stokes equation.
+\item The initial guess is crucial for success of the Newton method.
+\item The solution of the Stokes equation and the Navier Stokes equation show close to linear convergence in $L^2$ norm.
+\item The higher polynomial degree does not always guarantee better accuracy. However, the convergence rate increases with increase in polynomial degree.
+
+\end{itemize}
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Outlook}
+\begin{itemize}
+
+\item Test for higher Reynold's number
+\item Further solvers/methods
+\item Time dependent cases
+\item Parametrization
+\item Reduced order modelling
+
+\end{itemize}
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\bibliographystyle{plain}
+\bibliography{ref1}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Grid}
+\begin{figure}
+\begin{subfigure}{0.45\textwidth}
+\centering
+  \includegraphics[width=\linewidth]{domain.jpg}
+  \label{fig:Domain}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}	
+\centering
+  \includegraphics[width=\linewidth]{grid.jpg}
+  \label{fig:Mesh}
+\end{subfigure}
+\caption{Continuous domain (left) and discretised domain or grid (right)}
+\label{fig:continuous_grid_figure}
+\end{figure}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Grid}
+\begin{figure}
+\centering
+  \includegraphics[width=0.9\linewidth]{ch_3_fig_1.jpg}
+  \caption{Element self (+) and neighbouring element (-)}
+  \label{fig:Self_neighbour}
+\end{figure}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Global and local coordinate system}
+\begin{itemize}
+
+\item Integral terms are evaluated on a reference triangle instead of the element itself.
+\item The transformation from local coordinate $\hat{X}$ to global coordinate $X$ is defined by the mapping,
+\begin{equation}\label{local global mapping}
+F_k:\hat{X} \mapsto X \quad \forall \quad \hat{X} \in \hat{T} \quad \textrm{and} \quad X \in \mathcal{T}
+\end{equation}
+
+\begin{equation}\label{local global mapping equation}
+F_k(\hat{X}): X = J_k \hat{X} + C
+\end{equation}
+
+\begin{figure}%[0.6\textwidth]
+\begin{picture}(300,100)(0,0) 
+\put(0,0){\line(1,0){50}}
+\put(50,0){\line(1,1){100}}
+\put(0,0){\line(3,2){150}}
+\put(200,0){\line(1,0){100}}
+\put(300,0){\line(-1,1){100}}
+\put(200,100){\line(0,-1){100}}
+\end{picture}
+\end{figure}
+\begin{center}
+Global geometry (left) to Local geometry (right)
+\end{center}
+
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Matrix assemblies}
+\begin{block}{Assembly of $([n \otimes \phi], [n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
+Step 1 :
+\begin{equation}
+\begin{split}
+res_1^{++} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^+ \textrm{,}\\
+res_1^{+-} = (n \otimes \hat{\phi})^+ (n \otimes \hat{\phi})^- \textrm{,}\\
+res_1^{-+} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^+ \textrm{,}\\
+res_1^{--} = (n \otimes \hat{\phi})^- (n \otimes \hat{\phi})^- \textrm{.}\\
+\end{split}
+\end{equation}
+ 
+Step 2 : 
+\begin{equation}
+\begin{split}
+res_2^{++} = \int_{\Gamma} res_1^{++} EL(i,j) \textrm{,}\\
+res_2^{+-} = \int_{\Gamma} res_1^{+-} EL(i,j) \textrm{,}\\
+\end{split}
+\end{equation}
+\end{block}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Matrix assemblies}
+
+\begin{block}{Assembly of $([n \otimes \phi], [n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
+
+\begin{equation}
+\begin{split}
+res_2^{-+} = \int_{\Gamma} res_1^{-+} EL(i,j) \textrm{,}\\
+res_2^{--} = \int_{\Gamma} res_1^{--} EL(i,j) \textrm{.}\\
+\end{split}
+\end{equation}
+
+Step 3 :
+\begin{equation}
+\begin{split}
+res_3^{++}[ids\_velocity\_self,ids\_velocity\_self] = res_2^{++} \textrm{,}\\
+res_3^{+-}[ids\_velocity\_self,ids\_velocity\_neighbour] = res_2^{+-} \textrm{,}\\
+res_3^{-+}[ids\_velocity\_neighbour,ids\_velocity\_self] = res_2^{-+} \textrm{,}\\
+res_3^{--}[ids\_velocity\_neighbour,ids\_velocity\_neighbour] = res_2^{--} \textrm{.}\\
+\end{split}
+\end{equation}
+
+\begin{equation}
+res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--} \textrm{.}
+\end{equation}
+
+\end{block}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Program flow}
+\begin{itemize}
+
+\item Grid preparation
+\item Fomrulating function space
+\item Matrix assembly
+\item Solving assembled form
+\item Post processing
+\item Newton method
+
+\end{itemize}
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Sparsity pattern}
+
+\begin{table}[H]
+\caption{Size and sparsity pattern of different terms}
+\begin{center}
+\begin{tabular}{|p{.3\textwidth}| p{.3\textwidth} |  p{.4\textwidth}|}
+\hline
+\textbf{Matrix term} & \textbf{Size} & \textbf{Sparsity pattern} \\
+\hline
+$(\nabla \phi, \nabla \phi)$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{fig:sparsity_del_phi_del_phi}\\
+\hline
+$([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_2_all}\\
+\hline
+$(\lbrace \nabla \phi \rbrace,[n \otimes \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_3_all}\\
+\hline
+$(\lbrace \psi \rbrace,[n \cdot \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{p_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_4_all}\\
+\hline
+$(- \int_{\hat{T}} \psi \nabla \cdot \phi)$ & $\mathbb{R}^{p_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_5} \\
+\hline
+$-((u_k \cdot \nabla)\phi , \phi)$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_6}\\
+\hline
+$((u_k \cdot n)\phi , \phi)_{\Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_7}\\
+\hline
+$((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_81}\\
+\hline
+$(|u_k \cdot n|\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_91}\\
+\hline
+$((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_82}\\
+\hline
+$(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_92}\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Stokes equation: Convergence test}
+\begin{figure}
+\begin{subfigure}{0.4\textwidth}	
+  \includegraphics[width=\linewidth]{l2_velocity_log_stokes.jpg}
+  \caption{$h-$convergence test for velocity $L^2$ error (Logarithmic scale)}
+  \label{fig:vel_stoke_conv_log}
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}	
+  \includegraphics[width=\linewidth]{l2_pressure_log_stokes.jpg}
+  \caption{$h-$convergence test for pressure in $L^2$ error (Logarithmic scale)}
+  \label{fig:pre_stoke_conv_log}
+\end{subfigure}
+\caption{$h-$convergence in $L^2$ norm for the Stokes flow (Logarithmic scale)}
+\label{fig:l2_stokes}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Stokes equation: Convergence test}
+\begin{figure}
+\begin{subfigure}{0.4\textwidth}	
+  \includegraphics[width=\linewidth]{h0_velocity_log_stokes.jpg}
+  \caption{$h-$convergence test for velocity $H_0$ error (Logarithmic scale)}
+  \label{fig:vel_stoke_conv_log_h0}
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}	
+  \includegraphics[width=\linewidth]{h0_pressure_log_stokes.jpg}
+  \caption{$h-$convergence test for pressure in $H_0$ error (Logarithmic scale)}
+  \label{fig:pre_stoke_conv_log_h0}
+\end{subfigure}
+\caption{$h-$convergence in $H_0$ norm for the Stokes flow (Logarithmic scale)}
+\label{fig:h0_stokes}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Stokes equation: Lid driven cavity}
+\begin{figure}
+\begin{subfigure}{0.3\textwidth}	
+  \includegraphics[width=\linewidth]{lid_minres_vx.jpg}
+  \caption{$x-$velocity} 
+  \label{x_vel_stoke_minres_lid}
+\end{subfigure}
+\begin{subfigure}{0.3\textwidth}	
+  \includegraphics[width=\linewidth]{lid_minres_vy.jpg}
+  \caption{$y-$velocity} 
+  \label{y_vel_stoke_minres_lid}
+\end{subfigure}
+\begin{subfigure}{0.3\textwidth}	
+  \includegraphics[width=\linewidth]{lid_minres_pressure.jpg}
+  \caption{Pressure} 
+  \label{pressure_stoke_minres_lid}
+\end{subfigure}
+\caption{Lid driven cavity problem ($minres$ solver)}
+\label{stoke_minres_lid}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Navier-Stokes equation: Convergence test}
+\begin{figure}
+\begin{subfigure}{0.4\textwidth}	
+  \includegraphics[width=\linewidth]{L2_convergence_velocity_n_s_log.jpg}
+  \caption{$h-$convergence test for velocity $L^2$ error (Logarithmic scale)}
+  \label{fig:vel_naviers_stoke_conv_log}
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}	
+  \includegraphics[width=\linewidth]{L2_convergence_pressure_n_s_log.jpg}
+  \caption{$h-$convergence test for pressure in $L^2$ error (Logarithmic scale)}
+  \label{fig:pre_navier_stoke_conv_log}
+\end{subfigure}
+\caption{$h-$convergence for the Navier Stokes flow in $L^2$ error (Logarithmic scale)}
+\label{navier_stoke_conv_l2_log}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Navier-Stokes equation: Convergence test}
+\begin{figure}
+\begin{subfigure}{0.4\textwidth}	
+  \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s_log.jpg}
+  \caption{$h-$convergence test for velocity $H_0$ error (logarithmic scale)}
+  \label{fig:vel_navier_stoke_conv_log_h0}
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}	
+  \includegraphics[width=\linewidth]{H0_convergence_pressure_n_s_log.jpg}
+  \caption{$h-$convergence test for pressure in $H_0$ error (Logarithmic scale)}
+  \label{fig:pre_navier_stoke_conv_log_h0}
+\end{subfigure}
+\caption{$h-$convergence for the Navier Stokes flow in $H_0$ error (Logarithmic scale)}
+\label{navier_stoke_conv_h0_log}
 \end{figure}
 \end{frame}
 %------------------------------------------------
@@ -1618,67 +1380,15 @@ u = a*(10 - 10x,0) \quad \textrm{for} \quad 0.9 \leq x \leq 1 \textrm{.}
 \end{frame}
 %------------------------------------------------
 \begin{frame}
-\frametitle{Navier-Stokes equation: Lid driven cavity}
-\begin{figure}
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{lid_newton_vx_schur.jpg}
-    \caption{$x-$velocity}
-  \label{x_vel_navier_stoke_schur_lid}
-  \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{lid_newton_vy_schur.jpg}
-    \caption{$y-$velocity}
-  \label{y_vel_navier_stoke_schur_lid}
-  \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{lid_newton_pressure_schur.jpg}
-    \caption{Pressure}
-  \label{pressure_navier_stoke_schur_lid}
-  \end{subfigure}
-\caption{Lid driven cavity flow (Initial guess by Schur complement method)}
-\label{lid_driven_cavity_n_s_schur}
-\end{figure}
-\end{frame}
-%------------------------------------------------
-\section{Conclusions and outlook}
-%------------------------------------------------
-\begin{frame}
-\frametitle{Conclusions}
+\frametitle{Navier-Stokes equation: Flow around cylinder}
 \begin{itemize}
-
-\item The Schur complement : Efficient and accurate
-\item $minres$ slow convergence and $bicgstab$ does not converge
-\item Penalty parameter
-\item The solvers/methods which are applicable for the Saddle point problems should be used for solving the weak form of the Stokes equation.
-\item The initial guess is crucial for success of the Newton method.
-\item The solution of the Stokes equation and the Navier Stokes equation show close to linear convergence in $L^2$ norm.
-\item The higher polynomial degree does not always guarantee better accuracy. However, the convergence rate increases with increase in polynomial degree.
-
+\item Domain: [0,1] $\times$ [0,1] with a cut out cylinder of diameter 0.2 centered at $(0.5,0.5)$.
+\item The boundary ${x=0}$ is Dirichlet boundary with inflow velocity at point $(0,y)$ as $u = a*(y(1-y), 0)$. 
+\item The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is a Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. 
+\item The source term is $f = (0, 0)$.
 \end{itemize}
-
-
 \end{frame}
-
 %------------------------------------------------
 
-\begin{frame}
-\frametitle{Outlook}
-\begin{itemize}
-
-\item Test for higher Reynold's number
-\item Further solvers/methods
-\item Time dependent cases
-\item Parametrization
-\item Reduced order modelling
-
-\end{itemize}
-
-
-\end{frame}
-
-%------------------------------------------------
-
-\bibliographystyle{plain}
-\bibliography{ref1}
 
 \end{document} \grid
