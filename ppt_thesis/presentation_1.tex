@@ -22,7 +22,10 @@
 % The Beamer class comes with a number of default slide themes
 % which change the colors and layouts of slides. Below this is a list
 % of all the themes, uncomment each in turn to see what they look like.
-
+\usepackage{beamerthemesplit}
+\usepackage{lipsum}
+\usetheme{Madrid}
+\usepackage{appendixnumberbeamer}
 %\usetheme{default}
 %\usetheme{AnnArbor}
 %\usetheme{Antibes}
@@ -40,7 +43,7 @@
 %\usetheme{Ilmenau}
 %\usetheme{JuanLesPins}
 %\usetheme{Luebeck}
-\usetheme{Madrid}
+%\usetheme{Madrid}
 %\usetheme{Malmoe}
 %\usetheme{Marburg}
 %\usetheme{Montpellier}
@@ -116,16 +119,22 @@ Universit\"at Stuttgart \\ % Your institution for the title page
 }
 \date{\today} % Date, can be changed to a custom date
 
+
+
 \begin{document}
 
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}
 
+\thispagestyle{empty}
+\setbeamertemplate{footline}[page number]
 \begin{frame}
 \frametitle{Overview} % Table of contents slide, comment this block out to remove it
 \tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
 \end{frame}
+
+
 
 %----------------------------------------------------------------------------------------
 %	PRESENTATION SLIDES
@@ -148,8 +157,6 @@ Universit\"at Stuttgart \\ % Your institution for the title page
 \item Future perspectives
 
 \end{itemize}
-
-
 \end{frame}
 
 %------------------------------------------------
@@ -171,26 +178,6 @@ Universit\"at Stuttgart \\ % Your institution for the title page
 
 \end{itemize}
 
-\end{frame}
-
-%------------------------------------------------
-\begin{frame}
-\frametitle{Notations}
-$\Omega$ = Continuous domain,\\
-$\Gamma_D$ = Dirichlet boundary, \\
-$\Gamma_N$ = Neumann boundary, \\
-$cv$ = Control volume,\\
-$cs$ = Control surface,\\
-$B'$ = Extensive quantity under consideration,\\
-$b'$ = Intensive quantity corresponding to $B'$,\\
-$u$ = flow velocity and $u:\Omega \rightarrow \mathbb{R}^d$,\\
-$p$ = pressure and $p:\Omega \rightarrow \mathbb{R}$,\\
-$\nu$ = kinematic viscocity (fluid property) and $\nu:\Omega \rightarrow \mathbb{R}$,\\ 
-$f$ = external force and $f:\Omega \rightarrow \mathbb{R}^d$,\\
-$u_D$ = specified flow velocity at Dirichlet boundary and $u_D:\Gamma_D \rightarrow \mathbb{R}^d$,\\
-$n$ = normal unit vector and $n:\partial \Omega \rightarrow \mathbb{R}^d$,\\
-$\rho$ = density (fluid property) and $\rho:\Omega \rightarrow \mathbb{R}$,\\
-$t$ = specified Neumann flux and $t:\Gamma_N \rightarrow \mathbb{R}^d$.\\
 \end{frame}
 
 %------------------------------------------------
@@ -336,19 +323,14 @@ Weights, $\lambda_1, \lambda_2, \lambda_3$ satisfy,
 
 \begin{block}{Jump operator}
 
-\begin{center}
-$[pn] = p^+ n^+ + p^- n^- $ on $\Gamma$,\\
-$[pn] = p n $ on $\Gamma_D$,\\
-where $p$ is scalar.
-\end{center}
-
-\begin{center}
-$[n \otimes u] = n^+ \otimes u^+ + n^- \otimes u^-$ on $\Gamma$,\\
-$[n \otimes u] = n \otimes u$ on $\Gamma_D$,\\
-$[n \cdot u] = n^+ \cdot u^+ + n^- \cdot u^-$ on $\Gamma$,\\
-$[n \cdot u] = n \cdot u$ on $\Gamma_D$,\\
-where $u$ is vector and $n \otimes u = u_i n_j$, $1 \leq i \leq d_u$, $1 \leq j \leq d$.\\ 
-\end{center}
+If $p$ is scalar and $u$ is vector,
+\begin{equation}
+\begin{split}
+[pn] = p^+ n^+ + p^- n^- \quad \textrm{on} \quad \Gamma \textrm{,} \quad [pn] = p n \quad \textrm{on} \quad \Gamma_D \textrm{.}\\
+[n \otimes u] = n^+ \otimes u^+ + n^- \otimes u^- \quad \textrm{on} \quad \Gamma \textrm{,} \quad [n \otimes u] = n \otimes u \quad \textrm{on} \quad \Gamma_D \textrm{.}\\
+[n \cdot u] = n^+ \cdot u^+ + n^- \cdot u^- \quad \textrm{on} \quad \Gamma \textrm{,} \quad [n \cdot u] = n \cdot u \quad \textrm{on} \quad \Gamma_D  \textrm{.}
+\end{split}
+\end{equation}
 \end{block}
 
 \begin{block}{Average operator}
@@ -395,27 +377,29 @@ b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamm
 
 \begin{equation}
 \begin{split}
-a_{IP}(u,\phi) = (\nabla u, \nabla \phi) + C_{11} ([n \otimes u],[n \otimes \phi])_{\Gamma \cup \Gamma_D} \\ - \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D} \textrm{.}
-\end{split}
-\end{equation}
-
-\begin{equation}
-b(\phi,\psi) = -\int_{\mathcal{T}} \psi \nabla \cdot \phi \textrm{.}
-\end{equation}
-
-\begin{equation}
+a_{IP}(u,\phi) = (\nabla u, \nabla \phi) + C_{11} ([n \otimes u],[n \otimes \phi])_{\Gamma \cup \Gamma_D} \\ - \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D} \textrm{.}\\
+b(\phi,\psi) = -\int_{\mathcal{T}} \psi \nabla \cdot \phi \textrm{.}\\
 l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (n \otimes u_D, \nu \nabla \phi)_{\Gamma_D} \textrm{.}
+\end{split}
 \end{equation}
 
 \end{block}
 
 \begin{block}{Discrete form}
-
-\begin{equation} \label{stokes discrete_ch3}
-\begin{split}
-AU + BP = F_1 \textrm{.}\\
-B^T U  = F_2 \textrm{.}
-\end{split}
+\begin{equation} \label{Stokes_matrix_ch3}
+\begin{spmatrix}{}
+    A & B \\
+    B^T & 0
+\end{spmatrix}
+\begin{spmatrix}{}
+    U \\
+    P
+\end{spmatrix}
+=
+\begin{spmatrix}{}
+    F_1  \\
+    F_2
+\end{spmatrix}
 \end{equation}
 
 \end{block}
@@ -424,22 +408,6 @@ B^T U  = F_2 \textrm{.}
 %------------------------------------------------
 \begin{frame}
 \frametitle{Stiffness matrix}
-
-\begin{equation} \label{Stokes_matrix_ch3}
-\begin{spmatrix}{\textrm{Stiffness matrix}}
-    A & B \\
-    B^T & 0
-\end{spmatrix}
-\begin{spmatrix}{\textrm{Solution vector}}
-    U \\
-    P
-\end{spmatrix}
-=
-\begin{spmatrix}{\textrm{Right hand side (Known)}}
-    F_1  \\
-    F_2
-\end{spmatrix}
-\end{equation}
 
 \begin{block}{Matrix $A$}
 \begin{equation} \label{matrix A}
@@ -502,7 +470,7 @@ Algotrithm for the Newton method is as follow:\\
 
 2. Verify $DS_{u^{iter}}(h^{iter}) = -S(u^{iter})$,\\
 
-3. Set $u^{iter + 1} := u^{iter} + h^{iter}$ till $||u^{iter+1} - u^{iter}|| < tol$ where $tol$ is specified tolerance.\\
+3. Set $u^{iter + 1} := u^{iter} + h^{iter}$ till $||u^{iter+1} - u^{iter}|| < tol$.\\
 
 We use the solution from the Stokes equation as initial guess. In discrete form the Newton method means, solving the equation, 
 
@@ -532,14 +500,14 @@ We use the solution from the Stokes equation as initial guess. In discrete form 
 
 STEP 1: \\ 
 \begin{equation}\label{schur step 1}
-U = A^{-1}(F_1 - BP) 
+U = A^{-1}(F_1 - BP) \textrm{,} 
 \end{equation}
 
 
 STEP 2 : \\
 
 \begin{equation}\label{schur step 2}
-- B^T A^{-1} B P = F_2 - B^T A^{-1} F_1
+- B^T A^{-1} B P = F_2 - B^T A^{-1} F_1 \textrm{,}
 \end{equation}
 
 STEP 3 : \\
@@ -572,21 +540,14 @@ Backsubstitution in equation \eqref{schur step 1}.
 \phi \in \mathbb{R}^{u_{npe} \times d_u} \textrm{,}
 \end{equation}
 
-\begin{equation}\label{basis_func_pressure_rbmatlab}
-\psi \in \mathbb{R}^{p_{npe} \times d_p} \textrm{.}
-\end{equation}
 \end{block}
 
-\item The derivative of basis function $(\phi)_{i}$, where $1 \leq i \leq u_{npe}$ and $(\psi)_{i}$, where $1 \leq i \leq p_{npe}$ is cell.
+\item The derivative of basis function $(\phi)_{i}$, where $1 \leq i \leq u_{npe}$ is cell.
 
 \begin{block}{Basis function in RBmatlab}
 
 \begin{equation}\label{basis_func_derivative_velocity_rbmatlab}
 \nabla (\phi)_{i} \in \mathbb{R}^{{d_u} \times d} \textrm{.}
-\end{equation}
-
-\begin{equation}\label{basis_func_derivative_pressure_rbmatlab}
-\nabla (\psi)_{i} \in \mathbb{R}^{{d_p} \times d} \textrm{.}
 \end{equation}
 
 \end{block}
@@ -620,32 +581,37 @@ Backsubstitution in equation \eqref{schur step 1}.
 \frametitle{Sparsity pattern}
 
 \begin{figure}
-  \begin{subfigure}{0.4\textwidth}
+  \begin{subfigure}{0.45\textwidth}
     \includegraphics[width=\linewidth]{figure21.jpg}
     \label{fig:figure21}
 	\caption{$((n \otimes \phi)^+,(n \otimes \phi)^+)_{\Gamma \cup \Gamma_D}$}      
   \end{subfigure}
-  \begin{subfigure}{0.35\textwidth}
+  \begin{subfigure}{0.45\textwidth}
     \includegraphics[width=\linewidth]{figure22.jpg}
     \label{fig:figure22}
 	\caption{$((n \otimes \phi)^+,(n \otimes \phi)^-)_{\Gamma \cup \Gamma_D}$}      
   \end{subfigure}
-    \begin{subfigure}{0.35\textwidth}
+\caption{Sparsity pattern of constituents of $([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
+\label{figure_2_all}
+\end{figure}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Sparsity pattern}
+
+\begin{figure}
+    \begin{subfigure}{0.45\textwidth}
     \includegraphics[width=\linewidth]{figure23.jpg}
     \label{fig:figure23}
 	\caption{$((n \otimes \phi)^-,(n \otimes \phi)^+)_{\Gamma \cup \Gamma_D}$}      
   \end{subfigure}
-    \begin{subfigure}{0.35\textwidth}
+    \begin{subfigure}{0.45\textwidth}
     \includegraphics[width=\textwidth]{figure24.jpg}
     \label{fig:figure24}
 	\caption{$((n \otimes \phi)^-,(n \otimes \phi)^-)_{\Gamma \cup \Gamma_D}$}      
   \end{subfigure}
-  \begin{subfigure}{0.35\textwidth}	
-\centering
-  \includegraphics[width=\textwidth]{figure2.jpg}
-  \caption{$([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
-  \label{fig:figure2}
-\end{subfigure}
 \caption{Sparsity pattern of constituents of $([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
 \label{figure_2_all}
 \end{figure}
@@ -708,59 +674,78 @@ p = (1 - x) \textrm{,}
 \begin{frame}
 \frametitle{Stokes equation: Convergence test}
 \begin{figure}
-\begin{subfigure}{0.4\textwidth}	
+\begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{l2_velocity_stokes.jpg}
-  \caption{$h-$convergence test for velocity $L^2$ error}
   \label{fig:vel_stoke_conv}
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}	
+\caption{$h-$convergence test for velocity in $L^2$ error}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+%------------------------------------------------
+\begin{frame}
+\frametitle{Stokes equation: Convergence test}
+\begin{figure}
+\begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{l2_pressure_stokes.jpg}
-  \caption{$h-$convergence test for pressure in $L^2$ error}
   \label{fig:pre_stoke_conv}
 \end{subfigure}
 \caption{$h-$convergence test for pressure in $L^2$ error}
 \end{figure}
 \end{frame}
 %------------------------------------------------
-
 \begin{frame}
 \frametitle{Stokes equation: Convergence test}
 \begin{figure}
-\begin{subfigure}{0.4\textwidth}	
+\begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_velocity_stokes.jpg}
-  \caption{$h-$convergence test for velocity $H_0$ error}
   \label{fig:vel_stoke_conv_h0}
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}	
+\caption{$h-$convergence test for velocity in $H_0$ error }
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Stokes equation: Convergence test}
+\begin{figure}
+\begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{h0_pressure_stokes.jpg}
-  \caption{$h-$convergence test for pressure in $H_0$ error}
   \label{fig:pre_stoke_conv_h0}
 \end{subfigure}
-\caption{$h-$convergence in $H_0$ norm for the Stokes flow}
+\caption{$h-$convergence test for pressure in $H_0$ error}
 \end{figure}
 \end{frame}
 %------------------------------------------------
 \begin{frame}
 \begin{figure}
-\begin{subfigure}{0.3\textwidth}
+\begin{subfigure}{0.9\textwidth}
 \centering
-  \includegraphics[width=\linewidth]{p_conv_velocity_l2_stokes.jpg}
-  \caption{$p-$convergence for velocity in $L^2$ norm for Stokes flow}
+  \includegraphics[width=0.9\linewidth]{p_conv_velocity_l2_stokes.jpg}
   \label{p_convergence_velocity_l2}
+  \caption{$p-$convergence for velocity in $L^2$ norm}
 \end{subfigure}
-\begin{subfigure}{0.3\textwidth}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\begin{figure}
+\begin{subfigure}{0.9\textwidth}
 \centering
-  \includegraphics[width=\linewidth]{p_conv_velocity_h0_stokes.jpg}
-  \caption{$p-$convergence for velocity in $H_0$ semi norm for Stokes flow}
+  \includegraphics[width=0.9\linewidth]{p_conv_velocity_h0_stokes.jpg}
   \label{p_convergence_velocity_h0}
+\caption{$p-$convergence for velocity in $H_0$ semi norm}
 \end{subfigure}
-\begin{subfigure}{0.3\textwidth}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\begin{figure}
+\begin{subfigure}{0.9\textwidth}
 \centering
-  \includegraphics[width=\linewidth]{p_conv_pressure_l2_stokes.jpg}
-  \caption{$p-$convergence for pressure in $L^2$ norm for Stokes flow}
+  \includegraphics[width=0.9\linewidth]{p_conv_pressure_l2_stokes.jpg}
   \label{p_convergence_pressure_l2}
 \end{subfigure}
-\caption{$p-$convergence for the Stokes flow}
+\caption{$p-$convergence for pressure in $L^2$ norm}
 \label{p_conv_stokes_flow}
 \end{figure}
 \end{frame}
@@ -777,25 +762,35 @@ p = (1 - x) \textrm{,}
 %------------------------------------------------
 \begin{frame}
 \frametitle{Stokes equation: Flow around cylinder}
+\fboxsep=0pt
+\noindent\fbox{
+\begin{minipage}[t]{0.48\linewidth}
 \begin{figure}
-\begin{subfigure}{0.3\textwidth}	
+\begin{subfigure}{0.5\textwidth}	
     \includegraphics[width=\linewidth]{cylinder_schur_vx.jpg}
     \caption{$x-$velocity}
     \label{x_vel_stoke_schur}
 \end{subfigure}
-\begin{subfigure}{0.3\textwidth}	
+\begin{subfigure}{0.5\textwidth}	
     \includegraphics[width=\linewidth]{cylinder_schur_vy.jpg}
     \caption{$y-$velocity}
      \label{y_vel_stoke_schur}
 \end{subfigure}
-\begin{subfigure}{0.3\textwidth}	
-    \includegraphics[width=\linewidth]{cylinder_schur_pressure.jpg}
+\end{figure}
+\end{minipage}}
+\hfill
+\fbox{
+\begin{minipage}[t]{0.48\linewidth}
+\begin{figure}
+\begin{subfigure}{0.5\textwidth}	
+    \includegraphics[width=0.5\linewidth]{cylinder_schur_pressure.jpg}
     \caption{Pressure}
       \label{pressure_stoke_schur}
 \end{subfigure}
 \caption{Flow over cylinder}
 \label{flow_over_cylinder_schur}
 \end{figure}
+\end{minipage}}
 \end{frame}
 %------------------------------------------------
 \begin{frame}
@@ -864,17 +859,15 @@ u = (10 - 10x,0) \quad \textrm{for} \quad 0.9 \leq x \leq 1 \textrm{.}
 \frametitle{Penalty parameter}
 \begin{figure}
 \begin{figure}
-\begin{subfigure}{0.4\textwidth}	
+\begin{subfigure}{0.25\textwidth}	
   \includegraphics[width=\linewidth]{grid_penalty_parameter.jpg}
-  \caption{Unit square with $10 \times 10$ discretisation}
   \label{grid_penalty_para}
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}	
-	\includegraphics[width=\linewidth]{penalty_condition_number.jpg}
-	\caption{Penalty parameter vs Condition number}
+\begin{subfigure}{0.7\textwidth}	
+	\includegraphics[width=0.8\linewidth]{penalty_condition_number.jpg}
 	\label{penalty_condition_number}
 \end{subfigure}
-\caption{Effect of penalty parameter on condition number of the stiffness matrix}
+\caption{Effect of penalty parameter}
 \label{effect_penalty_parameter}
 \end{figure}
 \end{figure}
@@ -885,7 +878,7 @@ u = (10 - 10x,0) \quad \textrm{for} \quad 0.9 \leq x \leq 1 \textrm{.}
 
 Relative residual is measured as $\frac{||B-AX||_2}{||B||_2}$ for equation $AX=B$.
 
-\begin{longtable}{| p{.30\textwidth} | p{.30\textwidth} | p{.30\textwidth} |}
+\begin{longtable}{| p{.25\textwidth} | p{.25\textwidth} | p{.25\textwidth} |}
 \hline
 \textbf{Solver/Method} & \textbf{Relative residual} & \textbf{Run time}\\
 \hline
@@ -904,7 +897,7 @@ $bicgstab$ & 9.0071e-05 & 58.3472 Seconds\\
 \begin{itemize}
 \item Domain: unit square [0,1] $\times$ [0,1].
 \item ${x=0}$ is dirichlet boundary with inflow velocity at point $(0,y)$ as $u = a*(y(1-y), 0)$.
-\item The boundaries ${y = 0}$ and ${y = 1}$ are Dirichlet boundaries with no slip or zero velocity condition. The boundary ${x = 1}$ is a Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. 
+\item The boundary ${x = 1}$ is a Neumann boundary with zero Neumann value i.e. $t = (0, 0)$. 
 \item Specified source term
 \end{itemize}
 \begin{block}{Analytical solution}
@@ -922,17 +915,11 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
 \begin{frame}
 \frametitle{Navier-Stokes equation: Convergence test}
 \begin{figure}
-\begin{subfigure}{0.4\textwidth}	
+\begin{subfigure}{\textwidth}	
     \includegraphics[width=\linewidth]{L2_convergence_velocity_n_s.jpg}
-    \caption{$h-$convergence test for velocity $L^2$ error}
     \label{fig:vel_navier_stoke_conv}
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}	
-    \includegraphics[width=\linewidth]{L2_convergence_pressure_n_s.jpg}
-  \caption{$h-$convergence test for pressure in $L^2$ error}
-  \label{fig:pre_navier_stoke_conv}
-\end{subfigure}
-\caption{$h-$convergence for the Navier Stokes flow in $L^2$ error}
+\caption{$h-$convergence test for velocity $L^2$ error}
 \label{navier_stoke_conv_l2}
 \end{figure}
 \end{frame}
@@ -940,17 +927,35 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
 \begin{frame}
 \frametitle{Navier-Stokes equation: Convergence test}
 \begin{figure}
-\begin{subfigure}{0.4\textwidth}	
-  \includegraphics[width=\linewidth]{H0_convergence_velocity_n_s.jpg}
-  \caption{$h-$convergence test for velocity $H_0$ error}
+\begin{subfigure}{\textwidth}	
+    \includegraphics[width=\linewidth]{L2_convergence_pressure_n_s.jpg}
+  \label{fig:pre_navier_stoke_conv}
+\end{subfigure}
+\caption{$h-$convergence test for pressure in $L^2$ error}
+\label{navier_stoke_conv_l2}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Navier-Stokes equation: Convergence test}
+\begin{figure}
+\begin{subfigure}{0.8\textwidth}	
+  \includegraphics[width=0.8\linewidth]{H0_convergence_velocity_n_s.jpg}
   \label{fig:vel_navier_stoke_conv_h0}
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}	
+\caption{$h-$convergence test for velocity $H_0$ error}
+\label{navier_stoke_conv_h0}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Navier-Stokes equation: Convergence test}
+\begin{figure}
+\begin{subfigure}{\textwidth}	
   \includegraphics[width=\linewidth]{H0_convergence_pressure_n_s.jpg}
-  \caption{$h-$convergence test for pressure in $H_0$ error}
   \label{fig:pre_navier_stoke_conv_h0}
 \end{subfigure}
-\caption{$h-$convergence for the Navier Stokes flow in $H_0$ error}
+\caption{$h-$convergence test for pressure in $H_0$ error}
 \label{navier_stoke_conv_h0}
 \end{figure}
 \end{frame}
@@ -1005,18 +1010,22 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
 %------------------------------------------------
 \begin{frame}
 \frametitle{Conclusions}
-\begin{itemize}
 
-\item The Schur complement : Efficient and accurate.
-\item $minres$ slow convergence and $bicgstab$ does not converge.
-\item Penalty parameter should be properly adjusted.
-\item The solvers/methods which are applicable for the Saddle point problems should be used for solving the weak form of the Stokes equation.
+\begin{block}{Numerical considerations}
+\begin{itemize}
+\item The higher polynomial degree does not always guarantee better accuracy. However, the convergence rate increases with increase in polynomial degree.
 \item The initial guess is crucial for success of the Newton method.
 \item The solution of the Stokes equation and the Navier Stokes equation show close to linear convergence in $L^2$ norm.
-\item The higher polynomial degree does not always guarantee better accuracy. However, the convergence rate increases with increase in polynomial degree.
-
 \end{itemize}
+\end{block}
 
+\begin{block}{Solution method}
+\begin{itemize}
+\item The Schur complement method: Efficient and accurate.
+\item The $minres$ solver : Slow convergence 
+\item The $bicgstab$ : Convergence failure.
+\end{itemize}
+\end{block}
 
 \end{frame}
 
@@ -1024,26 +1033,54 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
 
 \begin{frame}
 \frametitle{Outlook}
+\begin{block}{Discontinuous Galerkin method}
 \begin{itemize}
-
 \item Test for higher Reynold's number.
 \item Further solvers/methods.
 \item Time dependent cases.
+\end{itemize}
+\end{block}
+
+\begin{block}{Model order reduction}
+\begin{itemize}
 \item Parametrization.
 \item Reduced order modelling.
-
 \end{itemize}
+\end{block}
 
 
 \end{frame}
 
 %------------------------------------------------
-
+\begin{frame}
+\frametitle{References}
 \bibliographystyle{plain}
 \bibliography{ref1}
 
+
+\end{frame}
+\appendix
 %------------------------------------------------
 
+\begin{frame}
+\frametitle{Notations}
+$\Omega$ = Continuous domain,\\
+$\Gamma_D$ = Dirichlet boundary, \\
+$\Gamma_N$ = Neumann boundary, \\
+$cv$ = Control volume,\\
+$cs$ = Control surface,\\
+$B'$ = Extensive quantity under consideration,\\
+$b'$ = Intensive quantity corresponding to $B'$,\\
+$u$ = flow velocity and $u:\Omega \rightarrow \mathbb{R}^d$,\\
+$p$ = pressure and $p:\Omega \rightarrow \mathbb{R}$,\\
+$\nu$ = kinematic viscocity (fluid property) and $\nu:\Omega \rightarrow \mathbb{R}$,\\ 
+$f$ = external force and $f:\Omega \rightarrow \mathbb{R}^d$,\\
+$u_D$ = specified flow velocity at Dirichlet boundary and $u_D:\Gamma_D \rightarrow \mathbb{R}^d$,\\
+$n$ = normal unit vector and $n:\partial \Omega \rightarrow \mathbb{R}^d$,\\
+$\rho$ = density (fluid property) and $\rho:\Omega \rightarrow \mathbb{R}$,\\
+$t$ = specified Neumann flux and $t:\Gamma_N \rightarrow \mathbb{R}^d$.\\
+\end{frame}
+%------------------------------------------------
 \begin{frame}
 \frametitle{Grid}
 \begin{figure}
@@ -1080,17 +1117,15 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
 \frametitle{Global and local coordinate system}
 \begin{itemize}
 
-\item Integral terms are evaluated on a reference triangle instead of the element itself.
 \item The transformation from local coordinate $\hat{X}$ to global coordinate $X$ is defined by the mapping,
 \begin{equation}\label{local global mapping}
-F_k:\hat{X} \mapsto X \quad \forall \quad \hat{X} \in \hat{T} \quad \textrm{and} \quad X \in \mathcal{T}
-\end{equation}
-
-\begin{equation}\label{local global mapping equation}
+\begin{split}
+F_k:\hat{X} \mapsto X \quad \forall \quad \hat{X} \in \hat{T} \quad \textrm{and} \quad X \in \mathcal{T} \\
 F_k(\hat{X}): X = J_k \hat{X} + C
+\end{split}
 \end{equation}
 
-\begin{figure}%[0.6\textwidth]
+\begin{figure}[0.6\textwidth]
 \begin{picture}(300,100)(0,0) 
 \put(0,0){\line(1,0){50}}
 \put(50,0){\line(1,1){100}}
@@ -1176,46 +1211,6 @@ res_3 = res_3^{++} + res_3^{+-} + res_3^{-+} + res_3^{--} \textrm{.}
 
 \end{itemize}
 
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Sparsity pattern}
-
-\begin{table}[H]
-\caption{Size and sparsity pattern of different terms}
-\begin{center}
-\begin{tabular}{|p{.3\textwidth}| p{.3\textwidth} |  p{.4\textwidth}|}
-\hline
-\textbf{Matrix term} & \textbf{Size} & \textbf{Sparsity pattern} \\
-\hline
-$(\nabla \phi, \nabla \phi)$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{fig:sparsity_del_phi_del_phi}\\
-\hline
-$([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_2_all}\\
-\hline
-$(\lbrace \nabla \phi \rbrace,[n \otimes \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_3_all}\\
-\hline
-$(\lbrace \psi \rbrace,[n \cdot \phi])_{\Gamma \cup \Gamma_D}$ & $\mathbb{R}^{p_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_4_all}\\
-\hline
-$(- \int_{\hat{T}} \psi \nabla \cdot \phi)$ & $\mathbb{R}^{p_{ndofs} \times u_{ndofs}}$ & Figure \ref{figure_5} \\
-\hline
-$-((u_k \cdot \nabla)\phi , \phi)$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_6}\\
-\hline
-$((u_k \cdot n)\phi , \phi)_{\Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_7}\\
-\hline
-$((u_k \cdot n)\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_81}\\
-\hline
-$(|u_k \cdot n|\phi,\phi^{ext})_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_91}\\
-\hline
-$((u_k \cdot n)\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_82}\\
-\hline
-$(|u_k \cdot n|\phi,\phi)_{\partial T \setminus \Gamma_N}$ & $\mathbb{R}^{u_{ndofs} \times u_{ndofs}}$ & Figures \ref{figure_92}\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
 
 \end{frame}
 
