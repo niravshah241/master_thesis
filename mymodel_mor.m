@@ -86,8 +86,8 @@ rhs_reference = rhs;
 
 %% Parameter-training generation
 disp('Generating training parameter set')
-para1 = [1 3 5]; %viscocity
-para2 = [1 2 5]; %dirichlet value
+para1 = [100 110 2]; %viscocity
+para2 = [1 1.1 2]; %dirichlet value
 parameter_training_set = gen_parameters( para1,para2);
 disp('Parameter training set generation finished')
 
@@ -102,64 +102,87 @@ paramsP_reference = paramsP;
     para2, stifness_matrix_reference, rhs_reference, grid, ...
     parameter_training_set, linear_side_reference);
 
-%% Proper Orthogonal Decomposition
-n_s = size(params.snapshots_matrix,2); % number of snapshots
-% params.snapshots_matrix = rand(params.ndofs,n_s);
-red_dim_velocity = 20;
-red_dim_pressure = 20;
-params.qdeg = qdeg;
-paramsP.qdeg = qdeg;
-min_eigen_velocity = 1e-12;
-min_eigen_pressure = 1e-12;
+x = 1:2:para1(3)*para2(3);
 
-disp('Entering in pod')
+error_l2_average = zeros(length(x),1);
+error_energy_average = zeros(length(x),1);
 
-[ pod_res_params, pod_res_paramsP, B_velocity, B_pressure, ...
-    red_dim_velocity, red_dim_pressure] = pod( params, paramsP, grid, ...
-    red_dim_velocity, red_dim_pressure, min_eigen_pressure, ...
-    min_eigen_velocity, stifness_matrix, rhs);
-
-%% Testing
-disp('Generating test parameter set')
-para_test_1 = [1 2 10];
-para_test_2 = [1 2 10];
-parameter_test_set = gen_test_parameters(para_test_1,para_test_2);
-disp('Test parameter set generated')
-
-disp('Entering in error calculation')
-
-[error_l2, error_energy] = error_analysis(params, paramsP, ...
-    stifness_matrix_reference, rhs_reference, parameter_test_set, B_velocity, ...
-    B_pressure, grid, para_test_1, para_test_2, linear_side_reference, ...
-    red_dim_velocity, red_dim_pressure);
+for i = 1:1:length(x)
+    %% Proper Orthogonal Decomposition
+    n_s = size(params.snapshots_matrix,2); % number of snapshots
+    % params.snapshots_matrix = rand(params.ndofs,n_s);
+    red_dim_velocity = x(i);
+    red_dim_pressure = x(i);
+    params.qdeg = qdeg;
+    paramsP.qdeg = qdeg;
+    min_eigen_velocity = 1e-12;
+    min_eigen_pressure = 1e-12;
+    
+    disp('Entering in pod')
+    
+    [ pod_res_params, pod_res_paramsP, B_velocity, B_pressure, ...
+        red_dim_velocity, red_dim_pressure] = pod( params, paramsP, grid, ...
+        red_dim_velocity, red_dim_pressure, min_eigen_pressure, ...
+        min_eigen_velocity, stifness_matrix, rhs);
+    
+    %% Testing
+    disp('Generating test parameter set')
+    para_test_1 = [100 110 2];
+    para_test_2 = [1 1.1 2];
+    parameter_test_set = gen_test_parameters(para_test_1,para_test_2);
+    disp('Test parameter set generated')
+    
+    disp('Entering in error calculation')
+    
+    [error_l2, error_energy] = error_analysis(params, paramsP, ...
+        stifness_matrix_reference, rhs_reference, parameter_test_set, B_velocity, ...
+        B_pressure, grid, para_test_1, para_test_2, linear_side_reference, ...
+        red_dim_velocity, red_dim_pressure);
+    
+    figure()
+    [xq,yq] = meshgrid(para_test_1(1):0.1:para_test_1(2),...
+        para_test_2(1):0.1:para_test_2(2));
+    vq = griddata(parameter_test_set(:,1),parameter_test_set(:,2),...
+        error_l2,xq,yq);
+    mesh(xq,yq,vq)
+    hold on
+    plot3(parameter_test_set(:,1),parameter_test_set(:,2),error_l2,'o')
+    axis tight
+    xlabel('Viscocity')
+    ylabel('Dirichlet value')
+    zlabel('Error L^2')
+    title('Error L^2 over parameter space')
+    
+    figure()
+    [xq,yq] = meshgrid(para_test_1(1):0.1:para_test_1(2),...
+        para_test_2(1):0.1:para_test_2(2));
+    vq = griddata(parameter_test_set(:,1),parameter_test_set(:,2),...
+        error_energy,xq,yq);
+    mesh(xq,yq,vq)
+    hold on
+    plot3(parameter_test_set(:,1),parameter_test_set(:,2),error_energy,'o')
+    axis tight
+    xlabel('Viscocity')
+    ylabel('Dirichlet value')
+    zlabel('Error energy')
+    title('Error energy over parameter space')
+    error_l2_average(i) = mean(error_l2);
+    error_energy_average(i) = mean(error_energy);
+end
 
 figure()
-[xq,yq] = meshgrid(para_test_1(1):0.1:para_test_1(2),...
-    para_test_2(1):0.1:para_test_2(2));
-vq = griddata(parameter_test_set(:,1),parameter_test_set(:,2),...
-    error_l2,xq,yq);
-mesh(xq,yq,vq)
-hold on
-plot3(parameter_test_set(:,1),parameter_test_set(:,2),error_l2,'o')
+plot(x,error_l2_average);
+title('L^2 error')
+xlabel('Size of reduced basis')
+ylabel('L^2 error')
 axis tight
-xlabel('Viscocity')
-ylabel('Dirichlet value')
-zlabel('Error L^2')
-title('Error L^2 over parameter space')
 
 figure()
-[xq,yq] = meshgrid(para_test_1(1):0.1:para_test_1(2),...
-    para_test_2(1):0.1:para_test_2(2));
-vq = griddata(parameter_test_set(:,1),parameter_test_set(:,2),...
-    error_energy,xq,yq);
-mesh(xq,yq,vq)
-hold on
-plot3(parameter_test_set(:,1),parameter_test_set(:,2),error_energy,'o')
+plot(x,error_energy_average);
+title('Energy error')
+xlabel('Size of reduced basis')
+ylabel('energy error')
 axis tight
-xlabel('Viscocity')
-ylabel('Dirichlet value')
-zlabel('Error energy')
-title('Error energy over parameter space')
 
 % online phase
 

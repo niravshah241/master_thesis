@@ -161,13 +161,13 @@ Universit\"at Stuttgart \\ % Your institution for the title page
 \begin{itemize}
 
 \item Computational fluid dynamics $\implies$ One of the variants of the Navier Stokes equation
-\item Navier Stokes equation involves state variables
+\item The Navier Stokes equation involves state variables
 \item Incompressible condition $\implies$ state variables constant $\implies$ Equation of state not required
 \item Solved along with continuity equation
 %\item Pressure variable acts as Lagrange multiplier
 \item Depends on time (Unsteady fluid flow) or independent of time (Steady fluid flow)
 \item Non linear coupled system of equations
-\item Stokes equation is linearized form of the Navier Stokes equation
+\item The Stokes equation is linearized form of the Navier Stokes equation
 
 \end{itemize}
 
@@ -200,7 +200,7 @@ $t$ = specified Neumann flux and $t:\Gamma_N \rightarrow \mathbb{R}^d$.\\
 
 \begin{block}{Reynolds transport theoreom (White F.M. \cite{white})} 
 \begin{equation} \label{rtt} 
-\frac{dB'}{dt'}|_{cs} = \frac{d}{dt'} \int_{cv} b' \rho dV + \int_{cs} (b' \rho) u\cdot dA 
+\frac{dB'}{dt'}|_{cs} = \frac{d}{dt'} \int_{cv} b' \rho dV + \int_{cs} (b' \rho) u\cdot dA \textrm{.}
 \end{equation}
 \end{block}
 
@@ -209,7 +209,7 @@ $t$ = specified Neumann flux and $t:\Gamma_N \rightarrow \mathbb{R}^d$.\\
 F = \frac{dM}{dt'} = \frac{d}{dt'} \int_{cv} u \rho dV + \int_{cs} (u \rho) u\cdot dA \textrm{.}
 \end{equation}
 \begin{equation}\label{External force rhs}
-F = \int_{cs} \sigma \cdot dA + \int_{cv} \rho f dV \textrm{,}
+F = \int_{cs} \sigma \cdot dA + \int_{cv} \rho f dV \textrm{.}
 \end{equation}
 \end{block}
 
@@ -314,13 +314,13 @@ Weights, $\lambda_1, \lambda_2, \lambda_3$ satisfy,
 
 \begin{block}{Function space for velocity}
 \begin{equation}
-\mathbb{V} = \lbrace \phi \in (L^2(\mathcal{T}))^{d_u}| \quad \phi \in (P^D(\tau_k))^{d_u} \quad \forall \quad {\tau_k} \in \mathcal{T} \rbrace
+\mathbb{V} = \lbrace \phi \in (L^2(\mathcal{T}))^{d_u}| \quad \phi \in (P^D(\tau_k))^{d_u} \quad \forall \quad {\tau_k} \in \mathcal{T} \rbrace \textrm{.}
 \end{equation}
 \end{block}
 
 \begin{block}{Function space for pressure}
 \begin{equation}
-\mathbb{Q} = \lbrace \psi \in (L^2(\mathcal{T}))^{d_p}| \quad \psi \in (P^{D-1}(\tau_k))^{d_p} \quad \forall \quad {\tau_k} \in \mathcal{T} \rbrace
+\mathbb{Q} = \lbrace \psi \in (L^2(\mathcal{T}))^{d_p}| \quad \psi \in (P^{D-1}(\tau_k))^{d_p} \quad \forall \quad {\tau_k} \in \mathcal{T} \rbrace \textrm{.}
 \end{equation}
 \end{block}
 \item We use Orthonormal basis function
@@ -337,17 +337,17 @@ Weights, $\lambda_1, \lambda_2, \lambda_3$ satisfy,
 \begin{block}{Jump operator}
 
 \begin{center}
-$[pn] = p^+ n^+ + p^- n^- $ on $\Gamma$\\
-$[pn] = p n $ on $\Gamma_D$\\
+$[pn] = p^+ n^+ + p^- n^- $ on $\Gamma$,\\
+$[pn] = p n $ on $\Gamma_D$,\\
 where $p$ is scalar.
 \end{center}
 
 \begin{center}
-$[n \otimes u] = n^+ \otimes u^+ + n^- \otimes u^-$ on $\Gamma$\\
-$[n \otimes u] = n \otimes u$ on $\Gamma_D$\\
-$[n \cdot u] = n^+ \cdot u^+ + n^- \cdot u^-$ on $\Gamma$\\
-$[n \cdot u] = n \cdot u$ on $\Gamma_D$\\
-where $u$ is vector and $n \otimes u = u_i n_j$, $1 \leq i \leq d_u$, $1 \leq j \leq d$\\ 
+$[n \otimes u] = n^+ \otimes u^+ + n^- \otimes u^-$ on $\Gamma$,\\
+$[n \otimes u] = n \otimes u$ on $\Gamma_D$,\\
+$[n \cdot u] = n^+ \cdot u^+ + n^- \cdot u^-$ on $\Gamma$,\\
+$[n \cdot u] = n \cdot u$ on $\Gamma_D$,\\
+where $u$ is vector and $n \otimes u = u_i n_j$, $1 \leq i \leq d_u$, $1 \leq j \leq d$.\\ 
 \end{center}
 \end{block}
 
@@ -355,7 +355,7 @@ where $u$ is vector and $n \otimes u = u_i n_j$, $1 \leq i \leq d_u$, $1 \leq j 
 The average operator is defined as,
 
 \begin{equation}\label{average operator}
-\left\lbrace u \right\rbrace = \frac{u^+ + u^-}{2}  \quad \textrm{.}
+\left\lbrace u \right\rbrace = \frac{u^+ + u^-}{2} \textrm{.}
 \end{equation} 
 
 \end{block}
@@ -370,8 +370,8 @@ The average operator is defined as,
 \begin{block}{Strong form}
 \begin{equation} \label{stokes_strong_form_ch3}
 \begin{split}
--\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega \quad \textrm{.}\\
-\nabla \cdot u = 0 \quad \textrm{in} \quad \Omega \quad \textrm{.}
+-\nu \Delta u + \nabla p = f \quad \textrm{in} \quad \Omega \textrm{.}\\
+\nabla \cdot u = 0 \quad \textrm{in} \quad \Omega \textrm{.}
 \end{split}
 \end{equation}
 \end{block}
@@ -379,8 +379,8 @@ The average operator is defined as,
 \begin{block}{Weak form (Montlaur et al. \cite{Montlaur2})}
 \begin{equation}\label{stokes_weak_ch3}
 \begin{split}
-a_{IP}(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) \quad \textrm{.}\\
-b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamma_D} \quad \textrm{.}
+a_{IP}(u,\phi) + b(\phi,p) + (\{p\},[n\cdot \phi])_{\Gamma \cup \Gamma_D} = l_{IP}(\phi) \textrm{.}\\
+b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamma_D} \textrm{.}
 \end{split}
 \end{equation}
 \end{block}
@@ -413,8 +413,8 @@ l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (
 
 \begin{equation} \label{stokes discrete_ch3}
 \begin{split}
-AU + BP = F_1 \quad \textrm{.}\\
-B^T U  = F_2 \quad \textrm{.}
+AU + BP = F_1 \textrm{.}\\
+B^T U  = F_2 \textrm{.}
 \end{split}
 \end{equation}
 
@@ -478,7 +478,7 @@ g^{up} = g|_{\tau_2} \quad \textrm{if} \quad g \cdot n_\tau < 0
 
 \begin{equation}
 \begin{split}
-c(g;u,\phi) = \sum_{i=1}^{nel} \int_{\partial \Omega_i \setminus \Gamma_N} \frac{1}{2} [[(g \cdot n_i)(u^{ext} + u) - |g \cdot n_i|(u^{ext} - u)]] \cdot \phi \\ + \int_{\Gamma_N} (g\cdot n) u \cdot \phi -((g\cdot \nabla)\phi,u) \quad \textrm{.}
+c(g;u,\phi) = \sum_{i=1}^{nel} \int_{\partial \Omega_i \setminus \Gamma_N} \frac{1}{2} [[(g \cdot n_i)(u^{ext} + u) - |g \cdot n_i|(u^{ext} - u)]] \cdot \phi \\ + \int_{\Gamma_N} (g\cdot n) u \cdot \phi -((g\cdot \nabla)\phi,u) \textrm{.}
 \end{split}
 \end{equation}
 
@@ -521,7 +521,7 @@ We use the solution from the Stokes equation as initial guess. In discrete form 
     F_1  \\
     F_2
 \end{spmatrix}
-\quad \textrm{.}
+\textrm{.}
 \end{equation}
 \end{flushleft}
 \end{frame}
@@ -545,7 +545,7 @@ STEP 2 : \\
 STEP 3 : \\
 \begin{center}
 
-Backsubstitution in equation \eqref{schur step 1}
+Backsubstitution in equation \eqref{schur step 1}.
 
 \end{center}
 
@@ -603,7 +603,7 @@ Backsubstitution in equation \eqref{schur step 1}
 
 \begin{block}{Jump operator}
 \begin{equation} \label{Jump operator L2}
-[A_h \cdot n],[B_h \cdot n] = A_h^+ n^+ B_h^+ n^+ + A_h^+ n^+ B_h^- n^- + A_h^- n^- B_h^+ n^+ + A_h^- n^- B_h^- n^- \textrm{,}
+[A_h \cdot n],[B_h \cdot n] = A_h^+ n^+ B_h^+ n^+ + A_h^+ n^+ B_h^- n^- + A_h^- n^- B_h^+ n^+ + A_h^- n^- B_h^- n^- \textrm{.}
 \end{equation}
 \end{block}
 
@@ -625,22 +625,22 @@ Backsubstitution in equation \eqref{schur step 1}
     \label{fig:figure21}
 	\caption{$((n \otimes \phi)^+,(n \otimes \phi)^+)_{\Gamma \cup \Gamma_D}$}      
   \end{subfigure}
-  \begin{subfigure}{0.4\textwidth}
+  \begin{subfigure}{0.35\textwidth}
     \includegraphics[width=\linewidth]{figure22.jpg}
     \label{fig:figure22}
 	\caption{$((n \otimes \phi)^+,(n \otimes \phi)^-)_{\Gamma \cup \Gamma_D}$}      
   \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.35\textwidth}
     \includegraphics[width=\linewidth]{figure23.jpg}
     \label{fig:figure23}
 	\caption{$((n \otimes \phi)^-,(n \otimes \phi)^+)_{\Gamma \cup \Gamma_D}$}      
   \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.35\textwidth}
     \includegraphics[width=\textwidth]{figure24.jpg}
     \label{fig:figure24}
 	\caption{$((n \otimes \phi)^-,(n \otimes \phi)^-)_{\Gamma \cup \Gamma_D}$}      
   \end{subfigure}
-  \begin{subfigure}{\textwidth}	
+  \begin{subfigure}{0.35\textwidth}	
 \centering
   \includegraphics[width=\textwidth]{figure2.jpg}
   \caption{$([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
@@ -659,7 +659,6 @@ Backsubstitution in equation \eqref{schur step 1}
   \begin{subfigure}{0.8\textwidth}	
 \centering
   \includegraphics[width=0.8\textwidth]{figure2.jpg}
-  \caption{$([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
   \label{fig:figure2}
 \end{subfigure}
 \caption{Sparsity pattern of constituents of $([n \otimes \phi],[n \otimes \phi])_{\Gamma \cup \Gamma_D}$}
@@ -1008,9 +1007,9 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
 \frametitle{Conclusions}
 \begin{itemize}
 
-\item The Schur complement : Efficient and accurate
-\item $minres$ slow convergence and $bicgstab$ does not converge
-\item Penalty parameter
+\item The Schur complement : Efficient and accurate.
+\item $minres$ slow convergence and $bicgstab$ does not converge.
+\item Penalty parameter should be properly adjusted.
 \item The solvers/methods which are applicable for the Saddle point problems should be used for solving the weak form of the Stokes equation.
 \item The initial guess is crucial for success of the Newton method.
 \item The solution of the Stokes equation and the Navier Stokes equation show close to linear convergence in $L^2$ norm.
@@ -1027,11 +1026,11 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
 \frametitle{Outlook}
 \begin{itemize}
 
-\item Test for higher Reynold's number
-\item Further solvers/methods
-\item Time dependent cases
-\item Parametrization
-\item Reduced order modelling
+\item Test for higher Reynold's number.
+\item Further solvers/methods.
+\item Time dependent cases.
+\item Parametrization.
+\item Reduced order modelling.
 
 \end{itemize}
 
