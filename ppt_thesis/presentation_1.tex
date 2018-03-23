@@ -108,9 +108,9 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[DG for Navier Stokes]{Discontinuous Galerkin method for direct numerical simulation of the Navier Stokes equation} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[DG for Navier Stokes]{Discontinuous Galerkin Method for Direct Numerical Simulation of the Navier Stokes Equation} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{Nirav Vasant Shah} % Your name
+\author{Nirav V. Shah \\ Prof. Dr. Bernard Haasdonk} % Your name
 \institute[Universit\"at Stuttgart] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 Universit\"at Stuttgart \\ % Your institution for the title page
@@ -141,24 +141,6 @@ Universit\"at Stuttgart \\ % Your institution for the title page
 %----------------------------------------------------------------------------------------
 
 \section{Introduction} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
-%------------------------------------------------
-%\subsection{•}
-\begin{frame}
-\frametitle{Objective}
-\begin{itemize}
-
-\item Understanding the Stokes and the Navier-Stokes formulation and perspectives
-\item Derivation from conservation equation
-\item Discretisation and function spaces for unknowns
-\item Discontinuous-Galerkin formulation for the Stokes and the Navier-Stokes equation
-\item Implementation and matrix assembly
-\item Sparsity pattern and solver selection
-\item Numerical experiment for the Stokes equation and the Navier-Stokes equation
-\item Future perspectives
-
-\end{itemize}
-\end{frame}
-
 %------------------------------------------------
 \section{Engineering perspectives and mathematical formulation} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 %------------------------------------------------
@@ -255,7 +237,7 @@ Re =  \frac{uL}{\nu} \textrm{.}
 \begin{itemize}
 \item Fluctuations in velocity and pressure.
 \item Fluctuations are of the order of Kolmogrov scale.
-\item Low Reynolds number.
+\item High Reynolds number.
 \end{itemize}
 \end{block}
 \end{frame}
@@ -269,8 +251,8 @@ Re =  \frac{uL}{\nu} \textrm{.}
 \begin{frame}
 \frametitle{Grid}
 \begin{itemize}
-\item Continuous domain ($\Omega$) $\implies$ Grid ($\mathcal{T}$)
-\item Triangular element, $\tau_k$, $\cup_{k=1}^{nel} \tau_k = \mathcal{T}$, $nel$ is the total number of elements
+\item Continuous domain ($\Omega$) $\implies$ Grid ($\mathcal{T}$).
+\item Triangular element, $\tau_k$, $\cup_{k=1}^{nel} \tau_k = \mathcal{T}$.
 \item Grid boundary includes interelement boundaries.
 \begin{equation}
 \partial \mathcal{T} = \Gamma_D \cup \Gamma_N \cup \Gamma
@@ -295,8 +277,8 @@ Weights, $\lambda_1, \lambda_2, \lambda_3$ satisfy,
 \begin{frame}
 \frametitle{Discontinuous Galerkin method}
 \begin{itemize}
-\item Multiply with test function and integrate
-\item Discontinuous at the interface of elements
+\item Multiply with test function and integrate.
+\item Discontinuous at the interface of elements.
 \item $P^D(\tau_k)$ denotes space of polynomials of degree at most $D$ over $\tau_k$.
 
 \begin{block}{Function space for velocity}
@@ -374,15 +356,13 @@ b(u,\psi) + (\{\psi\},[n\cdot u])_{\Gamma \cup \Gamma_D} = (q,n\cdot u_D)_{\Gamm
 \begin{frame}
 \frametitle{Stokes equation}
 \begin{block}{Weak form}
-
 \begin{equation}
 \begin{split}
 a_{IP}(u,\phi) = (\nabla u, \nabla \phi) + C_{11} ([n \otimes u],[n \otimes \phi])_{\Gamma \cup \Gamma_D} \\ - \nu (\{\nabla u\},[n \otimes \phi])_{\Gamma \cup \Gamma_D} - \nu ([n \otimes u],\{\nabla \phi\})_{\Gamma \cup \Gamma_D} \textrm{.}\\
 b(\phi,\psi) = -\int_{\mathcal{T}} \psi \nabla \cdot \phi \textrm{.}\\
-l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (n \otimes u_D, \nu \nabla \phi)_{\Gamma_D} \textrm{.}
+l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} \\ - (n \otimes u_D, \nu \nabla \phi)_{\Gamma_D} \textrm{.}
 \end{split}
 \end{equation}
-
 \end{block}
 
 \begin{block}{Discrete form}
@@ -401,7 +381,6 @@ l_{IP}(\phi) = (f,\phi) + (t,\phi)_{\Gamma_N} + C_{11} (u_D,\phi)_{\Gamma_D} - (
     F_2
 \end{spmatrix}
 \end{equation}
-
 \end{block}
 \end{frame}
 
@@ -468,7 +447,7 @@ Algotrithm for the Newton method is as follow:\\
 
 1. Calculate $u^{iter} \in \mathbb{V}$ at iteration $iter$,\\
 
-2. Verify $DS_{u^{iter}}(h^{iter}) = -S(u^{iter})$,\\
+2. Rewrite weak form as $S=0$ and verify $DS_{u^{iter}}(h^{iter}) = -S(u^{iter})$,\\
 
 3. Set $u^{iter + 1} := u^{iter} + h^{iter}$ till $||u^{iter+1} - u^{iter}|| < tol$.\\
 
@@ -544,7 +523,7 @@ Backsubstitution in equation \eqref{schur step 1}.
 
 \item The derivative of basis function $(\phi)_{i}$, where $1 \leq i \leq u_{npe}$ is cell.
 
-\begin{block}{Basis function in RBmatlab}
+\begin{block}{Derivative of basis function in RBmatlab}
 
 \begin{equation}\label{basis_func_derivative_velocity_rbmatlab}
 \nabla (\phi)_{i} \in \mathbb{R}^{{d_u} \times d} \textrm{.}
@@ -564,7 +543,9 @@ Backsubstitution in equation \eqref{schur step 1}.
 
 \begin{block}{Jump operator}
 \begin{equation} \label{Jump operator L2}
-[A_h \cdot n],[B_h \cdot n] = A_h^+ n^+ B_h^+ n^+ + A_h^+ n^+ B_h^- n^- + A_h^- n^- B_h^+ n^+ + A_h^- n^- B_h^- n^- \textrm{.}
+\begin{split}
+[A_h \cdot n],[B_h \cdot n] = A_h^+ n^+ B_h^+ n^+ + A_h^+ n^+ B_h^- n^- + \\ A_h^- n^- B_h^+ n^+ + A_h^- n^- B_h^- n^- \textrm{.}
+\end{split}
 \end{equation}
 \end{block}
 
@@ -722,7 +703,7 @@ p = (1 - x) \textrm{,}
 \centering
   \includegraphics[width=0.9\linewidth]{p_conv_velocity_l2_stokes.jpg}
   \label{p_convergence_velocity_l2}
-  \caption{$p-$convergence for velocity in $L^2$ norm}
+  \caption{$p-$convergence for velocity in $L^2$ error}
 \end{subfigure}
 \end{figure}
 \end{frame}
@@ -733,7 +714,7 @@ p = (1 - x) \textrm{,}
 \centering
   \includegraphics[width=0.9\linewidth]{p_conv_velocity_h0_stokes.jpg}
   \label{p_convergence_velocity_h0}
-\caption{$p-$convergence for velocity in $H_0$ semi norm}
+\caption{$p-$convergence for velocity in $H_0$ error}
 \end{subfigure}
 \end{figure}
 \end{frame}
@@ -745,7 +726,7 @@ p = (1 - x) \textrm{,}
   \includegraphics[width=0.9\linewidth]{p_conv_pressure_l2_stokes.jpg}
   \label{p_convergence_pressure_l2}
 \end{subfigure}
-\caption{$p-$convergence for pressure in $L^2$ norm}
+\caption{$p-$convergence for pressure in $L^2$ error}
 \label{p_conv_stokes_flow}
 \end{figure}
 \end{frame}
@@ -762,35 +743,26 @@ p = (1 - x) \textrm{,}
 %------------------------------------------------
 \begin{frame}
 \frametitle{Stokes equation: Flow around cylinder}
-\fboxsep=0pt
-\noindent\fbox{
-\begin{minipage}[t]{0.48\linewidth}
 \begin{figure}
-\begin{subfigure}{0.5\textwidth}	
+\begin{subfigure}{0.3\textwidth}	
     \includegraphics[width=\linewidth]{cylinder_schur_vx.jpg}
     \caption{$x-$velocity}
     \label{x_vel_stoke_schur}
 \end{subfigure}
-\begin{subfigure}{0.5\textwidth}	
+\begin{subfigure}{0.3\textwidth}	
     \includegraphics[width=\linewidth]{cylinder_schur_vy.jpg}
     \caption{$y-$velocity}
      \label{y_vel_stoke_schur}
 \end{subfigure}
-\end{figure}
-\end{minipage}}
-\hfill
-\fbox{
-\begin{minipage}[t]{0.48\linewidth}
-\begin{figure}
-\begin{subfigure}{0.5\textwidth}	
-    \includegraphics[width=0.5\linewidth]{cylinder_schur_pressure.jpg}
+\begin{subfigure}{0.3\textwidth}	
+    \includegraphics[width=\linewidth]{cylinder_schur_pressure.jpg}
     \caption{Pressure}
       \label{pressure_stoke_schur}
 \end{subfigure}
 \caption{Flow over cylinder}
 \label{flow_over_cylinder_schur}
 \end{figure}
-\end{minipage}}
+
 \end{frame}
 %------------------------------------------------
 \begin{frame}
@@ -858,18 +830,16 @@ u = (10 - 10x,0) \quad \textrm{for} \quad 0.9 \leq x \leq 1 \textrm{.}
 \begin{frame}
 \frametitle{Penalty parameter}
 \begin{figure}
-\begin{figure}
 \begin{subfigure}{0.25\textwidth}	
   \includegraphics[width=\linewidth]{grid_penalty_parameter.jpg}
   \label{grid_penalty_para}
 \end{subfigure}
 \begin{subfigure}{0.7\textwidth}	
-	\includegraphics[width=0.8\linewidth]{penalty_condition_number.jpg}
+	\includegraphics[width=\linewidth]{penalty_condition_number.jpg}
 	\label{penalty_condition_number}
 \end{subfigure}
 \caption{Effect of penalty parameter}
 \label{effect_penalty_parameter}
-\end{figure}
 \end{figure}
 \end{frame}
 %------------------------------------------------
@@ -1014,12 +984,12 @@ u = (x^2(1-y)^2(2y-6y^2+4y^3),\\-y^2(1-y)^2(2x-6x^2+4x^3)) \textrm{.}
 \begin{block}{Numerical considerations}
 \begin{itemize}
 \item The higher polynomial degree does not always guarantee better accuracy. However, the convergence rate increases with increase in polynomial degree.
-\item The initial guess is crucial for success of the Newton method.
-\item The solution of the Stokes equation and the Navier Stokes equation show close to linear convergence in $L^2$ norm.
+\item The initial guess, here, solution of the Stokes equation, is crucial for success of the Newton method for the Navier Stokes equation.
+\item Convergence of solution.
 \end{itemize}
 \end{block}
 
-\begin{block}{Solution method}
+\begin{block}{Solvers performance}
 \begin{itemize}
 \item The Schur complement method: Efficient and accurate.
 \item The $minres$ solver : Slow convergence 

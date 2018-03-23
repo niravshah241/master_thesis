@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  22 MAR 2018 15:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.10)  23 MAR 2018 13:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1016,6 +1016,10 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count298
 \@thisrulewidth=\dimen278
 )
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 113.
+
 (./presentation_1.aux
 
 LaTeX Warning: Label `figure_2_all' multiply defined.
@@ -1235,6 +1239,10 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 Package caption Info: End \AtBeginDocument code.
 
 (./presentation_1.nav)
+Overfull \hbox (66.16425pt too wide) in paragraph at lines 124--124
+ [][]  \OT1/cmss/bx/n/6 ([])  
+ []
+
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <4> not available
 (Font)              size <5> substituted on input line 128.
@@ -1243,36 +1251,41 @@ LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <4> not available
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 128.
 
+
+Overfull \hbox (66.16425pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/bx/n/6 ([])  
+ []
+
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./presentation_1.toc)
 [2
 
-] [3
-
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 181.
+LaTeX Font Info:    Try loading font information for U+msa on input line 163.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 181.
+LaTeX Font Info:    Try loading font information for U+msb on input line 163.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 181.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 163.
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 181.
+line 163.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-[4
+[3
+
+] [4
 
 ] [5
 
@@ -1300,511 +1313,508 @@ thkerncmss.
 
 ] [17
 
-] [18
-
 ]
-<figure21.jpg, id=603, 562.1pt x 421.575pt>
+<figure21.jpg, id=575, 562.1pt x 421.575pt>
 File: figure21.jpg Graphic file (type jpg)
  <use figure21.jpg>
-Package pdftex.def Info: figure21.jpg used on input line 598.
+Package pdftex.def Info: figure21.jpg used on input line 579.
 (pdftex.def)             Requested size: 154.03183pt x 115.51857pt.
 
-<figure22.jpg, id=604, 562.1pt x 421.575pt>
+<figure22.jpg, id=576, 562.1pt x 421.575pt>
 File: figure22.jpg Graphic file (type jpg)
  <use figure22.jpg>
-Package pdftex.def Info: figure22.jpg used on input line 598.
+Package pdftex.def Info: figure22.jpg used on input line 579.
 (pdftex.def)             Requested size: 154.03183pt x 115.51857pt.
- [19
+ [18
 
- <./figure21.jpg> <./figure22.jpg>] <figure23.jpg, id=639, 562.1pt x 421.575pt>
+ <./figure21.jpg> <./figure22.jpg>] <figure23.jpg, id=611, 562.1pt x 421.575pt>
 File: figure23.jpg Graphic file (type jpg)
 
 <use figure23.jpg>
-Package pdftex.def Info: figure23.jpg used on input line 619.
+Package pdftex.def Info: figure23.jpg used on input line 600.
 (pdftex.def)             Requested size: 154.03183pt x 115.51857pt.
- <figure24.jpg, id=640, 562.1pt x 421.575pt>
+ <figure24.jpg, id=612, 562.1pt x 421.575pt>
 File: figure24.jpg Graphic file (type jpg)
 
 <use figure24.jpg>
-Package pdftex.def Info: figure24.jpg used on input line 619.
+Package pdftex.def Info: figure24.jpg used on input line 600.
 (pdftex.def)             Requested size: 154.03183pt x 115.51857pt.
 pdfTeX warning (ext4): destination with the same identifier (name{figure_2_all}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.619 \end{frame}
-                  [20
+l.600 \end{frame}
+                  [19
 
  <./figure23.jpg> <./figure24.jpg>]
-<figure2.jpg, id=671, 562.1pt x 421.575pt>
+<figure2.jpg, id=644, 562.1pt x 421.575pt>
 File: figure2.jpg Graphic file (type jpg)
  <use figure2.jpg>
-Package pdftex.def Info: figure2.jpg used on input line 633.
+Package pdftex.def Info: figure2.jpg used on input line 614.
 (pdftex.def)             Requested size: 219.07065pt x 164.30423pt.
 pdfTeX warning (ext4): destination with the same identifier (name{figure_2_all}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.633 \end{frame}
-                  [21
+l.614 \end{frame}
+                  [20
 
- <./figure2.jpg>] [22
+ <./figure2.jpg>] [21
 
-] [23
+] [22
 
 ]
-<l2_velocity_stokes.jpg, id=756, 2406.9925pt x 1287.81125pt>
+<l2_velocity_stokes.jpg, id=729, 2406.9925pt x 1287.81125pt>
 File: l2_velocity_stokes.jpg Graphic file (type jpg)
 
 <use l2_velocity_stokes.jpg>
-Package pdftex.def Info: l2_velocity_stokes.jpg used on input line 683.
+Package pdftex.def Info: l2_velocity_stokes.jpg used on input line 664.
 (pdftex.def)             Requested size: 342.2953pt x 183.122pt.
- [24
+ [23
 
  <./l2_velocity_stokes.jpg>]
-<l2_pressure_stokes.jpg, id=786, 2406.9925pt x 1287.81125pt>
+<l2_pressure_stokes.jpg, id=759, 2406.9925pt x 1287.81125pt>
 File: l2_pressure_stokes.jpg Graphic file (type jpg)
 
 <use l2_pressure_stokes.jpg>
-Package pdftex.def Info: l2_pressure_stokes.jpg used on input line 695.
+Package pdftex.def Info: l2_pressure_stokes.jpg used on input line 676.
 (pdftex.def)             Requested size: 342.2953pt x 183.122pt.
- [25
+ [24
 
  <./l2_pressure_stokes.jpg>]
-<h0_velocity_stokes.jpg, id=818, 2406.9925pt x 1287.81125pt>
+<h0_velocity_stokes.jpg, id=789, 2406.9925pt x 1287.81125pt>
 File: h0_velocity_stokes.jpg Graphic file (type jpg)
 
 <use h0_velocity_stokes.jpg>
-Package pdftex.def Info: h0_velocity_stokes.jpg used on input line 706.
+Package pdftex.def Info: h0_velocity_stokes.jpg used on input line 687.
 (pdftex.def)             Requested size: 342.2953pt x 183.122pt.
- [26
+ [25
 
  <./h0_velocity_stokes.jpg>]
-<h0_pressure_stokes.jpg, id=848, 2406.9925pt x 1287.81125pt>
+<h0_pressure_stokes.jpg, id=821, 2406.9925pt x 1287.81125pt>
 File: h0_pressure_stokes.jpg Graphic file (type jpg)
 
 <use h0_pressure_stokes.jpg>
-Package pdftex.def Info: h0_pressure_stokes.jpg used on input line 717.
+Package pdftex.def Info: h0_pressure_stokes.jpg used on input line 698.
 (pdftex.def)             Requested size: 342.2953pt x 183.122pt.
- [27
+ [26
 
  <./h0_pressure_stokes.jpg>]
-<p_conv_velocity_l2_stokes.jpg, id=878, 562.1pt x 421.575pt>
+<p_conv_velocity_l2_stokes.jpg, id=851, 1540.75626pt x 824.07875pt>
 File: p_conv_velocity_l2_stokes.jpg Graphic file (type jpg)
 
 <use p_conv_velocity_l2_stokes.jpg>
-Package pdftex.def Info: p_conv_velocity_l2_stokes.jpg used on input line 728.
-(pdftex.def)             Requested size: 277.25542pt x 207.93729pt.
- [28
+Package pdftex.def Info: p_conv_velocity_l2_stokes.jpg used on input line 709.
+(pdftex.def)             Requested size: 277.25542pt x 148.29004pt.
+ [27
 
  <./p_conv_velocity_l2_stokes.jpg>]
-<p_conv_velocity_h0_stokes.jpg, id=909, 562.1pt x 421.575pt>
+<p_conv_velocity_h0_stokes.jpg, id=881, 1540.75626pt x 824.07875pt>
 File: p_conv_velocity_h0_stokes.jpg Graphic file (type jpg)
 
 <use p_conv_velocity_h0_stokes.jpg>
-Package pdftex.def Info: p_conv_velocity_h0_stokes.jpg used on input line 739.
-(pdftex.def)             Requested size: 277.25542pt x 207.93729pt.
- [29
+Package pdftex.def Info: p_conv_velocity_h0_stokes.jpg used on input line 720.
+(pdftex.def)             Requested size: 277.25542pt x 148.29004pt.
+ [28
 
  <./p_conv_velocity_h0_stokes.jpg>]
-<p_conv_pressure_l2_stokes.jpg, id=939, 562.1pt x 421.575pt>
+<p_conv_pressure_l2_stokes.jpg, id=912, 1540.75626pt x 824.07875pt>
 File: p_conv_pressure_l2_stokes.jpg Graphic file (type jpg)
 
 <use p_conv_pressure_l2_stokes.jpg>
-Package pdftex.def Info: p_conv_pressure_l2_stokes.jpg used on input line 751.
-(pdftex.def)             Requested size: 277.25542pt x 207.93729pt.
- [30
+Package pdftex.def Info: p_conv_pressure_l2_stokes.jpg used on input line 732.
+(pdftex.def)             Requested size: 277.25542pt x 148.29004pt.
+ [29
 
  <./p_conv_pressure_l2_stokes.jpg>]
-[31
+[30
 
-] <cylinder_schur_vx.jpg, id=998, 878.28125pt x 658.46pt>
+] <cylinder_schur_vx.jpg, id=970, 878.28125pt x 658.46pt>
 File: cylinder_schur_vx.jpg Graphic file (type jpg)
 
 <use cylinder_schur_vx.jpg>
-Package pdftex.def Info: cylinder_schur_vx.jpg used on input line 794.
-(pdftex.def)             Requested size: 82.15013pt x 61.57976pt.
+Package pdftex.def Info: cylinder_schur_vx.jpg used on input line 766.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
 
-<cylinder_schur_vy.jpg, id=999, 862.22125pt x 611.28375pt>
+<cylinder_schur_vy.jpg, id=971, 862.22125pt x 611.28375pt>
 File: cylinder_schur_vy.jpg Graphic file (type jpg)
 
 <use cylinder_schur_vy.jpg>
-Package pdftex.def Info: cylinder_schur_vy.jpg used on input line 794.
-(pdftex.def)             Requested size: 82.15013pt x 58.24045pt.
+Package pdftex.def Info: cylinder_schur_vy.jpg used on input line 766.
+(pdftex.def)             Requested size: 102.68962pt x 72.80057pt.
 
-<cylinder_schur_pressure.jpg, id=1000, 878.28125pt x 658.46pt>
+<cylinder_schur_pressure.jpg, id=972, 878.28125pt x 658.46pt>
 File: cylinder_schur_pressure.jpg Graphic file (type jpg)
 
 <use cylinder_schur_pressure.jpg>
-Package pdftex.def Info: cylinder_schur_pressure.jpg used on input line 794.
-(pdftex.def)             Requested size: 41.07506pt x 30.78485pt.
- [32
+Package pdftex.def Info: cylinder_schur_pressure.jpg used on input line 766.
+(pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
+ [31
 
  <./cylinder_schur_vx.jpg> <./cylinder_schur_vy.jpg> <./cylinder_schur_pressure
-.jpg>] [33
+.jpg>] [32
 
 ]
-<lid_schur_vx.jpg, id=1063, 878.28125pt x 658.46pt>
+<lid_schur_vx.jpg, id=1036, 878.28125pt x 658.46pt>
 File: lid_schur_vx.jpg Graphic file (type jpg)
  <use lid_schur_vx.jpg>
-Package pdftex.def Info: lid_schur_vx.jpg used on input line 833.
+Package pdftex.def Info: lid_schur_vx.jpg used on input line 805.
 (pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
 
-<lid_schur_vy.jpg, id=1064, 878.28125pt x 658.46pt>
+<lid_schur_vy.jpg, id=1037, 878.28125pt x 658.46pt>
 File: lid_schur_vy.jpg Graphic file (type jpg)
  <use lid_schur_vy.jpg>
-Package pdftex.def Info: lid_schur_vy.jpg used on input line 833.
+Package pdftex.def Info: lid_schur_vy.jpg used on input line 805.
 (pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
 
-<lid_schur_pressure.jpg, id=1065, 894.34125pt x 705.63625pt>
+<lid_schur_pressure.jpg, id=1038, 894.34125pt x 705.63625pt>
 File: lid_schur_pressure.jpg Graphic file (type jpg)
 
 <use lid_schur_pressure.jpg>
-Package pdftex.def Info: lid_schur_pressure.jpg used on input line 833.
+Package pdftex.def Info: lid_schur_pressure.jpg used on input line 805.
 (pdftex.def)             Requested size: 102.68962pt x 81.01187pt.
- [34
+ [33
 
  <./lid_schur_vx.jpg> <./lid_schur_vy.jpg> <./lid_schur_pressure.jpg>] <lid_bic
-gstab_vx.jpg, id=1100, 562.1pt x 421.575pt>
+gstab_vx.jpg, id=1073, 562.1pt x 421.575pt>
 File: lid_bicgstab_vx.jpg Graphic file (type jpg)
 
 <use lid_bicgstab_vx.jpg>
-Package pdftex.def Info: lid_bicgstab_vx.jpg used on input line 856.
+Package pdftex.def Info: lid_bicgstab_vx.jpg used on input line 828.
 (pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
- <lid_bicgstab_vy.jpg, id=1101, 562.1pt x 421.575pt>
+ <lid_bicgstab_vy.jpg, id=1074, 562.1pt x 421.575pt>
 File: lid_bicgstab_vy.jpg Graphic file (type jpg)
 
 <use lid_bicgstab_vy.jpg>
-Package pdftex.def Info: lid_bicgstab_vy.jpg used on input line 856.
+Package pdftex.def Info: lid_bicgstab_vy.jpg used on input line 828.
 (pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
 
-<lid_bicgstab_pressure.jpg, id=1102, 562.1pt x 421.575pt>
+<lid_bicgstab_pressure.jpg, id=1075, 562.1pt x 421.575pt>
 File: lid_bicgstab_pressure.jpg Graphic file (type jpg)
 
 <use lid_bicgstab_pressure.jpg>
-Package pdftex.def Info: lid_bicgstab_pressure.jpg used on input line 856.
+Package pdftex.def Info: lid_bicgstab_pressure.jpg used on input line 828.
 (pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
- [35
+ [34
 
  <./lid_bicgstab_vx.jpg> <./lid_bicgstab_vy.jpg> <./lid_bicgstab_pressure.jpg>]
 
-<grid_penalty_parameter.jpg, id=1138, 572.1375pt x 451.6875pt>
+<grid_penalty_parameter.jpg, id=1110, 572.1375pt x 451.6875pt>
 File: grid_penalty_parameter.jpg Graphic file (type jpg)
 
 <use grid_penalty_parameter.jpg>
-Package pdftex.def Info: grid_penalty_parameter.jpg used on input line 874.
+Package pdftex.def Info: grid_penalty_parameter.jpg used on input line 844.
 (pdftex.def)             Requested size: 85.57382pt x 67.5572pt.
 
-<penalty_condition_number.jpg, id=1139, 1540.75626pt x 824.07875pt>
+<penalty_condition_number.jpg, id=1111, 1540.75626pt x 824.07875pt>
 File: penalty_condition_number.jpg Graphic file (type jpg)
 
 <use penalty_condition_number.jpg>
-Package pdftex.def Info: penalty_condition_number.jpg used on input line 874.
-(pdftex.def)             Requested size: 191.68526pt x 102.51918pt.
- [36
+Package pdftex.def Info: penalty_condition_number.jpg used on input line 844.
+(pdftex.def)             Requested size: 239.60567pt x 128.14584pt.
+ [35
 
  <./grid_penalty_parameter.jpg> <./penalty_condition_number.jpg>]
-Underfull \vbox (badness 10000) detected at line 893
+Underfull \vbox (badness 10000) detected at line 863
  []
 
-[37
+[36
 
-] [38
+] [37
 
 ]
-<L2_convergence_velocity_n_s.jpg, id=1227, 2406.9925pt x 1287.81125pt>
+<L2_convergence_velocity_n_s.jpg, id=1200, 2406.9925pt x 1287.81125pt>
 File: L2_convergence_velocity_n_s.jpg Graphic file (type jpg)
 
 <use L2_convergence_velocity_n_s.jpg>
-Package pdftex.def Info: L2_convergence_velocity_n_s.jpg used on input line 925
+Package pdftex.def Info: L2_convergence_velocity_n_s.jpg used on input line 895
 .
 (pdftex.def)             Requested size: 342.2953pt x 183.122pt.
- [39
+ [38
 
  <./L2_convergence_velocity_n_s.jpg>]
-<L2_convergence_pressure_n_s.jpg, id=1259, 2406.9925pt x 1287.81125pt>
+<L2_convergence_pressure_n_s.jpg, id=1232, 2406.9925pt x 1287.81125pt>
 File: L2_convergence_pressure_n_s.jpg Graphic file (type jpg)
 
 <use L2_convergence_pressure_n_s.jpg>
-Package pdftex.def Info: L2_convergence_pressure_n_s.jpg used on input line 937
+Package pdftex.def Info: L2_convergence_pressure_n_s.jpg used on input line 907
 .
 (pdftex.def)             Requested size: 342.2953pt x 183.122pt.
 pdfTeX warning (ext4): destination with the same identifier (name{navier_stoke_
 conv_l2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.937 \end{frame}
-                  [40
+l.907 \end{frame}
+                  [39
 
  <./L2_convergence_pressure_n_s.jpg>]
-<H0_convergence_velocity_n_s.jpg, id=1289, 878.28125pt x 658.46pt>
+<H0_convergence_velocity_n_s.jpg, id=1262, 878.28125pt x 658.46pt>
 File: H0_convergence_velocity_n_s.jpg Graphic file (type jpg)
 
 <use H0_convergence_velocity_n_s.jpg>
-Package pdftex.def Info: H0_convergence_velocity_n_s.jpg used on input line 949
+Package pdftex.def Info: H0_convergence_velocity_n_s.jpg used on input line 919
 .
 (pdftex.def)             Requested size: 219.07065pt x 164.24284pt.
- [41
+ [40
 
  <./H0_convergence_velocity_n_s.jpg>]
-<H0_convergence_pressure_n_s.jpg, id=1320, 2406.9925pt x 1287.81125pt>
+<H0_convergence_pressure_n_s.jpg, id=1293, 2406.9925pt x 1287.81125pt>
 File: H0_convergence_pressure_n_s.jpg Graphic file (type jpg)
 
 <use H0_convergence_pressure_n_s.jpg>
-Package pdftex.def Info: H0_convergence_pressure_n_s.jpg used on input line 961
+Package pdftex.def Info: H0_convergence_pressure_n_s.jpg used on input line 931
 .
 (pdftex.def)             Requested size: 342.2953pt x 183.122pt.
 pdfTeX warning (ext4): destination with the same identifier (name{navier_stoke_
 conv_h0}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.961 \end{frame}
-                  [42
+l.931 \end{frame}
+                  [41
 
  <./H0_convergence_pressure_n_s.jpg>]
-<cylinder_newton_vx_schur.jpg, id=1351, 562.1pt x 421.575pt>
+<cylinder_newton_vx_schur.jpg, id=1323, 562.1pt x 421.575pt>
 File: cylinder_newton_vx_schur.jpg Graphic file (type jpg)
 
 <use cylinder_newton_vx_schur.jpg>
-Package pdftex.def Info: cylinder_newton_vx_schur.jpg used on input line 984.
+Package pdftex.def Info: cylinder_newton_vx_schur.jpg used on input line 954.
 (pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
 
-<cylinder_newton_vy_schur.jpg, id=1352, 552.0625pt x 391.4625pt>
+<cylinder_newton_vy_schur.jpg, id=1324, 552.0625pt x 391.4625pt>
 File: cylinder_newton_vy_schur.jpg Graphic file (type jpg)
 
 <use cylinder_newton_vy_schur.jpg>
-Package pdftex.def Info: cylinder_newton_vy_schur.jpg used on input line 984.
+Package pdftex.def Info: cylinder_newton_vy_schur.jpg used on input line 954.
 (pdftex.def)             Requested size: 102.68962pt x 72.81366pt.
 
-<cylinder_newton_pressure_schur.jpg, id=1353, 878.28125pt x 658.46pt>
+<cylinder_newton_pressure_schur.jpg, id=1325, 878.28125pt x 658.46pt>
 File: cylinder_newton_pressure_schur.jpg Graphic file (type jpg)
 
 <use cylinder_newton_pressure_schur.jpg>
 Package pdftex.def Info: cylinder_newton_pressure_schur.jpg used on input line 
-984.
+954.
 (pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
- [43
+ [42
 
  <./cylinder_newton_vx_schur.jpg> <./cylinder_newton_vy_schur.jpg> <./cylinder_
 newton_pressure_schur.jpg>]
-<lid_newton_vx_schur.jpg, id=1388, 562.1pt x 421.575pt>
+<lid_newton_vx_schur.jpg, id=1360, 562.1pt x 421.575pt>
 File: lid_newton_vx_schur.jpg Graphic file (type jpg)
 
 <use lid_newton_vx_schur.jpg>
-Package pdftex.def Info: lid_newton_vx_schur.jpg used on input line 1007.
+Package pdftex.def Info: lid_newton_vx_schur.jpg used on input line 977.
 (pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
 
-<lid_newton_vy_schur.jpg, id=1389, 552.0625pt x 391.4625pt>
+<lid_newton_vy_schur.jpg, id=1361, 552.0625pt x 391.4625pt>
 File: lid_newton_vy_schur.jpg Graphic file (type jpg)
 
 <use lid_newton_vy_schur.jpg>
-Package pdftex.def Info: lid_newton_vy_schur.jpg used on input line 1007.
+Package pdftex.def Info: lid_newton_vy_schur.jpg used on input line 977.
 (pdftex.def)             Requested size: 102.68962pt x 72.81366pt.
 
-<lid_newton_pressure_schur.jpg, id=1390, 894.34125pt x 705.63625pt>
+<lid_newton_pressure_schur.jpg, id=1362, 894.34125pt x 705.63625pt>
 File: lid_newton_pressure_schur.jpg Graphic file (type jpg)
 
 <use lid_newton_pressure_schur.jpg>
-Package pdftex.def Info: lid_newton_pressure_schur.jpg used on input line 1007.
-
+Package pdftex.def Info: lid_newton_pressure_schur.jpg used on input line 977.
 (pdftex.def)             Requested size: 102.68962pt x 81.01187pt.
- [44
+ [43
 
  <./lid_newton_vx_schur.jpg> <./lid_newton_vy_schur.jpg> <./lid_newton_pressure
-_schur.jpg>] [45
+_schur.jpg>] [44
 
-] [46
+] [45
 
 ]
-(./presentation_1.bbl) [47
+(./presentation_1.bbl) [46
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\translate ' on input line 1062.
+(hyperref)                removing `\translate ' on input line 1032.
 
-[48
+[47
 
-] <domain.jpg, id=1533, 276.03125pt x 240.9pt>
+] <domain.jpg, id=1506, 276.03125pt x 240.9pt>
 File: domain.jpg Graphic file (type jpg)
  <use domain.jpg>
-Package pdftex.def Info: domain.jpg used on input line 1101.
+Package pdftex.def Info: domain.jpg used on input line 1071.
 (pdftex.def)             Requested size: 154.03183pt x 134.43256pt.
 
-<grid.jpg, id=1534, 260.975pt x 161.60374pt>
+<grid.jpg, id=1507, 260.975pt x 161.60374pt>
 File: grid.jpg Graphic file (type jpg)
  <use grid.jpg>
-Package pdftex.def Info: grid.jpg used on input line 1101.
+Package pdftex.def Info: grid.jpg used on input line 1071.
 (pdftex.def)             Requested size: 154.03183pt x 95.38237pt.
- [49
+ [48
 
- <./domain.jpg> <./grid.jpg>] <ch_3_fig_1.jpg, id=1569, 318.43968pt x 190.46156
+ <./domain.jpg> <./grid.jpg>] <ch_3_fig_1.jpg, id=1540, 318.43968pt x 190.46156
 pt>
 File: ch_3_fig_1.jpg Graphic file (type jpg)
 
 <use ch_3_fig_1.jpg>
-Package pdftex.def Info: ch_3_fig_1.jpg used on input line 1113.
+Package pdftex.def Info: ch_3_fig_1.jpg used on input line 1083.
 (pdftex.def)             Requested size: 308.06367pt x 184.25632pt.
- [50
+ [49
 
- <./ch_3_fig_1.jpg>] [51
+ <./ch_3_fig_1.jpg>] [50
+
+] [51
 
 ] [52
 
 ] [53
 
-] [54
-
 ]
-<l2_velocity_log_stokes.jpg, id=1710, 2406.9925pt x 1287.81125pt>
+<l2_velocity_log_stokes.jpg, id=1683, 2406.9925pt x 1287.81125pt>
 File: l2_velocity_log_stokes.jpg Graphic file (type jpg)
 
 <use l2_velocity_log_stokes.jpg>
-Package pdftex.def Info: l2_velocity_log_stokes.jpg used on input line 1235.
+Package pdftex.def Info: l2_velocity_log_stokes.jpg used on input line 1205.
 (pdftex.def)             Requested size: 136.91603pt x 73.237pt.
 
-<l2_pressure_log_stokes.jpg, id=1711, 2406.9925pt x 1287.81125pt>
+<l2_pressure_log_stokes.jpg, id=1684, 2406.9925pt x 1287.81125pt>
 File: l2_pressure_log_stokes.jpg Graphic file (type jpg)
 
 <use l2_pressure_log_stokes.jpg>
-Package pdftex.def Info: l2_pressure_log_stokes.jpg used on input line 1235.
+Package pdftex.def Info: l2_pressure_log_stokes.jpg used on input line 1205.
 (pdftex.def)             Requested size: 136.91603pt x 73.237pt.
- [55
+ [54
 
  <./l2_velocity_log_stokes.jpg> <./l2_pressure_log_stokes.jpg>]
-<h0_velocity_log_stokes.jpg, id=1745, 2406.9925pt x 1287.81125pt>
+<h0_velocity_log_stokes.jpg, id=1717, 2406.9925pt x 1287.81125pt>
 File: h0_velocity_log_stokes.jpg Graphic file (type jpg)
 
 <use h0_velocity_log_stokes.jpg>
-Package pdftex.def Info: h0_velocity_log_stokes.jpg used on input line 1253.
+Package pdftex.def Info: h0_velocity_log_stokes.jpg used on input line 1223.
 (pdftex.def)             Requested size: 136.91603pt x 73.237pt.
 
-<h0_pressure_log_stokes.jpg, id=1746, 2406.9925pt x 1287.81125pt>
+<h0_pressure_log_stokes.jpg, id=1718, 2406.9925pt x 1287.81125pt>
 File: h0_pressure_log_stokes.jpg Graphic file (type jpg)
 
 <use h0_pressure_log_stokes.jpg>
-Package pdftex.def Info: h0_pressure_log_stokes.jpg used on input line 1253.
+Package pdftex.def Info: h0_pressure_log_stokes.jpg used on input line 1223.
 (pdftex.def)             Requested size: 136.91603pt x 73.237pt.
- [56
+ [55
 
  <./h0_velocity_log_stokes.jpg> <./h0_pressure_log_stokes.jpg>] <lid_minres_vx.
-jpg, id=1780, 878.28125pt x 658.46pt>
+jpg, id=1752, 878.28125pt x 658.46pt>
 File: lid_minres_vx.jpg Graphic file (type jpg)
 
 <use lid_minres_vx.jpg>
-Package pdftex.def Info: lid_minres_vx.jpg used on input line 1276.
+Package pdftex.def Info: lid_minres_vx.jpg used on input line 1246.
 (pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
- <lid_minres_vy.jpg, id=1781, 878.28125pt x 658.46pt>
+ <lid_minres_vy.jpg, id=1753, 878.28125pt x 658.46pt>
 File: lid_minres_vy.jpg Graphic file (type jpg)
 
 <use lid_minres_vy.jpg>
-Package pdftex.def Info: lid_minres_vy.jpg used on input line 1276.
+Package pdftex.def Info: lid_minres_vy.jpg used on input line 1246.
 (pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
 
-<lid_minres_pressure.jpg, id=1782, 878.28125pt x 658.46pt>
+<lid_minres_pressure.jpg, id=1754, 878.28125pt x 658.46pt>
 File: lid_minres_pressure.jpg Graphic file (type jpg)
 
 <use lid_minres_pressure.jpg>
-Package pdftex.def Info: lid_minres_pressure.jpg used on input line 1276.
+Package pdftex.def Info: lid_minres_pressure.jpg used on input line 1246.
 (pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
- [57
+ [56
 
  <./lid_minres_vx.jpg> <./lid_minres_vy.jpg> <./lid_minres_pressure.jpg>]
-<L2_convergence_velocity_n_s_log.jpg, id=1817, 2406.9925pt x 1287.81125pt>
+<L2_convergence_velocity_n_s_log.jpg, id=1790, 2406.9925pt x 1287.81125pt>
 File: L2_convergence_velocity_n_s_log.jpg Graphic file (type jpg)
 
 <use L2_convergence_velocity_n_s_log.jpg>
 Package pdftex.def Info: L2_convergence_velocity_n_s_log.jpg used on input line
- 1294.
+ 1264.
 (pdftex.def)             Requested size: 136.91603pt x 73.237pt.
 
-<L2_convergence_pressure_n_s_log.jpg, id=1818, 2406.9925pt x 1287.81125pt>
+<L2_convergence_pressure_n_s_log.jpg, id=1791, 2406.9925pt x 1287.81125pt>
 File: L2_convergence_pressure_n_s_log.jpg Graphic file (type jpg)
 
 <use L2_convergence_pressure_n_s_log.jpg>
 Package pdftex.def Info: L2_convergence_pressure_n_s_log.jpg used on input line
- 1294.
+ 1264.
 (pdftex.def)             Requested size: 136.91603pt x 73.237pt.
- [58
+ [57
 
  <./L2_convergence_velocity_n_s_log.jpg> <./L2_convergence_pressure_n_s_log.jpg
 >]
-<H0_convergence_velocity_n_s_log.jpg, id=1851, 2406.9925pt x 1287.81125pt>
+<H0_convergence_velocity_n_s_log.jpg, id=1824, 2406.9925pt x 1287.81125pt>
 File: H0_convergence_velocity_n_s_log.jpg Graphic file (type jpg)
 
 <use H0_convergence_velocity_n_s_log.jpg>
 Package pdftex.def Info: H0_convergence_velocity_n_s_log.jpg used on input line
- 1312.
+ 1282.
 (pdftex.def)             Requested size: 136.91603pt x 73.237pt.
 
-<H0_convergence_pressure_n_s_log.jpg, id=1852, 2406.9925pt x 1287.81125pt>
+<H0_convergence_pressure_n_s_log.jpg, id=1825, 2406.9925pt x 1287.81125pt>
 File: H0_convergence_pressure_n_s_log.jpg Graphic file (type jpg)
 
 <use H0_convergence_pressure_n_s_log.jpg>
 Package pdftex.def Info: H0_convergence_pressure_n_s_log.jpg used on input line
- 1312.
+ 1282.
 (pdftex.def)             Requested size: 136.91603pt x 73.237pt.
- [59
+ [58
 
  <./H0_convergence_velocity_n_s_log.jpg> <./H0_convergence_pressure_n_s_log.jpg
 >]
-<cylinder_newton_vx_bicgstab.jpg, id=1886, 562.1pt x 421.575pt>
+<cylinder_newton_vx_bicgstab.jpg, id=1858, 562.1pt x 421.575pt>
 File: cylinder_newton_vx_bicgstab.jpg Graphic file (type jpg)
 
 <use cylinder_newton_vx_bicgstab.jpg>
-Package pdftex.def Info: cylinder_newton_vx_bicgstab.jpg used on input line 133
+Package pdftex.def Info: cylinder_newton_vx_bicgstab.jpg used on input line 130
 5.
 (pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
 
-<cylinder_newton_vy_bicgstab.jpg, id=1887, 552.0625pt x 391.4625pt>
+<cylinder_newton_vy_bicgstab.jpg, id=1859, 552.0625pt x 391.4625pt>
 File: cylinder_newton_vy_bicgstab.jpg Graphic file (type jpg)
 
 <use cylinder_newton_vy_bicgstab.jpg>
-Package pdftex.def Info: cylinder_newton_vy_bicgstab.jpg used on input line 133
+Package pdftex.def Info: cylinder_newton_vy_bicgstab.jpg used on input line 130
 5.
 (pdftex.def)             Requested size: 102.68962pt x 72.81366pt.
 
-<cylinder_newton_pressure_bicgstab.jpg, id=1888, 562.1pt x 421.575pt>
+<cylinder_newton_pressure_bicgstab.jpg, id=1860, 562.1pt x 421.575pt>
 File: cylinder_newton_pressure_bicgstab.jpg Graphic file (type jpg)
 
 <use cylinder_newton_pressure_bicgstab.jpg>
 Package pdftex.def Info: cylinder_newton_pressure_bicgstab.jpg used on input li
-ne 1335.
+ne 1305.
 (pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
- [60
+ [59
 
  <./cylinder_newton_vx_bicgstab.jpg> <./cylinder_newton_vy_bicgstab.jpg> <./cyl
-inder_newton_pressure_bicgstab.jpg>] <cylinder_newton_vx_minres.jpg, id=1923, 5
+inder_newton_pressure_bicgstab.jpg>] <cylinder_newton_vx_minres.jpg, id=1896, 5
 62.1pt x 421.575pt>
 File: cylinder_newton_vx_minres.jpg Graphic file (type jpg)
 
 <use cylinder_newton_vx_minres.jpg>
-Package pdftex.def Info: cylinder_newton_vx_minres.jpg used on input line 1358.
+Package pdftex.def Info: cylinder_newton_vx_minres.jpg used on input line 1328.
 
 (pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
 
-<cylinder_newton_vy_minres.jpg, id=1924, 562.1pt x 421.575pt>
+<cylinder_newton_vy_minres.jpg, id=1897, 562.1pt x 421.575pt>
 File: cylinder_newton_vy_minres.jpg Graphic file (type jpg)
 
 <use cylinder_newton_vy_minres.jpg>
-Package pdftex.def Info: cylinder_newton_vy_minres.jpg used on input line 1358.
+Package pdftex.def Info: cylinder_newton_vy_minres.jpg used on input line 1328.
 
 (pdftex.def)             Requested size: 102.68962pt x 77.01237pt.
 
-<cylinder_newton_pressure_minres.jpg, id=1925, 878.28125pt x 658.46pt>
+<cylinder_newton_pressure_minres.jpg, id=1898, 878.28125pt x 658.46pt>
 File: cylinder_newton_pressure_minres.jpg Graphic file (type jpg)
 
 <use cylinder_newton_pressure_minres.jpg>
 Package pdftex.def Info: cylinder_newton_pressure_minres.jpg used on input line
- 1358.
+ 1328.
 (pdftex.def)             Requested size: 102.68962pt x 76.98224pt.
- [61
+ [60
 
  <./cylinder_newton_vx_minres.jpg> <./cylinder_newton_vy_minres.jpg> <./cylinde
 r_newton_pressure_minres.jpg>]
-[62
+[61
 
-] [63
+] [62
 
 ]
 \tf@nav=\write7
@@ -1816,11 +1826,11 @@ r_newton_pressure_minres.jpg>]
 \tf@snm=\write9
 \openout9 = `presentation_1.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1388.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1388.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1358.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1358.
  (./presentation_1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1388.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1388.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1358.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1358.
 
 Package rerunfilecheck Info: File `presentation_1.out' has not changed.
 (rerunfilecheck)             Checksum: AB9A591DE7418E2AB08AC17E73BA48A0;416.
@@ -1832,16 +1842,16 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1388.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1358.
  ) 
 Here is how much of TeX's memory you used:
- 24924 strings out of 493029
- 488621 string characters out of 6136233
+ 24921 strings out of 493029
+ 488589 string characters out of 6136233
  681702 words of memory out of 5000000
- 27573 multiletter control sequences out of 15000+600000
+ 27572 multiletter control sequences out of 15000+600000
  20285 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,23n,62p,422b,702s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,23n,62p,422b,667s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
@@ -1859,10 +1869,10 @@ sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation_1.pdf (63 pages, 4028495 bytes).
+Output written on presentation_1.pdf (62 pages, 4109054 bytes).
 PDF statistics:
- 2136 PDF objects out of 2487 (max. 8388607)
- 1966 compressed objects within 20 object streams
- 281 named destinations out of 1000 (max. 500000)
+ 2109 PDF objects out of 2487 (max. 8388607)
+ 1940 compressed objects within 20 object streams
+ 279 named destinations out of 1000 (max. 500000)
  406 words of extra memory for PDF output out of 10000 (max. 10000000)
 
