@@ -45,7 +45,7 @@ pod_res_params.B_velocity = B_velocity;
 
 S = paramsP.snapshots_matrix;
 n_s = size(S,2);
-M_pressure = ldg_mass_matrix(paramsP,grid,params);
+M_pressure = ldg_mass_matrix(paramsP,grid,paramsP);
 snapshots_inner_product = S'*M_pressure*S;
 
 [V,D] = eig(snapshots_inner_product);
